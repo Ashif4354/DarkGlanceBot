@@ -27,16 +27,23 @@ async def kcg(text_channel):
             if check_id(command[2]):
                 
                 user_id = command[2]
+
                 try:
-                    year = command[3] 
+                    photo = "{}\kcg\collected_pics\{}.png".format(os.getcwd(), user_id)
+                    with open(photo, 'rb') as f:
+                        None
                 except:
-                    None  
-                await text_channel.send("Please Wait while we crack the date of birth")           
-                d_o_b = find_dob(user_id, year)   
-                await text_channel.send("DOB FOUND")
-                await text_channel.send("Please wait while we fetch the photo")
-                kcg_student.login(user_id, d_o_b)
-                kcg_student.get_photo(path = os.getcwd() + '\kcg', uid = user_id)
+
+                    try:
+                        year = command[3] 
+                    except:
+                        None  
+                    await text_channel.send("Please Wait while we crack the date of birth")           
+                    d_o_b = find_dob(user_id, year)   
+                    await text_channel.send("DOB FOUND")
+                    await text_channel.send("Please wait while we fetch the photo")
+                    kcg_student.login(user_id, d_o_b)
+                    kcg_student.get_photo(path = os.getcwd() + '\kcg', uid = user_id)
                 
                 photo = "{}\kcg\collected_pics\{}.png".format(os.getcwd(), user_id)
                 with open(photo, 'rb') as f:
