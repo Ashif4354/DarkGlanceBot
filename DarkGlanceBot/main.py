@@ -38,7 +38,7 @@ async def kcg(text):
                 kcg_student.get_photo(path = os.getcwd() + '\kcg', uid = user_id)
                 
             else:
-                print('hi main')
+                await text.send("Invalid RegisterNo/RollNo")
     except:
         None       
             
