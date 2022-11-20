@@ -1,0 +1,2 @@
+20/11/2022 14:32:40  INPUT   DarkGlance#6849  .kcg photo 20cs023
+20/11/2022 14:32:42  OUTPUT  20cs023.png
