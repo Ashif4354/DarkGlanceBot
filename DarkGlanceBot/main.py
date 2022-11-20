@@ -2,7 +2,7 @@
 
 import discord
 from discord.ext import commands
-import darkglance
+from darkglance import discord_
 from kcg.student_login import kcg_student, driver 
 from kcg.finddob import find_dob
 from kcg.check import *
@@ -30,12 +30,16 @@ async def kcg(text):
                 try:
                     year = command[3] 
                 except:
-                    None              
-                d_o_b = find_dob(user_id, year)
-                
+                    None  
+                            
+                d_o_b = find_dob(user_id, year)                
                 kcg_student.login(user_id, d_o_b)
-
                 kcg_student.get_photo(path = os.getcwd() + '\kcg', uid = user_id)
+                
+                photo = "{}\kcg\collected_pics\{}.png".format(os.getcwd(), user_id)
+                with open(photo, 'rb') as f:
+                    photo = discord.File(f)
+                    await text.send(file=photo)
                 
             else:
                 await text.send("Invalid RegisterNo/RollNo")
@@ -48,6 +52,6 @@ async def kcg(text):
 
 
 
-client.run(darkglance.discord.token)
+client.run(discord_.token)
 
 
