@@ -6,7 +6,7 @@ from darkglance import discord_
 from kcg.student_login import kcg_student, driver 
 from kcg.finddob import find_dob
 from kcg.check import *
-import os #to get current working directory
+import os #to get current working directory and user name
 
 client = commands.Bot(command_prefix = '.')
 
@@ -53,13 +53,7 @@ async def kcg(text_channel):
             else:
                 await text_channel.send("Invalid RegisterNo/RollNo")
     except:
-        None       
-            
-        
-
-    
-
-
+        None 
 
 client.run(discord_.token)
 
