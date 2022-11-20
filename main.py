@@ -13,7 +13,7 @@ client = commands.Bot(command_prefix = '.')
 
 @client.event
 async def on_ready():
-    print("DarkGlanceBot has been started")
+    print("DarkGlanceBot is ready to go")
 
 @client.command()
 async def hello(text_channel):
