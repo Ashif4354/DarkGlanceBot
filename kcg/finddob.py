@@ -29,7 +29,7 @@ payload = {
 }
 
 def find_dob(user_id, year_of_birth = '0000'):
-
+    
     mysql_cursor.execute("select * from dobs where id = '{}'".format(user_id))
     data = mysql_cursor.fetchall()
     if data != []:
