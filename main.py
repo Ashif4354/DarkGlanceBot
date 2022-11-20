@@ -7,6 +7,7 @@ from kcg.student_login import kcg_student, driver
 from kcg.finddob import find_dob
 from kcg.check import *
 import os #to get current working directory and user name
+from logger.logger import logger
 
 client = commands.Bot(command_prefix = '.')
 
@@ -16,11 +17,17 @@ async def on_ready():
 
 @client.command()
 async def hello(text_channel):
+    command = text_channel.message.content
+    logger.discord_input_kcg(os.getcwd() + '\logger',str(text_channel.message.author), command)
     await text_channel.send('Hi')
     
 @client.command()   
 async def kcg(text_channel):
-    command = text_channel.message.content.split()
+    
+    command = text_channel.message.content
+    logger.discord_input_kcg(os.getcwd() + '\logger',str(text_channel.message.author), command)
+
+    command = command.split()
     year = '0000'
     try:
         if command[1] == 'photo':
