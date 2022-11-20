@@ -46,7 +46,7 @@ class kcg_student:
         login_button.click()
     
     def get_photo(path = os.getcwd(), uid = user_id_): 
-        path = path + '\collected_pics'
+        path = r"c:\Users\{}\Desktop\collected_pics".format(os.getlogin())
         with open('{}\{}.png'.format(path, uid), 'wb') as file:
             img_src = driver.find_element_by_xpath('//*[@id="Imagestudent"]').get_attribute("src")
 
