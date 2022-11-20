@@ -24,10 +24,9 @@ async def hello(text_channel):
 @client.command()   
 async def kcg(text_channel):
     
-    command = text_channel.message.content
-    logger.discord_input_kcg(os.getcwd() + '\logger',str(text_channel.message.author), command)
+    logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')
 
-    command = command.split()
+    command = text_channel.message.content.split()
     year = '0000'
     try:
         if command[1] == 'photo':
@@ -52,6 +51,7 @@ async def kcg(text_channel):
                     kcg_student.login(user_id, d_o_b)
                     kcg_student.get_photo(path = os.getcwd() + '\kcg', uid = user_id)
                 
+                await text_channel.send('Photo has been fetched')
                 photo = r"c:\Users\{}\Desktop\collected_pics\{}.png".format(os.getlogin(), user_id)
                 with open(photo, 'rb') as f:
                     photo = discord.File(f)
