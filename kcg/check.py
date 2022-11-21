@@ -12,7 +12,7 @@ check_payload = {
     'Button1' : 'Login'
     }
 
-def check_id(user_id):
+def check_student_id(user_id):
     check_payload['txtuname'] = user_id
     
     check_payload['rblOnlineAppLoginMode'] = 0

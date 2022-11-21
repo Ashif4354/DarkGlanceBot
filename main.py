@@ -3,9 +3,10 @@
 import discord
 from discord.ext import commands
 from darkglance import discord_
-from kcg.student_login import kcg_student, driver 
-from kcg.finddob import find_dob
+from kcg.Student import student
+from kcg.finddob import find_student_dob
 from kcg.check import *
+
 import os #to get current working directory and user name
 from logger.logger import logger
 
@@ -16,26 +17,36 @@ async def on_ready():
     print("DarkGlanceBot is ready to go")
 
 @client.command()
-async def hello(text_channel):
-    command = text_channel.message.content
-    logger.discord_input_kcg(os.getcwd() + '\logger',str(text_channel.message.author), command)
-    await text_channel.send('Hi')
+async def hi(text_channel):
+    logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')
+    await text_channel.send('DarkGlanceBot at your service')
     
 @client.command()   
-async def kcg(text_channel):    
-    logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')
-
+async def kcgstudent(text_channel):    
+    logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')    
+    functions = ('photo', 'dob', 'name')
     command = text_channel.message.content.split()
-    
-    if check_id(command[2]):
+
+    try:
+        if command[1] not in functions:
+            await text_channel.send('Invalid request')
+            return
+    except:
+        return
+
+    try:
         user_id = command[2]
+    except:
+        await text_channel.send('No id was given')
+        return
+
+    if check_student_id(user_id):
+        None
     else:
         await text_channel.send('Invalid RegisterNo/RollNo')
         return        
-    
-    year = '0000'
-    try:
-        
+
+    try:        
         #get photo
         if command[1] == 'photo':
 
@@ -43,18 +54,13 @@ async def kcg(text_channel):
                 photo = r"c:\Users\{}\Desktop\collected_pics\{}.png".format(os.getlogin(), user_id)
                 with open(photo, 'rb') as f:
                     None
-            except:
 
-                try:
-                    year = command[3] 
-                except:
-                    None  
-                await text_channel.send('Please Wait while we crack the date of birth')           
-                d_o_b = find_dob(user_id, year)   
-                await text_channel.send('DOB FOUND successfully')
+            except:                             
                 await text_channel.send('Please wait while we fetch the photo')
-                kcg_student.student_login(user_id, d_o_b)
-                kcg_student.get_photo(uid = user_id)
+
+                student.fees_login(user_id)
+                
+                student.get_photo(uid = user_id)
                 
             await text_channel.send('Photo has been fetched')
             photo = r'c:\Users\{}\Desktop\collected_pics\{}.png'.format(os.getlogin(), user_id)
@@ -67,23 +73,25 @@ async def kcg(text_channel):
 
         #get date of birth
         elif command[1] == 'dob':
-            await text_channel.send('Please Wait while we crack the date of birth')           
-            d_o_b = find_dob(user_id, year)   
+            try:
+                year = command[3]
+            except:
+                
+                None
+            await text_channel.send('Please wait while we crack the date of birth')           
+            d_o_b = find_student_dob(user_id, year)  
+            d_o_b = d_o_b[:2] + '/' + d_o_b[2:4] + '/' + d_o_b[4:] 
             await text_channel.send('DOB has been Found successfully')
             await text_channel.send(d_o_b)
+            logger.discord_output_kcg(os.getcwd() + '\logger', d_o_b)
 
         #get name
-        elif command[1] == 'name':
-            
-            try:
-                year = command[3] 
-            except:                
-                None
+        elif command[1] == 'name':            
 
-            kcg_student.fees_login(user_id)
-            name = kcg_student.get_name()
+            student.fees_login(user_id)
+            name = student.get_name()
             await text_channel.send(name)
-            logger.discord_file_output_kcg(os.getcwd() + '\logger' + name)
+            logger.discord_output_kcg(os.getcwd() + '\logger', name)
 
     except:
         None 

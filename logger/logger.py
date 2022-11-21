@@ -21,15 +21,16 @@ class logger:
             file.write(log)
             logger.complete_log(path, '  INPUT  ', log)
 
-    def discord_file_output_kcg(path, file_name):
+    def discord_output_kcg(path, file_name):
         global file_path
         file_path = path
 
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
          
-        with open('{}\discord_file_output.txt'.format(path), 'a') as file:   
+        with open('{}\discord_output.txt'.format(path), 'a') as file:   
             log = date_time + ' ' + file_name + '\n'
             file.write(log)
-            logger.complete_log(path, '  OUTPUT ', log)
+            logger.complete_log(path, '  OUTPUT ', log + '\n')
+    
     
