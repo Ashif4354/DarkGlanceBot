@@ -68,7 +68,7 @@ async def kcg(text_channel):
         #get date of birth
         elif command[1] == 'dob':
             await text_channel.send('Please Wait while we crack the date of birth')           
-            d_o_b = find_dob(command[2], command[3])   
+            d_o_b = find_dob(user_id, year)   
             await text_channel.send('DOB has been Found successfully')
             await text_channel.send(d_o_b)
 
