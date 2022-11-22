@@ -213,3 +213,51 @@
 22/11/2022 06:05:47  OUTPUT  22/11/2002
 
 22/11/2022 06:53:15  INPUT   DarkGlance#6849  .kcgstudent photo 20cs007
+22/11/2022 06:56:41  INPUT   DarkGlance#6849  .kcgstudent photo 20ao04
+22/11/2022 07:08:52  INPUT   DarkGlance#6849  .kcgstudent dob 20ao04
+22/11/2022 07:08:55  OUTPUT  06/10/2002
+
+22/11/2022 07:16:47  INPUT   SuNaPaNa#8933  .kcgstudent dob 20ao04
+22/11/2022 07:16:49  OUTPUT  06/10/2002
+
+22/11/2022 07:17:10  INPUT   SuNaPaNa#8933  .kcgstudent photo 20ao04
+22/11/2022 07:17:37  INPUT   SuNaPaNa#8933  .kcgstudent photo 20ao44
+22/11/2022 07:19:17  INPUT   DarkGlance#6849  .kcgstudent photo 20ao04
+22/11/2022 07:20:56  INPUT   SuNaPaNa#8933  .kcgstudent photo 20cs035
+22/11/2022 07:21:29  INPUT   SuNaPaNa#8933  .kcgstudent photo 20ao034
+22/11/2022 07:21:55  INPUT   SuNaPaNa#8933  .kcgstudent photo 20cs109
+22/11/2022 07:22:22  INPUT   SuNaPaNa#8933  .kcgstudent photo 311020110004
+22/11/2022 07:51:55  INPUT   DarkGlance#6849  .kcgstudent photo 20cs010
+22/11/2022 07:51:57  INPUT   SuNaPaNa#8933  .kcgstudent photo 20cs011
+22/11/2022 07:53:19  INPUT   DarkGlance#6849  .kcgstudent photo 20cs013
+22/11/2022 07:53:20  INPUT   SuNaPaNa#8933  .kcgstudent photo 20cs012
+22/11/2022 09:02:12  INPUT   DarkGlance#6849  .kcgstudent photo 20cs027
+22/11/2022 10:43:50  INPUT   DarkGlance#6849  .kcgstudent photo 311020104016
+22/11/2022 10:44:44  INPUT   DarkGlance#6849  .kcgstudent dob 311020104016
+22/11/2022 10:45:15  OUTPUT  17/07/2002
+
+22/11/2022 16:24:40  INPUT   SuNaPaNa#8933  .kcgstudent photo 19cs010
+22/11/2022 16:25:04  INPUT   SuNaPaNa#8933  .kcgstudent photo 21cs010
+22/11/2022 16:25:22  INPUT   SuNaPaNa#8933  .kcgstudent photo 20cs020
+22/11/2022 16:25:51  INPUT   SuNaPaNa#8933  .kcgstudent photo 21cs056
+22/11/2022 16:26:19  INPUT   SuNaPaNa#8933  .kcgstudent photo 21cs022
+22/11/2022 16:26:41  INPUT   SuNaPaNa#8933  .kcgstudent photo 21cs025
+22/11/2022 16:27:01  INPUT   SuNaPaNa#8933  .kcgstudent photo 21cs044
+22/11/2022 16:27:24  INPUT   SuNaPaNa#8933  .kcgstudent name 21cs030
+22/11/2022 16:27:31  OUTPUT  DIVAINA L A
+
+22/11/2022 16:27:50  INPUT   SuNaPaNa#8933  .kcgstudent photo 21cs030
+22/11/2022 17:55:20  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 17:55:43  INPUT   DarkGlance#6849  .kcgstudent photo 20cs003
+22/11/2022 17:59:34  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 18:00:02  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:04:25  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:06:18  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:06:33  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:09:04  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:09:24  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:10:25  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:11:05  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:11:17  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+22/11/2022 19:12:39  INPUT   DarkGlance#6849  .kcgstudent photo 20ao44
+22/11/2022 19:12:52  INPUT   DarkGlance#6849  .kcgstudent photo 20ao44

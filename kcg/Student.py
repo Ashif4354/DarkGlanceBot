@@ -4,6 +4,8 @@ from selenium import webdriver
 
 user_id_ = None
 browser = None
+options = webdriver.ChromeOptions()
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 class student:
     
@@ -12,7 +14,7 @@ class student:
         global user_id_, browser
         user_id_ = user_id #simply
 
-        browser = webdriver.Chrome()
+        browser = webdriver.Chrome(options = options)
         browser.get('http://studentlogin.kcgcollege.ac.in/')
 
         #login with register no
@@ -39,7 +41,7 @@ class student:
 
         global user_id_, browser
         user_id_ = user_id #simply
-        browser = webdriver.Chrome()
+        browser = webdriver.Chrome(options = options)
         browser.get('http://studentonlinepayment.kcgcollege.ac.in/')
 
         #login with register no
@@ -68,7 +70,10 @@ class student:
     def get_photo(uid = user_id_): 
         path = r"c:\Users\{}\Desktop\collected_pics".format(os.getlogin())
         with open('{}\{}.png'.format(path, uid), 'wb') as file:
-            img_src = browser.find_element_by_xpath('//*[@id="Imagestudent"]').get_attribute("src")
+            try:
+                img_src = browser.find_element_by_xpath('//*[@id="Imagestudent"]').get_attribute("src")
+            except:
+                browser.quit()
             browser.get(img_src)
             
             pic_ = browser.find_element_by_xpath('/html/body/img')

@@ -59,8 +59,11 @@ async def kcgstudent(text_channel):
                 await text_channel.send('Please wait while we fetch the photo')
 
                 student.fees_login(user_id)
-                
-                student.get_photo(uid = user_id)
+                try:
+                    student.get_photo(uid = user_id)
+                except:
+                    await text_channel.send('No photo available in server')
+                    return
                 
             await text_channel.send('Photo has been fetched')
             photo = r'c:\Users\{}\Desktop\collected_pics\{}.png'.format(os.getlogin(), user_id)
