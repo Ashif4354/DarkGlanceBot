@@ -60,14 +60,18 @@ class student:
 
         login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
         login_button.click()
+
     
     def get_name(uid = user_id_):
+
         name_ = browser.find_element_by_xpath('//*[@id="lblsname"]')
         name_ = name_.text
         browser.quit()
         return name_
+
     
     def get_photo(uid = user_id_): 
+
         path = r"c:\Users\{}\Desktop\collected_pics".format(os.getlogin())
         with open('{}\{}.png'.format(path, uid), 'wb') as file:
             try:
@@ -80,6 +84,10 @@ class student:
             
             file.write(pic_.screenshot_as_png)
         browser.quit()
+    
+    def get_marks(uid = user_id_):
+        None
+        
 
             
 
