@@ -38,7 +38,7 @@ async def kcgstudent(text_channel):
         user_id = command[2]
     except:
         await text_channel.send('No id was given')
-        return
+        return    
 
     if check_student_id(user_id):
         None
@@ -75,9 +75,9 @@ async def kcgstudent(text_channel):
         elif command[1] == 'dob':
             try:
                 year = command[3]
-            except:
-                
-                None
+            except:                
+                year = '0000'
+
             await text_channel.send('Please wait while we crack the date of birth')           
             d_o_b = find_student_dob(user_id, year)  
             d_o_b = d_o_b[:2] + '/' + d_o_b[2:4] + '/' + d_o_b[4:] 

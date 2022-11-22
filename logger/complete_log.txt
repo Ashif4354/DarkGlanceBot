@@ -207,3 +207,8 @@
 21/11/2022 20:26:41  INPUT   DarkGlance#6849  .kcg_student
 21/11/2022 20:26:58  INPUT   DarkGlance#6849  .kcgstudent
 21/11/2022 20:27:08  INPUT   DarkGlance#6849  .kcgstudent sd
+22/11/2022 06:03:34  INPUT   DarkGlance#6849  .kcgstudent dob 20cs007
+22/11/2022 06:04:23  INPUT   DarkGlance#6849  .kcgstudent dob 20cs007
+22/11/2022 06:05:18  INPUT   DarkGlance#6849  .kcgstudent dob 20cs007
+22/11/2022 06:05:47  OUTPUT  22/11/2002
+
