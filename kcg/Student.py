@@ -39,7 +39,6 @@ class student:
 
         global user_id_, browser
         user_id_ = user_id #simply
-        print('hello')
         browser = webdriver.Chrome()
         browser.get('http://studentonlinepayment.kcgcollege.ac.in/')
 
