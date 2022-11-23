@@ -210,3 +210,38 @@
 22/11/2022 19:11:17 DarkGlance#6849  .kcgstudent photo 311020104026
 22/11/2022 19:12:39 DarkGlance#6849  .kcgstudent photo 20ao44
 22/11/2022 19:12:52 DarkGlance#6849  .kcgstudent photo 20ao44
+23/11/2022 15:07:57 DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:08:28 DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:09:32 DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:13:06 DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:14:50 DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:15:46 DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:19:05 DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 15:19:25 DarkGlance#6849  .kcgstudent marks 20cs008
+23/11/2022 15:20:28 DarkGlance#6849  .kcgstudent photo 20cs001
+23/11/2022 15:23:59 DarkGlance#6849  .kcgstudent photo 20cs001
+23/11/2022 15:25:55 DarkGlance#6849  .kcgstudent photo 20cs001
+23/11/2022 15:26:13 DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:40:14 DarkGlance#6849  .kcgstudent details 20cs008
+23/11/2022 15:40:37 DarkGlance#6849  .kcgstudent details 20cs008
+23/11/2022 15:58:14 DarkGlance#6849  .hi
+23/11/2022 16:02:54 DarkGlance#6849  .hi
+23/11/2022 16:03:17 DarkGlance#6849  .hi
+23/11/2022 16:03:49 DarkGlance#6849  .hi
+23/11/2022 16:04:58 DarkGlance#6849  .hi
+23/11/2022 16:06:19 DarkGlance#6849  .hi
+23/11/2022 16:06:48 DarkGlance#6849  .hi
+23/11/2022 16:07:35 DarkGlance#6849  .hi
+23/11/2022 16:08:44 DarkGlance#6849  .hi
+23/11/2022 16:09:03 DarkGlance#6849  .hi
+23/11/2022 16:19:38 DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 16:20:42 DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 16:21:13 DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 16:33:31 DarkGlance#6849  .authorize
+23/11/2022 16:34:24 DarkGlance#6849  .authorize
+23/11/2022 16:34:32 DarkGlance#6849  .authorize ashif afs
+23/11/2022 16:34:57 DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:48:07 DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:48:49 DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:49:46 DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:50:09 DarkGlance#6849  .revoke ashif owner

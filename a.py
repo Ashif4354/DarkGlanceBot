@@ -19,12 +19,19 @@ dob.send_keys(user_dob)
 login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
 login_button.click()
 
-login_button = browser.find_element_by_xpath('//*[@id="pHeadermarks"]')
+######
+login_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
 login_button.click()
 
-login_button = browser.find_element_by_xpath('//*[@id="ImageButtonCamv"]')
+time.sleep(1)
+login_button = browser.find_element_by_xpath('//*[@id="ImageButtonbio"]')
 login_button.click()
 
+browser.execute_script("window.scrollTo(0, 450)") 
 
-time.sleep(2)
-browser.save_screenshot("image.png")
+
+login_button = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]').screenshot('image.png')
+
+
+#time.sleep(2)
+#browser.save_screenshot("image.png")

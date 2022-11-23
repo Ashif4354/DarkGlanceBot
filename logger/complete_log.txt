@@ -261,3 +261,54 @@
 22/11/2022 19:11:17  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
 22/11/2022 19:12:39  INPUT   DarkGlance#6849  .kcgstudent photo 20ao44
 22/11/2022 19:12:52  INPUT   DarkGlance#6849  .kcgstudent photo 20ao44
+23/11/2022 15:07:57  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:08:28  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:09:32  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:13:06  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:14:50  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:15:01  OUTPUT  20cs001_marks.png
+
+23/11/2022 15:15:46  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:15:58  OUTPUT  20cs001_marks.png
+
+23/11/2022 15:19:05  INPUT   DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 15:19:13  OUTPUT  20cs008.png
+
+23/11/2022 15:19:25  INPUT   DarkGlance#6849  .kcgstudent marks 20cs008
+23/11/2022 15:19:37  OUTPUT  20cs008_marks.png
+
+23/11/2022 15:20:28  INPUT   DarkGlance#6849  .kcgstudent photo 20cs001
+23/11/2022 15:23:59  INPUT   DarkGlance#6849  .kcgstudent photo 20cs001
+23/11/2022 15:25:55  INPUT   DarkGlance#6849  .kcgstudent photo 20cs001
+23/11/2022 15:26:13  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
+23/11/2022 15:26:26  OUTPUT  20cs001_marks.png
+
+23/11/2022 15:40:14  INPUT   DarkGlance#6849  .kcgstudent details 20cs008
+23/11/2022 15:40:37  INPUT   DarkGlance#6849  .kcgstudent details 20cs008
+23/11/2022 15:40:53  OUTPUT  20cs008_detaills.png
+
+23/11/2022 15:58:14  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:02:54  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:03:17  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:03:49  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:04:58  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:06:19  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:06:48  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:07:35  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:08:44  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:09:03  INPUT   DarkGlance#6849  .hi
+23/11/2022 16:19:38  INPUT   DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 16:19:48  OUTPUT  20cs008.png
+
+23/11/2022 16:20:42  INPUT   DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 16:20:50  OUTPUT  20cs008.png
+
+23/11/2022 16:21:13  INPUT   DarkGlance#6849  .kcgstudent photo 20cs008
+23/11/2022 16:33:31  INPUT   DarkGlance#6849  .authorize
+23/11/2022 16:34:24  INPUT   DarkGlance#6849  .authorize
+23/11/2022 16:34:32  INPUT   DarkGlance#6849  .authorize ashif afs
+23/11/2022 16:34:57  INPUT   DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:48:07  INPUT   DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:48:49  INPUT   DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:49:46  INPUT   DarkGlance#6849  .authorize ashif owner
+23/11/2022 16:50:09  INPUT   DarkGlance#6849  .revoke ashif owner

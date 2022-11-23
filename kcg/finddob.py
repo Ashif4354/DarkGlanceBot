@@ -28,7 +28,7 @@ payload = {
     'Button1' : 'Login'
 }
 
-def find_student_dob(user_id, year_of_birth = '0000'):
+def find_student_dob(user_id, year_of_birth = None):
     
     mysql_cursor.execute("select * from dobs where id = '{}'".format(user_id))
     data = mysql_cursor.fetchall()
@@ -71,7 +71,7 @@ def find_student_dob(user_id, year_of_birth = '0000'):
         payload['txtuname'] = user_id
         The_day = None
     
-        if year_of_birth == '0000':
+        if year_of_birth == None:
             years = get_years(user_id)
         else:
             years = (year_of_birth,)    
