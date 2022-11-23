@@ -70,7 +70,7 @@ async def kcgstudent(text_channel):
             with open(photo, 'rb') as f:
                 photo = discord.File(f)
                 await text_channel.send(file=photo)
-                logger.discord_file_output_kcg(os.getcwd() + '\logger', '{}.png'.format(user_id))
+                logger.discord_output_kcg(os.getcwd() + '\logger', '{}.png'.format(user_id))
                 
                 
 
