@@ -261,6 +261,7 @@
 22/11/2022 19:11:17  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
 22/11/2022 19:12:39  INPUT   DarkGlance#6849  .kcgstudent photo 20ao44
 22/11/2022 19:12:52  INPUT   DarkGlance#6849  .kcgstudent photo 20ao44
+<<<<<<< HEAD
 23/11/2022 15:07:57  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
 23/11/2022 15:08:28  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
 23/11/2022 15:09:32  INPUT   DarkGlance#6849  .kcgstudent marks 20cs001
@@ -312,3 +313,13 @@
 23/11/2022 16:48:49  INPUT   DarkGlance#6849  .authorize ashif owner
 23/11/2022 16:49:46  INPUT   DarkGlance#6849  .authorize ashif owner
 23/11/2022 16:50:09  INPUT   DarkGlance#6849  .revoke ashif owner
+=======
+22/11/2022 20:51:51  INPUT   DarkGlance#6849  .kcgstudent dob 20cs022
+22/11/2022 20:52:42  OUTPUT  01/07/2003
+
+22/11/2022 21:06:27  INPUT   DarkGlance#6849  .kcgstudent photo 311020104026
+23/11/2022 08:12:08  INPUT   DarkGlance#6849  .kcgstudent photo 20cs024
+23/11/2022 12:38:10  INPUT   DarkGlance#6849  .kcgstudent 20ec042
+23/11/2022 12:38:25  INPUT   DarkGlance#6849  .kcgstudent photo 20ec042
+23/11/2022 15:49:23  INPUT   DarkGlance#6849  .kcgstudent photo 21cs010
+>>>>>>> 8be458470062ea48553f637913ed149463c895fd
