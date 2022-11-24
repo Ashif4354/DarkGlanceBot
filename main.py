@@ -60,7 +60,7 @@ async def kcgstudent(text_channel):
                 return
 
             try:
-                photo = r"c:\Users\{}\Desktop\collected_pics\{}.png".format(os.getlogin(), user_id)
+                photo = r"c:\Users\{}\Desktop\collected_pics\{}_photo.png".format(os.getlogin(), user_id)
                 with open(photo, 'rb') as f:
                     pass
 
@@ -119,12 +119,12 @@ async def kcgstudent(text_channel):
 
             except:
                 await text_channel.send('Login failed.. Please try again')            
-            
+                return
             try:
                 student.get_marks(user_id)
             except:
                 await text_channel.send('failed to get marks.. Please try again')  
-            
+                return
             await text_channel.send('Marks has been fetched')
 
            

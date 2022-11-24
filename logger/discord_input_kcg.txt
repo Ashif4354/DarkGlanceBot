@@ -1,2 +1,47 @@
 24/11/2022 06:27:20 DarkGlance#6849  .kcgstudent marks 20cs008
 24/11/2022 06:31:44 DarkGlance#6849  .kcgstudent details 20cs008
+24/11/2022 09:07:55 DarkGlance#6849  .kcgstudent marks 20cs011
+24/11/2022 10:44:26 JERESH RIO#3013  .kcgstudent marks 311020104036
+24/11/2022 10:45:51 Shazam#8855  .kcgstudent photo 21cs001
+24/11/2022 10:46:53 Shazam#8855  .kcgstudent photo 21cs001
+24/11/2022 10:47:37 DarkGlance#6849  .kcgstudent photo 21cs001
+24/11/2022 10:48:29 DarkGlance#6849  .kcgstudent marks 311020104036
+24/11/2022 10:52:56 Shazam#8855  .kcgstudent photo 20cs015
+24/11/2022 10:53:22 arunvel#1581  .kcgstudent photo 20cs027
+24/11/2022 10:54:00 Shazam#8855  .kcgstudent mark 20cs011
+24/11/2022 10:54:11 arunvel#1581  .kcgstudent marks 20cs027
+24/11/2022 10:55:38 arunvel#1581  .kcgstudent marks 20cs007
+24/11/2022 10:56:05 Shazam#8855  .kcgstudent marks 20cs011
+24/11/2022 10:56:13 Shazam#8855  .kcgstudent marks 20cs012
+24/11/2022 10:56:15 Shazam#8855  .kcgstudent marks 20cs013
+24/11/2022 10:56:27 kishore#5465  .kcgstudent photo 20cs015
+24/11/2022 10:58:34 arunvel#1581  .kcgstudent marks 20cs007
+24/11/2022 11:00:01 DarkGlance#6849  .authorize kishore#5465 admin
+24/11/2022 11:01:37 kishore#5465  .kcgstudent photo 20cs015
+24/11/2022 11:04:26 kishore#5465  .kcgstudent photo 20CS119
+24/11/2022 11:04:35 Shazam#8855  .authorize
+24/11/2022 11:05:34 Shazam#8855  .authorize me
+24/11/2022 11:05:41 kishore#5465  .kcgstudent photo 20CS015
+24/11/2022 11:07:11 Shazam#8855  .kcgstudent marks 20cs011
+24/11/2022 11:07:43 prince yokesh#5827  .kcgstudent photo 20cs018
+24/11/2022 11:07:55 Shazam#8855  .kcgstudent photo 20cs011
+24/11/2022 11:08:22 prince yokesh#5827  .kcgstudent photo 20CS018
+24/11/2022 11:08:39 DarkGlance#6849  .kcgstudent photo 20cs091
+24/11/2022 11:09:54 DarkGlance#6849  .kcgstudent photo 20018
+24/11/2022 11:10:07 DarkGlance#6849  .kcgstudent photo 20cs018
+24/11/2022 11:11:17 DarkGlance#6849  .revoke kishore#5465 admin
+24/11/2022 11:11:17 Shazam#8855  .kcgstudent marks 20cs011
+24/11/2022 11:47:01 Shazam#8855  .authorize
+24/11/2022 11:47:12 Shazam#8855  .kcgstudent xhduf
+24/11/2022 11:48:09 DarkGlance#6849  .authorize
+24/11/2022 11:48:48 DarkGlance#6849  .authorize Shazam#8855 admin
+24/11/2022 11:56:04 Shazam#8855  .kcgstudent photo
+24/11/2022 11:56:15 Shazam#8855  .authorize
+24/11/2022 11:56:54 Shazam#8855  .authorize
+24/11/2022 12:00:56 Shazam#8855  .authorize
+24/11/2022 12:01:28 Shazam#8855  .authorize
+24/11/2022 12:02:05 Shazam#8855  .kcgstudent photo 20cs008
+24/11/2022 12:03:13 DarkGlance#6849  .revoke Shazam#8855 admin
+24/11/2022 12:03:42 Shazam#8855  .kcgstudent photo 20cs008
+24/11/2022 12:05:22 DarkGlance#6849  .kcgstudent photo 20cs008
+24/11/2022 12:09:24 DarkGlance#6849  .kcgstudent photo 20cs008

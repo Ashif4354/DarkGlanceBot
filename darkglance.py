@@ -25,12 +25,15 @@ class discord_:
     roles = ('owner', 'admin')
 
     def check_authorization(channel, role):
-        author = channel.message.author
+        author = str(channel.message.author)
         mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, author))
-        users = mysql_cursor.fetchone()
-        if str(author) in users:
-            return True
-        else:
+        users = mysql_cursor.fetchall()
+        try:
+            if author in users[0]:
+                return True
+            else:
+                return False
+        except:
             return False
     
     def authorize(user_name, role):
