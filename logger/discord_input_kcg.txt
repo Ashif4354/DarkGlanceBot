@@ -45,3 +45,16 @@
 24/11/2022 12:03:42 Shazam#8855  .kcgstudent photo 20cs008
 24/11/2022 12:05:22 DarkGlance#6849  .kcgstudent photo 20cs008
 24/11/2022 12:09:24 DarkGlance#6849  .kcgstudent photo 20cs008
+24/11/2022 12:11:33 Shazam#8855  .kcgstudent photo 20cs011
+24/11/2022 12:11:50 DarkGlance#6849  .authorize Shazam#8855 admin
+24/11/2022 12:11:57 Shazam#8855  .kcgstudent photo 20cs011
+24/11/2022 12:12:38 DarkGlance#6849  .revoke Shazam#8855 admin
+24/11/2022 12:12:48 Shazam#8855  .kcgstudent photo 20cs011
+24/11/2022 12:13:22 Shazam#8855  .kcgstudent photo 20cs003
+24/11/2022 12:13:46 DarkGlance#6849  .kcgstudent photo 20cs003
+24/11/2022 12:14:00 Shazam#8855  .kcgstudent marks 20cs004
+24/11/2022 12:19:39 Shazam#8855  .kcgstudent marks 20cs003
+24/11/2022 12:20:25 DarkGlance#6849  .kcgstudent photo 20cs013
+24/11/2022 16:23:53 DarkGlance#6849  .kcgstudent details 20ao04
+24/11/2022 16:26:05 DarkGlance#6849  .kcgstudent marks 20ao04
+24/11/2022 16:34:50 DarkGlance#6849  .kcgstudent photo 20cs008

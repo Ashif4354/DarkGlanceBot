@@ -69,3 +69,32 @@
 24/11/2022 12:09:24  INPUT   DarkGlance#6849  .kcgstudent photo 20cs008
 24/11/2022 12:09:36  OUTPUT  20cs008.png
 
+24/11/2022 12:11:33  INPUT   Shazam#8855  .kcgstudent photo 20cs011
+24/11/2022 12:11:50  INPUT   DarkGlance#6849  .authorize Shazam#8855 admin
+24/11/2022 12:11:57  INPUT   Shazam#8855  .kcgstudent photo 20cs011
+24/11/2022 12:12:07  OUTPUT  20cs011.png
+
+24/11/2022 12:12:38  INPUT   DarkGlance#6849  .revoke Shazam#8855 admin
+24/11/2022 12:12:48  INPUT   Shazam#8855  .kcgstudent photo 20cs011
+24/11/2022 12:13:22  INPUT   Shazam#8855  .kcgstudent photo 20cs003
+24/11/2022 12:13:46  INPUT   DarkGlance#6849  .kcgstudent photo 20cs003
+24/11/2022 12:13:56  OUTPUT  20cs003.png
+
+24/11/2022 12:14:00  INPUT   Shazam#8855  .kcgstudent marks 20cs004
+24/11/2022 12:15:53  OUTPUT  20cs004_marks.png
+
+24/11/2022 12:19:39  INPUT   Shazam#8855  .kcgstudent marks 20cs003
+24/11/2022 12:20:02  OUTPUT  20cs003_marks.png
+
+24/11/2022 12:20:25  INPUT   DarkGlance#6849  .kcgstudent photo 20cs013
+24/11/2022 12:20:36  OUTPUT  20cs013.png
+
+24/11/2022 16:23:53  INPUT   DarkGlance#6849  .kcgstudent details 20ao04
+24/11/2022 16:24:44  OUTPUT  20ao04_detaills.png
+
+24/11/2022 16:26:05  INPUT   DarkGlance#6849  .kcgstudent marks 20ao04
+24/11/2022 16:26:24  OUTPUT  20ao04_marks.png
+
+24/11/2022 16:34:50  INPUT   DarkGlance#6849  .kcgstudent photo 20cs008
+24/11/2022 16:34:52  OUTPUT  20cs008.png
+
