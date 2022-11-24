@@ -8,6 +8,7 @@ mysql_cursor.execute('USE kcg')
 
 query1 = 'CREATE TABLE role_owner(name varchar(30))'
 query2 = 'CREATE TABLE role_admin(name varchar(30))'
+query3 = 'CREATE TABLE auth_all(value varchar(6))'
 
 try:
     mysql_cursor.execute(query1)
@@ -19,12 +20,25 @@ try:
 except:
     pass
 
+try:
+    mysql_cursor.execute(query3)
+except:
+    pass
+
 class discord_:
     token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'
     
     roles = ('owner', 'admin')
 
     def check_authorization(channel, role):
+        if not role == 'owner':
+            mysql_cursor.execute('select * from auth_all')
+            value = mysql_cursor.fetchone()[0]
+            if value == 'True':
+                return True
+            else:
+                pass
+
         author = str(channel.message.author)
         mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, author))
         users = mysql_cursor.fetchall()
@@ -32,7 +46,13 @@ class discord_:
             if author in users[0]:
                 return True
             else:
-                return False
+                mysql_cursor.execute('select * from auth_all')
+                value = mysql_cursor.fetchone()[0]
+                print(value)
+                if value == 'True':
+                    return True
+                else:
+                    return False
         except:
             return False
     
@@ -42,5 +62,13 @@ class discord_:
     
     def revoke(user_name, role):
         mysql_cursor.execute("DELETE FROM role_{} WHERE name = '{}';".format(role, user_name))
+        mysql_cursor.execute('commit')
+    
+    def auth_all():
+        mysql_cursor.execute("UPDATE auth_all SET value = 'True'")
+        mysql_cursor.execute('commit')
+    
+    def rev_all():
+        mysql_cursor.execute("UPDATE auth_all SET value = 'False'")
         mysql_cursor.execute('commit')
         

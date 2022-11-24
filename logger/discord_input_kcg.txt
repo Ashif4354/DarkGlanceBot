@@ -58,3 +58,107 @@
 24/11/2022 16:23:53 DarkGlance#6849  .kcgstudent details 20ao04
 24/11/2022 16:26:05 DarkGlance#6849  .kcgstudent marks 20ao04
 24/11/2022 16:34:50 DarkGlance#6849  .kcgstudent photo 20cs008
+24/11/2022 18:31:42 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 18:31:51 DarkGlance#6849  .kcgstudent photo 20cs008
+24/11/2022 18:32:52 DarkGlance#6849  .authorize
+24/11/2022 18:33:38 DarkGlance#6849  .authorize
+24/11/2022 18:34:26 DarkGlance#6849  .authorize
+24/11/2022 18:35:02 DarkGlance#6849  .authorize
+24/11/2022 18:36:35 DarkGlance#6849  .authorize Ashif#9970 admin
+24/11/2022 18:36:56 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 18:37:09 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 18:37:28 Ashif#9970  .authorize
+24/11/2022 18:37:49 DarkGlance#6849  .revoke Ashif#9970 admin
+24/11/2022 18:38:01 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 18:38:10 DarkGlance#6849  .authorize Ashif#9970 owner
+24/11/2022 18:38:17 Ashif#9970  .authorize
+24/11/2022 18:38:35 DarkGlance#6849  .revoke Ashif#9970 owner
+24/11/2022 18:38:46 Ashif#9970  .authorize
+24/11/2022 18:46:42 Rosario#4012  .kcgstudent registration number 20cs112
+24/11/2022 18:47:03 Rosario#4012  .kcgstudent register number 20cs112
+24/11/2022 19:31:41 DarkGlance#6849  .kcgstudent name 20cs112
+24/11/2022 19:47:16 DarkGlance#6849  .kcg name 20cs008
+24/11/2022 19:47:46 DarkGlance#6849  .kcgs name 20cs008
+24/11/2022 19:47:54 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 19:57:45 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 19:59:03 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 19:59:40 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 20:00:27 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 20:01:24 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 20:02:20 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 20:08:59 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 20:12:19 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 20:13:35 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 20:16:39 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 20:49:01 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 20:50:27 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 20:53:05 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:08:07 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:10:22 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:12:23 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:13:34 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:14:41 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:18:14 DarkGlance#6849  .kcgstudent details 20cs008
+24/11/2022 21:20:13 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:21:01 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:23:53 DarkGlance#6849  .kcgstudent dob 20cs008
+24/11/2022 21:24:52 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 21:25:16 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 21:26:22 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 21:29:22 DarkGlance#6849  .kcgstudent photo 20cs008
+24/11/2022 21:29:37 DarkGlance#6849  .kcgstudent name 20cs008
+24/11/2022 21:29:44 DarkGlance#6849  .kcgstudent dob 20cs008
+24/11/2022 21:29:50 DarkGlance#6849  .kcgstudent marks 20cs008
+24/11/2022 21:30:05 DarkGlance#6849  .kcgstudent details 20cs008
+24/11/2022 21:30:59 DarkGlance#6849  .kcgstudent photo 20cs008
+24/11/2022 21:31:22 DarkGlance#6849  .kcgstudent name 21cs001
+24/11/2022 21:31:37 DarkGlance#6849  .kcgstudent photo 21cs001
+24/11/2022 21:37:28 DarkGlance#6849  .kcg name 20cs2394
+24/11/2022 21:37:38 DarkGlance#6849  .kcg name 20cs008
+24/11/2022 21:38:01 DarkGlance#6849  .kcg name 20cs008
+24/11/2022 21:56:45 DarkGlance#6849  .kcg registernumber 20cs008
+24/11/2022 21:57:17 DarkGlance#6849  .kcg registernumber 20cs008
+24/11/2022 21:59:04 DarkGlance#6849  .kcg registernumber 20cs008
+24/11/2022 21:59:33 DarkGlance#6849  .kcg registernumber 20cs008
+24/11/2022 22:01:20 DarkGlance#6849  .kcgstudent registernumber 20cs008
+24/11/2022 22:21:44 DarkGlance#6849  .kcgstudent details 20cs008
+24/11/2022 22:31:26 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:31:50 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:33:29 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:33:48 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:35:34 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:37:51 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:38:30 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:40:58 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:43:52 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:54:44 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 22:58:49 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:06:19 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:07:52 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:09:30 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:11:31 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:13:01 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:13:55 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:18:14 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:19:15 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:21:33 DarkGlance#6849  .kcg all 20cs008
+24/11/2022 23:22:27 Ashif#9970  .kcg all 20cs008
+24/11/2022 23:40:29 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:44:29 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:44:36 DarkGlance#6849  .authorize all
+24/11/2022 23:44:41 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:45:54 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:46:04 DarkGlance#6849  .authorize all
+24/11/2022 23:46:12 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:47:12 DarkGlance#6849  .authorize all
+24/11/2022 23:49:23 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:49:27 DarkGlance#6849  .authorize all
+24/11/2022 23:49:33 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:50:13 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:50:19 DarkGlance#6849  .authorize all
+24/11/2022 23:50:31 Ashif#9970  .kcgstudent photo 20cs008
+24/11/2022 23:50:50 DarkGlance#6849  .revoke all
+24/11/2022 23:50:56 Ashif#9970  .authorize all
+24/11/2022 23:52:50 DarkGlance#6849  .authorize all
+24/11/2022 23:52:59 Ashif#9970  .authorize
+24/11/2022 23:53:18 Ashif#9970  .kcgstudent photo 20cs008

@@ -83,8 +83,7 @@ class student:
         pic_ = browser.find_element_by_xpath('/html/body/img')
 
         path = r"c:\Users\{}\Desktop\collected_pics".format(os.getlogin())
-        with open('{}\{}_photo.png'.format(path, uid), 'wb') as file:
-            
+        with open('{}\{}_photo.png'.format(path, uid), 'wb') as file:            
             
             file.write(pic_.screenshot_as_png)
         browser.quit()
@@ -118,6 +117,13 @@ class student:
         marks_table = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]')
         marks_table.screenshot('{}\{}_details.png'.format(path, uid))
         browser.quit()
+    
+    def get_regno(roll_no = user_id_):
+        regno_ = browser.find_element_by_xpath('//*[@id="Label15"]')
+        regno_ = regno_.text
+        browser.quit()
+        return regno_
+        
 
             
 
