@@ -114,11 +114,12 @@ async def kcgstudent(text_channel):
                 await text_channel.send('Please wait while we crack the date of birth') 
                 d_o_b = find_student_dob(user_id, year)
                 await text_channel.send('DOB has been Found successfully')
+
+                await text_channel.send('Please wait while we try to fetch the marks')
                 student.student_login(user_id, d_o_b)
             except:
-                await text_channel.send('Login failed.. Please try again')
+                await text_channel.send('Login failed.. Please try again')            
             
-            await text_channel.send('Please wait while we fetch the marks')
             try:
                 student.get_marks(user_id)
             except:

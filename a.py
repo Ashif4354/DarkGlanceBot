@@ -30,7 +30,7 @@ login_button.click()
 browser.execute_script("window.scrollTo(0, 450)") 
 
 
-login_button = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]').screenshot('image.png')
+login_button = browser.find_element_by_xpath('//*[@id="pBodypersonal"]/center').screenshot('image.png')
 
 
 #time.sleep(2)

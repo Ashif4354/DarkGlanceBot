@@ -36,11 +36,8 @@ class discord_:
     def authorize(user_name, role):
         mysql_cursor.execute("INSERT INTO role_{} VALUES('{}')".format(role, user_name))
         mysql_cursor.execute('commit')
-
     
     def revoke(user_name, role):
         mysql_cursor.execute("DELETE FROM role_{} WHERE name = '{}';".format(role, user_name))
         mysql_cursor.execute('commit')
-
-
-
+        
