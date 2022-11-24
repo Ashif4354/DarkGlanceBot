@@ -261,12 +261,6 @@ async def kcgstudent(text_channel):
 
             os.remove(details)
 
-
-
-
-
-
-
     except:
         pass
 
