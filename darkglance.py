@@ -12,12 +12,12 @@ query2 = 'CREATE TABLE role_admin(name varchar(30))'
 try:
     mysql_cursor.execute(query1)
 except:
-    None
+    pass
     
 try:
     mysql_cursor.execute(query2)
 except:
-    None
+    pass
 
 class discord_:
     token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'

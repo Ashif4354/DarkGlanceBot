@@ -12,7 +12,7 @@ query_create_table = 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(
 try:
     mysql_cursor.execute(query_create_table)
 except:
-    None
+    pass
 
 
 payload = {

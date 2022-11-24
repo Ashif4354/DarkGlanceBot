@@ -7,15 +7,13 @@ from kcg.Student import student
 from kcg.finddob import find_student_dob
 from kcg.check import *
 import os
-
-import os #to get current working directory and user name
 from logger.logger import logger
 
 client = commands.Bot(command_prefix = '.')
 
 @client.event
 async def on_ready():
-    print("DarkGlanceBot is ready to go")
+    print("\nDarkGlanceBot is ready to go")
 
 @client.command()
 async def hi(text_channel):
@@ -42,7 +40,7 @@ async def kcgstudent(text_channel):
         return    
 
     if check_student_id(user_id):
-        None
+        pass
     else:
         await text_channel.send('Invalid RegisterNo/RollNo')
         return 
@@ -56,7 +54,7 @@ async def kcgstudent(text_channel):
         #get photo
         if command[1] == 'photo':
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
-                None
+                pass
             else:
                 await text_channel.send('You dont have authorization to use this command')
                 return
@@ -64,7 +62,7 @@ async def kcgstudent(text_channel):
             try:
                 photo = r"c:\Users\{}\Desktop\collected_pics\{}.png".format(os.getlogin(), user_id)
                 with open(photo, 'rb') as f:
-                    None
+                    pass
 
             except:                             
                 await text_channel.send('Please wait while we fetch the photo')
@@ -88,7 +86,7 @@ async def kcgstudent(text_channel):
         #get date of birth
         elif command[1] == 'dob': 
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
-                None
+                pass
             else:
                 await text_channel.send('You dont have authorization to use this command')
                 return           
@@ -117,6 +115,8 @@ async def kcgstudent(text_channel):
 
                 await text_channel.send('Please wait while we try to fetch the marks')
                 student.student_login(user_id, d_o_b)
+                await text_channel.send('Login successful')
+
             except:
                 await text_channel.send('Login failed.. Please try again')            
             
@@ -138,7 +138,7 @@ async def kcgstudent(text_channel):
         elif command[1] == 'details':
 
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
-                None
+                pass
             else:
                 await text_channel.send('You dont have authorization to use this command')
                 return
@@ -146,11 +146,14 @@ async def kcgstudent(text_channel):
                 await text_channel.send('Please wait while we crack the date of birth') 
                 d_o_b = find_student_dob(user_id, year)
                 await text_channel.send('DOB has been Found successfully')
+
+                await text_channel.send('Please wait while we fetch the details')
                 student.student_login(user_id, d_o_b)
+                await text_channel.send('Login successful')
+
             except:
-                await text_channel.send('Login failed.. Please try again')
+                await text_channel.send('Login failed.. Please try again')            
             
-            await text_channel.send('Please wait while we fetch the details')
             try:
                 student.get_details(user_id)
             except:
@@ -168,14 +171,14 @@ async def kcgstudent(text_channel):
                               
 
     except:
-        None 
+        pass
 
 @client.command()
 async def authorize(text_channel):
     logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')
 
     if discord_.check_authorization(text_channel, 'owner'):
-        None
+        pass
     else:
         await text_channel.send('You dont have authorization to use this command')
         return
@@ -195,7 +198,7 @@ async def authorize(text_channel):
         return
     
     if role in discord_.roles:
-        None
+        pass
     else:
         await text_channel.send('Invalid role')
         return
@@ -208,7 +211,7 @@ async def revoke(text_channel):
     logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')
 
     if discord_.check_authorization(text_channel, 'owner'):
-        None
+        pass
     else:
         await text_channel.send('You dont have authorization to use this command')
         return
@@ -228,7 +231,7 @@ async def revoke(text_channel):
         return
     
     if role in discord_.roles:
-        None
+        pass
     else:
         await text_channel.send('Invalid role')
         return
