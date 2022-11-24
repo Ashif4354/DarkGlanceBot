@@ -254,3 +254,4 @@
 23/11/2022 12:38:25 DarkGlance#6849  .kcgstudent photo 20ec042
 23/11/2022 15:49:23 DarkGlance#6849  .kcgstudent photo 21cs010
 >>>>>>> 8be458470062ea48553f637913ed149463c895fd
+24/11/2022 05:57:31 DarkGlance#6849  .kcgstudent marks 20cs007
