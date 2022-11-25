@@ -21,7 +21,7 @@ value_photo = 'Fetches the photo of the student \n This command can be used by a
 value_details = 'Fetches details of the student \n This command can be used by authorized users only'
 value_all = 'Fetches all details of the student(photo, details, marks) together \n This command can be used by authorized users only'
 
-help_embed = discord.Embed(title = 'DarkGlanceBot Help', description  = 'All available commands',color = 0xffffff)
+help_embed = discord.Embed(title = 'DarkGlanceBot Help', description  = 'All available commands\nNote : This BOT can only handle one request at a time',color = 0xffffff)
 help_embed.add_field(name = '.kcgstudent name <reg_no / roll_no>', value = value_name, inline = False)
 help_embed.add_field(name = '.kcgstudent marks <reg_no / roll_no>', value = value_marks, inline = False)
 help_embed.add_field(name = '.kcgstudent registernumber <reg_no / roll_no>', value = value_registernumber, inline = False)
@@ -30,6 +30,7 @@ help_embed.add_field(name = '.kcgstudent dob <reg_no / roll_no>', value = value_
 help_embed.add_field(name = '.kcgstudent photo <reg_no / roll_no>', value = value_photo, inline = False)
 help_embed.add_field(name = '.kcgstudent details <reg_no / roll_no>', value = value_details, inline = False)
 help_embed.add_field(name = '.kcgstudent all <reg_no / roll_no>', value = value_all, inline = False)
+help_embed.set_footer(text = 'DarkGlanceBOT is just made for educational/testing purpose, So please dont misuse')
 
 
 try:
