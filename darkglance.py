@@ -12,16 +12,22 @@ query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
 query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
 #query4 = "INSERT INTO auth_all VALUES('False')"
 
-value_name =  'Fetches the name of the student \n This command can be used by all user'
-value_marks = 'Fetches marks of the student \n This command can be used by all users'
-value_registernumber = 'Fetches details of the student \n This command can be used by all users'
-value_rollnumber = 'Fetches details of the student \n This command can be used by all users'
-value_dob =  'Fetches the date of birth of the student \n This command can be used by authorized users only'
-value_photo = 'Fetches the photo of the student \n This command can be used by authorized users only'
-value_details = 'Fetches details of the student \n This command can be used by authorized users only'
-value_all = 'Fetches all details of the student(photo, details, marks) together \n This command can be used by authorized users only'
+value_name =  'Fetches the Name of the student \n This command can be used by all user'
+value_marks = 'Fetches Marks of the student \n This command can be used by all users'
+value_registernumber = 'Fetches Register number of the student \n This command can be used by all users'
+value_rollnumber = 'Fetches Roll number of the student \n This command can be used by all users'
+value_dob =  'Fetches the Date of birth of the student \n This command can be used by authorized users only'
+value_photo = 'Fetches the Photo of the student \n This command can be used by authorized users only'
+value_details = 'Fetches Details of the student \n This command can be used by authorized users only'
+value_all = 'Fetches All details of the student(photo, details, marks) together \n This command can be used by authorized users only'
+embed_description = '''All available commands
+Note : This BOT can only handle one request at a time
+Some request may take longer time to fetch data because dob cracking is a lengthy process
+So Please wait.. It wont take more than a minute in most cases
 
-help_embed = discord.Embed(title = 'DarkGlanceBot Help', description  = 'All available commands\nNote : This BOT can only handle one request at a time',color = 0xffffff)
+ALL THE COMMANDS ARE LISTED BELOW'''
+
+help_embed = discord.Embed(title = 'DarkGlanceBot Help',color = 0xffffff, description  = embed_description)
 help_embed.add_field(name = '.kcgstudent name <reg_no / roll_no>', value = value_name, inline = False)
 help_embed.add_field(name = '.kcgstudent marks <reg_no / roll_no>', value = value_marks, inline = False)
 help_embed.add_field(name = '.kcgstudent registernumber <reg_no / roll_no>', value = value_registernumber, inline = False)
