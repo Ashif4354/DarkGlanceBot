@@ -299,7 +299,11 @@ async def authorize(text_channel):
         await text_channel.send('Invalid role')
         return
 
-    discord_.authorize(user_name, role)
+    try:
+        discord_.authorize(user_name, role)
+    except:
+        await text_channel.send('User already been authorized')
+        return
     await text_channel.send('{} has been authorized with {} role'.format(user_name, role))
 
 @client.command()
@@ -322,7 +326,7 @@ async def revoke(text_channel):
 
     if user_name == 'all':
         discord_.rev_all() 
-        await text_channel.send('Every one has been revoked admin role')  
+        await text_channel.send('Every one has been revoked of admin role')  
         return
     
     try:
@@ -341,6 +345,7 @@ async def revoke(text_channel):
         discord_.authorize(user_name, role)
     except:
         await text_channel.send('user is alreaddy not authorized')
+        return
     
     discord_.revoke(user_name, role)
     await text_channel.send('{} has been revoked of the role {}'.format(user_name, role))

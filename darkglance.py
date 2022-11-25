@@ -6,9 +6,10 @@ mysql_cursor = mycon.cursor()
 mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
 mysql_cursor.execute('USE kcg')
 
-query1 = 'CREATE TABLE role_owner(name varchar(30))'
-query2 = 'CREATE TABLE role_admin(name varchar(30))'
-query3 = 'CREATE TABLE auth_all(value varchar(6))'
+query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
+query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
+query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
+query4 = "INSERT INTO auth_all VALUES('False')"
 
 try:
     mysql_cursor.execute(query1)
@@ -21,7 +22,13 @@ except:
     pass
 
 try:
-    mysql_cursor.execute(query3)
+    mysql_cursor.execute(query3)    
+except:
+    pass
+try:
+    mysql_cursor.execute(query4)
+    mysql_cursor.execute('COMMIT')
+
 except:
     pass
 
@@ -61,6 +68,14 @@ class discord_:
         mysql_cursor.execute('commit')
     
     def revoke(user_name, role):
+        
+        mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, user_name))
+        users = mysql_cursor.fetchall()
+        if users == []:
+            raise Exception
+        else:
+            pass
+        
         mysql_cursor.execute("DELETE FROM role_{} WHERE name = '{}';".format(role, user_name))
         mysql_cursor.execute('commit')
     

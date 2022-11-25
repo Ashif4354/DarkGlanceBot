@@ -162,3 +162,25 @@
 24/11/2022 23:52:50 DarkGlance#6849  .authorize all
 24/11/2022 23:52:59 Ashif#9970  .authorize
 24/11/2022 23:53:18 Ashif#9970  .kcgstudent photo 20cs008
+25/11/2022 06:02:50 DarkGlance#6849  .authorize all
+25/11/2022 06:03:35 DarkGlance#6849  .authorize all
+25/11/2022 06:05:27 DarkGlance#6849  .authorize all
+25/11/2022 06:06:27 DarkGlance#6849  .authorize all
+25/11/2022 06:06:37 DarkGlance#6849  .revoke all
+25/11/2022 06:07:52 DarkGlance#6849  .authorize all
+25/11/2022 06:08:05 DarkGlance#6849  .revoke all
+25/11/2022 06:08:29 DarkGlance#6849  .authorize ashif admin;
+25/11/2022 06:08:45 DarkGlance#6849  .authorize ashif admin
+25/11/2022 06:09:14 DarkGlance#6849  .revoke asds admin;
+25/11/2022 06:09:23 DarkGlance#6849  .revoke asds admin
+25/11/2022 06:13:48 DarkGlance#6849  .revoke asds admin
+25/11/2022 06:14:43 DarkGlance#6849  .revoke asds admin
+25/11/2022 06:17:08 DarkGlance#6849  .revoke asds admin
+25/11/2022 06:17:45 DarkGlance#6849  .revoke asds admin
+25/11/2022 06:19:26 DarkGlance#6849  .revoke asds admin
+25/11/2022 06:21:30 DarkGlance#6849  .authorize DarkGlance#6849 admin;
+25/11/2022 06:21:38 DarkGlance#6849  .authorize DarkGlance#6849 admin
+25/11/2022 06:22:25 DarkGlance#6849  .authorize DarkGlance#6849 admin
+25/11/2022 06:23:20 DarkGlance#6849  .authorize DarkGlance#6849 admin
+25/11/2022 06:23:38 DarkGlance#6849  .authorize DarkGlance#6849 admin
+25/11/2022 06:23:46 DarkGlance#6849  .authorize DarkGlance#6849 owner
