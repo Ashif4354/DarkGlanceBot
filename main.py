@@ -20,11 +20,14 @@ async def hi(text_channel):
     logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')            
     await text_channel.send('DarkGlanceBot at your service')
 
-    
+@client.command()
+async def dghelp(text_channel) :
+    await text_channel.send(embed = help_embed)
+       
 @client.command(aliases=['kcgs', 'kcg'])   
 async def kcgstudent(text_channel):    
     logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')    
-    functions = ('photo', 'dob', 'name', 'marks', 'details', 'registernumber', 'all')
+    functions = ('photo', 'dob', 'name', 'marks', 'details', 'registernumber', 'rollnumber', 'all')
     command = text_channel.message.content.split()
 
     try:
@@ -190,7 +193,7 @@ async def kcgstudent(text_channel):
             if check_student_rollno(user_id):
                 pass
             else:
-                await text_channel.send('give only roll no, not register no..Try again')
+                await text_channel.send('Please give valid Roll no..Try again')
                 return
 
             await text_channel.send('Please wait while we fetch the Register number..')
@@ -205,6 +208,26 @@ async def kcgstudent(text_channel):
             embed = discord.Embed(title = user_id, description = regno, color = 0xffffff)
             await text_channel.send(embed = embed)
             logger.discord_output_kcg(os.getcwd() + '\logger', regno)
+        
+        elif command[1] == 'rollnumber': #get roll number
+            if check_student_registerno(user_id):
+                pass
+            else:
+                await text_channel.send('Please give Valid Register no..Try again')
+                return
+
+            await text_channel.send('Please wait while we fetch the Roll number..')
+
+            try:
+                d_o_b = find_student_dob(user_id, year)
+                student.student_login(user_id, d_o_b)
+                rollno = student.get_rollno(user_id)
+            except:
+                await text_channel.send('Some error occured in the process.. Please try again')
+
+            embed = discord.Embed(title = user_id, description = rollno, color = 0xffffff)
+            await text_channel.send(embed = embed)
+            logger.discord_output_kcg(os.getcwd() + '\logger', rollno)
 
 
         elif command[1] == 'all': #get all details
@@ -304,6 +327,7 @@ async def authorize(text_channel):
     except:
         await text_channel.send('User already been authorized')
         return
+    
     await text_channel.send('{} has been authorized with {} role'.format(user_name, role))
 
 @client.command()
@@ -342,12 +366,11 @@ async def revoke(text_channel):
         return
 
     try:
-        discord_.authorize(user_name, role)
+        discord_.revoke(user_name, role)
     except:
-        await text_channel.send('user is alreaddy not authorized')
-        return
+        await text_channel.send('user is already not authorized')
+        return    
     
-    discord_.revoke(user_name, role)
     await text_channel.send('{} has been revoked of the role {}'.format(user_name, role))
 
 

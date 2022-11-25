@@ -36,3 +36,13 @@ def check_student_rollno(user_id):
         return True
     
     return False
+
+def check_student_registerno(user_id):
+    check_payload['txtuname'] = user_id
+    
+    check_payload['rblOnlineAppLoginMode'] = 1
+    page = requests.post('http://studentonlinepayment.kcgcollege.ac.in/', data = check_payload)
+    if page.url != 'http://studentonlinepayment.kcgcollege.ac.in/':
+        return True
+    
+    return False

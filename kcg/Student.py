@@ -104,12 +104,12 @@ class student:
         browser.quit()
 
     def get_details(uid = user_id_):
-        marks_detail_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
-        marks_detail_button.click()
+        student_detail_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
+        student_detail_button.click()
 
         time.sleep(2)
-        cam_button = browser.find_element_by_xpath('//*[@id="ImageButtonbio"]')
-        cam_button.click()
+        bio_button = browser.find_element_by_xpath('//*[@id="ImageButtonbio"]')
+        bio_button.click()
 
         browser.execute_script("window.scrollTo(0, 450)") 
         
@@ -123,6 +123,20 @@ class student:
         regno_ = regno_.text
         browser.quit()
         return regno_
+
+    def get_rollno(roll_no = user_id_):
+        student_detail_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
+        student_detail_button.click()
+
+        time.sleep(2)
+        bio_button = browser.find_element_by_xpath('//*[@id="ImageButtonbio"]')
+        bio_button.click()
+        
+        time.sleep(1)
+        rollno_ = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]/tbody/tr[5]/td[3]')
+        rollno_ = rollno_.text
+        browser.quit()
+        return rollno_
         
 
             
