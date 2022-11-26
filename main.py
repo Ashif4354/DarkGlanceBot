@@ -267,6 +267,7 @@ async def kcgstudent(text_channel):
 
             except:
                 await text_channel.send('Some error occured in the process.. Please try again')
+                return
 
             if got_photo:
                 embed = discord.Embed(title = user_id, color = 0xffffff)
