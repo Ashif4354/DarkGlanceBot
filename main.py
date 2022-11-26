@@ -13,12 +13,14 @@ client = commands.Bot(command_prefix = '.')
 
 @client.event
 async def on_ready():
+    print("\nServer has been started")
     print("\nDarkGlanceBot is ready to go")
 
 @client.command()
 async def hi(text_channel):
     logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')            
-    await text_channel.send('DarkGlanceBot at your service')
+    embed = discord.Embed(description = 'DarkGlanceBot at your service', color = 0xffffff)
+    await text_channel.send(embed = embed)
 
 @client.command()
 async def dghelp(text_channel) :
@@ -32,7 +34,8 @@ async def kcgstudent(text_channel):
 
     try:
         if command[1] not in functions:
-            await text_channel.send('Invalid request')
+            embed = discord.Embed(title = 'Invalid request', color = 0xffffff)
+            await text_channel.send(embed = embed)
             return
     except:
         return
@@ -240,49 +243,54 @@ async def kcgstudent(text_channel):
             await text_channel.send('This may take a while so please be patient..')
 
             try:
+                await text_channel.send('DOB is being cracked')
                 d_o_b = find_student_dob(user_id, year)
+                await text_channel.send('DOB found')          
 
                 student.fees_login(user_id)
-                name = student.get_name(user_id)
-
-                student.fees_login(user_id)
-                student.get_photo(user_id)
+                try:
+                    student.get_photo(user_id)
+                    got_photo = True
+                    await text_channel.send('Photo fetched')
+                except:
+                    got_photo = False
+                    await text_channel.send('Photo not available')
+                
 
                 student.student_login(user_id, d_o_b)
                 student.get_details(user_id)
+                await text_channel.send('Details fetched')
 
                 student.student_login(user_id, d_o_b)
                 student.get_marks(user_id)
+                await text_channel.send('Marks fetched')
+
             except:
                 await text_channel.send('Some error occured in the process.. Please try again')
-                
-            embed = discord.Embed(title = user_id, color = 0xffffff)
 
-            photo = r'c:\Users\{}\Desktop\collected_pics\{}_photo.png'.format(os.getlogin(), user_id)
-            pic = discord.File(photo, filename = 'temp_photo.png')
-            embed.set_image(url = 'attachment://temp_photo.png')
-            embed.add_field(name = 'Name', value = name)
-            await text_channel.send(embed = embed, file = pic)
-
-            embed = discord.Embed(title = user_id, color = 0xffffff)
+            if got_photo:
+                embed = discord.Embed(title = user_id, color = 0xffffff)
+                photo = r'c:\Users\{}\Desktop\collected_pics\{}_photo.png'.format(os.getlogin(), user_id)
+                pic = discord.File(photo, filename = 'temp_photo.png')
+                embed.set_image(url = 'attachment://temp_photo.png')
+                await text_channel.send(embed = embed, file = pic)
             
-            details = r'c:\Users\{}\Desktop\collected_pics\{}_details.png'.format(os.getlogin(), user_id)
-            pic = discord.File(details, filename = 'temp_details.png')
+            embed = discord.Embed(title = user_id, color = 0xffffff)            
+            details = r'c:\Users\{}\Desktop\collected_pics\{}_details.png'.format(os.getlogin(), user_id)            
+            pic = discord.File(details, filename = 'temp_details.png')            
             embed.set_image(url = 'attachment://temp_details.png')
-            
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{0} | {1}_photo.png | {1}_details.png'.format(name, user_id))
             await text_channel.send(embed = embed, file = pic)
 
-            embed = discord.Embed(title = user_id, color = 0xffffff)
-            
+            embed = discord.Embed(title = user_id, color = 0xffffff)            
             marks = r'c:\Users\{}\Desktop\collected_pics\{}_marks.png'.format(os.getlogin(), user_id)
             pic = discord.File(marks, filename = 'temp_marks.png')
-            embed.set_image(url = 'attachment://temp_marks.png')
-            
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{0} | {1}_photo.png | {1}_details.png | {1}_marks.png' .format(name, user_id))
+            embed.set_image(url = 'attachment://temp_marks.png')            
             await text_channel.send(embed = embed, file = pic)
 
+            logger.discord_output_kcg(os.getcwd() + '\logger', '{0}_photo.png | {0}_details.png | {0}_marks.png'.format(user_id))
+
             os.remove(details)
+            os.remove(marks)
 
     except:
         pass
