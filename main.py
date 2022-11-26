@@ -43,13 +43,15 @@ async def kcgstudent(text_channel):
     try:
         user_id = command[2]
     except:
-        await text_channel.send('No id was given')
+        embed = discord.Embed(description = 'No ID was given', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return    
 
     if check_student_id(user_id):
         pass
     else:
-        await text_channel.send('Invalid RegisterNo/RollNo')
+        embed = discord.Embed(description = 'Invalid Register / Roll number', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return 
 
     try:
@@ -62,7 +64,8 @@ async def kcgstudent(text_channel):
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
                 pass
             else:
-                await text_channel.send('You dont have authorization to use this command')
+                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return
 
             try:
@@ -86,10 +89,9 @@ async def kcgstudent(text_channel):
             embed = discord.Embed(title = user_id, description  = 'Photo',color = 0xffffff)
             pic = discord.File(photo, filename = 'temp_photo.png')
             embed.set_image(url = 'attachment://temp_photo.png')
-
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
-            await text_channel.send(embed = embed, file = pic)
             
+            await text_channel.send(embed = embed, file = pic)
+            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
 
 
         elif command[1] == 'dob': #get date of birth
@@ -97,7 +99,8 @@ async def kcgstudent(text_channel):
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
                 pass
             else:
-                await text_channel.send('You dont have authorization to use this command')
+                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return           
 
             await text_channel.send('Please wait while we crack the date of birth')           
@@ -129,12 +132,15 @@ async def kcgstudent(text_channel):
                 await text_channel.send('Login successful')
 
             except:
-                await text_channel.send('Login failed.. Please try again')            
+                embed = discord.Embed(description = 'Login failed.. Please try again', color = 0xffffff)
+                await text_channel.send(embed = embed)           
                 return
+                
             try:
                 student.get_marks(user_id)
             except:
-                await text_channel.send('failed to get marks.. Please try again')  
+                embed = discord.Embed(description = 'failed to get marks.. Please try again', color = 0xffffff)
+                await text_channel.send(embed = embed)  
                 return
 
             await text_channel.send('Marks has been fetched')
@@ -146,8 +152,9 @@ async def kcgstudent(text_channel):
             pic = discord.File(marks, filename = 'temp_marks.png')
             embed.set_image(url = 'attachment://temp_marks.png')
 
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_marks.png'.format(user_id))
             await text_channel.send(embed = embed, file = pic)
+            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_marks.png'.format(user_id))
+            
 
             os.remove(marks)
 
@@ -157,7 +164,8 @@ async def kcgstudent(text_channel):
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
                 pass
             else:
-                await text_channel.send('You dont have authorization to use this command')
+                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return
             try:
                 await text_channel.send('Please wait while we crack the date of birth') 
@@ -169,13 +177,15 @@ async def kcgstudent(text_channel):
                 await text_channel.send('Login successful')
 
             except:
-                await text_channel.send('Login failed.. Please try again')  
+                embed = discord.Embed(description = 'Login failed.. Please try again', color = 0xffffff)
+                await text_channel.send(embed = embed)  
                 return          
             
             try:
                 student.get_details(user_id)
             except:
-                await text_channel.send('failed to get details.. Some error occurred.. Please try again')  
+                embed = discord.Embed(description = 'failed to get details.. Some error occurred..\n Please try again', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return
             
             await text_channel.send('Details has been fetched')
@@ -185,9 +195,9 @@ async def kcgstudent(text_channel):
             embed = discord.Embed(title = user_id, description  = 'Details',color = 0xffffff)
             pic = discord.File(details, filename = 'temp_details.png')
             embed.set_image(url = 'attachment://temp_details.png')
-
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_details.png'.format(user_id))
+            
             await text_channel.send(embed = embed, file = pic)
+            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_details.png'.format(user_id))
 
             os.remove(details)   
 
@@ -196,7 +206,8 @@ async def kcgstudent(text_channel):
             if check_student_rollno(user_id):
                 pass
             else:
-                await text_channel.send('Please give valid Roll no..Try again')
+                embed = discord.Embed(description = 'Please give valid Roll no..Try again', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return
 
             await text_channel.send('Please wait while we fetch the Register number..')
@@ -206,7 +217,9 @@ async def kcgstudent(text_channel):
                 student.student_login(user_id, d_o_b)
                 regno = student.get_regno()
             except:
-                await text_channel.send('Some error occured in the process.. Please try again')
+                embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
+                await text_channel.send(embed = embed)
+                return
 
             embed = discord.Embed(title = user_id, description = regno, color = 0xffffff)
             await text_channel.send(embed = embed)
@@ -216,7 +229,8 @@ async def kcgstudent(text_channel):
             if check_student_registerno(user_id):
                 pass
             else:
-                await text_channel.send('Please give Valid Register no..Try again')
+                embed = discord.Embed(description = 'Please give valid Register no..Try again', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return
 
             await text_channel.send('Please wait while we fetch the Roll number..')
@@ -226,7 +240,9 @@ async def kcgstudent(text_channel):
                 student.student_login(user_id, d_o_b)
                 rollno = student.get_rollno(user_id)
             except:
-                await text_channel.send('Some error occured in the process.. Please try again')
+                embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
+                await text_channel.send(embed = embed)
+                return
 
             embed = discord.Embed(title = user_id, description = rollno, color = 0xffffff)
             await text_channel.send(embed = embed)
@@ -237,7 +253,8 @@ async def kcgstudent(text_channel):
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
                 pass
             else:
-                await text_channel.send('You dont have authorization to use this command')
+                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return
             
             await text_channel.send('This may take a while so please be patient..')
@@ -266,7 +283,8 @@ async def kcgstudent(text_channel):
                 await text_channel.send('Marks fetched')
 
             except:
-                await text_channel.send('Some error occured in the process.. Please try again')
+                embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
+                await text_channel.send(embed = embed)
                 return
 
             if got_photo:
@@ -303,7 +321,8 @@ async def authorize(text_channel):
     if discord_.check_authorization(text_channel, 'owner'):
         pass
     else:
-        await text_channel.send('You dont have authorization to use this command')
+        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
 
     command = text_channel.message.content.split()
@@ -311,33 +330,39 @@ async def authorize(text_channel):
     try:
         user_name = command[1]
     except:
-        await text_channel.send('No username given')
+        embed = discord.Embed(description = 'No username given', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
     
     if user_name == 'all':
         discord_.auth_all()
-        await text_channel.send('Every one has been authorized with admin role')
+        embed = discord.Embed(description = 'Every one has been authorized with admin role', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
 
     try:
         role = command[2]
     except:
-        await text_channel.send('No role specified')
+        embed = discord.Embed(description = 'No role specified', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
     
     if role in discord_.roles:
         pass
     else:
-        await text_channel.send('Invalid role')
+        embed = discord.Embed(description = 'Invalid role', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
 
     try:
         discord_.authorize(user_name, role)
     except:
-        await text_channel.send('User already been authorized')
+        embed = discord.Embed(description = 'User already authorized', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
     
-    await text_channel.send('{} has been authorized with {} role'.format(user_name, role))
+    embed = discord.Embed(title = user_name, description = 'authorized with {} role'.format(role), color = 0xffffff)
+    await text_channel.send(embed = embed)
 
 @client.command()
 async def revoke(text_channel):
@@ -346,7 +371,8 @@ async def revoke(text_channel):
     if discord_.check_authorization(text_channel, 'owner'):
         pass
     else:
-        await text_channel.send('You dont have authorization to use this command')
+        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
 
     command = text_channel.message.content.split()
@@ -354,33 +380,39 @@ async def revoke(text_channel):
     try:
         user_name = command[1]
     except:
-        await text_channel.send('No username given')
+        embed = discord.Embed(description = 'No username given', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
 
     if user_name == 'all':
         discord_.rev_all() 
-        await text_channel.send('Every one has been revoked of admin role')  
+        embed = discord.Embed(description = 'Every one has been revoked of admin role', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
     
     try:
         role = command[2]
     except:
-        await text_channel.send('No role specified')
+        embed = discord.Embed(description = 'No role specified', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
     
     if role in discord_.roles:
         pass
     else:
-        await text_channel.send('Invalid role')
+        embed = discord.Embed(description = 'Invalid role', color = 0xffffff)
+        await text_channel.send(embed = embed)
         return
 
     try:
         discord_.revoke(user_name, role)
     except:
-        await text_channel.send('user is already not authorized')
-        return    
-    
-    await text_channel.send('{} has been revoked of the role {}'.format(user_name, role))
+        embed = discord.Embed(description = 'user is already authorized', color = 0xffffff)
+        await text_channel.send(embed = embed)
+        return 
+
+    embed = discord.Embed(title = user_name,description = 'revoked of the role {}'.format(role), color = 0xffffff)
+    await text_channel.send(embed = embed)
 
 
 client.run(discord_.token)
