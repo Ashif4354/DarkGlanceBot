@@ -14,7 +14,7 @@ client = commands.Bot(command_prefix = '.')
 @client.event
 async def on_ready():
     print("\nServer has been started")
-    print("\nDarkGlanceBot is ready to go")
+    print("DarkGlanceBot is ready to go")
 
 @client.command()
 async def hi(text_channel):
@@ -28,7 +28,13 @@ async def dghelp(text_channel) :
        
 @client.command(aliases=['kcgs', 'kcg'])   
 async def kcgstudent(text_channel):    
-    logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')    
+    logger.discord_input_kcg(text_channel, os.getcwd() + '\logger') 
+
+    if not mycon.is_connected():
+        db.db_con()
+        print('\nDatabase Reconnected')
+    
+
     functions = ('photo', 'dob', 'name', 'marks', 'details', 'registernumber', 'rollnumber', 'all')
     command = text_channel.message.content.split()
 
@@ -118,8 +124,7 @@ async def kcgstudent(text_channel):
             name = student.get_name()
             embed = discord.Embed(title = user_id, description = name, color = 0xffffff)
             await text_channel.send(embed = embed)
-            logger.discord_output_kcg(os.getcwd() + '\logger', name)  
-
+            logger.discord_output_kcg(os.getcwd() + '\logger', name)
         
         elif command[1] == 'marks': #get marks
             try:

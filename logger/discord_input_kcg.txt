@@ -1,0 +1,11 @@
+26/11/2022 20:11:43 DarkGlance#6849  .authorize all
+26/11/2022 21:12:47 DarkGlance#6849  .authorize
+27/11/2022 05:28:54 DarkGlance#6849  .kcgstudent marks 20cs008
+27/11/2022 06:00:14 DarkGlance#6849  .kcgstudent marks 20cs008
+27/11/2022 06:00:30 DarkGlance#6849  .authorize
+27/11/2022 06:04:23 DarkGlance#6849  .authorize
+27/11/2022 06:28:15 DarkGlance#6849  .kcgstudent marks 20cs008
+27/11/2022 07:18:28 DarkGlance#6849  .kcg name 20cs008
+27/11/2022 07:18:54 DarkGlance#6849  .kcg name 20cs008
+27/11/2022 07:20:05 DarkGlance#6849  .kcg name 20cs008
+27/11/2022 07:20:18 DarkGlance#6849  .kcg name 20cs008

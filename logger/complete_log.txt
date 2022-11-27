@@ -1,0 +1,21 @@
+26/11/2022 20:11:43  INPUT   DarkGlance#6849  .authorize all
+26/11/2022 21:12:47  INPUT   DarkGlance#6849  .authorize
+27/11/2022 05:28:54  INPUT   DarkGlance#6849  .kcgstudent marks 20cs008
+27/11/2022 06:00:14  INPUT   DarkGlance#6849  .kcgstudent marks 20cs008
+27/11/2022 06:00:30  INPUT   DarkGlance#6849  .authorize
+27/11/2022 06:04:23  INPUT   DarkGlance#6849  .authorize
+27/11/2022 06:28:15  INPUT   DarkGlance#6849  .kcgstudent marks 20cs008
+27/11/2022 06:28:30  OUTPUT  20cs008_marks.png
+
+27/11/2022 07:18:28  INPUT   DarkGlance#6849  .kcg name 20cs008
+27/11/2022 07:18:36  OUTPUT  ASHIF A
+
+27/11/2022 07:18:54  INPUT   DarkGlance#6849  .kcg name 20cs008
+27/11/2022 07:19:01  OUTPUT  ASHIF A
+
+27/11/2022 07:20:05  INPUT   DarkGlance#6849  .kcg name 20cs008
+27/11/2022 07:20:12  OUTPUT  ASHIF A
+
+27/11/2022 07:20:18  INPUT   DarkGlance#6849  .kcg name 20cs008
+27/11/2022 07:20:25  OUTPUT  ASHIF A
+

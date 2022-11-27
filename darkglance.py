@@ -1,17 +1,6 @@
 import mysql.connector
 import discord
 
-mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root")
-mysql_cursor = mycon.cursor()
-
-mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
-mysql_cursor.execute('USE kcg')
-
-query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
-query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
-query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
-#query4 = "INSERT INTO auth_all VALUES('False')"
-
 value_name =  'Fetches the Name of the student \n This command can be used by all user'
 value_marks = 'Fetches Marks of the student \n This command can be used by all users'
 value_registernumber = 'Fetches Register number of the student \n This command can be used by all users'
@@ -39,34 +28,54 @@ help_embed.add_field(name = '.kcgstudent all <reg_no / roll_no>', value = value_
 help_embed.set_footer(text = 'DarkGlanceBOT is just made for educational/testing purpose, So please dont misuse')
 
 
-try:
-    mysql_cursor.execute(query1)
-except:
-    pass
+mycon = None
+mysql_cursor = None
+
+class db:   
+
+    def db_con():
+        global mycon, mysql_cursor
+        mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root")
+        mysql_cursor = mycon.cursor()    
+
+    db_con()
+
+    mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
+    mysql_cursor.execute('USE kcg')
+
+    query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
+    query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
+    query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
+    #query4 = "INSERT INTO auth_all VALUES('False')"
+
+    try:
+        mysql_cursor.execute(query1)
+    except:
+        pass
     
-try:
-    mysql_cursor.execute(query2)
-except:
-    pass
+    try:
+        mysql_cursor.execute(query2)
+    except:
+        pass
 
-try:
-    mysql_cursor.execute(query3)    
-except:
-    pass
-"""
-try:
-    mysql_cursor.execute(query4)
-    mysql_cursor.execute('COMMIT')
+    try:
+        mysql_cursor.execute(query3)    
+    except:
+        pass
+    """
+    try:
+        mysql_cursor.execute(query4)
+        mysql_cursor.execute('COMMIT')
 
-except:
-    pass
-"""
+    except:
+        pass
+    """
 
 class discord_:
     token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'
     
     roles = ('owner', 'admin')
-
+    
     def check_authorization(channel, role):
         if not role == 'owner':
             mysql_cursor.execute('select * from auth_all')
