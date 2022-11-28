@@ -24,12 +24,12 @@ async def hi(text_channel):
 
 @client.command()
 async def dghelp(text_channel) :
+    logger.discord_input_kcg(text_channel, os.getcwd() + '\logger')
     await text_channel.send(embed = help_embed)
        
 @client.command(aliases=['kcgs', 'kcg'])   
 async def kcgstudent(text_channel):    
     logger.discord_input_kcg(text_channel, os.getcwd() + '\logger') 
-
     if not mycon.is_connected():
         db.db_con()
         print('\nDatabase Reconnected')
@@ -65,7 +65,7 @@ async def kcgstudent(text_channel):
     except:                
         year = None      
 
-    try:                
+    try:#=========================================================================================================================================                
         if command[1] == 'photo': #get photo
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
                 pass
@@ -99,7 +99,7 @@ async def kcgstudent(text_channel):
             await text_channel.send(embed = embed, file = pic)
             logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
 
-
+        #=========================================================================================================================================
         elif command[1] == 'dob': #get date of birth
 
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
@@ -110,14 +110,19 @@ async def kcgstudent(text_channel):
                 return           
 
             await text_channel.send('Please wait while we crack the date of birth')           
-            d_o_b = find_student_dob(user_id, year)  
+            try:
+                d_o_b = find_student_dob(user_id, year)
+            except:
+                embed = discord.Embed(description = 'Unable to find DOB.. Please try again\n Try specifying year of birth', color = 0xffffff)
+                await text_channel.send(embed = embed)
+                return
             d_o_b = d_o_b[:2] + '/' + d_o_b[2:4] + '/' + d_o_b[4:] 
             await text_channel.send('DOB has been Found successfully')
             embed = discord.Embed(title = user_id, description = d_o_b, color = 0xffffff)
             await text_channel.send(embed = embed)
             logger.discord_output_kcg(os.getcwd() + '\logger', d_o_b)
 
-        
+        #=========================================================================================================================================
         elif command[1] == 'name': #get name           
 
             student.fees_login(user_id)
@@ -126,10 +131,17 @@ async def kcgstudent(text_channel):
             await text_channel.send(embed = embed)
             logger.discord_output_kcg(os.getcwd() + '\logger', name)
         
+        #=========================================================================================================================================
         elif command[1] == 'marks': #get marks
             try:
                 await text_channel.send('Please wait while we crack the date of birth') 
-                d_o_b = find_student_dob(user_id, year)
+                try:
+                    d_o_b = find_student_dob(user_id, year)
+                except:
+                    embed = discord.Embed(description = 'Unable to find DOB.. Please try again\n Try specifying year of birth', color = 0xffffff)
+                    await text_channel.send(embed = embed)
+                    return
+                    
                 await text_channel.send('DOB has been Found successfully')
 
                 await text_channel.send('Please wait while we try to fetch the marks')
@@ -163,7 +175,7 @@ async def kcgstudent(text_channel):
 
             os.remove(marks)
 
-        
+        #=========================================================================================================================================
         elif command[1] == 'details': #get details
 
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
@@ -174,7 +186,13 @@ async def kcgstudent(text_channel):
                 return
             try:
                 await text_channel.send('Please wait while we crack the date of birth') 
-                d_o_b = find_student_dob(user_id, year)
+                try:
+                    d_o_b = find_student_dob(user_id, year)
+                except:
+                    embed = discord.Embed(description = 'Unable to find DOB.. Please try again\n Try specifying year of birth', color = 0xffffff)
+                    await text_channel.send(embed = embed)
+                    return
+
                 await text_channel.send('DOB has been Found successfully')
 
                 await text_channel.send('Please wait while we fetch the details')
@@ -206,7 +224,7 @@ async def kcgstudent(text_channel):
 
             os.remove(details)   
 
-
+        #=========================================================================================================================================
         elif command[1] == 'registernumber': #get register number
             if check_student_rollno(user_id):
                 pass
@@ -218,7 +236,13 @@ async def kcgstudent(text_channel):
             await text_channel.send('Please wait while we fetch the Register number..')
 
             try:
-                d_o_b = find_student_dob(user_id, year)
+                try:
+                    d_o_b = find_student_dob(user_id, year)
+                except:
+                    embed = discord.Embed(description = 'Unable to find DOB.. Please try again\n Try specifying year of birth', color = 0xffffff)
+                    await text_channel.send(embed = embed)
+                    return
+
                 student.student_login(user_id, d_o_b)
                 regno = student.get_regno()
             except:
@@ -230,6 +254,7 @@ async def kcgstudent(text_channel):
             await text_channel.send(embed = embed)
             logger.discord_output_kcg(os.getcwd() + '\logger', regno)
         
+        #=========================================================================================================================================
         elif command[1] == 'rollnumber': #get roll number
             if check_student_registerno(user_id):
                 pass
@@ -241,7 +266,13 @@ async def kcgstudent(text_channel):
             await text_channel.send('Please wait while we fetch the Roll number..')
 
             try:
-                d_o_b = find_student_dob(user_id, year)
+                try:
+                    d_o_b = find_student_dob(user_id, year)
+                except:
+                    embed = discord.Embed(description = 'Unable to find DOB.. Please try again\n Try specifying year of birth', color = 0xffffff)
+                    await text_channel.send(embed = embed)
+                    return
+
                 student.student_login(user_id, d_o_b)
                 rollno = student.get_rollno(user_id)
             except:
@@ -253,7 +284,7 @@ async def kcgstudent(text_channel):
             await text_channel.send(embed = embed)
             logger.discord_output_kcg(os.getcwd() + '\logger', rollno)
 
-
+        #=========================================================================================================================================
         elif command[1] == 'all': #get all details
             if discord_.check_authorization(text_channel, 'admin') or discord_.check_authorization(text_channel, 'owner'):
                 pass
@@ -266,7 +297,14 @@ async def kcgstudent(text_channel):
 
             try:
                 await text_channel.send('DOB is being cracked')
-                d_o_b = find_student_dob(user_id, year)
+
+                try:
+                    d_o_b = find_student_dob(user_id, year)
+                except:
+                    embed = discord.Embed(description = 'Unable to find DOB.. Please try again\n Try specifying year of birth', color = 0xffffff)
+                    await text_channel.send(embed = embed)
+                    return
+                
                 await text_channel.send('DOB found')          
 
                 student.fees_login(user_id)
@@ -315,7 +353,9 @@ async def kcgstudent(text_channel):
 
             os.remove(details)
             os.remove(marks)
-
+        
+        #=========================================================================================================================================
+        
     except:
         pass
 

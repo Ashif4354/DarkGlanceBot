@@ -23,3 +23,10 @@
 28/11/2022 12:57:14 DarkGlance#6849  .kcg name 20ec041
 28/11/2022 13:09:40 DarkGlance#6849  .kcg marks 20cs008
 28/11/2022 15:38:10 arunvel#1581  .kcgstudent all 20cs007
+28/11/2022 19:32:38 DarkGlance#6849  .authorize ashif admin
+28/11/2022 19:33:15 DarkGlance#6849  .revoke ashif admin
+28/11/2022 19:53:14 DarkGlance#6849  .kcg dob 311020104305
+28/11/2022 19:57:08 DarkGlance#6849  .kcg dob 311020104302 2000
+28/11/2022 19:57:49 DarkGlance#6849  .kcg dob 311020104305 2000
+28/11/2022 20:00:40 DarkGlance#6849  .kcg dob 311020104305 1999
+28/11/2022 20:01:35 DarkGlance#6849  .kcg all 311020104305
