@@ -19,3 +19,33 @@
 27/11/2022 07:20:18  INPUT   DarkGlance#6849  .kcg name 20cs008
 27/11/2022 07:20:25  OUTPUT  ASHIF A
 
+27/11/2022 11:41:15  INPUT   DarkGlance#6849  .kcg dob 20cs037
+27/11/2022 11:42:14  OUTPUT  27/11/2002
+
+28/11/2022 06:43:18  INPUT   DarkGlance#6849  .kcg dob 20cs008
+28/11/2022 06:43:43  INPUT   DarkGlance#6849  .authorize
+28/11/2022 06:45:07  INPUT   DarkGlance#6849  .authorize
+28/11/2022 08:51:38  INPUT   DarkGlance#6849  .kcg photo 22cs001
+28/11/2022 08:51:56  INPUT   DarkGlance#6849  .kcg details 22cs001
+28/11/2022 08:53:17  OUTPUT  22cs001_details.png
+
+28/11/2022 08:55:30  INPUT   DarkGlance#6849  .kcg photo 22cs002
+28/11/2022 12:19:20  INPUT   Shazam#8855  .authorize
+28/11/2022 12:19:35  INPUT   Shazam#8855  .kcgstudent marks 20cs011
+28/11/2022 12:19:52  OUTPUT  20cs011_marks.png
+
+28/11/2022 12:20:16  INPUT   Shazam#8855  .kcgstudent all 20cs011
+28/11/2022 12:20:50  OUTPUT  20cs011_photo.png | 20cs011_details.png | 20cs011_marks.png
+
+28/11/2022 12:52:36  INPUT   DarkGlance#6849  .kcg marks 20ec041
+28/11/2022 12:53:31  OUTPUT  20ec041_marks.png
+
+28/11/2022 12:57:14  INPUT   DarkGlance#6849  .kcg name 20ec041
+28/11/2022 12:57:22  OUTPUT  AADIL MOHIDEEN S
+
+28/11/2022 13:09:40  INPUT   DarkGlance#6849  .kcg marks 20cs008
+28/11/2022 13:09:57  OUTPUT  20cs008_marks.png
+
+28/11/2022 15:38:10  INPUT   arunvel#1581  .kcgstudent all 20cs007
+28/11/2022 15:38:55  OUTPUT  20cs007_photo.png | 20cs007_details.png | 20cs007_marks.png
+

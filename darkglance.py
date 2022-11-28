@@ -36,7 +36,9 @@ class db:
     def db_con():
         global mycon, mysql_cursor
         mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root")
-        mysql_cursor = mycon.cursor()    
+        mysql_cursor = mycon.cursor() 
+        mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
+        mysql_cursor.execute('USE kcg')   
 
     db_con()
 

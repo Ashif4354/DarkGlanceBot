@@ -9,3 +9,17 @@
 27/11/2022 07:18:54 DarkGlance#6849  .kcg name 20cs008
 27/11/2022 07:20:05 DarkGlance#6849  .kcg name 20cs008
 27/11/2022 07:20:18 DarkGlance#6849  .kcg name 20cs008
+27/11/2022 11:41:15 DarkGlance#6849  .kcg dob 20cs037
+28/11/2022 06:43:18 DarkGlance#6849  .kcg dob 20cs008
+28/11/2022 06:43:43 DarkGlance#6849  .authorize
+28/11/2022 06:45:07 DarkGlance#6849  .authorize
+28/11/2022 08:51:38 DarkGlance#6849  .kcg photo 22cs001
+28/11/2022 08:51:56 DarkGlance#6849  .kcg details 22cs001
+28/11/2022 08:55:30 DarkGlance#6849  .kcg photo 22cs002
+28/11/2022 12:19:20 Shazam#8855  .authorize
+28/11/2022 12:19:35 Shazam#8855  .kcgstudent marks 20cs011
+28/11/2022 12:20:16 Shazam#8855  .kcgstudent all 20cs011
+28/11/2022 12:52:36 DarkGlance#6849  .kcg marks 20ec041
+28/11/2022 12:57:14 DarkGlance#6849  .kcg name 20ec041
+28/11/2022 13:09:40 DarkGlance#6849  .kcg marks 20cs008
+28/11/2022 15:38:10 arunvel#1581  .kcgstudent all 20cs007
