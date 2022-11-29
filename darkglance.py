@@ -40,10 +40,7 @@ class db:
         mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
         mysql_cursor.execute('USE kcg')   
 
-    db_con()
-
-    mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
-    mysql_cursor.execute('USE kcg')
+    
 
     query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
     query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
@@ -73,12 +70,14 @@ class db:
         pass
     """
 
+db.db_con()
+
 class discord_:
     token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'
     
     roles = ('owner', 'admin')
     
-    def check_authorization(channel, role):
+    def check_authorization(ctx, role):
         if not role == 'owner':
             mysql_cursor.execute('select * from auth_all')
             value = mysql_cursor.fetchone()[0]
@@ -87,7 +86,7 @@ class discord_:
             else:
                 pass
 
-        author = str(channel.message.author)
+        author = str(ctx.message.author)
         mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, author))
         users = mysql_cursor.fetchall()
         try:

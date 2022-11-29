@@ -8,6 +8,34 @@ browser = None
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
+departments = {
+            'ad' : ('ad', 'aids',) , 
+            'ae' : ('ae', 'aero', 'aeronautical') ,
+            'ao' : ('ao', 'aerospace', 'ase') ,
+            'at' : ('at', 'auto', 'automobile') ,
+            'ce' : ('ce', 'civil',) ,
+            'cs' : ('cs', 'cse','computer'),
+            'ec' : ('ec', 'ece'),
+            'ee' : ('ee', 'electrical', 'eee'),
+            'ei' : ('ei', 'eie', 'instrumentation'),
+            'ft' : ('ft', 'fashion'),
+            'mc' : ('mc', 'mechatronics', 'mechatronic'),
+            'me' : ('me', 'mech', 'mechanical'),
+            'it' : ('it')
+            }
+
+fees_login_payload = {
+    '__EVENTTARGET' : '' ,
+    '__EVENTARGUMENT' : '',
+    '__LASTFOCUS' : '',
+    '__VIEWSTATE' : '/wEPDwUKMTQ4NjQwMTIzNw9kFgICAw9kFgoCCQ8QDxYGHg1EYXRhVGV4dEZpZWxkBQhjb2xsbmFtZR4ORGF0YVZhbHVlRmllbGQFDGNvbGxlZ2VfY29kZR4LXyFEYXRhQm91bmRnZBAVARlLQ0cgQ29sbGVnZSBvZiBUZWNobm9sb2d5FQECMTMUKwMBZxYBZmQCCw8QZBAVAgtSb2xsIE51bWJlcg9SZWdpc3RlciBOdW1iZXIVAgEwATEUKwMCZ2cWAWZkAg0PD2QWBB4LcGxhY2Vob2xkZXIFC1JvbGwgTnVtYmVyHgxhdXRvY29tcGxldGUFA29mZmQCEQ8PFgIeB1Zpc2libGVoFgIfBAUDb2ZmZAIVDw8WAh8FaGRkZNW+28hPSHWELbHwTZyc+FgrCQj/p6TzJx0gJo3tNhyA', 
+    '__VIEWSTATEGENERATOR' : 'CA0B0334',
+    '__EVENTVALIDATION' : '/wEdAAa5cfVM3pWzdu9rE2vQn04A1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+c34O/GfAV4V4n0wgFZHr3fbr4+GviYj6YKdFlGPdh5Q23daRHDXkik+zyEsEtmUSg==',
+    'rblOnlineAppLoginMode' : '0',
+    'txtuname' : None,
+    'Button1' : 'Login'
+    }
+
 class student:
     
     def student_login(user_id, user_dob):
@@ -137,6 +165,36 @@ class student:
         rollno_ = rollno_.text
         browser.quit()
         return rollno_
+
+
+    def search(user_id, depts):
+        
+        corrected_depts = []
+
+        for element in depts:
+            for dept_ in departments:
+                if element in departments[dept_]:
+                    if dept_ not in corrected_depts:
+                        corrected_depts.append(dept_)
+        
+        print(corrected_depts)
+        
+
+
+
+
+
+        
+        
+
+
+
+        
+            
+
+
+        
+
         
 
             

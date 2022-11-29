@@ -1,11 +1,13 @@
 import requests
 import mysql.connector
 
+
 mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root")
 mysql_cursor = mycon.cursor()
 
 mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
 mysql_cursor.execute('USE kcg')
+
 
 query_create_table = 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
 
@@ -31,9 +33,9 @@ payload = {
 }
 
 def find_student_dob(user_id, year_of_birth = None):
-    
     mysql_cursor.execute("select * from dobs where id = '{}'".format(user_id))
     data = mysql_cursor.fetchall()
+    
     if data != []:
         return data[0][1]
     else:
