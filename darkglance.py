@@ -32,7 +32,6 @@ mycon = None
 mysql_cursor = None
 
 class db:   
-
     def db_con():
         global mycon, mysql_cursor
         mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root")
@@ -42,33 +41,35 @@ class db:
 
     
 
-    query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
-    query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
-    query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
-    #query4 = "INSERT INTO auth_all VALUES('False')"
+query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
+query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
+query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
+#query4 = "INSERT INTO auth_all VALUES('False')"
+#query5 = "INSERT INTO role_owner value('DarkGlance#6849')"
 
-    try:
-        mysql_cursor.execute(query1)
-    except:
-        pass
+db.db_con()
+try:
+    mysql_cursor.execute(query1)
+except:
+    pass
     
-    try:
-        mysql_cursor.execute(query2)
-    except:
-        pass
+try:
+    mysql_cursor.execute(query2)
+except:
+    pass
 
-    try:
-        mysql_cursor.execute(query3)    
-    except:
-        pass
-    """
-    try:
-        mysql_cursor.execute(query4)
-        mysql_cursor.execute('COMMIT')
-
-    except:
-        pass
-    """
+try:
+    mysql_cursor.execute(query3)    
+except:
+    pass
+"""
+try:
+    mysql_cursor.execute(query4)
+    mysql_cursor.execute(query5)
+    mysql_cursor.execute('COMMIT')
+except:
+    pass
+"""
 
 db.db_con()
 
