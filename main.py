@@ -376,7 +376,7 @@ async def kcgsearch(ctx):
             if len(year) != 4:
                 pass#
             year = int(year)
-            if str
+            
         except:
             pass
 
