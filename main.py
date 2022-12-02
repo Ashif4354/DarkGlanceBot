@@ -29,12 +29,7 @@ async def dghelp(ctx) :
        
 @client.command(aliases=['kcg', 'student'])   
 async def kcgstudent(ctx):    
-    logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
-    if not mycon.is_connected():
-        mycon.close()
-        db.db_con()
-        print('\nDatabase Reconnected @kcgstudent')
-    
+    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')     
 
     functions = ('photo', 'dob', 'name', 'marks', 'details', 'registernumber', 'rollnumber', 'all')
     command = ctx.message.content.split()
@@ -65,8 +60,9 @@ async def kcgstudent(ctx):
         year = command[3]
     except:                
         year = None      
-
-    try:#=========================================================================================================================================                
+    
+    try:#1
+        #=========================================================================================================================================                
         if command[1] == 'photo': #get photo
             if discord_.check_authorization(ctx, 'admin') or discord_.check_authorization(ctx, 'owner'):
                 pass
@@ -76,13 +72,12 @@ async def kcgstudent(ctx):
                 return
 
             try:
-                photo = r"c:\Users\{}\Desktop\collected_pics\{}_photo.png".format(os.getlogin(), user_id)
+                photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), user_id)
                 with open(photo, 'rb') as f:
                     pass
 
             except:                             
                 await ctx.send('Please wait while we fetch the photo')
-
                 student.fees_login(user_id)
                 try:
                     student.get_photo(uid = user_id)
@@ -91,15 +86,17 @@ async def kcgstudent(ctx):
                     return
                 
             await ctx.send('Photo has been fetched')
-            photo = r'c:\Users\{}\Desktop\collected_pics\{}_photo.png'.format(os.getlogin(), user_id)
+            photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), user_id)
 
             embed = discord.Embed(title = user_id, description  = 'Photo',color = 0xffffff)
             pic = discord.File(photo, filename = 'temp_photo.png')
             embed.set_image(url = 'attachment://temp_photo.png')
             
             await ctx.send(embed = embed, file = pic)
+            os.remove(photo)
             logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
-
+        
+        #2
         #=========================================================================================================================================
         elif command[1] == 'dob': #get date of birth
 
@@ -117,21 +114,29 @@ async def kcgstudent(ctx):
                 embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                 await ctx.send(embed = embed)
                 return
+
             d_o_b = d_o_b[:2] + '/' + d_o_b[2:4] + '/' + d_o_b[4:] 
+
             await ctx.send('DOB has been Found successfully')
+
             embed = discord.Embed(title = user_id, description = d_o_b, color = 0xffffff)
             await ctx.send(embed = embed)
-            logger.discord_output_kcg(os.getcwd() + '\logger', d_o_b)
 
+            logger.discord_output_kcg(os.getcwd() + '\logger', d_o_b)
+        
+        #3
         #=========================================================================================================================================
         elif command[1] == 'name': #get name           
 
             student.fees_login(user_id)
             name = student.get_name()
+
             embed = discord.Embed(title = user_id, description = name, color = 0xffffff)
             await ctx.send(embed = embed)
+
             logger.discord_output_kcg(os.getcwd() + '\logger', name)
         
+        #4
         #=========================================================================================================================================
         elif command[1] == 'marks': #get marks
             try:
@@ -164,18 +169,19 @@ async def kcgstudent(ctx):
             await ctx.send('Marks has been fetched')
 
            
-            marks = r'c:\Users\{}\Desktop\collected_pics\{}_marks.png'.format(os.getlogin(), user_id)
+            marks = r"{}\temp_pics\{}_marks.png".format(os.getcwd(), user_id)
 
             embed = discord.Embed(title = user_id, description  = 'Marks',color = 0xffffff)
             pic = discord.File(marks, filename = 'temp_marks.png')
             embed.set_image(url = 'attachment://temp_marks.png')
 
             await ctx.send(embed = embed, file = pic)
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_marks.png'.format(user_id))
-            
+
+            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_marks.png'.format(user_id))            
 
             os.remove(marks)
-
+        
+        #5
         #=========================================================================================================================================
         elif command[1] == 'details': #get details
 
@@ -215,16 +221,18 @@ async def kcgstudent(ctx):
             await ctx.send('Details has been fetched')
 
            
-            details = r'c:\Users\{}\Desktop\collected_pics\{}_details.png'.format(os.getlogin(), user_id)
+            details = r"{}\temp_pics\{}_details.png".format(os.getcwd(), user_id)
             embed = discord.Embed(title = user_id, description  = 'Details',color = 0xffffff)
             pic = discord.File(details, filename = 'temp_details.png')
             embed.set_image(url = 'attachment://temp_details.png')
             
             await ctx.send(embed = embed, file = pic)
+
             logger.discord_output_kcg(os.getcwd() + '\logger', '{}_details.png'.format(user_id))
 
             os.remove(details)   
 
+        #6
         #=========================================================================================================================================
         elif command[1] == 'registernumber': #get register number
             if check_student_rollno(user_id):
@@ -253,8 +261,10 @@ async def kcgstudent(ctx):
 
             embed = discord.Embed(title = user_id, description = regno, color = 0xffffff)
             await ctx.send(embed = embed)
+
             logger.discord_output_kcg(os.getcwd() + '\logger', regno)
         
+        #7
         #=========================================================================================================================================
         elif command[1] == 'rollnumber': #get roll number
             if check_student_registerno(user_id):
@@ -283,8 +293,10 @@ async def kcgstudent(ctx):
 
             embed = discord.Embed(title = user_id, description = rollno, color = 0xffffff)
             await ctx.send(embed = embed)
+
             logger.discord_output_kcg(os.getcwd() + '\logger', rollno)
 
+        #8
         #=========================================================================================================================================
         elif command[1] == 'all': #get all details
             if discord_.check_authorization(ctx, 'admin') or discord_.check_authorization(ctx, 'owner'):
@@ -333,25 +345,26 @@ async def kcgstudent(ctx):
 
             if got_photo:
                 embed = discord.Embed(title = user_id, color = 0xffffff)
-                photo = r'c:\Users\{}\Desktop\collected_pics\{}_photo.png'.format(os.getlogin(), user_id)
+                photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), user_id)
                 pic = discord.File(photo, filename = 'temp_photo.png')
                 embed.set_image(url = 'attachment://temp_photo.png')
                 await ctx.send(embed = embed, file = pic)
             
             embed = discord.Embed(title = user_id, color = 0xffffff)            
-            details = r'c:\Users\{}\Desktop\collected_pics\{}_details.png'.format(os.getlogin(), user_id)            
+            details = r"{}\temp_pics\{}_details.png".format(os.getcwd(), user_id)          
             pic = discord.File(details, filename = 'temp_details.png')            
             embed.set_image(url = 'attachment://temp_details.png')
             await ctx.send(embed = embed, file = pic)
 
             embed = discord.Embed(title = user_id, color = 0xffffff)            
-            marks = r'c:\Users\{}\Desktop\collected_pics\{}_marks.png'.format(os.getlogin(), user_id)
+            marks = r"{}\temp_pics\{}_marks.png".format(os.getcwd(), user_id)
             pic = discord.File(marks, filename = 'temp_marks.png')
             embed.set_image(url = 'attachment://temp_marks.png')            
             await ctx.send(embed = embed, file = pic)
 
             logger.discord_output_kcg(os.getcwd() + '\logger', '{0}_photo.png | {0}_details.png | {0}_marks.png'.format(user_id))
 
+            os.remove(photo)
             os.remove(details)
             os.remove(marks)
         
@@ -360,8 +373,10 @@ async def kcgstudent(ctx):
     except:
         pass
 
+
+
 @client.command(aliases=['kcgs', 'search'])
-async def kcgsearch(ctx):
+async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
 
     if discord_.check_authorization(ctx, 'owner'):
@@ -370,34 +385,29 @@ async def kcgsearch(ctx):
         embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
         await ctx.send(embed = embed)
         return
-
-    def check_year(year):
-        try:
-            if len(year) != 4:
-                pass#
-            year = int(year)
-            
-        except:
-            pass
-
-    if not mycon.is_connected():
-        mycon.close()
-        db.db_con()
-        print('\nDatabase Reconnected @kcgsearch')
         
     command = ctx.message.content.split()
-    check_year(command[2])
+
     try:
-        user_id = command[1]
+        if len(command[1]) == 4:
+            batch = str(int(command[1]) % 100)
+
+    except:
+        embed = discord.Embed(description = 'Invalid Year', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
+
+    try:
+        user_id = command[2]
     except:
         embed = discord.Embed(description = 'No id was given', color = 0xffffff)
         await ctx.send(embed = embed)
         return
 
-    depts = command[2:]
+    depts = command[3:]
 
 
-    student.search(user_id, depts)
+    student.search(batch, user_id, depts)
     
         
     
@@ -543,24 +553,6 @@ async def dbcheck(ctx):
     except:
         embed = discord.Embed(description = 'Fetching Not active', color = 0xffffff)
         await ctx.send(embed = embed) 
-
-
-@client.command(aliases = ['dbrecon'])
-async def dbreconnect(ctx):
-    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
-
-    if discord_.check_authorization(ctx, 'owner'):
-        pass
-    else:
-        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-        await ctx.send(embed = embed)
-        return
-    
-    mycon.close()
-    db.db_con()
-    print('\nDatabase Reconnected @dbrecon')
-    embed = discord.Embed(description = 'Database Reconnected', color = 0xffffff)
-    await ctx.send(embed = embed) 
 
 
 @client.command()

