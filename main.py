@@ -363,13 +363,30 @@ async def kcgstudent(ctx):
 @client.command(aliases=['kcgs', 'search'])
 async def kcgsearch(ctx):
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
+
+    if discord_.check_authorization(ctx, 'owner'):
+        pass
+    else:
+        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
+
+    def check_year(year):
+        try:
+            if len(year) != 4:
+                pass#
+            year = int(year)
+            if str
+        except:
+            pass
+
     if not mycon.is_connected():
         mycon.close()
         db.db_con()
         print('\nDatabase Reconnected @kcgsearch')
         
     command = ctx.message.content.split()
-
+    check_year(command[2])
     try:
         user_id = command[1]
     except:
@@ -378,6 +395,7 @@ async def kcgsearch(ctx):
         return
 
     depts = command[2:]
+
 
     student.search(user_id, depts)
     

@@ -178,6 +178,8 @@ class student:
                         corrected_depts.append(dept_)
         
         print(corrected_depts)
+
+        
         
 
 
