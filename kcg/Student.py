@@ -197,11 +197,12 @@ class student:
         def add_zero(value, length):
             value_len = len(value)
             req_len = length - value_len
-            value = req_length * '0' + value
+            value = req_len * '0' + value
 
             return value
         
         for dept in corrected_depts:
+            return
 
             check_rn = batch + dept + '1'
             if check_student_rollno(check_rn):
@@ -215,11 +216,16 @@ class student:
             if check_student_rollno(check_rn):
                 length = 3
             
+            num = 1
+            error_count = 0
+            
+            while True:
+                The_roll_no = batch + dept + add_zero(str(num), length)
+                if check_student_rollno(The_roll_no):
+                    pass
+                 
 
 
-
-
-        print(corrected_depts) 
             
 
 
