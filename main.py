@@ -548,7 +548,7 @@ async def dbcheck(ctx):
     
     try:
         mysql_cursor.execute('select * from auth_all')
-        embed = discord.Embed(description = 'Fetching Not active', color = 0xffffff)
+        embed = discord.Embed(description = 'Fetching active', color = 0xffffff)
         await ctx.send(embed = embed)
     except:
         embed = discord.Embed(description = 'Fetching Not active', color = 0xffffff)
@@ -561,7 +561,10 @@ async def tempcheck(ctx):
 
     mysql_cursor.execute('select * from auth_all')
     mysql_cursor.fetchall()
-    
+
+@client.command()
+async def stopbot(ctx):
+    return
 
 
 

@@ -1,0 +1,3 @@
+import main
+
+exec(main)
