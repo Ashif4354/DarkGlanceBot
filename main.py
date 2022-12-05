@@ -90,7 +90,7 @@ async def kcgstudent(ctx):
             embed.set_image(url = 'attachment://temp_photo.png')
             
             await ctx.send(embed = embed, file = pic)
-            #os.remove(photo)
+            os.remove(photo)
             logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
         
         #2
@@ -354,7 +354,7 @@ async def kcgstudent(ctx):
             else:
                 logger.discord_output_kcg(os.getcwd() + '\logger', '<no photo> | {0}_details.png | {0}_marks.png'.format(user_id))
 
-            #os.remove(photo)
+            os.remove(photo)
             os.remove(details)
             os.remove(marks)
         
