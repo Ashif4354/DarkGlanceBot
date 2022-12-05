@@ -582,6 +582,7 @@ async def dbcheck(ctx):
 
 @client.command()
 async def tempcheck(ctx):
+    return
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
     
     print('=========================================================================================================================================')
@@ -603,7 +604,7 @@ async def tempcheck(ctx):
 async def stopbot(ctx):
     return
 
-    
+
 ############################
 ##------------------------##
 client.run(discord_.token)##
