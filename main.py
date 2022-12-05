@@ -64,11 +64,8 @@ async def kcgstudent(ctx):
     try:#1
         #=========================================================================================================================================                
         if command[1] == 'photo': #get photo
-            if discord_.check_authorization(ctx, 'admin') or discord_.check_authorization(ctx, 'owner'):
-                pass
-            else:
-                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-                await ctx.send(embed = embed)
+            
+            if not await check_auth(ctx, ('owner', 'admin')):
                 return
 
             try:
@@ -93,18 +90,14 @@ async def kcgstudent(ctx):
             embed.set_image(url = 'attachment://temp_photo.png')
             
             await ctx.send(embed = embed, file = pic)
-            os.remove(photo)
+            #os.remove(photo)
             logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
         
         #2
         #=========================================================================================================================================
         elif command[1] == 'dob': #get date of birth
 
-            if discord_.check_authorization(ctx, 'admin') or discord_.check_authorization(ctx, 'owner'):
-                pass
-            else:
-                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-                await ctx.send(embed = embed)
+            if not await check_auth(ctx, ('owner', 'admin')):
                 return           
 
             await ctx.send('Please wait while we crack the date of birth')           
@@ -185,12 +178,9 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================
         elif command[1] == 'details': #get details
 
-            if discord_.check_authorization(ctx, 'admin') or discord_.check_authorization(ctx, 'owner'):
-                pass
-            else:
-                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-                await ctx.send(embed = embed)
+            if not await check_auth(ctx, ('owner', 'admin')):
                 return
+
             try:
                 await ctx.send('Please wait while we crack the date of birth') 
                 try:
@@ -299,11 +289,8 @@ async def kcgstudent(ctx):
         #8
         #=========================================================================================================================================
         elif command[1] == 'all': #get all details
-            if discord_.check_authorization(ctx, 'admin') or discord_.check_authorization(ctx, 'owner'):
-                pass
-            else:
-                embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-                await ctx.send(embed = embed)
+
+            if not await check_auth(ctx, ('owner', 'admin')):
                 return
             
             await ctx.send('This may take a while so please be patient..')
@@ -361,10 +348,13 @@ async def kcgstudent(ctx):
             pic = discord.File(marks, filename = 'temp_marks.png')
             embed.set_image(url = 'attachment://temp_marks.png')            
             await ctx.send(embed = embed, file = pic)
+            
+            if got_photo:
+                logger.discord_output_kcg(os.getcwd() + '\logger', '{0}_photo.png | {0}_details.png | {0}_marks.png'.format(user_id))
+            else:
+                logger.discord_output_kcg(os.getcwd() + '\logger', '<no photo> | {0}_details.png | {0}_marks.png'.format(user_id))
 
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{0}_photo.png | {0}_details.png | {0}_marks.png'.format(user_id))
-
-            os.remove(photo)
+            #os.remove(photo)
             os.remove(details)
             os.remove(marks)
         
@@ -379,11 +369,7 @@ async def kcgstudent(ctx):
 async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
 
-    if discord_.check_authorization(ctx, 'owner'):
-        pass
-    else:
-        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-        await ctx.send(embed = embed)
+    if not await check_auth(ctx, ('owner',)):
         return
         
     command = ctx.message.content.split()
@@ -431,11 +417,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
 async def authorize(ctx):
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')  
 
-    if discord_.check_authorization(ctx, 'owner'):
-        pass
-    else:
-        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-        await ctx.send(embed = embed)
+    if not await check_auth(ctx, ('owner',)):
         return
 
     command = ctx.message.content.split()
@@ -481,11 +463,7 @@ async def authorize(ctx):
 async def revoke(ctx):
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
 
-    if discord_.check_authorization(ctx, 'owner'):
-        pass
-    else:
-        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-        await ctx.send(embed = embed)
+    if not await check_auth(ctx, ('owner',)):
         return
 
     command = ctx.message.content.split()
@@ -519,24 +497,71 @@ async def revoke(ctx):
 
     try:
         discord_.revoke(user_name, role)
+        embed = discord.Embed(title = user_name,description = 'revoked of the role {}'.format(role), color = 0xffffff)
     except:
         embed = discord.Embed(description = 'user is already authorized', color = 0xffffff)
         await ctx.send(embed = embed)
         return 
 
-    embed = discord.Embed(title = user_name,description = 'revoked of the role {}'.format(role), color = 0xffffff)
+    
     await ctx.send(embed = embed)
+
+@client.command()
+async def block(ctx):
+    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    command = ctx.message.content.split()
+    
+    try:
+        user_name = command[1]
+    except:
+        embed = discord.Embed(description = 'No username given', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
+    
+    try:
+        discord_.block(user_name)
+        embed = discord.Embed(title = user_name,description = 'has been blocked', color = 0xffffff)
+        await ctx.send(embed = embed)
+    except:
+        embed = discord.Embed(description = 'User is already blocked', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
+
+@client.command()
+async def unblock(ctx):
+    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    command = ctx.message.content.split()
+    
+    try:
+        user_name = command[1]
+    except:
+        embed = discord.Embed(description = 'No username given', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
+    
+    try:
+        discord_.unblock(user_name)
+        embed = discord.Embed(title = user_name,description = 'has been unblocked', color = 0xffffff)
+        await ctx.send(embed = embed)
+    except:
+        embed = discord.Embed(description = 'User is not blocked', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
 
 
 @client.command()
 async def dbcheck(ctx):
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
     
-    if discord_.check_authorization(ctx, 'owner'):
-        pass
-    else:
-        embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
-        await ctx.send(embed = embed)
+    if not await check_auth(ctx, ('owner',)):
         return
 
     if not mycon.is_connected():
@@ -566,12 +591,7 @@ async def tempcheck(ctx):
 async def stopbot(ctx):
     return
 
-
-
-    
-        
-
-
-client.run(discord_.token)
-
+#-------------------------#
+client.run(discord_.token)#
+#-------------------------#
 
