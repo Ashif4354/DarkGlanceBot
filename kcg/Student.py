@@ -2,6 +2,7 @@ import requests
 import os
 from selenium import webdriver
 import time
+from requests_html import HTML, HTMLSession
 
 user_id_ = None
 browser = None
@@ -94,11 +95,20 @@ class student:
 
     
     def get_name(uid = user_id_):
-
+        with HTMLSession() as s:
+            fees_login_payload['txtuname'] = uid
+            post_ = s.post(fees_url, data = fees_login_payload)
+            response = s.get(post_.url)
+    
+            name = response.html.find('td')
+            #print(name[6].html.split('\n')[1].rstrip('</span>')[88:])
+    
+            return name[6].html.split('\n')[1].rstrip('</span>')[88:].rstrip()
+        '''
         name_ = browser.find_element_by_xpath('//*[@id="lblsname"]')
         name_ = name_.text
         browser.quit()
-        return name_
+        return name_'''
 
     
     def get_photo(uid = user_id_): 
@@ -175,13 +185,15 @@ class student:
         return rollno_
 
 
-    def search(batch, user_id, depts):
+    def search(batch, text, depts):
         
         corrected_depts = []
+        length = 0
+        students = []
 
         for element in depts:
             for dept_ in departments:
-                if element in departments[dept_]:
+                if element.lower() in departments[dept_]:
                     if dept_ not in corrected_depts:
                         corrected_depts.append(dept_)
         
@@ -200,40 +212,35 @@ class student:
 
             return value
 
-        def get_profile(roll):
-            global profile_page
-
-            with requests.Session() as session:
-                page = session.post(fees_url, data = fees_login_payload, timeout = 3)
-                if page.url != fees_url:
-                    profile_page = session.get(page.url)
-                    return True
-                return False
-
         for dept in corrected_depts:
             
-            check_rn = batch + dept + '1'
-            if check_student_rollno(check_rn):
+            if check_student_rollno(batch + dept + '1'):
                 length = 1
-
-            check_rn = batch + dept + '01'
-            if check_student_rollno(check_rn):
+            
+            elif check_student_rollno(batch + dept + '01'):
                 length = 2
-
-            check_rn = batch + dept + '001'
-            if check_student_rollno(check_rn):
+            
+            elif check_student_rollno(batch + dept + '001'):
                 length = 3
 
             num = 1
-            error_count = 0
+            error_count = 0            
             
             while error_count <= 5:
                 profile_page = None
                 The_roll_no = batch + dept + add_zero(str(num), length)
-                if get_profile(The_roll_no):
-                    pass
+                
+                name = student.get_name(The_roll_no)
+                
+                if name == '':
+                    error_count += 1
                 else:
-                    error += 1
+                    error_count = 0
+                    if text in name:
+                        students.append((The_roll_no, name))
+                num += 1
+            
+        return students
                  
 
 
@@ -252,5 +259,7 @@ class student:
 #print(student.get_name('20cs008'))
 #student.get_marks(uid = user_id_)
 #student.search('20', 'ashif', ['cs'])
+#print(student.get_name('20cs008'))
+#student.search('20', 'ashif', ('cs',))
 
 

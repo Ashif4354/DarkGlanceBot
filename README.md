@@ -6,6 +6,7 @@
     # selenium (pip install selenium==3.141.0)
     # discord (pip install discord)
     # requests (pip install requests)
+    # requests_html (pip install requests_html)
     # mysql.connector (pip install mysql-connector-python)
     # chrome installed
     # chrome driver (version should be equal to that of chrome) - should be in path

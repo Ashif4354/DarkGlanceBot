@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+from requests_html import HTML, HTMLSession
 
 url = 'http://studentonlinepayment.kcgcollege.ac.in/'
 
@@ -11,20 +11,14 @@ fees_login_payload = {
     '__VIEWSTATEGENERATOR' : 'CA0B0334',
     '__EVENTVALIDATION' : '/wEdAAa5cfVM3pWzdu9rE2vQn04A1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+c34O/GfAV4V4n0wgFZHr3fbr4+GviYj6YKdFlGPdh5Q23daRHDXkik+zyEsEtmUSg==',
     'rblOnlineAppLoginMode' : '0',
-    'txtuname' : '20cs008',
+    'txtuname' : '20cs093',
     'Button1' : 'Login'
     }
 
-with requests.Session() as s:
+with HTMLSession() as s:
     post_ = s.post(url, data = fees_login_payload)
     response = s.get(post_.url)
-
-    data = BeautifulSoup(response.text, 'html.parser')
     
-    images = data.find_all('img', src=True)
-    image_src = images[0]['src']
-
-    image = s.get('http://103.249.82.130/' + image_src)
-    print(image.content)
-    with open('a.jpg', 'wb') as file:
-        file.write(image.content)
+    name = response.html.find('td')
+    
+    print(name[6].html.split('\n')[1].rstrip('</span>')[88:])

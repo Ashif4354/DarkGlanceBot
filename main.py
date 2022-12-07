@@ -122,8 +122,8 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================
         elif command[1] == 'name': #get name           
 
-            student.fees_login(user_id)
-            name = student.get_name()
+            #student.fees_login(user_id)
+            name = student.get_name(user_id)
 
             embed = discord.Embed(title = user_id, description = name, color = 0xffffff)
             await ctx.send(embed = embed)
@@ -369,7 +369,7 @@ async def kcgstudent(ctx):
 @client.command(aliases=['kcgs', 'search'])
 async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
-    return
+    
 
     if not await check_auth(ctx, ('owner',)):
         return
@@ -377,7 +377,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     command = ctx.message.content.split()
 
     try:
-        if len(command[1]) == 4 and int(command[1]) in range(2012, date.today().year + 1):
+        if len(command[1]) == 4 and int(command[1]) in range(2012, date.today().year + 2):
             batch = str(int(command[1]) % 100)
         else:
             raise Exception
@@ -387,7 +387,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
         return
 
     try:
-        user_id = command[2]
+        search_text = command[2].upper()
     except:
         embed = discord.Embed(description = 'No id was given', color = 0xffffff)
         await ctx.send(embed = embed)
@@ -395,26 +395,21 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
 
     depts = command[3:]
 
+    embed = discord.Embed(description = 'Search started.. Please wait', color = 0xffffff)
+    await ctx.send(embed = embed)
 
-    student.search(batch, user_id, depts)
+    students = student.search(batch, search_text, depts)
+    #print(students)
+
+    if not students == []:
+        embed = discord.Embed(title = 'Search results for {} {}'.format(command[1], search_text), color = 0xffffff)
+        for i in students:
+            embed.add_field(name = i[0], value = i[1], inline = False)
+    else:
+        embed = discord.Embed(title = 'Search results for {} {}'.format(command[1], search_text), description = 'No results found!!', color = 0xffffff)
     
-        
-    
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
+    await ctx.send(embed = embed)
+    logger.discord_output_kcg(os.getcwd() + '\logger', 'Search results was fetched')
 
 @client.command()
 async def authorize(ctx):
