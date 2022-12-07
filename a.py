@@ -24,7 +24,7 @@ with requests.Session() as s:
     images = data.find_all('img', src=True)
     image_src = images[0]['src']
 
-    image = s.get(image_src)
-
-    with open('a.png', 'wb') as file:
+    image = s.get('http://103.249.82.130/' + image_src)
+    print(image.content)
+    with open('a.jpg', 'wb') as file:
         file.write(image.content)

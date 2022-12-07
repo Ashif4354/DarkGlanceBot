@@ -6,6 +6,7 @@ from darkglance import *
 from kcg.Student import student
 from kcg.finddob import find_student_dob
 from kcg.check import *
+from datetime import date
 import os
 from logger.logger import logger
 
@@ -368,6 +369,7 @@ async def kcgstudent(ctx):
 @client.command(aliases=['kcgs', 'search'])
 async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
+    return
 
     if not await check_auth(ctx, ('owner',)):
         return
@@ -375,11 +377,12 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     command = ctx.message.content.split()
 
     try:
-        if len(command[1]) == 4:
+        if len(command[1]) == 4 and int(command[1]) in range(2012, date.today().year + 1):
             batch = str(int(command[1]) % 100)
-
+        else:
+            raise Exception
     except:
-        embed = discord.Embed(description = 'Invalid Year', color = 0xffffff)
+        embed = discord.Embed(title = 'Invalid Year', description = 'Enter a year from 2012 - {}'.format(date.today().year), color = 0xffffff)
         await ctx.send(embed = embed)
         return
 

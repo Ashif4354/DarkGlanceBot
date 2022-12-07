@@ -73,7 +73,7 @@ class student:
         global user_id_, browser
         user_id_ = user_id #simply
         browser = webdriver.Chrome(options = options)
-        browser.get('http://studentonlinepayment.kcgcollege.ac.in/')
+        browser.get(fees_url)
 
         #login with register no
         if user_id[:4] == '3110':               
@@ -176,7 +176,6 @@ class student:
 
 
     def search(batch, user_id, depts):
-        return
         
         corrected_depts = []
 
@@ -189,7 +188,7 @@ class student:
         def check_student_rollno(user_id):
             fees_login_payload['txtuname'] = user_id    
             
-            page = requests.post(fees_url, data = fees_login_payload)
+            page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
             if page.url != fees_url:
                 return True    
             return False
@@ -200,10 +199,19 @@ class student:
             value = req_len * '0' + value
 
             return value
-        
-        for dept in corrected_depts:
-            return
 
+        def get_profile(roll):
+            global profile_page
+
+            with requests.Session() as session:
+                page = session.post(fees_url, data = fees_login_payload, timeout = 3)
+                if page.url != fees_url:
+                    profile_page = session.get(page.url)
+                    return True
+                return False
+
+        for dept in corrected_depts:
+            
             check_rn = batch + dept + '1'
             if check_student_rollno(check_rn):
                 length = 1
@@ -215,14 +223,17 @@ class student:
             check_rn = batch + dept + '001'
             if check_student_rollno(check_rn):
                 length = 3
-            
+
             num = 1
             error_count = 0
             
-            while True:
+            while error_count <= 5:
+                profile_page = None
                 The_roll_no = batch + dept + add_zero(str(num), length)
-                if check_student_rollno(The_roll_no):
+                if get_profile(The_roll_no):
                     pass
+                else:
+                    error += 1
                  
 
 
