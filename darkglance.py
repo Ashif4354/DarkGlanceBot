@@ -185,6 +185,8 @@ async def check_auth(ctx, roles):
             embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
             await ctx.send(embed = embed)
             return False
+
     except Blocked:
         embed = discord.Embed(title = 'YOU ARE BLOCKED', description = 'Contact DarkGlance#6849 for queries', color = 0xffffff)
         await ctx.send(embed = embed)
+        return False

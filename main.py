@@ -368,8 +368,7 @@ async def kcgstudent(ctx):
 
 @client.command(aliases=['kcgs', 'search'])
 async def kcgsearch(ctx): # .kcgs 2020 ashif cs
-    logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
-    
+    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')     
 
     if not await check_auth(ctx, ('owner',)):
         return
@@ -410,6 +409,20 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     
     await ctx.send(embed = embed)
     logger.discord_output_kcg(os.getcwd() + '\logger', 'Search results was fetched')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @client.command()
 async def authorize(ctx):
