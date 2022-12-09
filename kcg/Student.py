@@ -97,13 +97,17 @@ class student:
     def get_name(uid = user_id_):
         with HTMLSession() as s:
             fees_login_payload['txtuname'] = uid
-            post_ = s.post(fees_url, data = fees_login_payload)
-            response = s.get(post_.url)
+            try:
+                post_ = s.post(fees_url, data = fees_login_payload, timeout = 3)
+                response = s.get(post_.url)
     
-            name = response.html.find('td')
-            #print(name[6].html.split('\n')[1].rstrip('</span>')[88:])
+                name = response.html.find('td')
+                #print(name[6].html.split('\n')[1].rstrip('</span>')[88:])
     
-            return name[6].html.split('\n')[1].rstrip('</span>')[88:].rstrip()
+                return name[6].html.split('\n')[1].rstrip('</span>')[88:].rstrip()
+            except:
+                print(uid)
+                return student.get_name(uid)
         '''
         name_ = browser.find_element_by_xpath('//*[@id="lblsname"]')
         name_ = name_.text
@@ -202,11 +206,16 @@ class student:
         
         def check_student_rollno(user_id):
             fees_login_payload['txtuname'] = user_id    
+            #print(user_id)
+            try:
+                page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+                if page.url != fees_url:
+                    return True    
+                return False
+            except:
+                print('check', user_id)
+                return check_student_rollno(user_id)
             
-            page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
-            if page.url != fees_url:
-                return True    
-            return False
         
         def add_zero(value, length):
             value_len = len(value)

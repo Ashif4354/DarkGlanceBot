@@ -176,13 +176,13 @@ class discord_:
         mysql_cursor.execute("DELETE FROM block_list WHERE name = '{}';".format(user_name))
         dbdisconnect()
 
-async def check_auth(ctx, roles):
+async def check_auth(ctx, roles, message = 'You dont have authorization to use this command'):
     try:
         for role in roles:
             if discord_.check_authorization(ctx, role):
                 return True
         else:
-            embed = discord.Embed(description = 'You dont have authorization to use this command', color = 0xffffff)
+            embed = discord.Embed(description = ctx.message.author.mention + message, color = 0xffffff)
             await ctx.send(embed = embed)
             return False
 

@@ -131,7 +131,7 @@ def find_student_dob(user_id, year_of_birth = None):
     raise Exception   
 
 
-#find_student_dob('20cs023')  
+#find_student_dob('20cs050')  
 
 #find_student_dob('311020104023', '2003')                        
             

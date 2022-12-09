@@ -395,7 +395,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     depts = command[3:]
     
     if depts[0].lower() == 'all':
-        if not await check_auth(ctx, ('owner',)):
+        if not await check_auth(ctx, ('owner',), 'You are not authorized to search all departments'):
             return
 
     embed = discord.Embed(description = 'Search started.. Please wait', color = 0xffffff)
