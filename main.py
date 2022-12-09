@@ -370,7 +370,7 @@ async def kcgstudent(ctx):
 async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')     
 
-    if not await check_auth(ctx, ('owner',)):
+    if not await check_auth(ctx, ('owner', 'admin')):
         return
         
     command = ctx.message.content.split()
@@ -393,6 +393,10 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
         return
 
     depts = command[3:]
+    
+    if depts[0].lower() == 'all':
+        if not await check_auth(ctx, ('owner',)):
+            return
 
     embed = discord.Embed(description = 'Search started.. Please wait', color = 0xffffff)
     await ctx.send(embed = embed)

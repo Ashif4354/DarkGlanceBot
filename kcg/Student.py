@@ -190,12 +190,15 @@ class student:
         corrected_depts = []
         length = 0
         students = []
-
-        for element in depts:
-            for dept_ in departments:
-                if element.lower() in departments[dept_]:
-                    if dept_ not in corrected_depts:
-                        corrected_depts.append(dept_)
+        
+        if depts[0].lower() == 'all':
+            corrected_depts = departments.keys()
+        else:
+            for element in depts:
+                for dept_ in departments:
+                    if element.lower() in departments[dept_]:
+                        if dept_ not in corrected_depts:
+                            corrected_depts.append(dept_)
         
         def check_student_rollno(user_id):
             fees_login_payload['txtuname'] = user_id    
