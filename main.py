@@ -370,7 +370,7 @@ async def kcgstudent(ctx):
 async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')     
 
-    if not await check_auth(ctx, ('owner', 'admin')):
+    if not await check_auth(ctx, ('owner')):
         return
         
     command = ctx.message.content.split()
