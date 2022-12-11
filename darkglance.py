@@ -100,6 +100,7 @@ server_status_embed = None
 
 class kcg_:
     def check_server():
+        global server_status_embed
 
         server_status_embed = discord.Embed(title = 'KCG Server status', color = 0xffffff)
         fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
