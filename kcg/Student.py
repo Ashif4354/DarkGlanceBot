@@ -3,6 +3,8 @@ import os
 from selenium import webdriver
 import time
 from requests_html import HTML, HTMLSession
+from datetime import datetime
+import asyncio
 
 user_id_ = None
 browser = None
@@ -54,7 +56,6 @@ class student:
 
         browser = webdriver.Chrome(options = options)
         browser.get('http://studentlogin.kcgcollege.ac.in/')
-
         #login with register no
         if user_id[:4] == '3110':               
             register_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[2]')
@@ -104,14 +105,13 @@ class student:
         with HTMLSession() as s:
             fees_login_payload['txtuname'] = uid
             try:
-                post_ = s.post(fees_url, data = fees_login_payload, timeout = 3)
+                post_ = s.post(fees_url, data = fees_login_payload, timeout = 10)
                 response = s.get(post_.url)
     
                 name = response.html.find('td')
                 #print(name[6].html.split('\n')[1].rstrip('</span>')[88:])
     
-                return name[6].html.split('\n')[1].rstrip('</span>')[88:].rstrip()
-
+                return name[6].html.split('\n')[1].rstrip('</span> ')[88:]
             except Exception:
                 raise server_down
         '''
@@ -195,26 +195,36 @@ class student:
         return rollno_
 
 
-    def search(batch, text, depts):
+    def search(batch, text, depts, log_path = f'{os.getcwd()}\searchlogs\\'):
+
+        date_time = datetime.now().strftime("%d-%m-%Y %H;%M;%S")
+        file = open(f'{log_path}[{date_time}]   {batch} {text} {depts}.log', 'a')
+        file.write(f'Search LOG for  {batch} {text} {depts}\n\n')
         
         corrected_depts = []
         length = 0
         students = []
+        traverse_count = 1
         
-        if depts[0].lower() == 'all':
-            corrected_depts = departments.keys()
-        else:
-            for element in depts:
-                for dept_ in departments:
-                    if element.lower() in departments[dept_]:
-                        if dept_ not in corrected_depts:
-                            corrected_depts.append(dept_)
+        try:
+            if depts[0] == 'all':
+                corrected_depts = departments.keys()
+            else:
+                for element in depts:
+                    for dept_ in departments:
+                        if element.lower() in departments[dept_]:
+                            if dept_ not in corrected_depts:
+                                corrected_depts.append(dept_)
+        except IndexError:
+            pass
         
+        file.write(f'\nCorrected departments  :  {corrected_depts}\n')
+
         def check_student_rollno(user_id):
             fees_login_payload['txtuname'] = user_id    
             #print(user_id)
             try:
-                page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+                page = requests.post(fees_url, data = fees_login_payload, timeout = 10)
                 if page.url != fees_url:
                     return True    
                 return False
@@ -230,32 +240,49 @@ class student:
 
         for dept in corrected_depts:
             
+
+            file.write(f'\n\nSearching in dept {dept}\n')
             if check_student_rollno(batch + dept + '1'):
                 length = 1
+                file.write(f"roll number format found out to be  :  {batch + dept + '1'}")
             
             elif check_student_rollno(batch + dept + '01'):
                 length = 2
+                file.write(f"roll number format found out to be  :  {batch + dept + '01'}")
             
             elif check_student_rollno(batch + dept + '001'):
                 length = 3
+                file.write(f"roll number format found out to be  :  {batch + dept + '001'}")
 
             num = 1
             error_count = 0            
             
+            file.write('\n\n')
+
             while error_count <= 5:
+
                 profile_page = None
                 The_roll_no = batch + dept + add_zero(str(num), length)
-                
+
                 name = student.get_name(The_roll_no)
+
+                file.write(f'{traverse_count}  {The_roll_no}  {name}')
                 
                 if name == '':
                     error_count += 1
+                    file.write('\n')
                 else:
                     error_count = 0
                     if text in name:
                         students.append((The_roll_no, name))
+                        file.write('  (MATCH)\n')
+                    else:
+                        file.write('\n')
                 num += 1
-            
+                traverse_count += 1
+
+        file.close()
+
         return students
                  
 
