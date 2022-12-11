@@ -385,7 +385,7 @@ async def adddob(ctx):
 
     if not await check_auth(ctx, ('owner')):
         return
-        
+
     try:
         command = ctx.message.content.split()
 
@@ -399,13 +399,14 @@ async def adddob(ctx):
             mysql_cursor.execute(f"INSERT INTO dobs VALUES('{user_id}', '{dob_}')")
         except:
             mysql_cursor.execute(f"UPDATE dobs SET dob = '{dob_}' WHERE id = '{user_id}'")
+        mysql_cursor.close()
+        mycon.close()
 
     except Exception as e:
         embed = discord.Embed(title = 'ERROR', description = e, color = 0xffffff)
         await ctx.send(embed = embed)
 
-    mysql_cursor.close()
-    mycon.close()
+    
         
 
 @client.command()
