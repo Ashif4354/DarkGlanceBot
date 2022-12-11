@@ -3,7 +3,7 @@ file_path = None
 
 class logger:
     def complete_log(path, mode, text):
-        with open('{}\complete_log.txt'.format(path), 'a') as file:
+        with open('{}\complete_log.log'.format(path), 'a') as file:
             log = text[:19] + mode + text[19:]
             file.write(log)
     
@@ -16,8 +16,8 @@ class logger:
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
-        with open('{}\discord_input_kcg.txt'.format(path), 'a') as file:
-            log = date_time + ' ' + author + '  ' + text + '\n'
+        with open('{}\discord_input_kcg.log'.format(path), 'a') as file:
+            log = '\n' + date_time + ' ' + author + '  ' + text + '\n'
             file.write(log)
             logger.complete_log(path, '  INPUT  ', log)
 
@@ -28,7 +28,7 @@ class logger:
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
          
-        with open('{}\discord_output.txt'.format(path), 'a') as file:   
+        with open('{}\discord_output.log'.format(path), 'a') as file:   
             log = date_time + ' ' + file_name + '\n'
             file.write(log)
             logger.complete_log(path, '  OUTPUT ', log + '\n')
