@@ -1,6 +1,9 @@
 import mysql.connector
 import discord
+import requests
 
+#############################################################################################################################################################
+#############################################################################################################################################################
 value_name =  'Fetches the Name of the student \nThis command can be used by all user'
 value_marks = 'Fetches Marks of the student \nThis command can be used by all users'
 value_registernumber = 'Fetches Register number of the student \nThis command can be used by all users'
@@ -29,7 +32,18 @@ help_embed.add_field(name = '.kcgstudent details <reg_no / roll_no>', value = va
 help_embed.add_field(name = '.kcgstudent all <reg_no / roll_no>', value = value_all, inline = False)
 help_embed.add_field(name = '.kcgsearch <year> <keyword> <department>', value = value_search, inline = False)
 help_embed.set_footer(text = 'DarkGlanceBOT is just made for educational/testing purpose, So please dont misuse')
+#############################################################################################################################################################
+#############################################################################################################################################################
 
+error_message = '''- College server down
+- College server timed out
+'''
+
+server_error_embed = discord.Embed(title = 'Some error has occured',color = 0xffffff)
+server_error_embed.add_field(name = 'This may be due to the following reasons', value = error_message, inline = False)
+
+#############################################################################################################################################################
+#############################################################################################################################################################
 mycon = None
 mysql_cursor = None
 
@@ -47,54 +61,40 @@ def dbdisconnect():
     mysql_cursor.close()
     mycon.close()
 
+
+#############################################################################################################################################################
+#############################################################################################################################################################
+
 #user defined exceptions
 class Blocked(Exception):
     pass
 
 
+#############################################################################################################################################################
+#############################################################################################################################################################
 
 dbconnect()
 
-query1 = 'CREATE TABLE role_owner(name varchar(30) primary key)'
-query2 = 'CREATE TABLE role_admin(name varchar(30) primary key)'
-query3 = 'CREATE TABLE auth_all(value varchar(6) primary key)'
-#query4 = "INSERT INTO auth_all VALUES('False')"
-#query5 = "INSERT INTO role_owner value('DarkGlance#6849')"
-query6 = 'CREATE TABLE block_list(name varchar(30) primary key)'
-query_create_table = 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
+queries = {
+    'query1' : 'CREATE TABLE role_owner(name varchar(30) primary key)',
+    'query2' : 'CREATE TABLE role_admin(name varchar(30) primary key)',
+    'query3' : 'CREATE TABLE auth_all(value varchar(6) primary key)',
+    #'query4' : "INSERT INTO auth_all VALUES('False')",
+    #'query5' : "INSERT INTO role_owner value('DarkGlance#6849')",
+    'query6' : 'CREATE TABLE block_list(name varchar(30) primary key)',
+    'query_create_table' : 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
+}
 
-try:
-    mysql_cursor.execute(query1)
-except:
-    pass
-    
-try:
-    mysql_cursor.execute(query2)
-except:
-    pass
+for query in queries:
+    try:
+        mysql_cursor.execute(queries[query])
+    except:
+        pass
 
-try:
-    mysql_cursor.execute(query3)    
-except:
-    pass
-    
-try:
-    mysql_cursor.execute(query6)    
-except:
-    pass
-
-try:
-    mysql_cursor.execute(query_create_table)
-except:
-    pass
-"""
-try:
-    mysql_cursor.execute(query4)
-    mysql_cursor.execute(query5)
-except:
-    pass
-"""
 dbdisconnect()
+
+#############################################################################################################################################################
+#############################################################################################################################################################
 
 class discord_:
     token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'
@@ -190,3 +190,9 @@ async def check_auth(ctx, roles, message = 'You dont have authorization to use t
         embed = discord.Embed(title = 'YOU ARE BLOCKED', description = 'Contact DarkGlance#6849 for queries', color = 0xffffff)
         await ctx.send(embed = embed)
         return False
+
+
+
+
+#############################################################################################################################################################
+#############################################################################################################################################################

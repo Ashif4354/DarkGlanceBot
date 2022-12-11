@@ -1,15 +1,3 @@
-import asyncio
-import time
+import urllib.request
 
-async def main():
-    print(1)
-    task = asyncio.create_task(foo('text'))
-    
-
-    print(3)
-
-async def foo(text):
-    print(text)
-
-
-asyncio.run(main())  
+print(urllib.request.urlopen("http://studentonlinepayment.kcgcollege.ac.in/").getcode())

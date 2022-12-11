@@ -39,6 +39,10 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
+class server_down(Exception):
+    pass
+
+
 class student:
     
     def student_login(user_id, user_dob):
@@ -105,9 +109,9 @@ class student:
                 #print(name[6].html.split('\n')[1].rstrip('</span>')[88:])
     
                 return name[6].html.split('\n')[1].rstrip('</span>')[88:].rstrip()
-            except:
-                print(uid)
-                return student.get_name(uid)
+
+            except Exception:
+                raise server_down
         '''
         name_ = browser.find_element_by_xpath('//*[@id="lblsname"]')
         name_ = name_.text
@@ -212,10 +216,8 @@ class student:
                 if page.url != fees_url:
                     return True    
                 return False
-            except:
-                print('check', user_id)
-                return check_student_rollno(user_id)
-            
+            except Exception:
+                raise server_down
         
         def add_zero(value, length):
             value_len = len(value)

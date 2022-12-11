@@ -3,7 +3,7 @@
 import discord
 from discord.ext import commands
 from darkglance import *
-from kcg.Student import student
+from kcg.Student import student, server_down
 from kcg.finddob import find_student_dob
 from kcg.check import *
 from datetime import date
@@ -50,11 +50,15 @@ async def kcgstudent(ctx):
         await ctx.send(embed = embed)
         return    
 
-    if check_student_id(user_id):
-        pass
-    else:
-        embed = discord.Embed(description = 'Invalid Register / Roll number', color = 0xffffff)
-        await ctx.send(embed = embed)
+    try:
+        if check_student_id(user_id):
+            pass
+        else:
+            embed = discord.Embed(description = 'Invalid Register / Roll number', color = 0xffffff)
+            await ctx.send(embed = embed)
+            return
+    except server_down:
+        await ctx.send(embed = server_error_embed)
         return 
 
     try:
@@ -401,7 +405,12 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     embed = discord.Embed(description = 'Search started.. Please wait', color = 0xffffff)
     await ctx.send(embed = embed)
 
-    students = student.search(batch, search_text, depts)
+    try:
+        students = student.search(batch, search_text, depts)
+    except server_down:
+        await ctx.send(embed = server_error_embed)
+        return
+
     #print(students)
 
     if not students == []:
