@@ -4,7 +4,7 @@ file_path = None
 class logger:
     def complete_log(path, mode, text):
         with open('{}\complete_log.log'.format(path), 'a') as file:
-            log = text[:19] + mode + text[19:]
+            log = text[:20] + mode + text[20:]
             file.write(log)
     
     def discord_input_kcg(command, path):
@@ -31,6 +31,6 @@ class logger:
         with open('{}\discord_output.log'.format(path), 'a') as file:   
             log = date_time + ' ' + file_name + '\n'
             file.write(log)
-            logger.complete_log(path, '  OUTPUT ', log + '\n')
+            logger.complete_log(path, ' OUTPUT  ', log + '\n')
     
     
