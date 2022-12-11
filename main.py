@@ -67,7 +67,7 @@ async def kcgstudent(ctx):
             embed = discord.Embed(description = 'Invalid Register / Roll number', color = 0xffffff)
             await ctx.send(embed = embed)
             return
-    except server_down:
+    except Exception:
         await ctx.send(embed = server_error_embed)
         return 
 
