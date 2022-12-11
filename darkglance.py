@@ -96,13 +96,13 @@ dbdisconnect()
 #############################################################################################################################################################
 #############################################################################################################################################################
 
-server_status_embed = None
+server_status_embed = discord.Embed(title = 'KCG Server status', color = 0xffffff)
 
 class kcg_:
     def check_server():
-        global server_status_embed
-
+        
         server_status_embed = discord.Embed(title = 'KCG Server status', color = 0xffffff)
+
         fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
         student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
@@ -154,7 +154,7 @@ class kcg_:
         except Exception:
             server_status_embed.add_field(name = 'Student Login', value = 'Negative', inline = False)
         
-        
+        return server_status_embed
             
 
 #############################################################################################################################################################

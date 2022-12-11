@@ -35,8 +35,8 @@ async def checkkcgserver(ctx):
     if not await check_auth(ctx, ('owner')):
         return
     #print('wait')
-    kcg_.check_server()
-    await ctx.send(embed = server_status_embed)
+    
+    await ctx.send(embed = kcg_.check_server())
        
 @client.command(aliases=['kcg', 'student'])   
 async def kcgstudent(ctx):    
