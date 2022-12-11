@@ -27,6 +27,16 @@ async def hi(ctx):
 async def dghelp(ctx) :
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
     await ctx.send(embed = help_embed)
+
+@client.command(aliases = ['cks'])
+async def checkkcgserver(ctx):    
+    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
+
+    if not await check_auth(ctx, ('owner')):
+        return
+    #print('wait')
+    kcg_.check_server()
+    await ctx.send(embed = server_status_embed)
        
 @client.command(aliases=['kcg', 'student'])   
 async def kcgstudent(ctx):    
