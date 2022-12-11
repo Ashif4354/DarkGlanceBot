@@ -82,7 +82,7 @@ queries = {
     #'query4' : "INSERT INTO auth_all VALUES('False')",
     #'query5' : "INSERT INTO role_owner value('DarkGlance#6849')",
     'query6' : 'CREATE TABLE block_list(name varchar(30) primary key)',
-    'query_create_table' : 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
+    'query7' : 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
 }
 
 for query in queries:

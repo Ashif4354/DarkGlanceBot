@@ -380,7 +380,33 @@ async def kcgstudent(ctx):
 
 
 
+@client.command()
+async def adddob(ctx):
 
+    if not await check_auth(ctx, ('owner')):
+        return
+        
+    try:
+        command = ctx.message.content.split()
+
+        user_id = command[1]
+        dob_ = command[2]
+
+        mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root", database = 'kcg', autocommit = True)
+        mysql_cursor = mycon.cursor()
+
+        try:
+            mysql_cursor.execute(f"INSERT INTO dobs VALUES('{user_id}', '{dob_}')")
+        except:
+            mysql_cursor.execute(f"UPDATE dobs SET dob = '{dob_}' WHERE id = '{user_id}'")
+
+    except Exception as e:
+        embed = discord.Embed(title = 'ERROR', description = e, color = 0xffffff)
+        await ctx.send(embed = embed)
+
+    mysql_cursor.close()
+    mycon.close()
+        
 
 @client.command()
 async def authorize(ctx):
