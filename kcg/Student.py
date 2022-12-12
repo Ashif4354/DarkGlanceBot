@@ -203,6 +203,9 @@ class student:
     def search(ctx, batch, text, depts, log_path = f'{os.getcwd()}\searchlogs\\'):
 
         date_time = datetime.now().strftime("%d-%m-%Y %H;%M;%S")
+
+        if text == '*':
+            text = 'all'
         file = open(f'{log_path}[{date_time}]   {batch} {text} {depts}.log', 'a')
         file.write(f'Search LOG for  {batch} {text} {depts}\n')
         file.write(f'Requested by {ctx.message.author}\n\n')
@@ -282,7 +285,7 @@ class student:
                     file.write('\n')
                 else:
                     null_count = 0
-                    if text in name or text == '*':
+                    if text in name or text == 'all':
                         students.append((The_roll_no, name))
                         file.write('  (MATCH)\n')
                     else:
