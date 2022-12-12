@@ -4,6 +4,7 @@ from darkglance import *
 from kcg.Student import student, server_down
 from logger.logger import logger
 import os
+from datetime import date
 
 client = commands.Bot(command_prefix = '.')
 
@@ -23,7 +24,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     #print(command)
     
     try:
-        if len(command[1]) == 4 :
+        if len(command[1]) == 4 and int(command[1]) in range(2012, date.today().year + 1):
             batch = str(int(command[1]) % 100)
         else:
             raise Exception
@@ -33,7 +34,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
         return
 
     try:
-        search_text = command[2].upper().strip("' ")
+        search_text = command[2].upper()
     except:
         embed = discord.Embed(description = 'No id was given', color = 0xffffff)
         await ctx.send(embed = embed)
@@ -48,26 +49,51 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
                 return
     except IndexError:
         pass
-
-    embed = discord.Embed(title = 'Search started..', description =  f'Batch : {batch}\nKeyword : {search_text}\n departments = {depts}', color = 0xffffff)
+    
+    depts_ = str(depts).strip("[]").replace("'", ' ')
+    embed = discord.Embed(title = 'Search started..', description =  f'Batch : {command[1]}\nKeyword : {search_text}\nDepartments : {depts_}', color = 0xffffff)
     await ctx.send(embed = embed)
 
     try:
-        students = student.search(batch, search_text, depts, log_path = f'{os.getcwd()}\logger\searchlogs\\')
+        students = student.search(ctx, batch, search_text, depts, log_path = f'{os.getcwd()}\logger\searchlogs\\')
     except server_down:
         await ctx.send(embed = server_error_embed)
         return
 
     #print(students)
+    
 
     if not students == []:
-        embed = discord.Embed(title = 'Search results for {} {}'.format(command[1], search_text), color = 0xffffff)
-        for i in students:
-            embed.add_field(name = i[0], value = i[1], inline = False)
+        if len(students) <= 25:
+            embed = discord.Embed(title = 'Search results for {} {}'.format(command[1], search_text), color = 0xffffff)
+            for i in students:
+                embed.add_field(name = i[0], value = i[1], inline = False)
+            await ctx.send(embed = embed)
+                
+        else:
+            count = 0 
+            page = 1  
+            embeds = {}
+            
+            for i in students:
+                if count == 0:
+                    embeds[f'Page{page}'] = discord.Embed(title = 'Search results for {} {}'.format(command[1], search_text), description = f'(Page {page})', color = 0xffffff)
+
+                embeds[f'Page{page}'].add_field(name = i[0], value = i[1], inline = False)
+
+                if count == 24:
+                    page += 1
+                    count = 0
+            
+                else:
+                    count += 1
+
+            for embed in embeds:
+                await ctx.send(embed = embeds[embed])
+            
     else:
         embed = discord.Embed(title = 'Search results for {} {}'.format(command[1], search_text), description = 'No results found!!', color = 0xffffff)
     
-    await ctx.send(embed = embed)
     logger.discord_output_kcg(os.getcwd() + '\logger', 'Search results was fetched')
 
 

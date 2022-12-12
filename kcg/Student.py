@@ -112,7 +112,12 @@ class student:
                 #print(name[6].html.split('\n')[1].rstrip('</span>')[88:])
     
                 return name[6].html.split('\n')[1].rstrip('</span> ')[88:]
-            except Exception:
+            except Exception as e:
+                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  ', e)
+                try:
+                    file.close()
+                except:
+                    pass
                 raise server_down
         '''
         name_ = browser.find_element_by_xpath('//*[@id="lblsname"]')
@@ -195,11 +200,13 @@ class student:
         return rollno_
 
 
-    def search(batch, text, depts, log_path = f'{os.getcwd()}\searchlogs\\'):
+    def search(ctx, batch, text, depts, log_path = f'{os.getcwd()}\searchlogs\\'):
 
         date_time = datetime.now().strftime("%d-%m-%Y %H;%M;%S")
         file = open(f'{log_path}[{date_time}]   {batch} {text} {depts}.log', 'a')
-        file.write(f'Search LOG for  {batch} {text} {depts}\n\n')
+        file.write(f'Search LOG for  {batch} {text} {depts}\n')
+        file.write(f'Requested by {ctx.message.author}\n\n')
+
         
         corrected_depts = []
         length = 0
@@ -228,7 +235,9 @@ class student:
                 if page.url != fees_url:
                     return True    
                 return False
-            except Exception:
+            except Exception as e:
+                print(date_time, '  ', e)
+                file.close()
                 raise server_down
         
         def add_zero(value, length):
@@ -255,11 +264,11 @@ class student:
                 file.write(f"roll number format found out to be  :  {batch + dept + '001'}")
 
             num = 1
-            error_count = 0            
+            null_count = 0            
             
             file.write('\n\n')
 
-            while error_count <= 5:
+            while null_count < 5:
 
                 profile_page = None
                 The_roll_no = batch + dept + add_zero(str(num), length)
@@ -269,11 +278,11 @@ class student:
                 file.write(f'{traverse_count}  {The_roll_no}  {name}')
                 
                 if name == '':
-                    error_count += 1
+                    null_count += 1
                     file.write('\n')
                 else:
-                    error_count = 0
-                    if text in name:
+                    null_count = 0
+                    if text in name or text == '*':
                         students.append((The_roll_no, name))
                         file.write('  (MATCH)\n')
                     else:
