@@ -13,8 +13,8 @@ async def on_ready():
     print("\nServer has been started")
     print("DarkGlanceBot is ready to Search")
 
-@client.command(aliases=['kcgs', 'search'])
-async def kcgsearch(ctx): # .kcgs 2020 ashif cs
+@client.command(aliases = ['kcgs', 'search'])
+async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')     
 
     if not await check_auth(ctx, ('owner')):
@@ -36,7 +36,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs
     try:
         search_text = command[2].upper()
     except:
-        embed = discord.Embed(description = 'No id was given', color = 0xffffff)
+        embed = discord.Embed(description = 'No search keyword was given', color = 0xffffff)
         await ctx.send(embed = embed)
         return
 

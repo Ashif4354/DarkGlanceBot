@@ -38,7 +38,7 @@ async def checkkcgserver(ctx):
     
     await ctx.send(embed = kcg_.check_server())
        
-@client.command(aliases=['kcg', 'student'])   
+@client.command(aliases = ['kcg', 'student'])   
 async def kcgstudent(ctx):    
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')     
 
@@ -405,6 +405,7 @@ async def kcgstudent(ctx):
 
 @client.command()
 async def adddob(ctx):
+    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
 
     if not await check_auth(ctx, ('owner')):
         return
@@ -427,9 +428,7 @@ async def adddob(ctx):
 
     except Exception as e:
         embed = discord.Embed(title = 'ERROR', description = e, color = 0xffffff)
-        await ctx.send(embed = embed)
-
-    
+        await ctx.send(embed = embed)    
         
 
 @client.command()

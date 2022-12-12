@@ -2,7 +2,6 @@ import requests
 import os
 from selenium import webdriver
 import time
-from requests_html import HTML, HTMLSession
 from datetime import datetime
 from bs4 import BeautifulSoup
 import base64
@@ -298,8 +297,7 @@ class student:
 
             return value
 
-        for dept in corrected_depts:
-            
+        for dept in corrected_depts:            
 
             file.write(f'\n\nSearching in dept {dept}\n')
             if check_student_rollno(batch + dept + '1'):
@@ -321,7 +319,6 @@ class student:
 
             while null_count < 5:
 
-                profile_page = None
                 The_roll_no = batch + dept + add_zero(str(num), length)
 
                 name = student.get_name(The_roll_no)
@@ -380,10 +377,10 @@ class student:
 
             except NoPhoto:
                 return (name, False)
-
-
+                
             except Exception as e:
-                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', ' in get np', e)
+                pass
+                #print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', ' in get np', e)
                 
 
 
