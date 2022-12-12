@@ -38,7 +38,7 @@ fees_login_payload = {
     '__VIEWSTATEGENERATOR' : 'CA0B0334',
     '__EVENTVALIDATION' : '/wEdAAa5cfVM3pWzdu9rE2vQn04A1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+c34O/GfAV4V4n0wgFZHr3fbr4+GviYj6YKdFlGPdh5Q23daRHDXkik+zyEsEtmUSg==',
     'rblOnlineAppLoginMode' : '0',
-    'txtuname' : '20cs001',
+    'txtuname' : None,
     'Button1' : 'Login'
     }
 
@@ -107,16 +107,21 @@ class student:
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_name(uid = user_id_):
-        with HTMLSession() as s:
+        if uid[:4] == '3110' :
+            fees_login_payload['rblOnlineAppLoginMode'] = '1'
+
+        with requests.Session() as s:
             fees_login_payload['txtuname'] = uid
             try:
-                post_ = s.post(fees_url, data = fees_login_payload, timeout = 10)
-                response = s.get(post_.url)
-    
-                name = response.html.find('td')
-                #print(name[6].html.split('\n')[1].rstrip('</span>')[88:])
-    
-                return name[6].html.split('\n')[1].rstrip('</span> ')[88:]
+                page = s.post(fees_url, data = fees_login_payload, timeout = 10)
+                page = s.get(page.url)
+
+                souped = BeautifulSoup(page.content, 'html.parser')
+                texts = souped.find_all('span')
+                name = texts[2].text.strip()
+
+                return name
+
             except Exception as e:
                 print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  ', e)
                 try:
@@ -132,6 +137,9 @@ class student:
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_photo(uid = user_id_): 
+        if uid[:4] == '3110' :
+            fees_login_payload['rblOnlineAppLoginMode'] = '1'
+
         with requests.Session() as s:
 
             try:
@@ -155,7 +163,7 @@ class student:
             except NoPhoto:
                 pass
             except Exception as e:
-                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  ', e)
+                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
                 try:
                     file.close()
                 except:
@@ -337,7 +345,51 @@ class student:
 
         return students
 
-    #-----------------------------------------------------------------------------------------------------------------------------------------------------            
+    #----------------------------------------------------------------------------------------------------------------------------------------------------- 
+    def get_np(uid):
+        if uid[:4] == '3110' :
+            fees_login_payload['rblOnlineAppLoginMode'] = '1'
+        else:
+            fees_login_payload['rblOnlineAppLoginMode'] = '0'
+
+        with requests.Session() as s:
+            
+            try:
+                fees_login_payload['txtuname'] = uid
+
+                page = s.post(fees_url, data = fees_login_payload, timeout = 5)
+                page = s.get(page.url)
+
+                souped = BeautifulSoup(page.content, 'html.parser')
+                texts = souped.find_all('span')
+                name = texts[2].text.strip()
+
+                imgs = souped.find_all('img')
+                img = imgs[0].attrs.get('src')[22:]
+
+                if img[:3] != '/9j':
+                    raise NoPhoto
+        
+                img = bytes(img, 'utf-8')   
+
+                path = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), uid)
+                with open(path, 'wb') as file:
+                    file.write(base64.decodebytes(img))
+                
+                return (name, True)
+
+            except NoPhoto:
+                return (name, False)
+
+
+            except Exception as e:
+                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', ' in get np', e)
+                
+
+
+
+
+
 
 #_________________________________________________________________________________________________________________________________________________________
             

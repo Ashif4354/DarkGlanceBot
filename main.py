@@ -42,7 +42,10 @@ async def checkkcgserver(ctx):
 async def kcgstudent(ctx):    
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')     
 
-    functions = ('photo', 'dob', 'name', 'marks', 'details', 'registernumber', 'rollnumber', 'all')
+    functions = ('photo', 'dob', 'name', 'marks', 'details', 'all',
+                 'registernumber', 'reg', 'rollnumber', 'roll',
+                 'namephoto', 'np')
+
     command = ctx.message.content.split()
 
     try:
@@ -83,7 +86,7 @@ async def kcgstudent(ctx):
             if not await check_auth(ctx, ('owner', 'admin')):
                 return                    
                 
-            student.get_photo(uid = user_id)
+            student.get_photo(user_id)
                 
             photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), user_id)
 
@@ -232,7 +235,7 @@ async def kcgstudent(ctx):
 
         #6
         #=========================================================================================================================================
-        elif command[1] == 'registernumber': #get register number
+        elif command[1] in ('registernumber', 'reg'): #get register number
             if check_student_rollno(user_id):
                 pass
             else:
@@ -264,7 +267,7 @@ async def kcgstudent(ctx):
         
         #7
         #=========================================================================================================================================
-        elif command[1] == 'rollnumber': #get roll number
+        elif command[1] in ('rollnumber', 'roll'): #get roll number
             if check_student_registerno(user_id):
                 pass
             else:
@@ -366,7 +369,33 @@ async def kcgstudent(ctx):
             os.remove(details)
             os.remove(marks)
         
+        #9
         #=========================================================================================================================================
+        elif command[1] in ('namephoto', 'np'): #get all details
+
+            if not await check_auth(ctx, ('owner', 'admin')):
+                return
+            
+            await ctx.send('Please wait while we process your request')
+
+            student_ = student.get_np(user_id)
+            name = student_[0]
+
+            photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), user_id)
+            
+            embed = discord.Embed(title = user_id, description = name, color = 0xffffff)
+            try:
+                pic = discord.File(photo, filename = 'temp_photo.png')
+                embed.set_image(url = 'attachment://temp_photo.png')            
+            
+                await ctx.send(embed = embed, file = pic)
+                os.remove(photo)
+                logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
+            except:
+                embed.set_footer(text = "Photo not found")
+                await ctx.send(embed = embed)
+
+                logger.discord_output_kcg(os.getcwd() + '\logger', 'Photo not found')
         
     except Exception as e:
         print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  ', e)

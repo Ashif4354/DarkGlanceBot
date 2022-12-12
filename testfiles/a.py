@@ -13,7 +13,7 @@ payload = {
     '__VIEWSTATEGENERATOR' : 'CA0B0334',
     '__EVENTVALIDATION' : '/wEdAAa5cfVM3pWzdu9rE2vQn04A1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+c34O/GfAV4V4n0wgFZHr3fbr4+GviYj6YKdFlGPdh5Q23daRHDXkik+zyEsEtmUSg==',
     'rblOnlineAppLoginMode' : '0',
-    'txtuname' : '20CS112',
+    'txtuname' : '20CS008',
     'Button1' : 'Login'
     }
 
@@ -23,14 +23,15 @@ with requests.Session() as s:
     page = s.get(page.url)
 
     souped = BeautifulSoup(page.content, 'html.parser')
-    imgs = souped.find_all('img')
-    img = imgs[0].attrs.get('src')[22:]
-    img = bytes(img, 'utf-8')   
-
+    texts = souped.find_all('span')
+       
+    print(len(texts[2].text.strip()))
+'''
+<span id="lblsname"><b><font face="Book Antiqua" size="4">ASHIF A  </font></b></span>
     with open('a.png', 'wb') as file:
         file.write(base64.decodebytes(img))
 
-
+'''
 
 
 
