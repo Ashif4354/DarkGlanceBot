@@ -22,9 +22,9 @@ departments = {
             'ee' : ('ee', 'electrical', 'eee'),
             'ei' : ('ei', 'eie', 'instrumentation'),
             'ft' : ('ft', 'fashion'),
+            'it' : ('it', 'info'),
             'mc' : ('mc', 'mechatronics', 'mechatronic'),
-            'me' : ('me', 'mech', 'mechanical'),
-            'it' : ('it')
+            'me' : ('me', 'mech', 'mechanical')
             }
 
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
