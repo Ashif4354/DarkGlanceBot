@@ -3,10 +3,10 @@
 import discord
 from discord.ext import commands
 from darkglance import *
-from kcg.Student import student, server_down
+from kcg.Student import student, server_down, NoPhoto
 from kcg.finddob import find_student_dob
 from kcg.check import *
-from datetime import date
+from datetime import date, datetime
 import os
 from logger.logger import logger
 
@@ -81,32 +81,25 @@ async def kcgstudent(ctx):
         if command[1] == 'photo': #get photo
             
             if not await check_auth(ctx, ('owner', 'admin')):
-                return
-
-            try:
-                photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), user_id)
-                with open(photo, 'rb') as f:
-                    pass
-
-            except:                             
-                await ctx.send('Please wait while we fetch the photo')
-                student.fees_login(user_id)
-                try:
-                    student.get_photo(uid = user_id)
-                except:
-                    await ctx.send('No photo available in server')
-                    return
+                return                    
                 
-            await ctx.send('Photo has been fetched')
+            student.get_photo(uid = user_id)
+                
             photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), user_id)
 
-            embed = discord.Embed(title = user_id, description  = 'Photo',color = 0xffffff)
-            pic = discord.File(photo, filename = 'temp_photo.png')
-            embed.set_image(url = 'attachment://temp_photo.png')
+            embed = discord.Embed(title = user_id,color = 0xffffff)
+            try:
+                pic = discord.File(photo, filename = 'temp_photo.png')
+                embed.set_image(url = 'attachment://temp_photo.png')            
             
-            await ctx.send(embed = embed, file = pic)
-            os.remove(photo)
-            logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
+                await ctx.send(embed = embed, file = pic)
+                os.remove(photo)
+                logger.discord_output_kcg(os.getcwd() + '\logger', '{}_photo.png'.format(user_id))
+            except:
+                embed.set_footer(text = "Photo not found")
+                await ctx.send(embed = embed)
+
+                logger.discord_output_kcg(os.getcwd() + '\logger', 'Photo not found')
         
         #2
         #=========================================================================================================================================

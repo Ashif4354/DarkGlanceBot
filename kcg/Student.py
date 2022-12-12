@@ -4,7 +4,8 @@ from selenium import webdriver
 import time
 from requests_html import HTML, HTMLSession
 from datetime import datetime
-import asyncio
+from bs4 import BeautifulSoup
+import base64
 
 user_id_ = None
 browser = None
@@ -46,9 +47,12 @@ fees_login_payload = {
 class server_down(Exception):
     pass
 
+class NoPhoto(Exception):
+    pass
 
+#_________________________________________________________________________________________________________________________________________________________
 class student:
-    
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def student_login(user_id, user_dob):
 
         global user_id_, browser
@@ -76,6 +80,7 @@ class student:
         login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
         login_button.click()    
     
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def fees_login(user_id):
 
         global user_id_, browser
@@ -100,7 +105,7 @@ class student:
         login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
         login_button.click()
 
-    
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_name(uid = user_id_):
         with HTMLSession() as s:
             fees_login_payload['txtuname'] = uid
@@ -125,8 +130,38 @@ class student:
         browser.quit()
         return name_'''
 
-    
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_photo(uid = user_id_): 
+        with requests.Session() as s:
+
+            try:
+                fees_login_payload['txtuname'] = uid
+
+                page = s.post(fees_url, data = fees_login_payload, timeout = 5)
+                page = s.get(page.url)
+
+                souped = BeautifulSoup(page.content, 'html.parser')
+                imgs = souped.find_all('img')
+                img = imgs[0].attrs.get('src')[22:]
+
+                if img[:3] != '/9j':
+                    raise NoPhoto
+        
+                img = bytes(img, 'utf-8')   
+
+                path = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), uid)
+                with open(path, 'wb') as file:
+                    file.write(base64.decodebytes(img))
+            except NoPhoto:
+                pass
+            except Exception as e:
+                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  ', e)
+                try:
+                    file.close()
+                except:
+                    pass
+                raise server_down
+        '''
         try:
             img_src = browser.find_element_by_xpath('//*[@id="Imagestudent"]').get_attribute("src")
         except:
@@ -142,7 +177,9 @@ class student:
             
             file.write(pic_.screenshot_as_png)
         browser.quit()
-    
+        '''
+
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_marks(uid = user_id_):
         marks_detail_button = browser.find_element_by_xpath('//*[@id="pHeadermarks"]')
         marks_detail_button.click()
@@ -163,7 +200,8 @@ class student:
         marks_table = browser.find_element_by_xpath('//*[@id="Fpsmarks_viewport"]/table')
         marks_table.screenshot(path)
         browser.quit()
-
+    
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_details(uid = user_id_):
         student_detail_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
         student_detail_button.click()
@@ -179,12 +217,14 @@ class student:
         marks_table.screenshot(path)
         browser.quit()
     
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_regno(roll_no = user_id_):
         regno_ = browser.find_element_by_xpath('//*[@id="Label15"]')
         regno_ = regno_.text
         browser.quit()
         return regno_
-
+    
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_rollno(roll_no = user_id_):
         student_detail_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
         student_detail_button.click()
@@ -199,7 +239,7 @@ class student:
         browser.quit()
         return rollno_
 
-
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def search(ctx, batch, text, depts, log_path = f'{os.getcwd()}\searchlogs\\'):
 
         date_time = datetime.now().strftime("%d-%m-%Y %H;%M;%S")
@@ -296,9 +336,10 @@ class student:
         file.close()
 
         return students
-                 
 
+    #-----------------------------------------------------------------------------------------------------------------------------------------------------            
 
+#_________________________________________________________________________________________________________________________________________________________
             
 
 
