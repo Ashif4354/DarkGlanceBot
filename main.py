@@ -243,8 +243,6 @@ async def kcgstudent(ctx):
                 await ctx.send(embed = embed)
                 return
 
-            await ctx.send('Please wait while we fetch the Register number..')
-
             try:
                 try:
                     d_o_b = find_student_dob(user_id, year)
@@ -253,9 +251,10 @@ async def kcgstudent(ctx):
                     await ctx.send(embed = embed)
                     return
 
-                student.student_login(user_id, d_o_b)
-                regno = student.get_regno()
-            except:
+                regno = student.get_regno(user_id, d_o_b)
+                
+            except Exception as e:
+                print(e)
                 embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)
                 return
@@ -318,15 +317,13 @@ async def kcgstudent(ctx):
                 
                 await ctx.send('DOB found')          
 
-                student.fees_login(user_id)
                 try:
                     student.get_photo(user_id)
                     got_photo = True
                     await ctx.send('Photo fetched')
                 except:
                     got_photo = False
-                    await ctx.send('Photo not available')
-                
+                    await ctx.send('Photo not available')                
 
                 student.student_login(user_id, d_o_b)
                 student.get_details(user_id)

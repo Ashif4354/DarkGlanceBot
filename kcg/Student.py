@@ -41,6 +41,21 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
+student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
+
+student_login_payload = {
+    '__EVENTTARGET' : '' ,
+    '__EVENTARGUMENT' : '',
+    '__LASTFOCUS' : '',
+    '__VIEWSTATE' : '/wEPDwUJMjkwMTA2NTY5D2QWAgIDD2QWCgIDDxAPFgYeDURhdGFUZXh0RmllbGQFCGNvbGxuYW1lHg5EYXRhVmFsdWVGaWVsZAUMY29sbGVnZV9jb2RlHgtfIURhdGFCb3VuZGdkEBUBGUtDRyBDb2xsZWdlIG9mIFRlY2hub2xvZ3kVAQIxMxQrAwFnFgFmZAIFDxBkEBUCC1JvbGwgTnVtYmVyEVJlZ2lzdGVyZWQgTnVtYmVyFQIBMAExFCsDAmdnFgFmZAIHDw9kFgQeC3BsYWNlaG9sZGVyBQtSb2xsIE51bWJlch4MYXV0b2NvbXBsZXRlBQNvZmZkAgsPD2QWAh8EBQNvZmZkAg8PDxYCHgdWaXNpYmxlaGRkZEUh8Q9VeEnmpvJTjWVIwQmtVpX5IBYcjkAZZqWYNv5m', 
+    '__VIEWSTATEGENERATOR' : 'CA0B0334',
+    '__EVENTVALIDATION' : '/wEdAAfEhVpMiIC9PlqrGxNesSta1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+ZxpWckI3qdmfEJVCu2f5cHN+DvxnwFeFeJ9MIBWR6935FJfAFbS62yyYTlq6hIkdlrWUyRFAO0MmBe4dmPHJe8=',
+    'rblOnlineAppLoginMode' : '0',
+    'txtuname' : None,
+    'txtpassword' : None,
+    'Button1' : 'Login'
+}
+
 
 
 class server_down(Exception):
@@ -108,6 +123,8 @@ class student:
     def get_name(uid = user_id_):
         if uid[:4] == '3110' :
             fees_login_payload['rblOnlineAppLoginMode'] = '1'
+        else:
+            fees_login_payload['rblOnlineAppLoginMode'] = '0'
 
         with requests.Session() as s:
             fees_login_payload['txtuname'] = uid
@@ -138,6 +155,8 @@ class student:
     def get_photo(uid = user_id_): 
         if uid[:4] == '3110' :
             fees_login_payload['rblOnlineAppLoginMode'] = '1'
+        else:
+            fees_login_payload['rblOnlineAppLoginMode'] = '0'
 
         with requests.Session() as s:
 
@@ -225,11 +244,32 @@ class student:
         browser.quit()
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
-    def get_regno(roll_no = user_id_):
+    def get_regno(user_id, dob_):
+        if user_id[:4] == '3110' :
+            student_login_payload['rblOnlineAppLoginMode'] = '1'
+        else:
+            student_login_payload['rblOnlineAppLoginMode'] = '0'
+
+        with requests.Session() as s:
+            student_login_payload['txtuname'] = user_id
+            student_login_payload['txtpassword'] = dob_
+            try:
+                page = s.post(student_login_url, data = student_login_payload, timeout = 10)
+                page = s.get(page.url)
+
+                souped = BeautifulSoup(page.content, 'html.parser')
+                texts = souped.find_all('span')
+
+                return texts[4].text
+            except Exception as e:
+                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
+                raise server_down
+        '''
         regno_ = browser.find_element_by_xpath('//*[@id="lblRegText1"]')
         regno_ = regno_.text
         browser.quit()
         return regno_
+        '''
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_rollno(roll_no = user_id_):

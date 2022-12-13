@@ -1,6 +1,6 @@
 import requests
 
-check_payload = {
+fees_login_payload = {
     '__EVENTTARGET' : '' ,
     '__EVENTARGUMENT' : '',
     '__LASTFOCUS' : '',
@@ -15,35 +15,35 @@ check_payload = {
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
 
 def check_student_id(user_id):
-    check_payload['txtuname'] = user_id
+    fees_login_payload['txtuname'] = user_id
     
-    check_payload['rblOnlineAppLoginMode'] = 0
-    page = requests.post(fees_url, data = check_payload, timeout = 3)
+    fees_login_payload['rblOnlineAppLoginMode'] = 0
+    page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
     if page.url != fees_url:
         return True
     
-    check_payload['rblOnlineAppLoginMode'] = 1
-    page = requests.post(fees_url, data = check_payload, timeout = 3)
+    fees_login_payload['rblOnlineAppLoginMode'] = 1
+    page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
     if page.url != fees_url:
         return True
     
     return False
 
 def check_student_rollno(user_id):
-    check_payload['txtuname'] = user_id
+    fees_login_payload['txtuname'] = user_id
     
-    check_payload['rblOnlineAppLoginMode'] = 0
-    page = requests.post(fees_url, data = check_payload, timeout = 3)
+    fees_login_payload['rblOnlineAppLoginMode'] = 0
+    page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
     if page.url != fees_url:
         return True
     
     return False
 
 def check_student_registerno(user_id):
-    check_payload['txtuname'] = user_id
+    fees_login_payload['txtuname'] = user_id
     
-    check_payload['rblOnlineAppLoginMode'] = 1
-    page = requests.post(fees_url, data = check_payload, timeout = 3)
+    fees_login_payload['rblOnlineAppLoginMode'] = 1
+    page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
     if page.url != fees_url:
         return True
     

@@ -13,6 +13,7 @@ value_photo = 'Fetches the Photo of the student \nThis command can be used by au
 value_details = 'Fetches Details of the student \nThis command can be used by authorized users only'
 value_all = 'Fetches All details of the student(photo, details, marks) together \nThis command can be used by authorized users only'
 value_search = 'Searches for students with keyword \nThis command can be used by authorized users only'
+value_np = 'Fetches the Name and Photo of the student \nThis command can be used by authorized users only'
 
 embed_description = '''All available commands
 Note : This BOT can only handle one request at a time
@@ -28,15 +29,16 @@ help_embed.add_field(name = '.kcgstudent registernumber <reg_no / roll_no>', val
 help_embed.add_field(name = '.kcgstudent rollnumber <reg_no / roll_no>', value = value_rollnumber, inline = False)
 help_embed.add_field(name = '.kcgstudent dob <reg_no / roll_no>', value = value_dob, inline = False)
 help_embed.add_field(name = '.kcgstudent photo <reg_no / roll_no>', value = value_photo, inline = False)
+help_embed.add_field(name = '.kcgstudent namephoto <reg_no / roll_no>', value = value_np, inline = False)
 help_embed.add_field(name = '.kcgstudent details <reg_no / roll_no>', value = value_details, inline = False)
 help_embed.add_field(name = '.kcgstudent all <reg_no / roll_no>', value = value_all, inline = False)
 help_embed.add_field(name = '.kcgsearch <year> <keyword> <department>', value = value_search, inline = False)
-help_embed.set_footer(text = 'DarkGlanceBOT is just made for educational/testing purpose, So please dont misuse')
+help_embed.set_footer(text = 'DarkGlanceBOT is just made for educational/testing purpose, So please don\'t misuse')
 #############################################################################################################################################################
 #############################################################################################################################################################
 
-error_message = '''- College server down
-- College server timed out
+error_message = '''- College server timed out
+- College server down
 '''
 
 server_error_embed = discord.Embed(title = 'Some error has occured',color = 0xffffff)
@@ -126,8 +128,8 @@ class kcg_:
             '__VIEWSTATEGENERATOR' : 'CA0B0334',
             '__EVENTVALIDATION' : '/wEdAAfEhVpMiIC9PlqrGxNesSta1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+ZxpWckI3qdmfEJVCu2f5cHN+DvxnwFeFeJ9MIBWR6935FJfAFbS62yyYTlq6hIkdlrWUyRFAO0MmBe4dmPHJe8=',
             'rblOnlineAppLoginMode' : '0',
-            'txtuname' : None,
-            'txtpassword' : None,
+            'txtuname' : '20cs008',
+            'txtpassword' : '25112002',
             'Button1' : 'Login'
             }
         try:

