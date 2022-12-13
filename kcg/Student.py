@@ -226,7 +226,7 @@ class student:
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_regno(roll_no = user_id_):
-        regno_ = browser.find_element_by_xpath('//*[@id="Label15"]')
+        regno_ = browser.find_element_by_xpath('//*[@id="lblRegText1"]')
         regno_ = regno_.text
         browser.quit()
         return regno_
