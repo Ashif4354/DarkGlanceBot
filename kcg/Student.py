@@ -134,17 +134,23 @@ class student:
 
                 souped = BeautifulSoup(page.content, 'html.parser')
                 texts = souped.find_all('span')
+                #print(texts)
                 name = texts[2].text.strip()
+                #print(name)
 
                 return name
 
+            except IndexError:
+                return ''
+
             except Exception as e:
-                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  ', e)
+                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  in get name', e)
                 try:
                     file.close()
                 except:
                     pass
                 raise server_down
+
         '''
         name_ = browser.find_element_by_xpath('//*[@id="lblsname"]')
         name_ = name_.text
@@ -293,6 +299,7 @@ class student:
 
         if text == '*':
             text = 'all'
+
         file = open(f'{log_path}[{date_time}]   {batch} {text} {depts}.log', 'a')
         file.write(f'Search LOG for  {batch} {text} {depts}\n')
         file.write(f'Requested by {ctx.message.author}\n\n')
@@ -316,6 +323,7 @@ class student:
             pass
         
         file.write(f'\nCorrected departments  :  {corrected_depts}\n')
+        file.write(f'\nKeyword  :  {text}\n')
 
         def check_student_rollno(user_id):
             fees_login_payload['txtuname'] = user_id    
@@ -326,7 +334,7 @@ class student:
                     return True    
                 return False
             except Exception as e:
-                print(date_time, '  ', e)
+                print(date_time, '  in check student ', e)
                 file.close()
                 raise server_down
         
@@ -353,21 +361,23 @@ class student:
                 file.write(f"roll number format found out to be  :  {batch + dept + '001'}")
 
             num = 1
-            null_count = 0            
+            null_count = 0   
+            student_count = 1         
             
             file.write('\n\n')
 
             while null_count < 5:
 
                 The_roll_no = batch + dept + add_zero(str(num), length)
+                #print(The_roll_no)
 
                 name = student.get_name(The_roll_no)
 
-                file.write(f'{traverse_count}  {The_roll_no}  {name}')
+                file.write(f'{traverse_count}  {student_count}  {The_roll_no}  {name}')
                 
                 if name == '':
                     null_count += 1
-                    file.write('\n')
+                    file.write('(no student)\n')
                 else:
                     null_count = 0
                     if text in name or text == 'all':
@@ -377,6 +387,7 @@ class student:
                         file.write('\n')
                 num += 1
                 traverse_count += 1
+                student_count += 1
 
         file.close()
 

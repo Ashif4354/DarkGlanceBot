@@ -73,7 +73,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
         else:
             count = 0 
             page = 1  
-            embeds = {}
+            embeds = {} 
             
             for i in students:
                 if count == 0:
@@ -93,6 +93,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
             
     else:
         embed = discord.Embed(title = 'Search results for {} {}'.format(command[1], search_text), description = 'No results found!!', color = 0xffffff)
+        await ctx.send(embed = embed)
     
     logger.discord_output_kcg(os.getcwd() + '\logger', 'Search results was fetched')
 
