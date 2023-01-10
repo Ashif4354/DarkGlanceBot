@@ -65,7 +65,7 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
     depts = command[2:]
     
     try:
-        if depts[0].lower() == 'all':
+        if depts[0].lower() in ('all', '*'):
             depts = ['all']
             if not await check_auth(ctx, ('owner',), 'You are not authorized to search all departments'):
                 return
