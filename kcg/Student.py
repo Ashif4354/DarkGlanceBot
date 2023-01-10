@@ -300,7 +300,10 @@ class student:
         if text == '*':
             text = 'all'
 
-        file = open(f'{log_path}[{date_time}]   {batch} {text} {depts}.log', 'a')
+        try:
+            file = open(f'{log_path}[{date_time}]   {batch} {text} {depts}.log', 'a')
+        except:
+            file = open(f'{log_path}[{date_time}]   {batch} {text} (invalid dept).log', 'a')
         file.write(f'Search LOG for  {batch} {text} {depts}\n')
         file.write(f'Requested by {ctx.message.author}\n\n')
 
