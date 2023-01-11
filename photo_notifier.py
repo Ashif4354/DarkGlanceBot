@@ -72,6 +72,6 @@ while not photo_got_:
             break
         else:
             continue
-    time.sleep(3)
+    time.sleep(600)
 
 
