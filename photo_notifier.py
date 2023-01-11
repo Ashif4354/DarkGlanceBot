@@ -56,11 +56,13 @@ previous_date = datetime.date.today()
 
 while not photo_got_:
     if datetime.date.today() != previous_date:
+        previous_date = datetime.date.today()
         
         webhook2.execute()
 
     for a in range(1, 21):
         rollno = '22cs0' + str(a)
+        #print(a)
 
         if photo_got(rollno):
             photo_got_ = True
