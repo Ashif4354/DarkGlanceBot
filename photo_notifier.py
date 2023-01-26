@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import datetime
+from datetime import datetime as dt
 
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
 
@@ -40,7 +41,7 @@ def photo_got(rollno):
                 return True
 
         except Exception as e:
-            print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
+            print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
 
 webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1062409359105208473/vR2kBGWZb2zyODbp1tJ6ll8x3gQ_xDZiqWo2w5oNy8Mg4LaqOvUbVkU1u1Y5EAjNGNdC')
 embed = DiscordEmbed(title = 'PHOTOs Available now', description = 'PHOTOs now Availabe', color = 0xffffff)
