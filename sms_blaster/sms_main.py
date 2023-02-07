@@ -67,7 +67,8 @@ async def smsblast(ctx):#.smsblast 9566782699 2 5
 async def stopsms(ctx):
     global stop,sms_sent
     embed = discord.Embed(title = 'SMS Blasting stopped', description =  f'{sms_sent} sms sent', color = 0xffffff)
-    await ctx.send(embed = embed)            
+    await ctx.send(embed = embed)  
+    sms_sent = 0          
     stop = True
 
 
