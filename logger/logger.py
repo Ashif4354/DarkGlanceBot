@@ -18,8 +18,8 @@ class logger:
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
         webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1054388676416782336/a3tSWj9DGXJAzvb2Rz8beoXrmJwowjdtqeZuVuUqq8KXozprrtnDtKZaRJTKtNxzi900')
-        embed = DiscordEmbed(title = 'DarkGlanceBot', description = 'Request recieved..', color = 0xffffff)
-        embed.add_embed_field(name = f'{author} requested', value = text, inline = False)
+        embed = DiscordEmbed(title = 'DarkGlanceBot', description = 'KCG Request..', color = 0xffffff)
+        embed.add_embed_field(name = f'{author}', value = text, inline = False)
         webhook.add_embed(embed)
         response = webhook.execute()
 
@@ -39,5 +39,23 @@ class logger:
             log = date_time + ' ' + text + '\n'
             file.write(log)
             logger.complete_log(path, ' OUTPUT  ', log + '\n')
+
+    def discord_input_sms_blast(command, path):
+        global file_path
+        flie_path = path
     
-    
+        author = str(command.message.author)
+        text = command.message.content
+        now = datetime.now()
+        date_time = now.strftime("%d/%m/%Y %H:%M:%S")
+
+        webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1054388676416782336/a3tSWj9DGXJAzvb2Rz8beoXrmJwowjdtqeZuVuUqq8KXozprrtnDtKZaRJTKtNxzi900')
+        embed = DiscordEmbed(title = 'DarkGlanceBot', description = 'SMS Blast Request..', color = 0xffffff)
+        embed.add_embed_field(name = f'{author}', value = text, inline = False)
+        webhook.add_embed(embed)
+        response = webhook.execute()
+
+        with open('{}\discord_input_sms_blast.log'.format(path), 'a') as file:
+            log = '\n' + date_time + ' ' + author + '  ' + text + '\n'
+            file.write(log)
+            logger.complete_log(path, '  INPUT  ', log)

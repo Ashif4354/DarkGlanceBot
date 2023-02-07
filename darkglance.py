@@ -176,7 +176,7 @@ class discord_:
         else:
             raise Blocked
 
-        if not role == 'owner':
+        if not role in discord_.roles:
             mysql_cursor.execute('select * from auth_all')
             value = mysql_cursor.fetchone()[0]
             if value == 'True':

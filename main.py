@@ -24,7 +24,7 @@ async def hi(ctx):
     await ctx.send(embed = embed)
 
 @client.command()
-async def dghelp(ctx) :
+async def kcghelp(ctx) :
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
     await ctx.send(embed = help_embed)
 
@@ -32,7 +32,7 @@ async def dghelp(ctx) :
 async def checkkcgserver(ctx):    
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
 
-    if not await check_auth(ctx, ('owner')):
+    if not await check_auth(ctx, ('owner', 'admin')):
         return
     #print('wait')
     
@@ -83,7 +83,7 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================                
         if command[1] == 'photo': #get photo
             
-            if not await check_auth(ctx, ('owner', 'admin')):
+            if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return                    
                 
             student.get_photo(user_id)
@@ -108,7 +108,7 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================
         elif command[1] == 'dob': #get date of birth
 
-            if not await check_auth(ctx, ('owner', 'admin')):
+            if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return           
 
             await ctx.send('Please wait while we crack the date of birth')           
@@ -189,7 +189,7 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================
         elif command[1] == 'details': #get details
 
-            if not await check_auth(ctx, ('owner', 'admin')):
+            if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return
 
             try:
@@ -300,7 +300,7 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================
         elif command[1] == 'all': #get all details
 
-            if not await check_auth(ctx, ('owner', 'admin')):
+            if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return
             
             await ctx.send('This may take a while so please be patient..')
@@ -370,7 +370,7 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================
         elif command[1] in ('namephoto', 'np'): #get all details
 
-            if not await check_auth(ctx, ('owner', 'admin')):
+            if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return
             
             await ctx.send('Please wait while we process your request')
@@ -404,7 +404,7 @@ async def kcgstudent(ctx):
 async def adddob(ctx):
     logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
 
-    if not await check_auth(ctx, ('owner')):
+    if not await check_auth(ctx, ('owner','admin')):
         return
 
     try:

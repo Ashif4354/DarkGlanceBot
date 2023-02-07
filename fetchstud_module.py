@@ -46,9 +46,9 @@ async def on_ready():
 
 @client.command(aliases = ['fs', 'fetch'])
 async def fetchstudents(ctx): #.fetchstudents 2020 cse
-    logger.discord_input_kcg(ctx, os.getcwd() + '\logger')
+    logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
 
-    if not await check_auth(ctx, ('owner')):
+    if not await check_auth(ctx, ('owner','admin')):
         return
     command = ctx.message.content.split()
 
