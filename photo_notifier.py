@@ -5,6 +5,8 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import datetime
 from datetime import datetime as dt
 
+print('Photo notifier active')
+
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
 
 fees_login_payload = {
