@@ -40,7 +40,7 @@ class without_account:
         }   
         try:
             requests.post(url, data = payload)
-        except Excep:
+        except:
             pass 
 
 class with_account:

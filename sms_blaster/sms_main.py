@@ -12,6 +12,9 @@ from darkglance import check_auth,discord_
 
 client = commands.Bot(command_prefix = '.')
 
+sms_sent = 0
+stop = False
+
 @client.event
 async def on_ready():
     print("\nServer has been started")
@@ -19,6 +22,7 @@ async def on_ready():
 
 @client.command(aliases = ['smsb'])
 async def smsblast(ctx):#.smsblast 9566782699 2 5
+    global sms_sent
     logger.discord_input_sms_blast(ctx, getcwd().rstrip('sms_blaster') + '\logger')
 
     if not await check_auth(ctx, ('owner', 'admin')):
@@ -41,14 +45,30 @@ async def smsblast(ctx):#.smsblast 9566782699 2 5
         return
 
     try:
-        delay = command[3]
+        delay = int(command[3])
     except:
         delay = 10
     
+    embed = discord.Embed(title = 'SMS Blasting..', description =  f'Number : {command[1]}\nCount : {command[2]}\nDelay : {command[3]}', color = 0xffffff)
+    await ctx.send(embed = embed)
 
+    
     for count_ in range(int(count)):
+
+        if stop:
+            break
+
         choice(otp_sites.sites)(ph_num)
+        sms_sent += 1
+
         await asyncio.sleep(delay)
+
+@client.command()
+async def stopsms(ctx):
+    global stop,sms_sent
+    embed = discord.Embed(title = 'SMS Blasting stopped', description =  f'{sms_sent} sms sent', color = 0xffffff)
+    await ctx.send(embed = embed)            
+    stop = True
 
 
 ############################
