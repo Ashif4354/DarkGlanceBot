@@ -20,9 +20,11 @@ async def on_ready():
     print("\nServer has been started")
     print("DarkGlanceBot is ready blast sms")
 
+
 @client.command(aliases = ['smsb'])
 async def smsblast(ctx):#.smsblast 9566782699 2 5
-    global sms_sent
+    global sms_sent, stop
+    
     logger.discord_input_sms_blast(ctx, getcwd().rstrip('sms_blaster') + '\logger')
 
     if not await check_auth(ctx, ('owner', 'admin')):
@@ -49,27 +51,39 @@ async def smsblast(ctx):#.smsblast 9566782699 2 5
     except:
         delay = 10
     
-    embed = discord.Embed(title = 'SMS Blasting..', description =  f'Number : {command[1]}\nCount : {command[2]}\nDelay : {command[3]}', color = 0xffffff)
+    embed = discord.Embed(title = 'SMS Blasting..', description =  f'Number : {ph_num}\nCount : {count}\nDelay : {delay}', color = 0xffffff)
     await ctx.send(embed = embed)
 
     
     for count_ in range(int(count)):
-
         if stop:
+            stop = False
             break
 
         choice(otp_sites.sites)(ph_num)
         sms_sent += 1
 
         await asyncio.sleep(delay)
+    else:
+        embed = discord.Embed(title = 'SMS Blasted', description =  f'Number : {ph_num}\n{sms_sent} sms sent', color = 0xffffff)
+        await ctx.send(embed = embed)
+        
+        sms_sent = 0
+
 
 @client.command()
 async def stopsms(ctx):
-    global stop,sms_sent
+    global sms_sent, stop
+    if not await check_auth(ctx, ('owner', 'admin')):
+         return
     embed = discord.Embed(title = 'SMS Blasting stopped', description =  f'{sms_sent} sms sent', color = 0xffffff)
     await ctx.send(embed = embed)  
     sms_sent = 0          
     stop = True
+
+
+
+
 
 
 ############################
