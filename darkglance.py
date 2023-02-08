@@ -66,9 +66,15 @@ def dbdisconnect():
 
 #############################################################################################################################################################
 #############################################################################################################################################################
+#user defined exceptions
 
+class Blocked(Exception):
+    pass
 
-class Blocked(Exception):#user defined exception
+class NegativeNumber(Exception):
+    pass
+
+class InvalidDelay(Exception):
     pass
 
 
