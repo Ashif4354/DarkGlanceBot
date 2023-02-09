@@ -97,7 +97,7 @@ async def smsblast(ctx):#[.smsblast <ph_number> <count> <delay>] .smsblast 95667
         embed = discord.Embed(title = 'SMS Blasted', description =  f'Number : {ph_num}\n{sms_sent[ph_num]} sms sent\n' + ctx.message.author.mention, color = 0xffffff)
         await ctx.send(embed = embed)
         
-        sms_sent[ph_num] = 0
+        del sms_sent[ph_num]
 
 
 @client.command()
@@ -107,15 +107,16 @@ async def stopsms(ctx):
     if not await check_auth(ctx, ('owner', 'admin')):
          return
 
+    stop = True
+
     embed = discord.Embed(title = 'SMS Blasting stopped', description =  f'{total_sms_sent} sms sent in total', color = 0xffffff)
     for ph_num in sms_sent:
         embed.add_field(name = ph_num, value = sms_sent[ph_num], inline = False)
-    await ctx.send(embed = embed)  
-    
+    await ctx.send(embed = embed)      
     
     sms_sent = {}
     total_sms_sent = 0          
-    stop = True
+    
 
 
 
