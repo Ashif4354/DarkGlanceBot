@@ -101,6 +101,15 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
     logger.output_kcg(getcwd().rstrip('kcg') + '\logger', 'Search results was fetched')
 
 
+@client.command()
+async def stopbot(ctx):
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    exit(0)
+
+
 ############################
 ##------------------------##
 client.run(discord_.token)##

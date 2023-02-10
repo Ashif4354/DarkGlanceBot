@@ -115,7 +115,15 @@ async def stopsms(ctx):
     await ctx.send(embed = embed)      
     
     sms_sent = {}
-    total_sms_sent = 0          
+    total_sms_sent = 0    
+
+@client.command()
+async def stopbot(ctx):
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    exit(0)      
     
 
 

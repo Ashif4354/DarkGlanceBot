@@ -187,6 +187,15 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
     logger.output_kcg(getcwd().rstrip('kcg') + '\logger', 'Fetch successful')
 
 
+@client.command()
+async def stopbot(ctx):
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    exit(0)
+
+
 
 
 

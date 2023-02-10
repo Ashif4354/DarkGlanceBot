@@ -422,13 +422,14 @@ async def adddob(ctx):
     except Exception as e:
         embed = discord.Embed(title = 'ERROR', description = e, color = 0xffffff)
         await ctx.send(embed = embed)    
-        
-
-
 
 @client.command()
 async def stopbot(ctx):
-    return
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    exit(0)
 
 
 ############################
