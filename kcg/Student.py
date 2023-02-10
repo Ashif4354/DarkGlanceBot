@@ -1,5 +1,5 @@
 import requests
-import os
+from os import getcwd
 from selenium import webdriver
 import time
 from datetime import datetime
@@ -181,7 +181,7 @@ class student:
         
                 img = bytes(img, 'utf-8')   
 
-                path = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), uid)
+                path = r"{}\temp_pics\{}_photo.png".format(getcwd().rstrip('kcg'), uid)
                 with open(path, 'wb') as file:
                     file.write(base64.decodebytes(img))
             except NoPhoto:
@@ -204,7 +204,7 @@ class student:
             
         pic_ = browser.find_element_by_xpath('/html/body/img')
 
-        path = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), uid)
+        path = r"{}\temp_pics\{}_photo.png".format(getcwd(), uid)
         with open(path, 'wb') as file:            
             
             file.write(pic_.screenshot_as_png)
@@ -228,7 +228,7 @@ class student:
 
         browser.execute_script("window.scrollTo(40, 500)") 
         
-        path = r"{}\temp_pics\{}_marks.png".format(os.getcwd(), uid)
+        path = r"{}\temp_pics\{}_marks.png".format(getcwd(), uid)
         marks_table = browser.find_element_by_xpath('//*[@id="Fpsmarks_viewport"]/table')
         marks_table.screenshot(path)
         browser.quit()
@@ -244,7 +244,7 @@ class student:
 
         browser.execute_script("window.scrollTo(0, 450)") 
         
-        path = r"{}\temp_pics\{}_details.png".format(os.getcwd(), uid)
+        path = r"{}\temp_pics\{}_details.png".format(getcwd(), uid)
         marks_table = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]')
         marks_table.screenshot(path)
         browser.quit()
@@ -293,7 +293,7 @@ class student:
         return rollno_
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
-    def search(ctx, batch, text, depts, log_path = f'{os.getcwd()}\searchlogs\\'):
+    def search(ctx, batch, text, depts, log_path = f'{getcwd()}\searchlogs\\'):
 
         date_time = datetime.now().strftime("%d-%m-%Y %H;%M;%S")
 
@@ -423,7 +423,7 @@ class student:
         
                 img = bytes(img, 'utf-8')   
 
-                path = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), uid)
+                path = r"{}\temp_pics\{}_photo.png".format(getcwd().rstrip('kcg'), uid)
                 with open(path, 'wb') as file:
                     file.write(base64.decodebytes(img))
                 

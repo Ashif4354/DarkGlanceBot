@@ -1,10 +1,13 @@
 import discord
 from discord.ext import commands
-from darkglance import *
-from kcg.Student import student, server_down, NoPhoto
-from logger.logger import logger
-import os
+from Student import student, server_down, NoPhoto
+from os import getcwd,remove
 from datetime import date, datetime
+
+from sys import path
+path.append(getcwd().rstrip('kcg'))
+from logger.logger import logger
+from darkglance import *
 
 client = commands.Bot(command_prefix = '.')
 
@@ -46,7 +49,7 @@ async def on_ready():
 
 @client.command(aliases = ['fs', 'fetch'])
 async def fetchstudents(ctx): #.fetchstudents 2020 cse
-    logger.discord_input_kcg(ctx, os.getcwd() + '\logger') 
+    logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger') 
 
     if not await check_auth(ctx, ('owner','admin')):
         return
@@ -73,12 +76,12 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
         pass
 
     depts_ = str(depts).strip("[]").replace("'", ' ')
-    embed = discord.Embed(title = 'Fetching started..', description =  f'Batch : {command[1]}\nDepartments : {depts_}', color = 0xffffff)
+    embed = discord.Embed(title = 'Fetching started..', description =  f'Batch : {batch}\nDepartments : {depts_}', color = 0xffffff)
     await ctx.send(embed = embed)
 
     date_time = datetime.now().strftime("%d-%m-%Y %H;%M;%S")
 
-    log_path = f'{os.getcwd()}\logger\\fetchstudlogs\\'
+    log_path = f'{getcwd().rstrip("kcg")}\logger\\kcg_logs\\fetchstudlogs\\'
 
     file = open(f'{log_path}[{date_time}]   {batch} {depts}.log', 'a')
     file.write(f'FETCH LOG for  {batch} {depts}\n')
@@ -156,14 +159,14 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
                 file.write(f'{traverse_count}  {student_count}  {The_roll_no}  {name}')
 
                 if student_[1]:
-                    photo = r"{}\temp_pics\{}_photo.png".format(os.getcwd(), The_roll_no)
+                    photo = r"{}\temp_pics\{}_photo.png".format(getcwd().rstrip('kcg'), The_roll_no)
 
                     pic = discord.File(photo, filename = 'temp_photo.png')
                     embed.set_image(url = 'attachment://temp_photo.png')            
             
                     await ctx.send(embed = embed, file = pic)
                     file.write(' (FETCHED)\n')
-                    os.remove(photo)
+                    remove(photo)
 
                 else:
                     embed.set_footer(text = 'Photo not found')
@@ -181,7 +184,7 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
     embed = discord.Embed(title = '..FETCHING DONE', color = 0xffffff)
     await ctx.send(embed = embed)
 
-    logger.discord_output_kcg(os.getcwd() + '\logger', 'Fetch successful')
+    logger.output_kcg(getcwd().rstrip('kcg') + '\logger', 'Fetch successful')
 
 
 

