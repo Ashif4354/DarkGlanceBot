@@ -4,6 +4,8 @@ import discord
 from discord.ext import commands
 from logger.logger import logger
 from darkglance import *
+from game_invite import games
+from os import getcwd
 
 client = commands.Bot(command_prefix = '.')
 
@@ -17,6 +19,35 @@ async def hi(ctx):
     logger.discord_input_kcg(ctx, getcwd() + '\logger')            
     embed = discord.Embed(description = 'DarkGlanceBot at your service', color = 0xffffff)
     await ctx.send(embed = embed)
+
+
+@client.command()
+async def gameinvite(ctx):
+
+    command = ctx.message.content.split()
+
+    try:
+        game_name = command[1]
+        
+        for game in games.games:
+            if game_name in games.games[game]:
+                game_name = game
+                break
+        else:
+            raise GameNotAvailable
+            
+    except IndexError:
+        embed = discord.Embed(description = 'No game mentioned', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
+    except GameNotAvailable:
+        embed = discord.Embed(description = 'This game invite not available yet', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return
+
+    
+    await games.send_invite(ctx, game_name, path = getcwd() + '\game_invite')
+
 
 @client.command()
 async def authorize(ctx):

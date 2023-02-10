@@ -7,6 +7,7 @@ from finddob import find_student_dob
 from check import *
 from datetime import date, datetime
 from os import getcwd, remove
+import help_embed
 
 from sys import path
 path.append(getcwd().rstrip('kcg'))
@@ -23,7 +24,7 @@ async def on_ready():
 @client.command()
 async def kcghelp(ctx) :
     logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')
-    await ctx.send(embed = help_embed)
+    await ctx.send(embed = help_embed.help_embed)
 
 @client.command(aliases = ['cks'])
 async def checkkcgserver(ctx):    
