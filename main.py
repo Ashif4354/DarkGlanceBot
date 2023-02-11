@@ -16,7 +16,7 @@ async def on_ready():
 
 @client.command()
 async def hi(ctx):
-    logger.discord_input_kcg(ctx, getcwd() + '\logger')            
+    logger.input_kcg(ctx, getcwd() + '\logger')            
     embed = discord.Embed(description = 'DarkGlanceBot at your service', color = 0xffffff)
     await ctx.send(embed = embed)
 
