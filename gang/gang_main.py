@@ -25,4 +25,5 @@ class db:
 
 
 class gang:
-    pass
+    def add_member():
+        pass

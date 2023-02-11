@@ -10,3 +10,4 @@ kcg/__pycache__/Student.cpython-37.pyc
 logger/__pycache__/__init__.cpython-37.pyc
 logger/__pycache__/logger.cpython-37.pyc
 *.pyc
+*.log

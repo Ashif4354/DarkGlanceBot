@@ -228,7 +228,7 @@ class student:
 
         browser.execute_script("window.scrollTo(40, 500)") 
         
-        path = r"{}\temp_pics\{}_marks.png".format(getcwd(), uid)
+        path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('kcg'), uid)
         marks_table = browser.find_element_by_xpath('//*[@id="Fpsmarks_viewport"]/table')
         marks_table.screenshot(path)
         browser.quit()
@@ -244,7 +244,7 @@ class student:
 
         browser.execute_script("window.scrollTo(0, 450)") 
         
-        path = r"{}\temp_pics\{}_details.png".format(getcwd(), uid)
+        path = r"{}\temp_pics\{}_details.png".format(getcwd().rstrip('kcg'), uid)
         marks_table = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]')
         marks_table.screenshot(path)
         browser.quit()
