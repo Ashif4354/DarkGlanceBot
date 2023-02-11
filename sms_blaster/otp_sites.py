@@ -1,4 +1,4 @@
-import requests
+from requests import post
 
 class without_account:
     
@@ -9,7 +9,7 @@ class without_account:
             'phoneNumber' : ph
         }
         try:
-            requests.post(url, data = payload)
+            post(url, data = payload)
         except:
             pass
     '''
@@ -39,7 +39,7 @@ class without_account:
             'ctl00$ContentPlaceHolderTop$ddlTaluk' : '0'
         }   
         try:
-            requests.post(url, data = payload)
+            post(url, data = payload)
         except:
             pass 
     '''
@@ -53,7 +53,7 @@ class without_account:
         }
 
         try:
-            requests.post(url, data = payload)
+            post(url, data = payload)
         except:
             pass
     
@@ -64,7 +64,7 @@ class without_account:
         }
 
         try:
-            requests.post(url, data = payload)
+            post(url, data = payload)
         except:
             pass
     
@@ -79,7 +79,7 @@ class without_account:
         }
 
         try:
-            requests.post(url, data = payload)            
+            post(url, data = payload)            
         except:
             pass
     
@@ -93,7 +93,7 @@ class without_account:
         }
 
         try:
-            requests.post(url, data = payload)            
+            post(url, data = payload)            
         except:
             pass
     
@@ -108,7 +108,7 @@ class without_account:
         }
 
         try:
-            requests.post(url, data = payload)            
+            post(url, data = payload)            
         except:
             pass
     
@@ -122,7 +122,7 @@ class without_account:
         }
 
         try:
-            requests.post(url, data = payload)
+            post(url, data = payload)
             print(p.status_code)
         except:
             pass
@@ -135,7 +135,7 @@ class without_account:
         }       
 
         try:
-            requests.post(url, data = payload)
+            post(url, data = payload)
             print(p.status_code)
         except:
             pass
@@ -148,7 +148,7 @@ class without_account:
             'countryCode': '+91'
         }
         try:
-            requests.post(url, data = payload)
+            post(url, data = payload)
         except:            
             pass
 

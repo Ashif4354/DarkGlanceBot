@@ -34,7 +34,7 @@ async def checkkcgserver(ctx):
         return
     #print('wait')
     
-    await ctx.send(embed = kcg_.check_server())
+    await ctx.send(embed = check_server())
        
 @client.command(aliases = ['kcg', 'student'])   
 async def kcgstudent(ctx):    

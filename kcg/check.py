@@ -1,4 +1,7 @@
 import requests
+import discord
+
+fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
 
 fees_login_payload = {
     '__EVENTTARGET' : '' ,
@@ -12,7 +15,21 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
-fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
+
+student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
+
+student_login_payload = {
+        '__EVENTTARGET' : '' ,
+        '__EVENTARGUMENT' : '',
+        '__LASTFOCUS' : '',
+        '__VIEWSTATE' : '/wEPDwUJMjkwMTA2NTY5D2QWAgIDD2QWCgIDDxAPFgYeDURhdGFUZXh0RmllbGQFCGNvbGxuYW1lHg5EYXRhVmFsdWVGaWVsZAUMY29sbGVnZV9jb2RlHgtfIURhdGFCb3VuZGdkEBUBGUtDRyBDb2xsZWdlIG9mIFRlY2hub2xvZ3kVAQIxMxQrAwFnFgFmZAIFDxBkEBUCC1JvbGwgTnVtYmVyEVJlZ2lzdGVyZWQgTnVtYmVyFQIBMAExFCsDAmdnFgFmZAIHDw9kFgQeC3BsYWNlaG9sZGVyBQtSb2xsIE51bWJlch4MYXV0b2NvbXBsZXRlBQNvZmZkAgsPD2QWAh8EBQNvZmZkAg8PDxYCHgdWaXNpYmxlaGRkZEUh8Q9VeEnmpvJTjWVIwQmtVpX5IBYcjkAZZqWYNv5m', 
+        '__VIEWSTATEGENERATOR' : 'CA0B0334',
+        '__EVENTVALIDATION' : '/wEdAAfEhVpMiIC9PlqrGxNesSta1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+ZxpWckI3qdmfEJVCu2f5cHN+DvxnwFeFeJ9MIBWR6935FJfAFbS62yyYTlq6hIkdlrWUyRFAO0MmBe4dmPHJe8=',
+        'rblOnlineAppLoginMode' : None,
+        'txtuname' : None,
+        'txtpassword' : None,
+        'Button1' : 'Login'
+        }
 
 def check_student_id(user_id):
     fees_login_payload['txtuname'] = user_id
@@ -48,3 +65,41 @@ def check_student_registerno(user_id):
         return True
     
     return False
+
+def check_server():
+        
+    server_status_embed = discord.Embed(title = 'KCG Server status', color = 0xffffff)    
+
+    fees_login_payload['rblOnlineAppLoginMode'] = '0'
+    fees_login_payload['txtuname'] = '20cs008'
+
+    student_login_payload['rblOnlineAppLoginMode'] = '0'
+    student_login_payload['txtuname'] = '20cs008'
+    student_login_payload['txtpassword'] = '25112002'
+
+    
+    try:
+        page = requests.get(fees_url, timeout = 3)
+        server_status_embed.add_field(name = 'Fees Login page', value = 'Positive', inline = False)
+    except Exception:
+        server_status_embed.add_field(name = 'Fees Login page', value = 'Negative', inline = False)
+
+    try:
+        page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+        server_status_embed.add_field(name = 'Fees Login', value = 'Positive', inline = False)
+    except Exception:
+        server_status_embed.add_field(name = 'Fees Login', value = 'Negative', inline = False)
+        
+    try:
+        page = requests.get(student_login_url, timeout = 3)
+        server_status_embed.add_field(name = 'Student Login page', value = 'Positive', inline = False)
+    except Exception:
+        server_status_embed.add_field(name = 'Student Login page', value = 'Negative', inline = False)
+
+    try:
+        page = requests.post(student_login_url, data = student_login_payload, timeout = 3)
+        server_status_embed.add_field(name = 'Student Login', value = 'Positive', inline = False)
+    except Exception:
+        server_status_embed.add_field(name = 'Student Login', value = 'Negative', inline = False)
+        
+    return server_status_embed
