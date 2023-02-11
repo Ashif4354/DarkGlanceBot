@@ -3,21 +3,21 @@ from random import randint
 import discord
 
 games = {
-    'Valorant' : ('valo', 'valorant'),
-    'Super Sus' : ('super','super sus', 'supersus'),
+    'VALORANT' : ('valo', 'valorant'),
+    'SUPER SUS' : ('super','super sus', 'supersus'),
 }
 
 total_images = {
-    'Valorant' : 7,
-    'Super Sus': 5
+    'VALORANT' : 7,
+    'SUPER SUS': 5
 }
 
 def get_image(game_name, path):
     num = randint(1, total_images[game_name])
 
     game_images = {
-        'Valorant' : "{}\images\\valorant ({}).jpg".format(path, num),
-        'Super Sus' : "{}\images\Super sus ({}).jpg".format(path, num)   
+        'VALORANT' : "{}\images\\valorant ({}).jpg".format(path, num),
+        'SUPER SUS' : "{}\images\Super sus ({}).jpg".format(path, num)   
     }
 
     return game_images[game_name]
