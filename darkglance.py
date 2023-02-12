@@ -17,13 +17,13 @@ server_error_embed.add_field(name = 'This may be due to the following reasons', 
 mycon = None
 mysql_cursor = None
 
-def dbconnect():
+def dbconnect(db_name):
     global mycon, mysql_cursor
 
     mycon = mysql.connector.connect(host='localhost', passwd='rootmysql',user='root', autocommit = True)
     mysql_cursor = mycon.cursor() 
-    mysql_cursor.execute('CREATE DATABASE IF NOT EXISTS kcg')
-    mysql_cursor.execute('USE kcg')  
+    mysql_cursor.execute(f'CREATE DATABASE IF NOT EXISTS {db_name}')
+    mysql_cursor.execute(f'USE {db_name}')  
 
 def dbdisconnect():
     global mycon, mysql_cursor
@@ -52,7 +52,7 @@ class GameNotAvailable(Exception):
 #############################################################################################################################################################
 #############################################################################################################################################################
 
-dbconnect()
+dbconnect('darkglancebot')
 
 queries = {
     'query1' : 'CREATE TABLE role_owner(name varchar(30) primary key)',
@@ -71,6 +71,21 @@ for query in queries:
         pass
 
 dbdisconnect()
+#############################################################################################################################################################
+dbconnect('kcg')
+
+queries = {
+    'query' : 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)'
+}
+
+for query in queries:
+    try:
+        mysql_cursor.execute(queries[query])
+    except:
+        pass
+
+dbdisconnect()
+
 
 #############################################################################################################################################################
 #############################################################################################################################################################
@@ -86,7 +101,7 @@ class discord_:
     roles = ('owner', 'admin')
     
     def check_authorization(ctx, role):
-        dbconnect()
+        dbconnect('darkglancebot')
 
         mysql_cursor.execute("SELECT * FROM block_list where name = '{}'".format(ctx.message.author))
         if mysql_cursor.fetchall() == []:
@@ -117,7 +132,7 @@ class discord_:
             return False
     
     def authorize(user_name, role):
-        dbconnect()
+        dbconnect('darkglancebot')
         mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, user_name))
         users = mysql_cursor.fetchall()
         if users != []:
@@ -129,7 +144,7 @@ class discord_:
         dbdisconnect()
     
     def revoke(user_name, role):
-        dbconnect()        
+        dbconnect('darkglancebot')        
         mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, user_name))
         users = mysql_cursor.fetchall()
         if users == []:
@@ -141,22 +156,22 @@ class discord_:
         dbdisconnect()
     
     def auth_all():
-        dbconnect()
+        dbconnect('darkglancebot')
         mysql_cursor.execute("UPDATE auth_all SET value = 'True'")
         dbdisconnect()
     
     def rev_all():
-        dbconnect()
+        dbconnect('darkglancebot')
         mysql_cursor.execute("UPDATE auth_all SET value = 'False'")
         dbdisconnect()
         
     def block(user_name):
-        dbconnect()
+        dbconnect('darkglancebot')
         mysql_cursor.execute("INSERT INTO block_list VALUES('{}')".format(user_name))
         dbdisconnect()
     
     def unblock(user_name):
-        dbconnect()
+        dbconnect('darkglancebot')
         mysql_cursor.execute("DELETE FROM block_list WHERE name = '{}';".format(user_name))
         dbdisconnect()
 
