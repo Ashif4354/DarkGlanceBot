@@ -55,7 +55,7 @@ class logger:
         webhook.add_embed(embed)
         response = webhook.execute()
 
-        with open('{}\sms_logs\input_sms_blast.log'.format(path), 'a') as file:
+        with open('{}\smsblaster_logs\input_sms_blast.log'.format(path), 'a') as file:
             log = '\n' + date_time + ' ' + author + '  ' + text + '\n'
             file.write(log)
             logger.complete_log(path, '  INPUT  ', log)
