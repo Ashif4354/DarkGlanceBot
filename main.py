@@ -237,6 +237,7 @@ async def tempcheck(ctx):
 
 @client.command()
 async def stopbot(ctx):
+    logger.input_kcg(ctx, getcwd() + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
         return

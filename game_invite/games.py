@@ -27,8 +27,8 @@ async def send_invite(ctx, game_name, path = getcwd()):
     image = get_image(game_name, path)
 
     embed = discord.Embed(title = 'GAME INVITE',color = 0xffffff)
-    pic = discord.File(image, filename = 'temp_photo.png')
-    embed.set_image(url = 'attachment://temp_photo.png')
+    pic = discord.File(image, filename = f'{game_name}.png')
+    embed.set_image(url = f'attachment://{game_name}.png')
     embed.add_field(name = 'Come on guys', value = f'LETS PLAY {game_name} yoo..', inline = False)
     await ctx.send(embed = embed, file = pic)
 

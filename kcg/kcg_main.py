@@ -426,6 +426,7 @@ async def adddob(ctx):
 
 @client.command()
 async def stopbot(ctx):
+    logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
         return

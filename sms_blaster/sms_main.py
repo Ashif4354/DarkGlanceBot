@@ -119,6 +119,7 @@ async def stopsms(ctx):
 
 @client.command()
 async def stopbot(ctx):
+    logger.input_kcg(ctx, getcwd().rstrip('sms_blaster') + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
         return

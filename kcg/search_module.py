@@ -103,6 +103,7 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
 
 @client.command()
 async def stopbot(ctx):
+    logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
         return
