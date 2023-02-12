@@ -51,7 +51,7 @@ async def gameinvite(ctx):
 
 @client.command()
 async def authorize(ctx):
-    logger.discord_input_kcg(ctx, getcwd() + '\logger')  
+    logger.input_kcg(ctx, getcwd() + '\logger')  
 
     if not await check_auth(ctx, ('owner',)):
         return
@@ -97,7 +97,7 @@ async def authorize(ctx):
 
 @client.command()
 async def revoke(ctx):
-    logger.discord_input_kcg(ctx, getcwd() + '\logger')
+    logger.input_kcg(ctx, getcwd() + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
         return
@@ -144,7 +144,7 @@ async def revoke(ctx):
 
 @client.command()
 async def block(ctx):
-    logger.discord_input_kcg(ctx, getcwd() + '\logger')
+    logger.input_kcg(ctx, getcwd() + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
         return
@@ -169,7 +169,7 @@ async def block(ctx):
 
 @client.command()
 async def unblock(ctx):
-    logger.discord_input_kcg(ctx, getcwd() + '\logger')
+    logger.input_kcg(ctx, getcwd() + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
         return
@@ -195,7 +195,7 @@ async def unblock(ctx):
 
 @client.command()
 async def dbcheck(ctx):
-    logger.discord_input_kcg(ctx, getcwd() + '\logger') 
+    logger.input_kcg(ctx, getcwd() + '\logger') 
     
     if not await check_auth(ctx, ('owner',)):
         return
@@ -219,7 +219,7 @@ async def dbcheck(ctx):
 @client.command()
 async def tempcheck(ctx):
     return
-    logger.discord_input_kcg(ctx, getcwd() + '\logger')
+    logger.input_kcg(ctx, getcwd() + '\logger')
     
     print('=========================================================================================================================================')
     print('=========================================================================================================================================')
