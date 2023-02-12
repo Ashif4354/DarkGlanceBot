@@ -26,7 +26,7 @@ async def on_ready():
 async def smsblast(ctx):#[.smsblast <ph_number> <count> <delay>] .smsblast 9566782699 2 5
     global sms_sent, stop, total_sms_sent
     
-    logger.discord_input_sms_blast(ctx, getcwd().rstrip('sms_blaster') + '\logger')
+    logger.input_sms_blast(ctx, getcwd().rstrip('sms_blaster') + '\logger')
 
     if not await check_auth(ctx, ('owner', 'admin')):
         return
