@@ -30,7 +30,7 @@ async def gameinvite(ctx):
         game_name = command[1]
         
         for game in games.games:
-            if game_name in games.games[game]:
+            if game_name in games.games[game][0]:
                 game_name = game
                 break
         else:
