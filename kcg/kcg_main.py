@@ -96,7 +96,14 @@ async def kcgstudent(ctx):
                 await ctx.send(embed = embed, file = pic)
                 remove(photo)
                 logger.output_kcg(getcwd().rstrip('kcg') + '\logger', '{}_photo.png'.format(user_id))
-            except:
+
+            except NoPhoto as text:
+                logger.exception_logs('kcg_main/kcg_student', text, getcwd().rstrip('kcg'))
+                embed.set_footer(text = "Photo not found")
+                await ctx.send(embed = embed)
+                
+            except FileNotFoundError as text:
+                logger.exception_logs('kcg_main/kcg_student', str(text), getcwd().rstrip('kcg'))
                 embed.set_footer(text = "Photo not found")
                 await ctx.send(embed = embed)
 
@@ -108,18 +115,15 @@ async def kcgstudent(ctx):
 
             if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return           
-
-            await ctx.send('Please wait while we crack the date of birth')           
+          
             try:
-                d_o_b = find_student_dob(user_id, year)
+                d_o_b = await find_student_dob(user_id, year)
             except:
                 embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                 await ctx.send(embed = embed)
                 return
 
             d_o_b = d_o_b[:2] + '/' + d_o_b[2:4] + '/' + d_o_b[4:] 
-
-            await ctx.send('DOB has been Found successfully')
 
             embed = discord.Embed(title = user_id, description = d_o_b, color = 0xffffff)
             await ctx.send(embed = embed)
@@ -142,9 +146,8 @@ async def kcgstudent(ctx):
         #=========================================================================================================================================
         elif command[1] == 'marks': #get marks
             try:
-                await ctx.send('Please wait while we crack the date of birth') 
                 try:
-                    d_o_b = find_student_dob(user_id, year)
+                    d_o_b = await find_student_dob(user_id, year)
                 except:
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -191,9 +194,8 @@ async def kcgstudent(ctx):
                 return
 
             try:
-                await ctx.send('Please wait while we crack the date of birth') 
                 try:
-                    d_o_b = find_student_dob(user_id, year)
+                    d_o_b = await find_student_dob(user_id, year)
                 except:
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -243,7 +245,7 @@ async def kcgstudent(ctx):
 
             try:
                 try:
-                    d_o_b = find_student_dob(user_id, year)
+                    d_o_b = await find_student_dob(user_id, year)
                 except:
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -272,11 +274,9 @@ async def kcgstudent(ctx):
                 await ctx.send(embed = embed)
                 return
 
-            await ctx.send('Please wait while we fetch the Roll number..')
-
             try:
                 try:
-                    d_o_b = find_student_dob(user_id, year)
+                    d_o_b = await find_student_dob(user_id, year)
                 except:
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -304,10 +304,9 @@ async def kcgstudent(ctx):
             await ctx.send('This may take a while so please be patient..')
 
             try:
-                await ctx.send('DOB is being cracked')
 
                 try:
-                    d_o_b = find_student_dob(user_id, year)
+                    d_o_b = await find_student_dob(user_id, year)
                 except:
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -331,7 +330,8 @@ async def kcgstudent(ctx):
                 student.get_marks(user_id)
                 await ctx.send('Marks fetched')
 
-            except:
+            except Exception as e:
+                print(e)
                 embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)
                 return
@@ -370,8 +370,6 @@ async def kcgstudent(ctx):
 
             if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return
-            
-            await ctx.send('Please wait while we process your request')
 
             student_ = student.get_np(user_id)
             name = student_[0]
@@ -392,8 +390,8 @@ async def kcgstudent(ctx):
 
                 logger.output_kcg(getcwd().rstrip('kcg') + '\logger', 'Photo not found')
         
-    except Exception as e:
-        print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  ', e)
+    except NoPhoto as e:
+        print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  hello', e)
         pass
 
 

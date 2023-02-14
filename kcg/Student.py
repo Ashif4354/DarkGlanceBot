@@ -186,7 +186,9 @@ class student:
                     file.write(base64.decodebytes(img))
             except NoPhoto:
                 pass
+            
             except Exception as e:
+                print('hi')
                 print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
                 try:
                     file.close()

