@@ -75,7 +75,7 @@ async def kcgstudent(ctx):
 
     except Exception as text:
         print(type(text))
-        #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE77', str(text), getcwd().rstrip('kcg') + 'logger')
+        pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE77', str(text), getcwd().rstrip('kcg') + 'logger')
         await ctx.send(embed = server_error_embed)
         return 
 
@@ -110,7 +110,7 @@ async def kcgstudent(ctx):
                 logger.output_kcg(getcwd().rstrip('kcg') + '\logger', 'Photo not found')
                 
             except FileNotFoundError as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE112', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE112', str(text), getcwd().rstrip('kcg') + 'logger')
                 embed.set_footer(text = "Photo not found")
                 await ctx.send(embed = embed)
 
@@ -126,7 +126,7 @@ async def kcgstudent(ctx):
             try:
                 d_o_b = await find_student_dob(user_id, year)
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE128', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE128', str(text), getcwd().rstrip('kcg') + 'logger')
                 embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                 await ctx.send(embed = embed)
                 return
@@ -157,7 +157,7 @@ async def kcgstudent(ctx):
                 try:
                     d_o_b = await find_student_dob(user_id, year)
                 except Exception as text:
-                    #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE159', str(text), getcwd().rstrip('kcg') + 'logger')
+                    pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE159', str(text), getcwd().rstrip('kcg') + 'logger')
 
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -170,7 +170,7 @@ async def kcgstudent(ctx):
                 await ctx.send('Login successful')
 
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE172', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE172', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed = discord.Embed(description = 'Login failed.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)           
@@ -179,7 +179,7 @@ async def kcgstudent(ctx):
             try:
                 student.get_marks(user_id)
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE181', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE181', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed = discord.Embed(description = 'failed to get marks.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)  
@@ -211,7 +211,7 @@ async def kcgstudent(ctx):
                 try:
                     d_o_b = await find_student_dob(user_id, year)
                 except Exception as text:
-                    #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE213', str(text), getcwd().rstrip('kcg') + 'logger')
+                    pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE213', str(text), getcwd().rstrip('kcg') + 'logger')
 
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -224,7 +224,7 @@ async def kcgstudent(ctx):
                 await ctx.send('Login successful')
 
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE226', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE226', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed = discord.Embed(description = 'Login failed.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)  
@@ -233,7 +233,7 @@ async def kcgstudent(ctx):
             try:
                 student.get_details(user_id)
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE235', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE235', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed = discord.Embed(description = 'failed to get details.. Some error occurred..\n Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)
@@ -267,7 +267,7 @@ async def kcgstudent(ctx):
                 try:
                     d_o_b = await find_student_dob(user_id, year)
                 except Exception as text:
-                    #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE269', str(text), getcwd().rstrip('kcg') + 'logger')
+                    pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE269', str(text), getcwd().rstrip('kcg') + 'logger')
 
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -276,7 +276,7 @@ async def kcgstudent(ctx):
                 regno = student.get_regno(user_id, d_o_b)
                 
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstdent/ L278', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstdent/ L278', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)
@@ -301,7 +301,7 @@ async def kcgstudent(ctx):
                 try:
                     d_o_b = await find_student_dob(user_id, year)
                 except Exception as text:
-                    #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE303', str(text), getcwd().rstrip('kcg') + 'logger')
+                    pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE303', str(text), getcwd().rstrip('kcg') + 'logger')
                 
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -310,7 +310,7 @@ async def kcgstudent(ctx):
                 student.student_login(user_id, d_o_b)
                 rollno = student.get_rollno(user_id)
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE312', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE312', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)
@@ -335,7 +335,7 @@ async def kcgstudent(ctx):
                 try:
                     d_o_b = await find_student_dob(user_id, year)
                 except:
-                    #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE337', str(text), getcwd().rstrip('kcg') + 'logger')
+                    pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE337', str(text), getcwd().rstrip('kcg') + 'logger')
 
                     embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
                     await ctx.send(embed = embed)
@@ -348,7 +348,7 @@ async def kcgstudent(ctx):
                     got_photo = True
                     await ctx.send('Photo fetched')
                 except Exception as text:
-                    #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE350(ignorable)', str(text), getcwd().rstrip('kcg') + 'logger')
+                    pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE350(ignorable)', str(text), getcwd().rstrip('kcg') + 'logger')
                     got_photo = False
                     await ctx.send('Photo not available')                
 
@@ -361,7 +361,7 @@ async def kcgstudent(ctx):
                 await ctx.send('Marks fetched')
 
             except Exception as text:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE363', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE363', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed = discord.Embed(description = 'Some error occured in the process.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)
@@ -416,7 +416,7 @@ async def kcgstudent(ctx):
                 remove(photo)
                 logger.output_kcg(getcwd().rstrip('kcg') + '\logger', '{}_photo.png'.format(user_id))
             except:
-                #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE418', str(text), getcwd().rstrip('kcg') + 'logger')
+                pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE418', str(text), getcwd().rstrip('kcg') + 'logger')
 
                 embed.set_footer(text = "Photo not found")
                 await ctx.send(embed = embed)
@@ -424,7 +424,7 @@ async def kcgstudent(ctx):
                 logger.output_kcg(getcwd().rstrip('kcg') + '\logger', 'Photo not found')
         
     except Exception as text:
-        #logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE426', str(text), getcwd().rstrip('kcg') + 'logger')
+        pass#logger.exception_logs('dgb/kcg/kcg_main/kcgstudent LINE426', str(text), getcwd().rstrip('kcg') + 'logger')
 
 
 @client.command()
@@ -451,7 +451,7 @@ async def adddob(ctx):
         mycon.close()
 
     except Exception as text:
-        #logger.exception_logs('dgb/kcg/kcg_main/adddob LINE453', str(text), getcwd().rstrip('kcg') + 'logger')
+        pass#logger.exception_logs('dgb/kcg/kcg_main/adddob LINE453', str(text), getcwd().rstrip('kcg') + 'logger')
         
         embed = discord.Embed(title = 'ERROR', description = text, color = 0xffffff)
         await ctx.send(embed = embed)    
