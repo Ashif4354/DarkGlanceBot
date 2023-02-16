@@ -34,7 +34,7 @@ def photo_got(s, rollno):
         souped = BeautifulSoup(page.content, 'html.parser')
         imgs = souped.find_all('img')
         img = imgs[0].attrs.get('src')[22:]
-        print('hi')
+        #print('hi')
         if img[:3] != '/9j':
             #print('False')
             return False
