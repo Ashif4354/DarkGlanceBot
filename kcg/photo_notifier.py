@@ -41,9 +41,11 @@ def photo_got(s, rollno):
         else:
             #print('True')
             return True
-
-    except Exception as e:
-        print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
+    except IndexError:
+        print('server down')
+        
+    except Exception as text:
+        print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', text)
 
 webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1062409359105208473/vR2kBGWZb2zyODbp1tJ6ll8x3gQ_xDZiqWo2w5oNy8Mg4LaqOvUbVkU1u1Y5EAjNGNdC')
 embed = DiscordEmbed(title = 'PHOTOs Available now', description = 'PHOTOs now Availabe', color = 0xffffff)
@@ -66,7 +68,7 @@ while not photo_got_:
     
 
         for a in range(1, 21):
-            rollno = '20cs0' + str(a)
+            rollno = '22cs0' + str(a)
             #print(a)
 
             if photo_got(s, rollno):
@@ -77,6 +79,6 @@ while not photo_got_:
                 break
             else:
                 continue
-        time.sleep(600)
+        time.sleep(1800)
 
 
