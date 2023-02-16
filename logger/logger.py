@@ -61,9 +61,14 @@ class logger:
             logger.complete_log(path, '  INPUT  ', log)
     
     def exception_logs(loc, text, path):
+        text = str(text)
         print(text)
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
+
+        with open('{}\exception_logs.log'.format(path), 'a') as file:   
+            log = date_time + ' ' + loc + '|' + text + '\n'
+            file.write(log)
 
         webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1075077654543347855/xWUZIFQYx4VMMq6bpP-zOww_CGK63xbTWCZCBprNjg36ARJB9DRPRb1rfDd5ujbqp0Tl')
         embed = DiscordEmbed(title = 'DarkGlanceBot', color = 0xffffff)
@@ -71,7 +76,5 @@ class logger:
         webhook.add_embed(embed)
         response = webhook.execute()
          
-        with open('{}\exception_logs.log'.format(path), 'a') as file:   
-            log = date_time + ' ' + loc + '|' + text + '\n'
-            file.write(log)
+        
 
