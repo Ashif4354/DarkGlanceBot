@@ -77,44 +77,45 @@ def check_server():
     student_login_payload['txtuname'] = '20cs008'
     student_login_payload['txtpassword'] = '25112002'
 
-    
-    try:
-        page = requests.get(fees_url, timeout = 3)
-        #print(page.status_code())
-        server_status_embed.add_field(name = 'Fees Login page', value = 'Positive', inline = False)
-    except Exception:
-        server_status_embed.add_field(name = 'Fees Login page', value = 'Negative', inline = False)
+    with requests.Session() as s:
+        try:
+            page = s.get(fees_url, timeout = 3)
+            #print(page.status_code())
+            server_status_embed.add_field(name = 'Fees Login page', value = 'Positive', inline = False)
+        except Exception:
+            server_status_embed.add_field(name = 'Fees Login page', value = 'Negative', inline = False)
 
-    try:
-        page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
-        #print(page.url)
-        if page.url != fees_url:
-            server_status_embed.add_field(name = 'Fees Login', value = 'Positive', inline = False)
-        else:
-            raise Exception
+        try:
+            page = s.post(fees_url, data = fees_login_payload, timeout = 3)
+            #print(page.url)
+            if page.url != fees_url:
+                server_status_embed.add_field(name = 'Fees Login', value = 'Positive', inline = False)
+            else:
+                status = False
+                raise Exception
 
-    except Exception:
-        server_status_embed.add_field(name = 'Fees Login', value = 'Negative', inline = False)
+        except Exception:
+            server_status_embed.add_field(name = 'Fees Login', value = 'Negative', inline = False)
         
-    try:
-        page = requests.get(student_login_url, timeout = 3)
-        #print(page.status_code())
-        server_status_embed.add_field(name = 'Student Login page', value = 'Positive', inline = False)
-    except Exception:
-        server_status_embed.add_field(name = 'Student Login page', value = 'Negative', inline = False)
+        try:
+            page = s.get(student_login_url, timeout = 3)
+            #print(page.status_code())
+            server_status_embed.add_field(name = 'Student Login page', value = 'Positive', inline = False)
+        except Exception:
+            server_status_embed.add_field(name = 'Student Login page', value = 'Negative', inline = False)
 
-    try:
-        page = requests.post(student_login_url, data = student_login_payload, timeout = 3)
-        #print(page.url)
-        if page.url != student_login_url:
-            server_status_embed.add_field(name = 'Student Login', value = 'Positive', inline = False)
-        else:
-            raise Exception
+        try:
+            page = s.post(student_login_url, data = student_login_payload, timeout = 3)
+            #print(page.url)
+            if page.url != student_login_url:
+                server_status_embed.add_field(name = 'Student Login', value = 'Positive', inline = False)
+            else:
+                raise Exception
             
-    except Exception:
-        server_status_embed.add_field(name = 'Student Login', value = 'Negative', inline = False)
+        except Exception:
+            server_status_embed.add_field(name = 'Student Login', value = 'Negative', inline = False)
         
-    return server_status_embed
+    return (server_status_embed, status) 
 
 
 #print(check_student_id('20cs008'))
