@@ -35,7 +35,7 @@ async def smsblast(ctx):#[.smsblast <ph_number> <count> <delay>] .smsblast 95667
 
     try:
         ph_num = command[1]
-    except :
+    except IndexError:
         embed = discord.Embed(title = 'Phone number not entered or Invalid input', description = ctx.message.author.mention, color = 0xffffff)
         await ctx.send(embed = embed)
         return

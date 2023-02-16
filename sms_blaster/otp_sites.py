@@ -123,7 +123,6 @@ class without_account:
 
         try:
             post(url, data = payload)
-            print(p.status_code)
         except:
             pass
     

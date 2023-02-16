@@ -21,29 +21,29 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
-def photo_got(rollno): 
+def photo_got(s, rollno): 
     fees_login_payload['txtuname'] = rollno
     
-    with requests.Session() as s:
+   
 
-        try:
+    try:
 
-            page = s.post(fees_url, data = fees_login_payload, timeout = 10)
-            page = s.get(page.url)
+        page = s.post(fees_url, data = fees_login_payload, timeout = 10)
+        page = s.get(page.url)
 
-            souped = BeautifulSoup(page.content, 'html.parser')
-            imgs = souped.find_all('img')
-            img = imgs[0].attrs.get('src')[22:]
+        souped = BeautifulSoup(page.content, 'html.parser')
+        imgs = souped.find_all('img')
+        img = imgs[0].attrs.get('src')[22:]
+        print('hi')
+        if img[:3] != '/9j':
+            #print('False')
+            return False
+        else:
+            #print('True')
+            return True
 
-            if img[:3] != '/9j':
-                #print('False')
-                return False
-            else:
-                #print('True')
-                return True
-
-        except Exception as e:
-            print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
+    except Exception as e:
+        print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
 
 webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1062409359105208473/vR2kBGWZb2zyODbp1tJ6ll8x3gQ_xDZiqWo2w5oNy8Mg4LaqOvUbVkU1u1Y5EAjNGNdC')
 embed = DiscordEmbed(title = 'PHOTOs Available now', description = 'PHOTOs now Availabe', color = 0xffffff)
@@ -58,23 +58,25 @@ photo_got_ = False
 previous_date = datetime.date.today()
 
 while not photo_got_:
-    if datetime.date.today() != previous_date:
-        previous_date = datetime.date.today()
+    with requests.Session() as s:
+        if datetime.date.today() != previous_date:
+            previous_date = datetime.date.today()
         
-        webhook2.execute()
+            webhook2.execute()
+    
 
-    for a in range(1, 21):
-        rollno = '22cs0' + str(a)
-        #print(a)
+        for a in range(1, 21):
+            rollno = '20cs0' + str(a)
+            #print(a)
 
-        if photo_got(rollno):
-            photo_got_ = True
-            for b in range(10):
-                time.sleep(5)
-                webhook.execute()
-            break
-        else:
-            continue
-    time.sleep(600)
+            if photo_got(s, rollno):
+                photo_got_ = True
+                for b in range(10):
+                    time.sleep(5)
+                    webhook.execute()
+                break
+            else:
+                continue
+        time.sleep(600)
 
 

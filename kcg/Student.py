@@ -143,8 +143,8 @@ class student:
             except IndexError:
                 return ''
 
-            except Exception as e:
-                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), '  in get name', e)
+            except Exception as text:
+                logger.exception_logs('dgb/kcg/Student/student.getname LINE147', text, getcwd().rstrip('kcg') + 'logger')
                 try:
                     file.close()
                 except:
@@ -187,9 +187,8 @@ class student:
             except NoPhoto:
                 pass
             
-            except Exception as e:
-                print('hi')
-                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
+            except Exception as text:
+                logger.exception_logs('dgb/kcg/Student/student.get_photo LINE191', text, getcwd().rstrip('kcg') + 'logger')
                 try:
                     file.close()
                 except:
@@ -269,8 +268,8 @@ class student:
                 texts = souped.find_all('span')
 
                 return texts[4].text
-            except Exception as e:
-                print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', e)
+            except Exception as text:
+                logger.exception_logs('dgb/kcg/Student/student.get_regno LINE272', text, getcwd().rstrip('kcg') + 'logger')
                 raise server_down
         '''
         regno_ = browser.find_element_by_xpath('//*[@id="lblRegText1"]')
@@ -338,8 +337,9 @@ class student:
                 if page.url != fees_url:
                     return True    
                 return False
-            except Exception as e:
-                print(date_time, '  in check student ', e)
+            except Exception as text:
+                logger.exception_logs('dgb/kcg/Student/student.check_student_rollno LINE341', text, getcwd().rstrip('kcg') + 'logger')
+                
                 file.close()
                 raise server_down
         
@@ -435,8 +435,7 @@ class student:
                 return (name, False)
                 
             except Exception as e:
-                pass
-                #print(datetime.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', ' in get np', e)
+                logger.exception_logs('dgb/kcg/Student/student.get_np LINE438', text, getcwd().rstrip('kcg') + 'logger')
                 
 
 

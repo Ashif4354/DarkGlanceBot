@@ -61,7 +61,7 @@ class logger:
             logger.complete_log(path, '  INPUT  ', log)
     
     def exception_logs(loc, text, path):
-
+        print(text)
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
 

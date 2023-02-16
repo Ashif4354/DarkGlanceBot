@@ -113,8 +113,8 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
             if page.url != fees_url:
                 return True    
             return False
-        except Exception as e:
-            print(date_time, '  ', e)
+        except Exception as text:
+            logger.exception_logs('dgb/kcg/fetchstud_module/fetchstudents/check_student_rollno LINE117', text, getcwd().rstrip('kcg') + 'logger')
             file.close()
             raise server_down
         

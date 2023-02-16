@@ -112,7 +112,7 @@ async def find_student_dob(user_id, year_of_birth = None):
                         mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,dob))
                         #print('dob found 4')
                     except:
-                        pass
+                        logger.exception_logs('dgb/kcg/finddob/find_student_dob LINE115', text, getcwd().rstrip('kcg') + 'logger')
 
                     mysql_cursor.close()
                     mycon.close()
