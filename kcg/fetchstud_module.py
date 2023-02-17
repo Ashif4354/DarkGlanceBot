@@ -3,6 +3,7 @@ from discord.ext import commands
 from Student import student, server_down, NoPhoto
 from os import getcwd,remove
 from datetime import date, datetime
+from check import check_server
 
 from sys import path
 path.append(getcwd().rstrip('kcg'))
@@ -53,6 +54,13 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
 
     if not await check_auth(ctx, ('owner','admin')):
         return
+
+    if not check_server()[1]:
+        await ctx.send(embed = server_error_embed)
+        return
+
+    
+        
     command = ctx.message.content.split()
 
     try:
@@ -114,7 +122,7 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
                 return True    
             return False
         except Exception as text:
-            logger.exception_logs('dgb/kcg/fetchstud_module/fetchstudents/check_student_rollno LINE117', text, getcwd().rstrip('kcg') + 'logger')
+            logger.exception_logs('dgb/kcg/fetchstud_module/fetchstudents/check_student_rollno', text, getcwd().rstrip('kcg') + 'logger')
             file.close()
             raise server_down
         

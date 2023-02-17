@@ -45,7 +45,7 @@ def photo_got(s, rollno):
         print('server down')
         
     except Exception as text:
-        print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in get photo ', text)
+        print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in photo got ', text)
 
 webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1062409359105208473/vR2kBGWZb2zyODbp1tJ6ll8x3gQ_xDZiqWo2w5oNy8Mg4LaqOvUbVkU1u1Y5EAjNGNdC')
 embed = DiscordEmbed(title = 'PHOTOs Available now', description = 'PHOTOs now Availabe', color = 0xffffff)

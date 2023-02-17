@@ -80,9 +80,9 @@ def check_server():
     with requests.Session() as s:
         try:
             page = s.get(fees_url, timeout = 3)
-            #print(page.status_code())
+            #print(page.content)
             server_status_embed.add_field(name = 'Fees Login page', value = 'Positive', inline = False)
-        except Exception:
+        except Exception as text:
             server_status_embed.add_field(name = 'Fees Login page', value = 'Negative', inline = False)
 
         try:
@@ -99,7 +99,7 @@ def check_server():
         
         try:
             page = s.get(student_login_url, timeout = 3)
-            #print(page.status_code())
+            #print(page.status_code)
             server_status_embed.add_field(name = 'Student Login page', value = 'Positive', inline = False)
         except Exception:
             server_status_embed.add_field(name = 'Student Login page', value = 'Negative', inline = False)
@@ -119,3 +119,4 @@ def check_server():
 
 
 #print(check_student_id('20cs008'))
+print(check_server())

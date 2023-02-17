@@ -6,6 +6,11 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import base64
 
+from sys import path
+path.append(getcwd().rstrip('kcg'))
+from logger.logger import logger
+from darkglance import *
+
 user_id_ = None
 browser = None
 options = webdriver.ChromeOptions()
@@ -56,13 +61,6 @@ student_login_payload = {
     'Button1' : 'Login'
 }
 
-
-
-class server_down(Exception):
-    pass
-
-class NoPhoto(Exception):
-    pass
 
 #_________________________________________________________________________________________________________________________________________________________
 class student:
@@ -144,7 +142,7 @@ class student:
                 return ''
 
             except Exception as text:
-                logger.exception_logs('dgb/kcg/Student/student.getname LINE147', text, getcwd().rstrip('kcg') + 'logger')
+                logger.exception_logs('dgb/kcg/Student/student (getname)', text, getcwd().rstrip('kcg') + 'logger')
                 try:
                     file.close()
                 except:
@@ -188,7 +186,7 @@ class student:
                 pass
             
             except Exception as text:
-                logger.exception_logs('dgb/kcg/Student/student.get_photo LINE191', text, getcwd().rstrip('kcg') + 'logger')
+                logger.exception_logs('dgb/kcg/Student/student (get_photo)', text, getcwd().rstrip('kcg') + 'logger')
                 try:
                     file.close()
                 except:
@@ -269,7 +267,7 @@ class student:
 
                 return texts[4].text
             except Exception as text:
-                logger.exception_logs('dgb/kcg/Student/student.get_regno LINE272', text, getcwd().rstrip('kcg') + 'logger')
+                logger.exception_logs('dgb/kcg/Student/student (get_regno) ', text, getcwd().rstrip('kcg') + 'logger')
                 raise server_down
         '''
         regno_ = browser.find_element_by_xpath('//*[@id="lblRegText1"]')
@@ -338,7 +336,7 @@ class student:
                     return True    
                 return False
             except Exception as text:
-                logger.exception_logs('dgb/kcg/Student/student.check_student_rollno LINE341', text, getcwd().rstrip('kcg') + 'logger')
+                logger.exception_logs('dgb/kcg/Student/student (check_student_rollno)', text, getcwd().rstrip('kcg') + 'logger')
                 
                 file.close()
                 raise server_down
@@ -430,12 +428,14 @@ class student:
                     file.write(base64.decodebytes(img))
                 
                 return (name, True)
+            
+            
 
             except NoPhoto:
                 return (name, False)
                 
-            except Exception as e:
-                logger.exception_logs('dgb/kcg/Student/student.get_np LINE438', text, getcwd().rstrip('kcg') + 'logger')
+            except Exception as text:
+                logger.exception_logs('dgb/kcg/Student/student (get_np)', text, getcwd().rstrip('kcg') + 'logger')
                 
 
 

@@ -2,6 +2,9 @@ from aiohttp import ClientSession
 import mysql.connector
 import asyncio
 
+from sys import path
+path.append(getcwd().rstrip('kcg'))
+from darkglance import DobNotFound
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
 student_login_payload = {
@@ -19,6 +22,8 @@ student_login_payload = {
 
 time_out_dates = [] 
 
+
+
 def get_years(u_id, reg_no_):
     if reg_no_:       
         year = 2000 + int(u_id[4:6]) #year from register number                   
@@ -26,7 +31,7 @@ def get_years(u_id, reg_no_):
         year = 2000 + int(u_id[:2])  #year from roll number  
             
     yob = year - 18
-    years = (str(yob), str(yob + 1), str(yob - 1), str(yob - 2), str(yob + 2) , str(yob - 3))
+    years = (str(yob), str(yob + 1), str(yob - 1))
     return years  
 
 async def check_date(session, The_day_):
@@ -55,7 +60,7 @@ async def check_date(session, The_day_):
 
 async def find_student_dob(user_id, year_of_birth = None):
 
-    mycon = mysql.connector.connect(host="localhost", passwd="rootmysql",user="root", database = 'kcg', autocommit = True)
+    mycon = mysql.connector.connect(host = "localhost", passwd = "rootmysql",user = "root", database = 'kcg', autocommit = True)
     mysql_cursor = mycon.cursor()
 
     mysql_cursor.execute("select * from dobs where id = '{}'".format(user_id))
@@ -106,26 +111,19 @@ async def find_student_dob(user_id, year_of_birth = None):
 
             for a in list_:
                 if a != False:
-                    dob = a               
-                    
+                    dob = a                     
                     try:
                         mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,dob))
                         #print('dob found 4')
-                    except:
-                        logger.exception_logs('dgb/kcg/finddob/find_student_dob LINE115', text, getcwd().rstrip('kcg') + 'logger')
+                    except Exception as text:
+                        logger.exception_logs('dgb/kcg/finddob/find_student_dob', text, getcwd().rstrip('kcg') + 'logger')
 
                     mysql_cursor.close()
                     mycon.close()
-
-                    print(dob)
-
-                    return dob
-
-    
-
-                    
+                    #print(dob)
+                    return dob                    
         
-    raise Exception   
+    raise DobNotFound   
 
 '''
 async def s():
