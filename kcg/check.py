@@ -89,12 +89,14 @@ def check_server():
             page = s.post(fees_url, data = fees_login_payload, timeout = 3)
             #print(page.url)
             if page.url != fees_url:
+                status = True
                 server_status_embed.add_field(name = 'Fees Login', value = 'Positive', inline = False)
             else:
                 status = False
                 raise Exception
 
         except Exception:
+            status = False
             server_status_embed.add_field(name = 'Fees Login', value = 'Negative', inline = False)
         
         try:
