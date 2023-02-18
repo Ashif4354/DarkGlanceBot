@@ -1,4 +1,4 @@
-start main.py 
+start main__.py 
 
 cd kcg
 start kcg_main.py
@@ -9,4 +9,4 @@ start photo_notifier.py
 cd..
 
 cd sms_blaster
-start sms_main.py
+start main.py
