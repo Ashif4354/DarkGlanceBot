@@ -76,6 +76,10 @@ async def kcgstudent(ctx):
     except server_down:
         await ctx.send(embed = server_error_embed)
         return 
+    except Exception as text:
+        logger.exception_logs('dgb/kcg/kcg_main/kcgstudent ((checkid))', text, getcwd().rstrip('kcg') + 'logger')
+        return
+
 
     try:
         year = command[3]
@@ -89,7 +93,11 @@ async def kcgstudent(ctx):
             if not await check_auth(ctx, ('owner', 'admin', 'all')):
                 return                    
                 
-            student.get_photo(user_id)
+            try:
+                student.get_photo(user_id)
+            except server_down:
+                await ctx.send(embed = server_error_embed)
+                return
                 
             photo = r"{}\temp_pics\{}_photo.png".format(getcwd().rstrip('kcg'), user_id)
 
@@ -144,7 +152,11 @@ async def kcgstudent(ctx):
         elif command[1] == 'name': #get name           
 
             #student.fees_login(user_id)
-            name = student.get_name(user_id)
+            try:
+                name = student.get_name(user_id)
+            except server_down:
+                await ctx.send(embed = server_error_embed)
+                return
 
             embed = discord.Embed(title = user_id, description = name, color = 0xffffff)
             await ctx.send(embed = embed)

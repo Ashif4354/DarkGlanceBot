@@ -8,5 +8,5 @@ start photo_notifier.py
 
 cd..
 
-cd sms_blaster
+cd sms_call_blaster
 start main.py
