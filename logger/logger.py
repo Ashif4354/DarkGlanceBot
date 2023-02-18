@@ -40,7 +40,7 @@ class logger:
             file.write(log)
             logger.complete_log(path, ' OUTPUT  ', log + '\n')
 
-    def input_sms_blast(command, path):
+    def input_sms_call_blast(command, path):
         global file_path
         flie_path = path
     

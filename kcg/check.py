@@ -121,4 +121,4 @@ def check_server():
 
 
 #print(check_student_id('20cs008'))
-print(check_server())
+#print(check_server())

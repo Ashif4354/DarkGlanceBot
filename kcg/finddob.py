@@ -1,7 +1,7 @@
 from aiohttp import ClientSession
 import mysql.connector
 import asyncio
-
+from os import getcwd
 from sys import path
 path.append(getcwd().rstrip('kcg'))
 from darkglance import DobNotFound
