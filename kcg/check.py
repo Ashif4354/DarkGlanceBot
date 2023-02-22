@@ -1,5 +1,10 @@
 import requests
 import discord
+from os import getcwd
+
+from sys import path
+path.append(getcwd().rstrip('kcg'))
+from darkglance import *
 
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
 
@@ -35,12 +40,21 @@ def check_student_id(user_id):
     fees_login_payload['txtuname'] = user_id
     
     fees_login_payload['rblOnlineAppLoginMode'] = 0
-    page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+    try:
+        page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+    except:
+        raise server_down
+
     if page.url != fees_url:
         return True
     
     fees_login_payload['rblOnlineAppLoginMode'] = 1
-    page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+    
+    try:
+        page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+    except:
+        raise server_down
+
     if page.url != fees_url:
         return True
     
@@ -51,6 +65,7 @@ def check_student_rollno(user_id):
     
     fees_login_payload['rblOnlineAppLoginMode'] = 0
     page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
+    
     if page.url != fees_url:
         return True
     
@@ -120,5 +135,5 @@ def check_server():
     return (server_status_embed, status) 
 
 
-#print(check_student_id('20cs008'))
+print(check_student_id('20cs008'))
 #print(check_server())

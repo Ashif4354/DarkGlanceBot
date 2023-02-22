@@ -77,6 +77,9 @@ async def kcgstudent(ctx):
         await ctx.send(embed = server_error_embed)
         return 
 
+    except Exception as text:
+        logger.exception_logs('dgb/kcg/kcg_main/kcgstudent ', text, getcwd().rstrip('kcg') + 'logger')
+
     try:
         year = command[3]
     except IndexError:                
