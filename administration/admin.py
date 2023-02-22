@@ -1,25 +1,105 @@
 #This main function just contains some common funtions for the bot
 
 import discord
-from discord.ext import commands
 from logger.logger import logger
-from darkglance import *
-from game_invite import games
 from os import getcwd
 
-client = commands.Bot(command_prefix = '.')
 
-@client.event
-async def on_ready():
-    print("\nServer has been started")
-    print("DarkGlanceBot is ready to go")
+class discord_:
+    token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'
+    
+    roles = ('owner', 'admin')
+    
+    def check_authorization(ctx, role):
+        dbconnect('darkglancebot')
 
+        mysql_cursor.execute("SELECT * FROM block_list where name = '{}'".format(ctx.message.author))
+        if mysql_cursor.fetchall() == []:
+            pass
+        else:
+            raise Blocked
 
+        if not role in discord_.roles:
+            mysql_cursor.execute('select * from auth_all')
+            value = mysql_cursor.fetchone()[0]
+            if value == 'True':
+                dbdisconnect()
+                return True
+            else:
+                pass
 
+        author = str(ctx.message.author)
+        mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, author))
+        users = mysql_cursor.fetchall()
+        try:
+            if author in users[0]:
+                dbdisconnect()
+                return True
+            else:
+                dbdisconnect()
+                return False
+        except:
+            return False
+    
+    def authorize(user_name, role):
+        dbconnect('darkglancebot')
+        mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, user_name))
+        users = mysql_cursor.fetchall()
+        if users != []:
+            raise Exception
+        else:
+            pass
 
+        mysql_cursor.execute("INSERT INTO role_{} VALUES('{}')".format(role, user_name))
+        dbdisconnect()
+    
+    def revoke(user_name, role):
+        dbconnect('darkglancebot')        
+        mysql_cursor.execute("select * from role_{} where name = '{}'".format(role, user_name))
+        users = mysql_cursor.fetchall()
+        if users == []:
+            raise Exception
+        else:
+            pass
+        
+        mysql_cursor.execute("DELETE FROM role_{} WHERE name = '{}';".format(role, user_name))
+        dbdisconnect()
+    
+    def auth_all():
+        dbconnect('darkglancebot')
+        mysql_cursor.execute("UPDATE auth_all SET value = 'True'")
+        dbdisconnect()
+    
+    def rev_all():
+        dbconnect('darkglancebot')
+        mysql_cursor.execute("UPDATE auth_all SET value = 'False'")
+        dbdisconnect()
+        
+    def block(user_name):
+        dbconnect('darkglancebot')
+        mysql_cursor.execute("INSERT INTO block_list VALUES('{}')".format(user_name))
+        dbdisconnect()
+    
+    def unblock(user_name):
+        dbconnect('darkglancebot')
+        mysql_cursor.execute("DELETE FROM block_list WHERE name = '{}';".format(user_name))
+        dbdisconnect()
 
+async def check_auth(ctx, roles, message = 'You dont have authorization to use this command'):
+    try:
+        for role in roles:
+            if discord_.check_authorization(ctx, role):
+                return True
+        else:
+            embed = discord.Embed(description = ctx.message.author.mention + message, color = 0xffffff)
+            await ctx.send(embed = embed)
+            return False
 
-@client.command()
+    except Blocked:
+        embed = discord.Embed(title = 'YOU ARE BLOCKED', description = 'Contact DarkGlance#6849 for queries', color = 0xffffff)
+        await ctx.send(embed = embed)
+        return False
+
 async def authorize(ctx):
     logger.input_kcg(ctx, getcwd() + '\logger')  
 
@@ -65,7 +145,7 @@ async def authorize(ctx):
     embed = discord.Embed(title = user_name, description = 'authorized with {} role'.format(role), color = 0xffffff)
     await ctx.send(embed = embed)
 
-@client.command()
+
 async def revoke(ctx):
     logger.input_kcg(ctx, getcwd() + '\logger')
 
@@ -112,7 +192,6 @@ async def revoke(ctx):
     
     await ctx.send(embed = embed)
 
-@client.command()
 async def block(ctx):
     logger.input_kcg(ctx, getcwd() + '\logger')
 
@@ -137,7 +216,6 @@ async def block(ctx):
         await ctx.send(embed = embed)
         return
 
-@client.command()
 async def unblock(ctx):
     logger.input_kcg(ctx, getcwd() + '\logger')
 
@@ -162,8 +240,6 @@ async def unblock(ctx):
         await ctx.send(embed = embed)
         return
 
-
-@client.command()
 async def dbcheck(ctx):
     logger.input_kcg(ctx, getcwd() + '\logger') 
     
@@ -185,8 +261,6 @@ async def dbcheck(ctx):
         embed = discord.Embed(description = 'Fetching Not active', color = 0xffffff)
         await ctx.send(embed = embed) 
 
-
-@client.command()
 async def tempcheck(ctx):
     return
     logger.input_kcg(ctx, getcwd() + '\logger')
@@ -205,7 +279,6 @@ async def tempcheck(ctx):
     print('=========================================================================================================================================')
     print('=========================================================================================================================================')
 
-@client.command()
 async def stopbot(ctx):
     logger.input_kcg(ctx, getcwd() + '\logger')
 
@@ -213,10 +286,3 @@ async def stopbot(ctx):
         return
 
     exit(0)
-
-
-############################
-##------------------------##
-client.run(discord_.token)##
-##------------------------##
-############################

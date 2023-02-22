@@ -7,8 +7,7 @@ from finddob import find_student_dob
 from check import *
 from datetime import date, datetime
 from os import getcwd, remove
-import help_embed
-
+from embeds import *
 from sys import path
 path.append(getcwd().rstrip('kcg'))
 from logger.logger import logger

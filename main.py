@@ -5,9 +5,8 @@ import asyncio
 
 client = commands.Bot(command_prefix = '.')
 
-from darkglance import *
-
 from game_invite import games
+from administration import admin
 
 @client.event
 async def on_ready():
@@ -21,15 +20,54 @@ async def hi(ctx):
 
 @client.command()
 async def gameinvite(ctx):
-    class command_game_invite(Thread):
-        def run(self):
-            asyncio.run(games.game_invite_(ctx))
-    
+    thread = Thread(await games.invite(ctx))
+    thread.start()
+    print(thread.getName())
 
-    command_game_invite().start()
+
+@client.command()
+async def authorize(ctx):
+    class CommandAurthorize(Thread):
+        def run(self):
+            asyncio.new_event_loop().create_task(admin.authorize(ctx))
+    print('authorize')
+    CommandAurthorize().start()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@client.command()
+async def stopbot(ctx):
+    logger.input_kcg(ctx, getcwd() + '\logger')
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    exit(0)
+
+
+
+
+
+
 
 ############################
 ##------------------------##
-client.run(discord_.token)##
+client.run(admin.discord_.token)##
 ##------------------------##
 ############################

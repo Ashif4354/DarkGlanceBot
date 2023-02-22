@@ -30,3 +30,10 @@ help_embed.add_field(name = '.kcgstudent details <reg_no / roll_no>', value = va
 help_embed.add_field(name = '.kcgstudent all <reg_no / roll_no>', value = value_all, inline = False)
 help_embed.add_field(name = '.kcgsearch <year> <keyword> <department>', value = value_search, inline = False)
 help_embed.set_footer(text = 'DarkGlanceBOT is just made for educational/testing purpose, So please don\'t misuse')
+
+error_message = '''- College server timed out
+- College server down
+'''
+
+server_error_embed = discord.Embed(title = 'Some error has occured',color = 0xffffff)
+server_error_embed.add_field(name = 'This may be due to the following reasons', value = error_message, inline = False)

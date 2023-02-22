@@ -1,47 +1,48 @@
 import discord
 from discord.ext import commands
-from threading import Thread
+import threading
 from time import sleep
 from sys import path
 from os import getcwd
 path.append(getcwd().rstrip('testfiles'))
-from darkglance import *
+from administration import admin
+import asyncio
 
 client = commands.Bot(command_prefix = '.')
 
 @client.event
 async def on_ready():
-    print("\nServer has been started")
-    print("DarkGlanceBot is ready to go")
+    print("\nready")
 
-def a():
+async def a():
     print('Hello')
+    sleep(5)
 
 
 @client.command()
-async def hello(ctx):   
+async def m(ctx):   
 
-    a()
-    sleep(10) 
-    '''        
+    t = threading.Thread(target = asyncio.create_task(a()))
+    t.start()
+
+    '''      
     class B(Thread):
-        def run(self):
-            a()
-            sleep(10)
+        async def run(self):
+            await a()
+            pass
+            #a()
+            #sleep(10)
     b = B()
     b.start()'''
 
-@client.command()
-async def hell(ctx):            
-    embed = discord.Embed(description = 'DarkGlanceBot', color = 0xffffff)
-    await ctx.send(embed = embed)
+
 
 
 
 
 ############################
 ##------------------------##
-client.run(discord_.token)##
+client.run(admin.discord_.token)##
 ##------------------------##
 ############################
 

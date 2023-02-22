@@ -1,6 +1,4 @@
-import asyncio
+from threading import Thread
 
-from sys import path
-from os import getcwd
-path.append(getcwd().rstrip('testfiles'))
-
+async def A():
+    Thread()
