@@ -66,7 +66,6 @@ async def kcgstudent(ctx):
         if check_student_id(user_id):
             pass
         else:
-            print('in else')
             if not check_server()[1]:
                 raise server_down
                 

@@ -38,15 +38,11 @@ def check_student_id(user_id):
     fees_login_payload['txtuname'] = user_id
     
     fees_login_payload['rblOnlineAppLoginMode'] = 0
-    print('hi')
     try:
         page = requests.post(fees_url, data = fees_login_payload, timeout = 3)
-    except Exception as text:
-        print(text)
+    except :
         
-        #raise server_down
-    print('hello')
-    print(page.url, page.status_code)
+        raise server_down
     
 
     if page.url != fees_url:
