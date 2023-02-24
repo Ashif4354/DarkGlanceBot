@@ -33,7 +33,7 @@ async def send_invite(ctx, game_name, path = getcwd()):
 async def invite(ctx):
     global games_info
     command = ctx.message.content.split()
-    print(Thread.getName)
+    #print(Thread.getName)
     try:
         game_name = command[1]
         
@@ -55,6 +55,7 @@ async def invite(ctx):
 
     
     await send_invite(ctx, game_name, path = getcwd() + '\game_invite')
+    sleep(5)
 
 
 

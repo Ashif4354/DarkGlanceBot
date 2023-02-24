@@ -14,17 +14,80 @@ async def on_ready():
     print("DarkGlanceBot is ready to go")
 
 @client.command()
-async def hi(ctx):
+async def hii(ctx):
     logger.input_kcg(ctx, getcwd() + '\logger')
     await ctx.send(embed = discord.Embed(description = 'DarkGlanceBot at your service', color = 0xffffff))
 
 @client.command()
-async def gameinvite(ctx):
-    thread = Thread(await games.invite(ctx))
-    thread.start()
-    print(thread.getName())
+async def game(ctx):
+    '''
+    def invite_():
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        future = loop.run_in_executor(None, games.invite, ctx)
+        loop.run_until_complete(future)
+        loop.close()
+    
+    
+    
+    class game_(Thread):
+        def run(self):
+            #loop = asyncio.new_event_loop()
+            #asyncio.set_event_loop(loop)
+            #task = loop.create_task(games.invite(ctx))
+            #asyncio.run(asyncio.gather(task))
+            #await games.invite(ctx)
+            invite_()
+
+    
+    game_().start()
+    '''
+    
+    task = asyncio.create_task(games.invite(ctx))
+    result = await asyncio.gather(task, asyncio.sleep(5))
+    print(result)
+    
+
+    
 
 
+
+    #await asyncio.get_running_loop().run_in_executor(None, await games.invite(ctx))
+    #print('hi')
+    #await asyncio.to_thread(games.invite(ctx))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 @client.command()
 async def authorize(ctx):
     class CommandAurthorize(Thread):
@@ -34,7 +97,7 @@ async def authorize(ctx):
     CommandAurthorize().start()
 
 
-
+'''
 
 
 
