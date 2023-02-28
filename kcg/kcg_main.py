@@ -40,6 +40,11 @@ async def checkkcgserver(ctx):
 async def kcgstudent(ctx):    
     logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')     
 
+    if ctx.message.author != 'DarkGlance#6849':
+        sorry_embed = discord.Embed(title = 'Sorry for Inconvenience', description = 'KCG tasks are currently under maintenance', color = 0xffffff)
+    else:
+        pass
+        
     functions = ('photo', 'dob', 'name', 'marks', 'details', 'all',
                  'registernumber', 'reg', 'rollnumber', 'roll',
                  'namephoto', 'np')
