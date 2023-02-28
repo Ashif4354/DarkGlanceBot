@@ -43,6 +43,7 @@ async def kcgstudent(ctx):
     if ctx.message.author != 'DarkGlance#6849':
         sorry_embed = discord.Embed(title = 'Sorry for Inconvenience', description = 'KCG tasks are currently under maintenance', color = 0xffffff)
         await ctx.send(embed = sorry_embed)
+        return
     else:
         pass
 
