@@ -71,7 +71,7 @@ queries = {
     #'query5' : "INSERT INTO role_owner value('DarkGlance#6849')",
     'query6' : 'CREATE TABLE block_list(name varchar(30) primary key)',
     'query7' : 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)',
-    #'query8' : 'CREATE TABLE gang_members(roll_no varchar(8) primary key, name varchar(30), discord_id varchar(30), role varchar(20))'
+    'query8' : 'CREATE TABLE gang_members(roll_no varchar(8) primary key,dob varchar(9))'
 }
 
 for query in queries:
