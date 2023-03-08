@@ -35,11 +35,19 @@ async def on_ready():
 
 @client.command()
 async def gangmarks(ctx):
+
+    if not await check_auth(ctx, ('owner','admin')):
+        return
+    
+    if not check_server()[1]:
+        await ctx.send(embed = server_error_embed)
+        return
+
     mycon = mysql.connector.connect(host='localhost', passwd='rootmysql',user='root', database = 'darkglancebot', autocommit = True)
     mysql_cursor = mycon.cursor()
     mysql_cursor.execute('select * from gang_members')
     gang_members = mysql_cursor.fetchall()
-    print(gang_members)    
+    #print(gang_members)    
     
     gangsters = {}
 
@@ -93,10 +101,10 @@ async def gangmarks(ctx):
 
         thread = gang_()
         thread.start()
-        sleep(2.5)
+        sleep(3)
     thread.join()
 
-    print(gangsters)
+    #print(gangsters)
     tasks = []
 
     for gang_member in gang_members:
