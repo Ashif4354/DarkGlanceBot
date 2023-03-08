@@ -165,5 +165,5 @@ def check_server():
     return (server_status_embed, status) 
 
 
-print(check_student_id('20cs00p'))
+#print(check_student_id('20cs00p'))
 #print(check_server())
