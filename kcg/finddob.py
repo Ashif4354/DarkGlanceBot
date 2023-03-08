@@ -148,12 +148,12 @@ async def find_student_dob(user_id, year_of_birth = None):
         
     raise DobNotFound   
 
-
+'''
 async def s():
     print(await find_student_dob('20cs053'))
 
 asyncio.run(s())
-
+'''
 #find_student_dob('311020104023', '2003')                        
             
 
