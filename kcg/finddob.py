@@ -23,16 +23,17 @@ student_login_payload = {
         }
 
 
-with Session() as session:
-    #print('hi')
-    page = session.get(student_login_url)
+def get_payload():
+    global fees_login_payload, student_login_payload
+    with requests.Session() as session:
+        page = session.get(student_login_url)
 
-    soup = BeautifulSoup(page.text, 'html.parser')
-    element = soup.find("input", {"id": "__VIEWSTATE"})
-    student_login_payload['__VIEWSTATE'] = element.attrs['value']
+        soup = BeautifulSoup(page.text, 'html.parser')
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        student_login_payload['__VIEWSTATE'] = element.attrs['value']
 
-    element = soup.find("input", {"id": "__EVENTVALIDATION"})
-    student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+        element = soup.find("input", {"id": "__EVENTVALIDATION"})
+        student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
 
 time_out_dates = [] 
 
@@ -89,6 +90,7 @@ async def find_student_dob(user_id, year_of_birth = None):
         mycon.close()
         return data[0][1]
     else:
+        get_payload()
         reg_no_ = False
 
         if user_id[:4] == '3110' :
@@ -114,7 +116,7 @@ async def find_student_dob(user_id, year_of_birth = None):
             years = (year_of_birth,)         
         
         tasks = []
-
+        
         async with ClientSession() as session:
 
             for str_yob in years:

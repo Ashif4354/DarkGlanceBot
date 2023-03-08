@@ -20,16 +20,6 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
-with requests.Session() as session:
-    page = session.get(fees_url)
-
-    soup = BeautifulSoup(page.text, 'html.parser')
-    element = soup.find("input", {"id": "__VIEWSTATE"})
-    fees_login_payload['__VIEWSTATE'] = element.attrs['value']
-
-    element = soup.find("input", {"id": "__EVENTVALIDATION"})
-    fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
-
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
@@ -45,19 +35,33 @@ student_login_payload = {
         'Button1' : 'Login'
         }
 
+def get_payload():
+    global fees_login_payload, student_login_payload
+    with requests.Session() as session:
+        page = session.get(fees_url)
 
-with requests.Session() as session:
-    page = session.get(student_login_url)
+        soup = BeautifulSoup(page.text, 'html.parser')
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        fees_login_payload['__VIEWSTATE'] = element.attrs['value']
 
-    soup = BeautifulSoup(page.text, 'html.parser')
-    element = soup.find("input", {"id": "__VIEWSTATE"})
-    student_login_payload['__VIEWSTATE'] = element.attrs['value']
+        element = soup.find("input", {"id": "__EVENTVALIDATION"})
+        fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
 
-    element = soup.find("input", {"id": "__EVENTVALIDATION"})
-    student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+        page = session.get(student_login_url)
+
+        soup = BeautifulSoup(page.text, 'html.parser')
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        student_login_payload['__VIEWSTATE'] = element.attrs['value']
+
+        element = soup.find("input", {"id": "__EVENTVALIDATION"})
+        student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+
+
+
 
 
 def check_student_id(user_id):
+    get_payload()
     fees_login_payload['txtuname'] = user_id
     
     fees_login_payload['rblOnlineAppLoginMode'] = 0
@@ -84,6 +88,7 @@ def check_student_id(user_id):
     return False
 
 def check_student_rollno(user_id):
+    get_payload()
     fees_login_payload['txtuname'] = user_id
     
     fees_login_payload['rblOnlineAppLoginMode'] = 0
@@ -95,6 +100,7 @@ def check_student_rollno(user_id):
     return False
 
 def check_student_registerno(user_id):
+    get_payload()
     fees_login_payload['txtuname'] = user_id
     
     fees_login_payload['rblOnlineAppLoginMode'] = 1
@@ -105,6 +111,7 @@ def check_student_registerno(user_id):
     return False
 
 def check_server():
+    get_payload()
         
     server_status_embed = discord.Embed(title = 'KCG Server status', color = 0xffffff)    
 
@@ -158,5 +165,5 @@ def check_server():
     return (server_status_embed, status) 
 
 
-#print(check_student_id('20cs008'))
+print(check_student_id('20cs00p'))
 #print(check_server())

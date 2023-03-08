@@ -20,20 +20,20 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
-with requests.Session() as session:
-    page = session.get(fees_url)
+def get_payload():
+    global fees_login_payload, student_login_payload
+    with requests.Session() as session:
+        page = session.get(fees_url)
 
-    soup = BeautifulSoup(page.text, 'html.parser')
-    element = soup.find("input", {"id": "__VIEWSTATE"})
-    fees_login_payload['__VIEWSTATE'] = element.attrs['value']
+        soup = BeautifulSoup(page.text, 'html.parser')
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        fees_login_payload['__VIEWSTATE'] = element.attrs['value']
 
-    element = soup.find("input", {"id": "__EVENTVALIDATION"})
-    fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+        element = soup.find("input", {"id": "__EVENTVALIDATION"})
+        fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
 
 def photo_got(s, rollno): 
-    fees_login_payload['txtuname'] = rollno
-    
-   
+    fees_login_payload['txtuname'] = rollno      
 
     try:
 
@@ -69,6 +69,7 @@ photo_got_ = False
 previous_date = datetime.date.today()
 
 while not photo_got_:
+    get_payload()
     with requests.Session() as s:
         if datetime.date.today() != previous_date:
             previous_date = datetime.date.today()

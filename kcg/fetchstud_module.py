@@ -42,15 +42,17 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
-with requests.Session() as session:
-    page = session.get(fees_url)
+def get_payload():
+    global fees_login_payload, student_login_payload
+    with requests.Session() as session:
+        page = session.get(fees_url)
 
-    soup = BeautifulSoup(page.text, 'html.parser')
-    element = soup.find("input", {"id": "__VIEWSTATE"})
-    fees_login_payload['__VIEWSTATE'] = element.attrs['value']
+        soup = BeautifulSoup(page.text, 'html.parser')
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        fees_login_payload['__VIEWSTATE'] = element.attrs['value']
 
-    element = soup.find("input", {"id": "__EVENTVALIDATION"})
-    fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+        element = soup.find("input", {"id": "__EVENTVALIDATION"})
+        fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
 
 
 @client.event
@@ -64,7 +66,7 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
 
     if not await check_auth(ctx, ('owner','admin')):
         return
-
+    
     if not check_server()[1]:
         await ctx.send(embed = server_error_embed)
         return
@@ -122,6 +124,8 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
         pass
 
     file.write(f'\nCorrected departments  :  {corrected_depts}\n')
+    
+    get_payload()
 
     def check_student_rollno(user_id):
         fees_login_payload['txtuname'] = user_id    

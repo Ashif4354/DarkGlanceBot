@@ -45,17 +45,6 @@ fees_login_payload = {
     'Button1' : 'Login'
     }
 
-with requests.Session() as session:
-    page = session.get(fees_url)
-
-    soup = BeautifulSoup(page.text, 'html.parser')
-    element = soup.find("input", {"id": "__VIEWSTATE"})
-    fees_login_payload['__VIEWSTATE'] = element.attrs['value']
-
-    element = soup.find("input", {"id": "__EVENTVALIDATION"})
-    fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
-
-
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
 student_login_payload = {
@@ -70,17 +59,28 @@ student_login_payload = {
         'Button1' : 'Login'
         }
 
+def get_payload():
+    global fees_login_payload, student_login_payload
+    with requests.Session() as session:
+        page = session.get(fees_url)
 
-with requests.Session() as session:
-    page = session.get(student_login_url)
+        soup = BeautifulSoup(page.text, 'html.parser')
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        fees_login_payload['__VIEWSTATE'] = element.attrs['value']
 
-    soup = BeautifulSoup(page.text, 'html.parser')
-    element = soup.find("input", {"id": "__VIEWSTATE"})
-    student_login_payload['__VIEWSTATE'] = element.attrs['value']
+        element = soup.find("input", {"id": "__EVENTVALIDATION"})
+        fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
 
-    element = soup.find("input", {"id": "__EVENTVALIDATION"})
-    student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+        page = session.get(student_login_url)
 
+        soup = BeautifulSoup(page.text, 'html.parser')
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        student_login_payload['__VIEWSTATE'] = element.attrs['value']
+
+        element = soup.find("input", {"id": "__EVENTVALIDATION"})
+        student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+
+get_payload()
 
 #_________________________________________________________________________________________________________________________________________________________
 class student:
@@ -177,6 +177,7 @@ class student:
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_photo(uid = user_id_): 
+        get_payload()
         if uid[:4] == '3110' :
             fees_login_payload['rblOnlineAppLoginMode'] = '1'
         else:
@@ -270,6 +271,7 @@ class student:
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_regno(user_id, dob_):
+        get_payload()
         if user_id[:4] == '3110' :
             student_login_payload['rblOnlineAppLoginMode'] = '1'
         else:
@@ -346,6 +348,8 @@ class student:
         
         file.write(f'\nCorrected departments  :  {corrected_depts}\n')
         file.write(f'\nKeyword  :  {text}\n')
+        
+        get_payload()
 
         def check_student_rollno(user_id):
             fees_login_payload['txtuname'] = user_id    
