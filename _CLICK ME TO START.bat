@@ -10,3 +10,8 @@ cd..
 
 cd sms_call_blaster
 start main.py
+
+cd..
+
+cd gang
+start gang_main.py
