@@ -129,30 +129,31 @@ async def find_student_dob(user_id, year_of_birth = None):
                         The_day = str_day + str_month + str_yob
                         tasks.append(asyncio.create_task(check_date(session, The_day)))
 
-            list_ = await asyncio.gather(*tasks)
+                list_ = await asyncio.gather(*tasks)
 
-            for a in list_:
-                if a != False:
-                    dob = a                     
-                    try:
-                        mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,dob))
-                        #print('dob found 4')
-                    except Exception as text:
-                        logger.exception_logs('dgb/kcg/finddob/find_student_dob', text, getcwd().rstrip('kcg') + 'logger')
+                for a in list_:
+                    if a != False:
+                        dob = a                     
+                        try:
+                            mysql_cursor.execute("INSERT INTO dobs VALUES('{}','{}')".format(user_id,dob))
+                            #print('dob found 4')
+                        except Exception as text:
+                            logger.exception_logs('dgb/kcg/finddob/find_student_dob', text, getcwd().rstrip('kcg') + 'logger')
 
-                    mysql_cursor.close()
-                    mycon.close()
-                    #print(dob)
-                    return dob                    
+                        mysql_cursor.close()
+                        mycon.close()
+                        #print(dob)
+                        return dob   
+                tasks = []                 
         
     raise DobNotFound   
 
-'''
+
 async def s():
-    print(await find_student_dob('20cs089'))
+    print(await find_student_dob('20cs053'))
 
 asyncio.run(s())
-'''
+
 #find_student_dob('311020104023', '2003')                        
             
 
