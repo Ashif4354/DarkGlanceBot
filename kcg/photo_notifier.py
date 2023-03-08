@@ -3,16 +3,19 @@ import requests
 from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import datetime
-from bs4 import BeautifulSoup
 from datetime import datetime as dt
 
 print('Photo notifier active')
 
-NTARGUMENT' : '',
+fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
+
+fees_login_payload = {
+    '__EVENTTARGET' : '' ,
+    '__EVENTARGUMENT' : '',
     '__LASTFOCUS' : '',
     '__VIEWSTATE' : None,
     '__EVENTVALIDATION' : None,
-    'rblOnlineAppLoginMode' : None,
+    'rblOnlineAppLoginMode' : '0',
     'txtuname' : None,
     'Button1' : 'Login'
     }

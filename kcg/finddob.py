@@ -1,11 +1,12 @@
 from aiohttp import ClientSession
 import mysql.connector
 import asyncio
-from bs4 import BeautifulSoup
 from os import getcwd
 from sys import path
 path.append(getcwd().rstrip('kcg'))
 from darkglance import DobNotFound
+from requests import Session
+from bs4 import BeautifulSoup
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
@@ -22,7 +23,8 @@ student_login_payload = {
         }
 
 
-with requests.Session() as session:
+with Session() as session:
+    #print('hi')
     page = session.get(student_login_url)
 
     soup = BeautifulSoup(page.text, 'html.parser')
@@ -44,9 +46,12 @@ def get_years(u_id, reg_no_):
             
     yob = year - 18
     years = (str(yob), str(yob + 1), str(yob - 1))
+    #years = (str(yob + 1),)
+    #print(years)
     return years  
 
 async def check_date(session, The_day_):
+    #print(The_day_)
 
     global time_out_dates, student_login_payload
 
@@ -54,14 +59,15 @@ async def check_date(session, The_day_):
                 
     try:
         page = await session.post(student_login_url, data = student_login_payload, timeout = 10)
+        temp_url = str(page.url)
         #print(The_day_)
     except:
-        pass
+        temp_url = student_login_url
                        
         
 
     #print(page.url)
-    if str(page.url) != student_login_url: 
+    if temp_url != student_login_url: 
         #print('dob found 1')        
         #print(The_day_)  
         #print('dob found 2')             
@@ -87,7 +93,10 @@ async def find_student_dob(user_id, year_of_birth = None):
 
         if user_id[:4] == '3110' :
             student_login_payload['rblOnlineAppLoginMode'] = '1'
-            reg_no_ = True        
+            reg_no_ = True   
+        else:
+            student_login_payload['rblOnlineAppLoginMode'] = '0'
+            reg_no_ = False     
 
         months = {
             '01' : 31, '02' : 29, '03' : 31, '04' : 30,
@@ -97,9 +106,10 @@ async def find_student_dob(user_id, year_of_birth = None):
 
         student_login_payload['txtuname'] = user_id
         The_day = None
-    
+        #print(reg_no_)
         if year_of_birth == None:
             years = get_years(user_id, reg_no_)
+            #input()
         else:
             years = (year_of_birth,)         
         
@@ -137,12 +147,12 @@ async def find_student_dob(user_id, year_of_birth = None):
         
     raise DobNotFound   
 
-
+'''
 async def s():
-    print(await find_student_dob('20ao06'))
+    print(await find_student_dob('20cs089'))
 
 asyncio.run(s())
-
+'''
 #find_student_dob('311020104023', '2003')                        
             
 

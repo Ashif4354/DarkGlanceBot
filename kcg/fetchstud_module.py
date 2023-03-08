@@ -37,7 +37,7 @@ fees_login_payload = {
     '__LASTFOCUS' : '',
     '__VIEWSTATE' : None,
     '__EVENTVALIDATION' : None,
-    'rblOnlineAppLoginMode' : None,
+    'rblOnlineAppLoginMode' : '0',
     'txtuname' : None,
     'Button1' : 'Login'
     }
