@@ -7,18 +7,24 @@ from datetime import datetime as dt
 
 print('Photo notifier active')
 
-fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
-
-fees_login_payload = {
-    '__EVENTTARGET' : '' ,
-    '__EVENTARGUMENT' : '',
+NTARGUMENT' : '',
     '__LASTFOCUS' : '',
-    '__VIEWSTATE' : '/wEPDwUKMTQ4NjQwMTIzNw9kFgICAw9kFgoCCQ8QDxYGHg1EYXRhVGV4dEZpZWxkBQhjb2xsbmFtZR4ORGF0YVZhbHVlRmllbGQFDGNvbGxlZ2VfY29kZR4LXyFEYXRhQm91bmRnZBAVARlLQ0cgQ29sbGVnZSBvZiBUZWNobm9sb2d5FQECMTMUKwMBZxYBZmQCCw8QZBAVAgtSb2xsIE51bWJlcg9SZWdpc3RlciBOdW1iZXIVAgEwATEUKwMCZ2cWAWZkAg0PD2QWBB4LcGxhY2Vob2xkZXIFC1JvbGwgTnVtYmVyHgxhdXRvY29tcGxldGUFA29mZmQCEQ8PFgIeB1Zpc2libGVoFgIfBAUDb2ZmZAIVDw8WAh8FaGRkZOrOUJQac2BT+BI31rXFkaJSmgUH14MFLdoSBKQyWaGh',
-    '__EVENTVALIDATION' : '/wEdAAY/r35jfCwoYlx93Pn24vpG1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+c34O/GfAV4V4n0wgFZHr3dccW6UgLmbRa79EF0zdhOtX+jNDMFZPEd8fJKWCsNDnQ==',
+    '__VIEWSTATE' : None,
+    '__EVENTVALIDATION' : None,
     'rblOnlineAppLoginMode' : None,
     'txtuname' : None,
     'Button1' : 'Login'
     }
+
+with requests.Session() as session:
+    page = session.get(fees_url)
+
+    soup = BeautifulSoup(page.text, 'html.parser')
+    element = soup.find("input", {"id": "__VIEWSTATE"})
+    fees_login_payload['__VIEWSTATE'] = element.attrs['value']
+
+    element = soup.find("input", {"id": "__EVENTVALIDATION"})
+    fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
 
 def photo_got(s, rollno): 
     fees_login_payload['txtuname'] = rollno

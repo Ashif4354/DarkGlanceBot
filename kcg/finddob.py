@@ -5,20 +5,31 @@ from os import getcwd
 from sys import path
 path.append(getcwd().rstrip('kcg'))
 from darkglance import DobNotFound
+
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 
 student_login_payload = {
-    '__EVENTTARGET' : '' ,
-    '__EVENTARGUMENT' : '',
-    '__LASTFOCUS' : '',
-    '__VIEWSTATE' : '/wEPDwUJMjkwMTA2NTY5D2QWAgIDD2QWCgIDDxAPFgYeDURhdGFUZXh0RmllbGQFCGNvbGxuYW1lHg5EYXRhVmFsdWVGaWVsZAUMY29sbGVnZV9jb2RlHgtfIURhdGFCb3VuZGdkEBUBGUtDRyBDb2xsZWdlIG9mIFRlY2hub2xvZ3kVAQIxMxQrAwFnFgFmZAIFDxBkEBUCC1JvbGwgTnVtYmVyEVJlZ2lzdGVyZWQgTnVtYmVyFQIBMAExFCsDAmdnFgFmZAIHDw9kFgQeC3BsYWNlaG9sZGVyBQtSb2xsIE51bWJlch4MYXV0b2NvbXBsZXRlBQNvZmZkAgsPD2QWAh8EBQNvZmZkAg8PDxYCHgdWaXNpYmxlaGRkZEUh8Q9VeEnmpvJTjWVIwQmtVpX5IBYcjkAZZqWYNv5m', 
-    '__VIEWSTATEGENERATOR' : 'CA0B0334',
-    '__EVENTVALIDATION' : '/wEdAAfEhVpMiIC9PlqrGxNesSta1ewWtm3evXPJ0S9N/1pup/olUdBTEtKbUYVn9qLUVnP36l7NJf9XLe0xTP1byily7ATayzSAKKfWGUr2Dqcb+ZxpWckI3qdmfEJVCu2f5cHN+DvxnwFeFeJ9MIBWR6935FJfAFbS62yyYTlq6hIkdlrWUyRFAO0MmBe4dmPHJe8=',
-    'rblOnlineAppLoginMode' : '0',
-    'txtuname' : None,
-    'txtpassword' : None,
-    'Button1' : 'Login'
-}
+        '__EVENTTARGET' : '' ,
+        '__EVENTARGUMENT' : '',
+        '__LASTFOCUS' : '',
+        '__VIEWSTATE' : None,
+        '__EVENTVALIDATION' : None,
+        'rblOnlineAppLoginMode' : None,
+        'txtuname' : None,
+        'txtpassword' : None,
+        'Button1' : 'Login'
+        }
+
+
+with requests.Session() as session:
+    page = session.get(student_login_url)
+
+    soup = BeautifulSoup(page.text, 'html.parser')
+    element = soup.find("input", {"id": "__VIEWSTATE"})
+    student_login_payload['__VIEWSTATE'] = element.attrs['value']
+
+    element = soup.find("input", {"id": "__EVENTVALIDATION"})
+    student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
 
 time_out_dates = [] 
 
@@ -125,12 +136,12 @@ async def find_student_dob(user_id, year_of_birth = None):
         
     raise DobNotFound   
 
-'''
+
 async def s():
-    print(await find_student_dob('20ao04'))
+    print(await find_student_dob('20ao06'))
 
 asyncio.run(s())
-'''
+
 #find_student_dob('311020104023', '2003')                        
             
 
