@@ -1,6 +1,7 @@
 from aiohttp import ClientSession
 import mysql.connector
 import asyncio
+from bs4 import BeautifulSoup
 from os import getcwd
 from sys import path
 path.append(getcwd().rstrip('kcg'))

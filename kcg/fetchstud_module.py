@@ -4,6 +4,7 @@ from Student import student, server_down, NoPhoto
 from os import getcwd,remove
 from datetime import date, datetime
 from check import check_server
+from bs4 import BeautifulSoup
 
 from sys import path
 path.append(getcwd().rstrip('kcg'))

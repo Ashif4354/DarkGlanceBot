@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import datetime
+from bs4 import BeautifulSoup
 from datetime import datetime as dt
 
 print('Photo notifier active')
