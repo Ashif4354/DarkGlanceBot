@@ -18,8 +18,8 @@ from kcg.check import check_server
 mycon = None
 mysql_cursor = None
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option('excludeSwitches', ['enable-logging'])
+#options = webdriver.Options()
+#options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 client = commands.Bot(command_prefix = '.')
 
@@ -85,11 +85,12 @@ async def gangmarks(ctx):
         class gang_(Thread):
             def run(self):
                 
-                browser = webdriver.Chrome(options = options)
+                browser = webdriver.Edge()
                 browser.get('http://studentlogin.kcgcollege.ac.in/')
                 #gangsters[gang_member] = gangster(gang_member[0], gang_member[1])
                 #print(gangsters)
                 roll_no, dob = gangsters[gang_member].roll_no, gangsters[gang_member].dob
+
                 roll_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[1]') 
                 roll_no_button.click()
 
@@ -124,7 +125,7 @@ async def gangmarks(ctx):
 
         thread = gang_()
         thread.start()
-        sleep(3)
+        sleep(4)
     thread.join()
 
     #print(gangsters)

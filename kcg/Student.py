@@ -90,7 +90,8 @@ class student:
         global user_id_, browser
         user_id_ = user_id #simply
 
-        browser = webdriver.Chrome(options = options)
+        #browser = webdriver.Chrome(options = options)
+        browser = webdriver.Edge()
         browser.get('http://studentlogin.kcgcollege.ac.in/')
         #login with register no
         if user_id[:4] == '3110':               
@@ -117,7 +118,8 @@ class student:
 
         global user_id_, browser
         user_id_ = user_id #simply
-        browser = webdriver.Chrome(options = options)
+        #browser = webdriver.Chrome(options = options)
+        browser = webdriver.Edge()
         browser.get(fees_url)
 
         #login with register no
