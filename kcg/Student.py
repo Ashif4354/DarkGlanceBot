@@ -13,8 +13,8 @@ from darkglance import *
 
 user_id_ = None
 browser = None
-options = webdriver.ChromeOptions()
-options.add_experimental_option('excludeSwitches', ['enable-logging'])
+#options = webdriver.ChromeOptions()
+#options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 departments = {
             'ad' : ('ad', 'aids',) , 
