@@ -5,6 +5,7 @@ from os import getcwd,remove
 from datetime import date, datetime
 from check import check_server
 from bs4 import BeautifulSoup
+from requests import Session
 
 from sys import path
 path.append(getcwd().rstrip('kcg'))
@@ -44,7 +45,7 @@ fees_login_payload = {
 
 def get_payload():
     global fees_login_payload, student_login_payload
-    with requests.Session() as session:
+    with Session() as session:
         page = session.get(fees_url)
 
         soup = BeautifulSoup(page.text, 'html.parser')

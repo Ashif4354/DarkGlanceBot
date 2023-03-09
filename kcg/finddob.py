@@ -25,7 +25,7 @@ student_login_payload = {
 
 def get_payload():
     global fees_login_payload, student_login_payload
-    with requests.Session() as session:
+    with Session() as session:
         page = session.get(student_login_url)
 
         soup = BeautifulSoup(page.text, 'html.parser')

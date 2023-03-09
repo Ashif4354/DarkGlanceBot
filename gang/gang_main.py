@@ -23,11 +23,6 @@ options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 client = commands.Bot(command_prefix = '.')
 
-'''
-class gang:
-    def add_member(roll_no, name, discord_id = 'null'):
-        dbconnect('darkglancebot')
-'''      
 
 @client.event
 async def on_ready():
@@ -35,7 +30,32 @@ async def on_ready():
     print("Gang Active")
 
 @client.command()
+async def addgangmember(ctx): #.addgangmember 20cs008 Ashif 25112002
+    logger.input_kcg(ctx, getcwd().rstrip('gang') + '\logger')
+
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    mycon =  mysql.connector.connect(host='localhost', passwd='rootmysql',user='root', database = 'darkglancebot', autocommit = True)
+    mysql_cursor = mycon.cursor()
+    
+    command = ctx.message.content.split()
+
+    try:
+        mysql_cursor.execute(f"INSERT INTO gang_members values('{command[1]}', '{command[2]}', '{command[3]}')")
+        await ctx.send(embed = discord.Embed(title = 'New gangster added', description = f'{command[2]}  {command[1]}', color = 0xffffff))
+    except IndexError:
+        await ctx.send(embed = discord.Embed(title = 'Invalid command', color = 0xffffff))
+    except Exception as text:
+        logger.exception_logs('dgb/gang/gang_main/addgangmember ', text, getcwd().rstrip('gang') + 'logger')
+    
+    mysql_cursor.close()
+    mycon.close()
+
+
+@client.command()
 async def gangmarks(ctx):
+    logger.input_kcg(ctx, getcwd().rstrip('gang') + '\logger')
 
     if not await check_auth(ctx, ('owner','admin')):
         return
@@ -43,6 +63,8 @@ async def gangmarks(ctx):
     if not check_server()[1]:
         await ctx.send(embed = server_error_embed)
         return
+    
+    await ctx.send(embed = discord.Embed(title = 'Kindly Wait', description = 'marks is being fetched', color = 0xffffff))
 
     mycon = mysql.connector.connect(host='localhost', passwd='rootmysql',user='root', database = 'darkglancebot', autocommit = True)
     mysql_cursor = mycon.cursor()
@@ -57,7 +79,7 @@ async def gangmarks(ctx):
             def __init__(self, roll_no, dob):
                 self.roll_no = roll_no
                 self.dob = dob
-        gangsters[gang_member] = gangster(gang_member[0], gang_member[1])
+        gangsters[gang_member] = gangster(gang_member[0], gang_member[2])
         
         #print(gang_member)
         class gang_(Thread):
@@ -66,7 +88,7 @@ async def gangmarks(ctx):
                 browser = webdriver.Chrome(options = options)
                 browser.get('http://studentlogin.kcgcollege.ac.in/')
                 #gangsters[gang_member] = gangster(gang_member[0], gang_member[1])
-                print(gangsters)
+                #print(gangsters)
                 roll_no, dob = gangsters[gang_member].roll_no, gangsters[gang_member].dob
                 roll_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[1]') 
                 roll_no_button.click()
@@ -111,18 +133,32 @@ async def gangmarks(ctx):
     for gang_member in gang_members:
         roll_no = gang_member[0]
         path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('gang'), roll_no)
-        embed = discord.Embed(title = roll_no, color = 0xffffff)
-        pic = discord.File(path, filename = 'temp_marks.png')
-        embed.set_image(url = 'attachment://temp_marks.png')
+        embed = discord.Embed(title = roll_no, description = gang_member[1], color = 0xffffff)
+        pic = discord.File(path, filename = f'{roll_no}.png')
+        embed.set_image(url = f'attachment://{roll_no}.png')
 
         tasks.append(asyncio.create_task(ctx.send(embed = embed, file = pic)))        
 
     await asyncio.gather(*tasks)
+    await ctx.send(embed = discord.Embed(title = 'Marks of all gang members hass been fetched', color = 0xffffff))
+
 
     for gang_member in gang_members:
         roll_no = gang_member[0]
         path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('gang'), roll_no)
         remove(path)
+    
+    mysql_cursor.close()
+    mycon.close()
+
+@client.command()
+async def stopbot(ctx):
+    logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')
+    
+    if not await check_auth(ctx, ('owner',)):
+        return
+
+    exit(0)
 
 ############################
 ##------------------------##
