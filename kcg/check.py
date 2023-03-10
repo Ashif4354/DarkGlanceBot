@@ -18,10 +18,12 @@ def get_payload():
     global fees_login_payload, student_login_payload
 
     with open('fees_login_payload.json', 'r') as f:
-            fees_login_payload = json.load(f)
+        fees_login_payload = json.load(f)
+        #print(fees_login_payload)
     
     with open('student_login_payload.json', 'r') as f:
-            student_login_payload = json.load(f)
+        student_login_payload = json.load(f)
+        
 #get_payload()
 
 def check_student_id(user_id):
@@ -35,7 +37,7 @@ def check_student_id(user_id):
         
         raise server_down
     
-
+    #print(fees_login_payload)
     if page.url != fees_url:
         return True
     
@@ -129,5 +131,5 @@ def check_server():
     return (server_status_embed, status) 
 
 
-#print(check_student_id('20cs00p'))
+#print(check_student_id('20cs008'))
 #print(check_server())

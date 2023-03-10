@@ -14,7 +14,6 @@ from logger.logger import logger
 from darkglance import *
 from kcg.finddob import find_student_dob as getdob
 from kcg.check import check_server
-
 mycon = None
 mysql_cursor = None
 
