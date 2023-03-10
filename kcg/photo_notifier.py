@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import datetime
 from datetime import datetime as dt
+import json
 
 print('Photo notifier active')
 
