@@ -8,29 +8,13 @@ from datetime import datetime as dt
 print('Photo notifier active')
 
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
-
-fees_login_payload = {
-    '__EVENTTARGET' : '' ,
-    '__EVENTARGUMENT' : '',
-    '__LASTFOCUS' : '',
-    '__VIEWSTATE' : None,
-    '__EVENTVALIDATION' : None,
-    'rblOnlineAppLoginMode' : '0',
-    'txtuname' : None,
-    'Button1' : 'Login'
-    }
+fees_login_payload = {}
 
 def get_payload():
-    global fees_login_payload, student_login_payload
-    with requests.Session() as session:
-        page = session.get(fees_url)
+    global fees_login_payload
 
-        soup = BeautifulSoup(page.text, 'html.parser')
-        element = soup.find("input", {"id": "__VIEWSTATE"})
-        fees_login_payload['__VIEWSTATE'] = element.attrs['value']
-
-        element = soup.find("input", {"id": "__EVENTVALIDATION"})
-        fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+    with open('fees_login_payload.json', 'r') as f:
+            fees_login_payload = json.load(f)
 
 def photo_got(s, rollno): 
     fees_login_payload['txtuname'] = rollno      

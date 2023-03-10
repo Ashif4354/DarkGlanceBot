@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 import mysql.connector
-from selenium import webdriver
+from msedge.selenium_tools import Edge, EdgeOptions
+#from selenium import webdriver
 import asyncio
 from time import sleep
 from threading import Thread
@@ -12,7 +13,6 @@ path.append(getcwd().rstrip('gang'))
 from logger.logger import logger
 from darkglance import *
 from kcg.finddob import find_student_dob as getdob
-from kcg.Student import student
 from kcg.check import check_server
 
 mycon = None
@@ -21,7 +21,12 @@ mysql_cursor = None
 #options = webdriver.Options()
 #options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
+#options = EdgeOptions()
+#options.use_chromium = True
+#options.add_argument('headless')
+
 client = commands.Bot(command_prefix = '.')
+
 
 
 @client.event
@@ -70,9 +75,11 @@ async def gangmarks(ctx):
     mysql_cursor = mycon.cursor()
     mysql_cursor.execute('select * from gang_members')
     gang_members = mysql_cursor.fetchall()
-    print(gang_members)    
+
+    #print(gang_members)    
     #gang_members = [('20cs007','arunvel', '22112002')]
-    gangsters = {}
+
+    threads = []
 
     for gang_member in gang_members:        
         
@@ -83,8 +90,8 @@ async def gangmarks(ctx):
                 self.gangster_object = gangster_object
 
             def run(self):
-                
-                browser = webdriver.Edge()
+                browser = Edge()
+                #browser = Edge(options = options)
                 browser.get('http://studentlogin.kcgcollege.ac.in/')
                 #gangsters[gang_member] = gangster(gang_member[0], gang_member[1])
                 #print(gangsters)
@@ -120,8 +127,8 @@ async def gangmarks(ctx):
                 path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('gang'), roll_no)
                 marks_table = browser.find_element_by_xpath('//*[@id="Fpsmarks_viewport"]/table')
                 marks_table.screenshot(path)
-
                 browser.quit()
+
         class gangster:
             def __init__(self, roll_no, dob):
                 self.roll_no = roll_no
@@ -129,9 +136,11 @@ async def gangmarks(ctx):
         
         
         thread = gang_(gangster(gang_member[0], gang_member[2]))
+        threads.append(thread)
         thread.start()
         
-    thread.join()
+    for thread_ in threads:
+        thread_.join()
 
     #print(gangsters)
     tasks = []

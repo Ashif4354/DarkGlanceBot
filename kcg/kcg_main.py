@@ -8,6 +8,9 @@ from check import *
 from datetime import date, datetime
 from os import getcwd, remove
 import help_embed
+from threading import Thread
+from get_payload import get_payload
+from time import sleep
 
 from sys import path
 path.append(getcwd().rstrip('kcg'))
@@ -20,6 +23,19 @@ client = commands.Bot(command_prefix = '.')
 async def on_ready():
     print("\nServer has been started")
     print("DarkGlanceBot is ready to perform kcg tasks")
+
+    class initial(Thread):
+        def run(self):
+            while True:
+                try:
+                    get_payload()
+                except Exception as text:
+                    logger.exception_logs('dgb/kcg/kcg_main/on_ready ', text, getcwd().rstrip('kcg') + 'logger')
+
+                sleep(86400)
+    
+    initial().start()
+
 
 @client.command()
 async def kcghelp(ctx) :

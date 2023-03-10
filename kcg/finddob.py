@@ -9,31 +9,14 @@ from requests import Session
 from bs4 import BeautifulSoup
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
-
-student_login_payload = {
-        '__EVENTTARGET' : '' ,
-        '__EVENTARGUMENT' : '',
-        '__LASTFOCUS' : '',
-        '__VIEWSTATE' : None,
-        '__EVENTVALIDATION' : None,
-        'rblOnlineAppLoginMode' : None,
-        'txtuname' : None,
-        'txtpassword' : None,
-        'Button1' : 'Login'
-        }
+student_login_payload = {}
 
 
 def get_payload():
-    global fees_login_payload, student_login_payload
-    with Session() as session:
-        page = session.get(student_login_url)
-
-        soup = BeautifulSoup(page.text, 'html.parser')
-        element = soup.find("input", {"id": "__VIEWSTATE"})
-        student_login_payload['__VIEWSTATE'] = element.attrs['value']
-
-        element = soup.find("input", {"id": "__EVENTVALIDATION"})
-        student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
+    global student_login_payload
+    
+    with open('student_login_payload.json', 'r') as f:
+            student_login_payload = json.load(f)
 
 time_out_dates = [] 
 

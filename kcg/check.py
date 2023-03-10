@@ -2,63 +2,27 @@ import requests
 import discord
 from os import getcwd
 from bs4 import BeautifulSoup
+import json
 
 from sys import path
 path.append(getcwd().rstrip('kcg'))
 from darkglance import *
 
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
-
-fees_login_payload = {
-    '__EVENTTARGET' : '' ,
-    '__EVENTARGUMENT' : '',
-    '__LASTFOCUS' : '',
-    '__VIEWSTATE' : None,
-    '__EVENTVALIDATION' : None,
-    'rblOnlineAppLoginMode' : None,
-    'txtuname' : None,
-    'Button1' : 'Login'
-    }
-
+fees_login_payload = {}
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
-
-student_login_payload = {
-        '__EVENTTARGET' : '' ,
-        '__EVENTARGUMENT' : '',
-        '__LASTFOCUS' : '',
-        '__VIEWSTATE' : None,
-        '__EVENTVALIDATION' : None,
-        'rblOnlineAppLoginMode' : None,
-        'txtuname' : None,
-        'txtpassword' : None,
-        'Button1' : 'Login'
-        }
+student_login_payload = {}
 
 def get_payload():
     global fees_login_payload, student_login_payload
-    with requests.Session() as session:
-        page = session.get(fees_url)
 
-        soup = BeautifulSoup(page.text, 'html.parser')
-        element = soup.find("input", {"id": "__VIEWSTATE"})
-        fees_login_payload['__VIEWSTATE'] = element.attrs['value']
-
-        element = soup.find("input", {"id": "__EVENTVALIDATION"})
-        fees_login_payload['__EVENTVALIDATION'] = element.attrs['value']
-
-        page = session.get(student_login_url)
-
-        soup = BeautifulSoup(page.text, 'html.parser')
-        element = soup.find("input", {"id": "__VIEWSTATE"})
-        student_login_payload['__VIEWSTATE'] = element.attrs['value']
-
-        element = soup.find("input", {"id": "__EVENTVALIDATION"})
-        student_login_payload['__EVENTVALIDATION'] = element.attrs['value']
-
-
-
-
+    with open('fees_login_payload.json', 'r') as f:
+            fees_login_payload = json.load(f)
+    
+    with open('student_login_payload.json', 'r') as f:
+            student_login_payload = json.load(f)
+#get_payload()
 
 def check_student_id(user_id):
     get_payload()
