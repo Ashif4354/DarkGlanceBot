@@ -70,36 +70,36 @@ async def gangmarks(ctx):
     mysql_cursor = mycon.cursor()
     mysql_cursor.execute('select * from gang_members')
     gang_members = mysql_cursor.fetchall()
-    #print(gang_members)    
-    
+    print(gang_members)    
+    #gang_members = [('20cs007','arunvel', '22112002')]
     gangsters = {}
 
-    for gang_member in gang_members:
-        class gangster:
-            def __init__(self, roll_no, dob):
-                self.roll_no = roll_no
-                self.dob = dob
-        gangsters[gang_member] = gangster(gang_member[0], gang_member[2])
+    for gang_member in gang_members:        
         
         #print(gang_member)
         class gang_(Thread):
+            def __init__(self, gangster_object):
+                super().__init__()
+                self.gangster_object = gangster_object
+
             def run(self):
                 
                 browser = webdriver.Edge()
                 browser.get('http://studentlogin.kcgcollege.ac.in/')
                 #gangsters[gang_member] = gangster(gang_member[0], gang_member[1])
                 #print(gangsters)
-                roll_no, dob = gangsters[gang_member].roll_no, gangsters[gang_member].dob
+                roll_no, dob = self.gangster_object.roll_no, self.gangster_object.dob
+                #print(roll_no, dob)
 
                 roll_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[1]') 
                 roll_no_button.click()
 
                 user__id = browser.find_element_by_xpath('//*[@id="txtuname"]')
-                user__id.send_keys(gangsters[gang_member].roll_no)
+                user__id.send_keys(roll_no)
 
                 dob_ = browser.find_element_by_xpath('//*[@id="txtpassword"]')
                 #print(dob)
-                dob_.send_keys(gangsters[gang_member].dob)
+                dob_.send_keys(dob)
 
                 login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
                 login_button.click() 
@@ -122,10 +122,15 @@ async def gangmarks(ctx):
                 marks_table.screenshot(path)
 
                 browser.quit()
-
-        thread = gang_()
+        class gangster:
+            def __init__(self, roll_no, dob):
+                self.roll_no = roll_no
+                self.dob = dob
+        
+        
+        thread = gang_(gangster(gang_member[0], gang_member[2]))
         thread.start()
-        sleep(4)
+        
     thread.join()
 
     #print(gangsters)
