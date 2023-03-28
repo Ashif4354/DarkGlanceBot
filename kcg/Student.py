@@ -1,6 +1,7 @@
 import requests
 from os import getcwd
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -60,25 +61,26 @@ class student:
 
         #browser = webdriver.Chrome(options = options)
         browser = webdriver.Edge()
+        browser.set_window_size(1152, 1080)
         browser.get('http://studentlogin.kcgcollege.ac.in/')
         #login with register no
         if user_id[:4] == '3110':               
-            register_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[2]')
+            register_no_button = browser.find_element(By.XPATH, '//*[@id="rblOnlineAppLoginMode"]/option[2]')
             register_no_button.click()
 
         #login with roll no
         else:                          
-            roll_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[1]') 
+            roll_no_button = browser.find_element(By.XPATH, '//*[@id="rblOnlineAppLoginMode"]/option[1]')
             roll_no_button.click()
 
         #roll/register no. input
-        user__id = browser.find_element_by_xpath('//*[@id="txtuname"]')
+        user__id = browser.find_element(By.XPATH, '//*[@id="txtuname"]')
         user__id.send_keys(user_id)
 
-        dob = browser.find_element_by_xpath('//*[@id="txtpassword"]')
+        dob = browser.find_element(By.XPATH, '//*[@id="txtpassword"]')
         dob.send_keys(user_dob)
 
-        login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
+        login_button = browser.find_element(By.XPATH, '//*[@id="Button1"]')
         login_button.click()    
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -92,19 +94,19 @@ class student:
 
         #login with register no
         if user_id[:4] == '3110':               
-            register_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[2]')
+            register_no_button = browser.find_element(By.XPATH, '//*[@id="rblOnlineAppLoginMode"]/option[2]')
             register_no_button.click()
 
         #login with roll no
         else:                          
-            roll_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[1]') 
+            roll_no_button = browser.find_element(By.XPATH, '//*[@id="rblOnlineAppLoginMode"]/option[1]')
             roll_no_button.click()
         
         #roll/register no. input
-        user__id = browser.find_element_by_xpath('//*[@id="txtuname"]')
+        user__id = browser.find_element(By.XPATH, '//*[@id="txtuname"]')
         user__id.send_keys(user_id)
 
-        login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
+        login_button = browser.find_element(By.XPATH, '//*[@id="Button1"]')
         login_button.click()
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -139,11 +141,6 @@ class student:
                     pass
                 raise server_down
 
-        '''
-        name_ = browser.find_element_by_xpath('//*[@id="lblsname"]')
-        name_ = name_.text
-        browser.quit()
-        return name_'''
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_photo(uid = user_id_): 
@@ -183,59 +180,37 @@ class student:
                 except:
                     pass
                 raise server_down
-        '''
-        try:
-            img_src = browser.find_element_by_xpath('//*[@id="Imagestudent"]').get_attribute("src")
-        except:
-            browser.quit()
-            raise Exception
-         
-        browser.get(img_src)
-            
-        pic_ = browser.find_element_by_xpath('/html/body/img')
-
-        path = r"{}\temp_pics\{}_photo.png".format(getcwd(), uid)
-        with open(path, 'wb') as file:            
-            
-            file.write(pic_.screenshot_as_png)
-        browser.quit()
-        '''
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_marks(uid = user_id_):
-        marks_detail_button = browser.find_element_by_xpath('//*[@id="pHeadermarks"]')
+        marks_detail_button = browser.find_element(By.XPATH, '//*[@id="pHeadermarks"]')
         marks_detail_button.click()
 
         time.sleep(2)
 
-        cam_button = browser.find_element_by_xpath('//*[@id="btnsubjectchooser"]')
-        cam_button.click()
-
-        cam_button = browser.find_element_by_xpath('//*[@id="ImageButtonCamv"]')
-        cam_button.click()
-
-        
+        cam_button = browser.find_element(By.XPATH, '//*[@id="ImageButtonCamv"]')
+        cam_button.click()        
 
         browser.execute_script("window.scrollTo(40, 500)") 
         
         path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('kcg'), uid)
-        marks_table = browser.find_element_by_xpath('//*[@id="Fpsmarks_viewport"]/table')
+        marks_table = browser.find_element(By.XPATH, '//*[@id="Fpsmarks_viewport"]/table')
         marks_table.screenshot(path)
         browser.quit()
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_details(uid = user_id_):
-        student_detail_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
+        student_detail_button = browser.find_element(By.XPATH, '//*[@id="pHeaderpersonal"]')
         student_detail_button.click()
 
         time.sleep(2)
-        bio_button = browser.find_element_by_xpath('//*[@id="ImageButtonbio"]')
+        bio_button = browser.find_element(By.XPATH, '//*[@id="ImageButtonbio"]')
         bio_button.click()
 
         browser.execute_script("window.scrollTo(0, 450)") 
         
         path = r"{}\temp_pics\{}_details.png".format(getcwd().rstrip('kcg'), uid)
-        marks_table = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]')
+        marks_table = browser.find_element(By.XPATH, '//*[@id="Fpspersonal_viewport"]')
         marks_table.screenshot(path)
         browser.quit()
     
@@ -261,24 +236,18 @@ class student:
             except Exception as text:
                 logger.exception_logs('dgb/kcg/Student/student (get_regno) ', text, getcwd().rstrip('kcg') + 'logger')
                 raise server_down
-        '''
-        regno_ = browser.find_element_by_xpath('//*[@id="lblRegText1"]')
-        regno_ = regno_.text
-        browser.quit()
-        return regno_
-        '''
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_rollno(roll_no = user_id_):
-        student_detail_button = browser.find_element_by_xpath('//*[@id="pHeaderpersonal"]')
+        student_detail_button = browser.find_element(By.XPATH, '//*[@id="pHeaderpersonal"]')
         student_detail_button.click()
 
         time.sleep(2)
-        bio_button = browser.find_element_by_xpath('//*[@id="ImageButtonbio"]')
+        bio_button = browser.find_element(By.XPATH, '//*[@id="ImageButtonbio"]')
         bio_button.click()
         
         time.sleep(1)
-        rollno_ = browser.find_element_by_xpath('//*[@id="Fpspersonal_viewport"]/tbody/tr[5]/td[3]')
+        rollno_ = browser.find_element(By.XPATH, '//*[@id="Fpspersonal_viewport"]/tbody/tr[5]/td[3]')
         rollno_ = rollno_.text
         browser.quit()
         return rollno_

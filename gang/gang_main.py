@@ -1,8 +1,10 @@
 import discord
 from discord.ext import commands
 import mysql.connector
-from msedge.selenium_tools import Edge, EdgeOptions
+#from msedge.selenium_tools import Edge, EdgeOptions
 #from selenium import webdriver
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 import asyncio
 from time import sleep
 from threading import Thread
@@ -68,7 +70,7 @@ async def gangmarks(ctx):
         await ctx.send(embed = server_error_embed)
         return
     
-    await ctx.send(embed = discord.Embed(title = 'Kindly Wait', description = 'marks is being fetched', color = 0xffffff))
+    await ctx.send(embed = discord.Embed(title = 'Kindly Wait', description = 'Marks are being fetched', color = 0xffffff))
 
     mycon = mysql.connector.connect(host='localhost', passwd='rootmysql',user='root', database = 'darkglancebot', autocommit = True)
     mysql_cursor = mycon.cursor()
@@ -89,7 +91,8 @@ async def gangmarks(ctx):
                 self.gangster_object = gangster_object
 
             def run(self):
-                browser = Edge()
+                browser = webdriver.Edge()
+                browser.set_window_size(1152, 1080)
                 #browser = Edge(options = options)
                 browser.get('http://studentlogin.kcgcollege.ac.in/')
                 #gangsters[gang_member] = gangster(gang_member[0], gang_member[1])
@@ -97,34 +100,31 @@ async def gangmarks(ctx):
                 roll_no, dob = self.gangster_object.roll_no, self.gangster_object.dob
                 #print(roll_no, dob)
 
-                roll_no_button = browser.find_element_by_xpath('//*[@id="rblOnlineAppLoginMode"]/option[1]') 
+                roll_no_button = browser.find_element(By.XPATH, '//*[@id="rblOnlineAppLoginMode"]/option[1]')
                 roll_no_button.click()
 
-                user__id = browser.find_element_by_xpath('//*[@id="txtuname"]')
+                user__id = browser.find_element(By.XPATH, '//*[@id="txtuname"]')
                 user__id.send_keys(roll_no)
 
-                dob_ = browser.find_element_by_xpath('//*[@id="txtpassword"]')
+                dob_ = browser.find_element(By.XPATH, '//*[@id="txtpassword"]')
                 #print(dob)
                 dob_.send_keys(dob)
 
-                login_button = browser.find_element_by_xpath('//*[@id="Button1"]')
+                login_button = browser.find_element(By.XPATH, '//*[@id="Button1"]')
                 login_button.click() 
                 
-                marks_detail_button = browser.find_element_by_xpath('//*[@id="pHeadermarks"]')
+                marks_detail_button = browser.find_element(By.XPATH, '//*[@id="pHeadermarks"]')
                 marks_detail_button.click()
 
                 sleep(2)
 
-                cam_button = browser.find_element_by_xpath('//*[@id="btnsubjectchooser"]')
-                cam_button.click()
-
-                cam_button = browser.find_element_by_xpath('//*[@id="ImageButtonCamv"]')
+                cam_button = browser.find_element(By.XPATH, '//*[@id="ImageButtonCamv"]')
                 cam_button.click()
 
                 browser.execute_script("window.scrollTo(40, 500)")  
 
                 path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('gang'), roll_no)
-                marks_table = browser.find_element_by_xpath('//*[@id="Fpsmarks_viewport"]/table')
+                marks_table = browser.find_element(By.XPATH, '//*[@id="Fpsmarks_viewport"]/table')
                 marks_table.screenshot(path)
                 browser.quit()
 
@@ -154,7 +154,7 @@ async def gangmarks(ctx):
         tasks.append(asyncio.create_task(ctx.send(embed = embed, file = pic)))        
 
     await asyncio.gather(*tasks)
-    await ctx.send(embed = discord.Embed(title = 'Marks of all gang members hass been fetched', color = 0xffffff))
+    await ctx.send(embed = discord.Embed(title = 'Marks of all gang members has been fetched', color = 0xffffff))
 
 
     for gang_member in gang_members:

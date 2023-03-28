@@ -67,7 +67,7 @@ queries = {
     'query1' : 'CREATE TABLE role_owner(name varchar(30) primary key)',
     'query2' : 'CREATE TABLE role_admin(name varchar(30) primary key)',
     'query3' : 'CREATE TABLE auth_all(value varchar(6) primary key)',
-    #'query4' : "INSERT INTO auth_all VALUES('False')",
+    #'query4' : "INSERT INTO auth_all VALUES('True')",
     #'query5' : "INSERT INTO role_owner value('DarkGlance#6849')",
     'query6' : 'CREATE TABLE block_list(name varchar(30) primary key)',
     'query7' : 'CREATE TABLE dobs(id varchar(13) primary key, dob varchar(8) not null)',
