@@ -65,7 +65,6 @@ def get_payload():
         data['rblOnlineAppLoginMode'] = 0
 
         response = session.post('http://studentlogin.kcgcollege.ac.in/', data = data)
-        print(response.url, response.status_code)
         page = response.text
         soup = BeautifulSoup(page, 'html.parser')
 
