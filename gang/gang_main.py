@@ -89,7 +89,7 @@ async def addgangmember(ctx): #.addgangmember 20cs008 Ashif 25112002
 @client.command()
 async def gangmarks(ctx):
     global success
-    
+
     logger.input_kcg(ctx, getcwd().rstrip('gang') + '\logger')
 
     if not await check_auth(ctx, ('owner','admin')):
@@ -181,8 +181,9 @@ async def gangmarks(ctx):
             embed = discord.Embed(title = roll_no, description = gang_member[1], color = 0xffffff)
             pic = discord.File(path, filename = f'{roll_no}.png')
             embed.set_image(url = f'attachment://{roll_no}.png')
-
-            tasks.append(asyncio.create_task(ctx.send(embed = embed, file = pic)))        
+            
+            tasks.append(asyncio.create_task(ctx.send(embed = embed, file = pic))) 
+             
 
         await asyncio.gather(*tasks)
         await ctx.send(embed = discord.Embed(title = 'Marks of all gang members has been fetched', color = 0xffffff))
