@@ -55,4 +55,34 @@ def get_payload():
         with open(f'{gang_path}\\student_login_payload.json', 'w') as json_file:
             json.dump(data, json_file)
 
+        #---------------------------------------------------------------------------
+
+        with open('marks_payload.json', 'r') as f:
+            data2 = json.load(f)
+        
+        data['txtuname'] = '20cs008'
+        data['txtpassword'] = '25112002'
+        data['rblOnlineAppLoginMode'] = 0
+
+        response = session.post('http://studentlogin.kcgcollege.ac.in/', data = data)
+        print(response.url, response.status_code)
+        page = response.text
+        soup = BeautifulSoup(page, 'html.parser')
+
+        element = soup.find("input", {"id": "__VIEWSTATE"})
+        __VIEWSTATE = element.attrs['value']
+        if data2['__VIEWSTATE'] != __VIEWSTATE:
+            data2['__VIEWSTATE'] = __VIEWSTATE
+
+        with open('marks_payload.json', 'w') as json_file:
+            json.dump(data2, json_file)
+
+        with open(f'{gang_path}\\marks_payload.json', 'w') as json_file:
+            json.dump(data2, json_file)
+
+
+
+
+
+
 #get_payload()

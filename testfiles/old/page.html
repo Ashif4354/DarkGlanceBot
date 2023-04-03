@@ -1,0 +1,1130 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+
+</title><link href="Styles/Commoncss.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .cpHeader
+        {
+            color: white;
+            background-color: #719DDB;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 4px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: normal;
+            font-family: "auto Trebuchet MS" , Verdana;
+        }
+        
+        .alter
+        {
+            top: 120;
+        }
+        
+        .cpBody
+        {
+            background-color: transparent;
+            font: normal 11px auto Verdana, Arial;
+            border: 1px gray;
+            padding-top: 7px;
+            padding-left: 4px;
+            padding-right: 4px;
+            padding-bottom: 4px;
+        }
+        
+        .pHeader
+        {
+            color: white;
+            font-size: 11px;
+            cursor: pointer;
+            padding: 4px;
+            font-style: italic;
+            font-variant: small-caps;
+            font-weight: bold;
+            line-height: normal;
+            font-family: "auto Trebuchet MS" , Verdana;
+            width: 904px;
+        }
+        
+        .pBody
+        {
+            background-color: #9DF0E8;
+            font: normal 11px auto Verdana, Arial;
+            border: 1px gray;
+            padding-top: 7px;
+            padding-left: 4px;
+            padding-right: 4px;
+            padding-bottom: 4px;
+        }
+        
+        .ModalPopupBG
+        {
+            background-color: #666699;
+            filter: alpha(opacity=50);
+            opacity: 0.7;
+        }
+        
+        .HellowWorldPopup
+        {
+            min-width: 600px;
+            min-height: 400px;
+            background: white;
+        }
+        
+        .cpimage
+        {
+            vertical-align: middle;
+            background-color: transparent;
+        }
+        
+        #lab
+        {
+            float: right;
+            background-color: transparent;
+            position: fixed;
+        }
+        
+        .style5
+        {
+            width: 289px;
+        }
+        
+        .style6
+        {
+            width: 289px;
+        }
+        
+        .style7
+        {
+            width: 289px;
+        }
+        
+        .btstyle
+        {
+            background-color: transparent;
+            font-size: larger;
+            font-variant: normal;
+            font-family: Arial;
+            font-style: normal;
+            border-width: 0;
+        }
+        
+        .btstyle1
+        {
+            background-color: transparent;
+            font-size: larger;
+            font-family: Arial Black;
+            font-variant: small-caps;
+            font-style: normal;
+            border-width: 0;
+        }
+        
+        .style8
+        {
+            width: 306px;
+        }
+        
+        BODY
+        {
+            background-image: url('image/Student/tail-middle.jpg');
+            background-repeat: repeat-y;
+            background-position: center;
+        }
+        
+        .accordion
+        {
+            width: 400px;
+        }
+        
+        .accordionHeader
+        {
+            border: 1px solid #2F4F4F;
+            color: white;
+            background-color: #2E4d7B;
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        
+        .accordionHeaderSelected
+        {
+            border: 1px solid #2F4F4F;
+            color: white;
+            background-color: #5078B3;
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 6px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        
+        .accordionContent
+        {
+            background-color: White;
+            border: 1px dashed #2F4F4F;
+            border-top: none;
+            padding: 5px;
+            padding-top: 10px;
+            height: auto;
+        }
+    </style>
+    <style>
+        .myButton
+        {
+            -moz-box-shadow: 3px 4px 0px 0px #057fd0;
+            -webkit-box-shadow: 3px 4px 0px 0px #057fd0;
+            box-shadow: 3px 4px 0px 0px #057fd0;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #019ad2));
+            background: -moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+            background: -webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+            background: -o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+            background: -ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+            background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+            background-color: #33bdef;
+            -moz-border-radius: 18px;
+            -webkit-border-radius: 18px;
+            border-radius: 18px;
+            border: 1px solid #057fd0;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            padding: 7px 25px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #057fd0;
+        }
+        
+        .myButton:hover
+        {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+            background: -moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+            background: -webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+            background: -o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+            background: -ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+            background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+            background-color: #019ad2;
+        }
+        
+        .myButton:active
+        {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+    <style>
+        .cpHeader
+        {
+            -moz-box-shadow: 0px 10px 14px -7px #2a5993;
+            -webkit-box-shadow: 0px 10px 14px -7px #2a5993;
+            box-shadow: 0px 10px 14px -7px #2a5993;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0078CA), color-stop(1, #0078CA));
+            background: -moz-linear-gradient(top, #0078CA 5%, #0078CA 100%);
+            background: -webkit-linear-gradient(top, #0078CA 5%, #0078CA 100%);
+            background: -o-linear-gradient(top, #0078CA 5%, #0078CA 100%);
+            background: -ms-linear-gradient(top, #0078CA 5%, #0078CA 100%);
+            background: linear-gradient(to bottom, #0078CA 5%, #0078CA 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078CA', endColorstr='#0078CA',GradientType=0);
+            background-color: #0078CA;
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            border-radius: 8px;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 6px 32px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #3d768a;
+            height: 16px;
+            margin: 0px 0px 8px 0px;
+        }
+        
+        .cpHeader:hover
+        {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2A5993), color-stop(1, #2A5993));
+            background: -moz-linear-gradient(top, #2A5993 5%, #2A5993 100%);
+            background: -webkit-linear-gradient(top, #2A5993 5%, #2A5993 100%);
+            background: -o-linear-gradient(top, #2A5993 5%, #2A5993 100%);
+            background: -ms-linear-gradient(top, #2A5993 5%, #2A5993 100%);
+            background: linear-gradient(to bottom, #2A5993 5%, #2A5993 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2A5993', endColorstr='#2A5993',GradientType=0);
+            background-color: #2A5993;
+        }
+        
+        .cpHeader:active
+        {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+    <style>
+        #header_details
+        {
+            box-shadow: inset 0px 0px 15px 3px #23395e;
+            border-radius: 17px;
+            border: 1px solid #1f2f47;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 15px;
+            padding: 6px 13px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #263666;
+            height: 50px;
+        }
+    </style>
+    <style>
+        #header_background
+        {
+            -moz-box-shadow: inset 0px 1px 0px 0px #bee2f9;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #bee2f9;
+            box-shadow: inset 0px 1px 0px 0px #bee2f9;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0078bd), color-stop(1, #a7d1e8));
+            background: -moz-linear-gradient(top, #0078bd 5%, #a7d1e8 100%);
+            background: -webkit-linear-gradient(top, #0078bd 5%, #a7d1e8 100%);
+            background: -o-linear-gradient(top, #0078bd 5%, #a7d1e8 100%);
+            background: -ms-linear-gradient(top, #0078bd 5%, #a7d1e8 100%);
+            background: linear-gradient(to bottom, #0078bd 5%, #a7d1e8 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078bd', endColorstr='#a7d1e8',GradientType=0);
+            background-color: #0078bd;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #3866a3;
+            display: inline-block;
+            color: #193963;
+            font-family: Arial;
+            font-size: 28px;
+            font-weight: bold;
+            padding: 29px 66px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #7cacde;
+        }
+    </style>
+<link href="/WebResource.axd?d=xnw_xe-T_1gI4oW-uUwnBLH7nTIUVEgBupezh4IdZZzRlYmb4o5I31A7doiALBkBSx_mhfZrVM04YkhB2jMMJT530UMZyFgLGCbyC4N5X51xxutSEZuUPNOtixFiFylZ50BQyTRT6xRIoZweUBu0_w2&amp;t=634441659140000000" type="text/css" rel="stylesheet" /></head>
+
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function PrintDiv() {
+            var panel = document.getElementById("contentDiv");
+            var printWindow = window.open('', '', 'height=816,width=980');
+            printWindow.document.write('<html><head>');
+            printWindow.document.write('<style>body, html {margin:0;padding:0;height:100%;} .classRegular { font-family:Arial; font-size:10px; } .classBold10 { font-family:Arial; font-size:12px; font-weight:bold;} .classBold12 { font-family:Arial; font-size:14px; font-weight:bold;} .classBold { font-family:Arial; font-size:10px; font-weight:bold;} .classReg12 {   font-size:14px; } </style>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(panel.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+            }, 500);
+            return false;
+        }
+        $(document).ready(function () {
+            $(".btnS").hover(function () {
+                $(this).css("background-color", "pink");
+            }, function () {
+                $(this).css("background-color", "white");
+            });
+        });
+    </script>
+    <script>
+        function PrintDivmarks() {
+            var panel = document.getElementById("dispnl");
+            var printWindow = window.open('', '', 'height=816,width=980');
+            printWindow.document.write('<html><head>');
+            printWindow.document.write('<style>body, html {margin:0;padding:0;height:100%;} .classRegular { font-family:Arial; font-size:10px; } .classBold10 { font-family:Arial; font-size:12px; font-weight:bold;} .classBold12 { font-family:Arial; font-size:14px; font-weight:bold;} .classBold { font-family:Arial; font-size:10px; font-weight:bold;} .classReg12 {   font-size:14px; } </style>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(panel.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+            }, 500);
+            return false;
+        }
+        $(document).ready(function () {
+            $(".btnS").hover(function () {
+                $(this).css("background-color", "pink");
+            }, function () {
+                $(this).css("background-color", "white");
+            });
+        });
+    </script>     
+    <script type="text/javascript">
+
+        function display() {
+            document.getElementById('MainContent_errmsg').innerHTML = "";
+
+
+        }
+        function make_blank() {
+            document.form1.type.value = "";
+
+        }
+
+        function reason(id) {
+            var value = id.value;
+            if (value.trim().toUpperCase() == "OTHERS") {
+                var idval = document.getElementById("txt_ddlgatepassreson");
+                idval.style.display = "block";
+            }
+            else {
+                var idval = document.getElementById("txt_ddlgatepassreson");
+                idval.style.display = "none";
+            }
+        }
+        function myFunction(x) {
+            x.style.borderColor = "#c4c4c4";
+        }
+        
+        setInterval(function () {
+            document.getElementById("txt_time").value = (new Date()).toLocaleTimeString();
+            return false;
+        }, 1000);
+
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var scrollY = parseInt('');
+            if (!isNaN(scrollY)) {
+                window.scrollTo(0, scrollY);
+            }
+        };
+        window.onscroll = function () {
+            var scrollY = document.body.scrollTop;
+            if (scrollY == 0) {
+                if (window.pageYOffset) {
+                    scrollY = window.pageYOffset;
+                }
+                else {
+                    scrollY = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
+                }
+            }
+            if (scrollY > 0) {
+                var input = document.getElementById("scrollY");
+                if (input == null) {
+                    input = document.createElement("input");
+                    input.setAttribute("type", "hidden");
+                    input.setAttribute("id", "scrollY");
+                    input.setAttribute("name", "scrollY");
+                    document.forms[0].appendChild(input);
+                }
+                input.value = scrollY;
+            }
+        };
+    </script>
+    <form method="post" action="./IndReport.aspx?app=XynTzrfTbh3D4ciKJfSWbg%3d%3d&amp;Type=Student" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE2MDk2MjcwNjUPZBYCAgEPZBYeAgMPDxYCHgRUZXh0BRlLQ0cgQ29sbGVnZSBvZiBUZWNobm9sb2d5ZGQCBQ8PFgIeB1Zpc2libGVoZGQCBw8PFgIfAWhkZAIPDw8WAh8ABQlBU0hJRiBBICBkZAITDw8WAh8ABQcyMENTMDA4ZGQCFw8PFgIfAAUMMzExMDIwMTA0MDEzZGQCGw8PFgIfAAUjQkUtQ29tcHV0ZXIgU2NpZW5jZSBhbmQgRW5naW5lZXJpbmdkZAIfDw8WAh8ABQE2ZGQCIw8PFgIfAAUEMjAyMGRkAiUPDxYCHghJbWFnZVVybAXKOmRhdGE6aW1hZ2UvanBnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFFQXlBRElBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUNnQUdvREFTSUFBaEVCQXhFQi84UUFId0FBQVFVQkFRRUJBUUVBQUFBQUFBQUFBQUVDQXdRRkJnY0lDUW9MLzhRQXRSQUFBZ0VEQXdJRUF3VUZCQVFBQUFGOUFRSURBQVFSQlJJaE1VRUdFMUZoQnlKeEZES0JrYUVJSTBLeHdSVlMwZkFrTTJKeWdna0tGaGNZR1JvbEppY29LU28wTlRZM09EazZRMFJGUmtkSVNVcFRWRlZXVjFoWldtTmtaV1puYUdscWMzUjFkbmQ0ZVhxRGhJV0doNGlKaXBLVGxKV1dsNWlabXFLanBLV21wNmlwcXJLenRMVzJ0N2k1dXNMRHhNWEd4OGpKeXRMVDFOWFcxOWpaMnVIaTQrVGw1dWZvNmVyeDh2UDA5ZmIzK1BuNi84UUFId0VBQXdFQkFRRUJBUUVCQVFBQUFBQUFBQUVDQXdRRkJnY0lDUW9MLzhRQXRSRUFBZ0VDQkFRREJBY0ZCQVFBQVFKM0FBRUNBeEVFQlNFeEJoSkJVUWRoY1JNaU1vRUlGRUtSb2JIQkNTTXpVdkFWWW5MUkNoWWtOT0VsOFJjWUdSb21KeWdwS2pVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmdvT0VoWWFIaUltS2twT1VsWmFYbUptYW9xT2twYWFucUttcXNyTzB0YmEzdUxtNndzUEV4Y2JIeU1uSzB0UFUxZGJYMk5uYTR1UGs1ZWJuNk9ucTh2UDA5ZmIzK1BuNi85b0FEQU1CQUFJUkF4RUFQd0Q2Zk00NWJQSGVtRzY2YlRnVlVhUWZ4TGpyNmNWRXpnbkhBNHI5WFVFZnk5S3ZKYk12dGNmZUpiUFBUMXFOcnhnRGhzZCtsWjd5RHNTQlVNMDRUSUorVTk2MFZLSm04UlBveSs5L0xrNG1jZlJxRjFxOGlKeGRTajIzbi9HdktmaVI4Y3ZESHd4YUpOWHZEOXBrVXNscGJ4K1pNdzljZEZIdXhHZWNaeFhpbXRmdG8zTnU3U1duaDJEN0lXTzJTNXV5cnNNOGZJRnpYTFd4R0ZvUGxxTlhQYndPVjVwam8rMG9KOHZkdXlaOWx4K0o5UWlVRmIyY2Y5dERVNmVNZFZYcHFOejlQTmIvQUJyNEd2OEE5dHZ4VkswWXNkRzBhSVl5Zk5qbWJQOEE1RUg1L3dDVEpwbjdhWGl3VEZiM1N0T2JrWVdPSndNWjU1MzlmZXZObG1PWDNzMStCOUZEaHpPbEhtVS9sek81OStSZU90WlFEL2laWFE5ekszK05Xb3ZpSnJjZlRVYmtZN2x5YStKdEcvYTUxeTZsM1MrR29MaUVzQm1HY29WL1BPYTZlMy9hcFdLMEU5eHBNaDJ5YlpZMDRLQXNBQ1RuMEovRUQzeHJDdGw5YlJXK2FPU3BsbWZZZFg5NStqditwOWcydnhLMTdqT3BUWTlUZy96cTh2eEo4UUwvQU14Q1RqdnRVLzByeW53cDRxdFBGT2xXK29XRXdsdHAxREtlQVI3RWRpSzZHTnNERzRacnFsZ3FIOGkrNDhXT2E0Nkw1WFZsZjFaM1VmeFA4UVovNC9XT1BXTmY4S3NqNG9hOS93QS9nLzc5TFhCQ1p2eEhhbmliQTQyL2xXRHdXSGYyRjl4MVJ6akdwZnhwZmVaTHk1R1FjbjBxQXljNUlPUGVuU1N1eWprQTl5UFNvdzVBR1NjOWZldlRnN3UxajUrclRVWTgzTXI5Z2NnSHJsZU9LOFYvYVMrTTUrRitoVzlycDVCMXpVaXkyeFlCaEVnNE1oQjRPQ2NBSGpQMHIyaVNYYnljL2pYNTRmdFErTXBQRW54WjFzNzBaTENYN0ZBb2JJVll5VkpIcGxnekgzWTF4NWhpSGhxTGxIZG52OE9aYkRNY2FvMVZlTWRXdnlQTXRjOFFYZXRhbkxQZDN6MzE1TEl6eVRUUDFZbnJtcExIdzNkNmxJc3M0WjE2bmFSbkgxL0NxSGgzUjMxelY0SUVLS1pINnVjaXZYclh3ckJZV0VVYXl4T3l5SGEyU0ZLOXdjKy9ldnp1cFVsVWQyejkraENOTktFVlpJNUNQUXZzdHY4QThlakp0TzdjY09HNkRHTWMvaFhTU0RUell3emliZUdJaW1XUEdVYkhCNTZkUVBRL3JYWlcrZ3pRV2FHQVB2SzRnV003Z3h6MC9QbXFlb2ZCelg5VjhxWjdUN0hGT0FzaUg1VG4xR2M1SCtOY3NwS083T21GT2RUU0t1ZWJ6YXZieXhTTEJOSmFYQ25oNHNmZUhROXVEa2ZyV1hZZUx0U2pXNnNMaVh6VWw2cy9KQjY1QnJzOWIrQzJyNlpkT0lVRW1WSktrNFB2OVA4QTY5ZWQzZG5MWVBPM2xIZG5iblBRNG9qTytzV0tkT1VOSnF4OVJmQUR4N0pwc05yKzlrSWgrZVNNdjFIQUk2K21jY1lyN0RzNzJPOXRZYmlNWVIxRHFUNkd2ano5bWJ3VTE5cGVuNmdwbUNYU09peVJOaG9aa0l5cFljSEl3d3oySkhVWlAyRllRaUMwaGlQM2tRQWsrdUsvVWNMVWM2RUhMZXlQd0RQNlZLT0xtNmZkbDZOei9meitOV1JLNEF3QmovZUZWRVVFRG50VTJTUDRxMVo4L0c2UmpTRm5Ic0tqWU1CaW5zcjQ1T2FqWU0yT09udlhTamhlK28yVGxlbVNPMWZtdDhkN05FK0tQaXBvQTRqL0FMU3VEbHUrWkR1eDdic2l2MHE4b252K0ZmRkhqN1E3ZldmSHZpUzNnaUR6THE5M0g1YkxuR0oyR2VuVGcvbFh6MmR1MUJQelAwWGdtTGxqWnBmeS9xand2d0NacmJXSVpJMGFRSTJHQ2ZlQTZWOVYvRG40V1A0cGtOMXRranRBZDJUa2JpY2RNajg2emZCUGhpdzBpZEo0dFB0b0xyN3BramlBSi9JVjlJZUFBMGx1SkRsQU9DTVl6WDVyVXJ0dmxpZjBIVHkrTUZ6MUhmeUovRC93M3NOT2hpUmJaY3J3R3h6aXRMVXZETVVpL3UwNVhvVDErbGRQQTRJeU9lM2VrdkpoRENjZFFPY1ZqN05OYW5SR28wOUVlSmVKdkQ4UlpvbVFEY01nbm5GZk0veE8rR1RSelR2Q1FVVWx3QXZyamo4T2Z6cjYxOFJ6SlBjU2ZOOHdISEZlUWVPTkdsdm8ybUt1ME1lUzVRSEtqdWFtakxrcWN0OURURjB2YlVISzJxT20vWkZ0SjdUNGZ6d1NlWEdrVjJ3WUtwSmQ4RExaL3dCM1lQd3IzZmI4MmVPRGpPT2xlVmZzMjZlMWg0QW1VNGN2ZnlrTmc4Z0tnSDhxOWFWdHA1QTNlMWZzR0JWc05EMFA1UHorYm5tVlpQb3h5WklBeitwcXdNNEhOVnd4RFpIeTFONWpmM2E3R2VIR3lNNXpuUEFxRThqcGo4S25iNVIwQXFOMTNld05iSXdhR2pZRnllQU81cjVzMWZRbDByNHMrTU1xQVo1dnRDbk9mOVlTNS84QVF1bGU5K0tkS2gxWFFiNkdWUTRTTXpMdUdjTW56ZFBvQ1B4cnd1WFNvSVBGT292QURsa1F5S3h6dGJKL0w1UXZGZkc1OWlWSGx3N1crcWY1by9aZUFjdTV1Yk1JeTJmSzQvYzA3bExTN28yOTFNWmRQdUhpUmo4d0dBZnBpdlEvQ1B4cTBlMjFLSFNtdHZKWW5hWkMrUXYxck1Ydy9ISmQ2TlBxUzNFK2tKT0RlV3RvL2x0S3Y5MHQ2WjlDUHFPbzd6d3A0RjBUVDlFMTVicWU2MW1DZkRhZEZlR1VMYVlaMlpwUE1rY1kyN0YrUWNCU1FRY1krQlhKVXUwN00vYnEwcWtIRlBWTTduUy9GT2wzMXZKTEhJUnNIT2UvMHJsUEd2eGUwelFMYkVkcTB6L01wQlBmakgwNzF5SGhKYmEzMC9YL0FMT3ovWlZmL1JTZXdKNHorRmRSNGM4UDZBZEtlUzVodVdOemJTMnh2SUdPKzN1R1ZnSlNBUVNSa0ZSdUE0N25weXduT1RVVzBiVHBSaEZ5U1p4VS9qWStJazMyZW11SDZzQU9nK3VCVmVLTmpZWFVrc1JpQmpjRkg5TVZzLzhBQ3VZTEd6dFlvcnE4dk5mYSsrME5mSkxJWUk3ZllxK1RpU1IyYmxTK2VNRmlPbE04VFdSdHJLOGpEYjNFRG5JNC9oUHZXM3V4cXBMVWltNXVpM0w3bWJud1h0UHMzZ2lFeHJoWlo1Sk00NjlCL1ExM2lzeDdqclhuL3dBTnRNdWRKMG5STk9qdjVaTGUzaWVTVVpHMDVEWlVnZHQ1SFBYcHoycnZsSEp3Y2ttdjFmS01WREU0ZGNpZG82ZXVpUDVnNHR5MnJsK1lPVldTYnFYbFpkRmV5djhBY1RLbXhlcDU5YWsrYjJOUXhnN2Nic21uNzNGZXd6NCtOaXNVRGpBUGFvV0FHUU1INjFZZEQwQi9sVWJSQlNSa2ZRZ1ZvWXNyWHF0OWluVkU4eG1pY0JSd1dKVWdEOWE4VGNKY3pCR3Q1YmVURGhwbTZUS3pIYTRPZUNCZ0Vkc1Y3bXlaSEFJL0t1UzhUZUM3ZWFPYTl0aTBjNkJwR2pKeUNNWk9QVDFyNWJPOEJQRXVGYW5xNDN2Nkg2bndUbmxETDNWd2RkMlZSeGFmbnRiNWtYaDY2U08yUkRFSkc2Z2U5Tjhjelg4ZWhTT1crejI3a0tJa09OM1BmMXJGOE9YcGp1WTBZN2R2YnZYWGE5cUtUNldzKzJDZnlmbkN6UHRCeDJ6ZzErVlNUaEpwcy9vOU5lNjdFSGhEdzNGYmVEWklTZ1piaGhJN0hyVm53SHBWMUpxVjVEYU5rUjRESStDckxualByLzhBV3F6NGE4WVRONEVrdVp0T3RvUXdmYmwxSUI3RFBYbmdEam1yZmdmeFpiTkMyb21PQ1B6WXd1Mk9UTERHVHp3UFdsRmFwc3FjbGFWanBydkZqYXVzbHNJcFFDRHdPZnhyeVB4UTBmbXlsMjJvM3lrcXVjQThkQnlldGQzNG44Uy8yaW84bGpzSU9LNUhUOUlYWGI4ZWU3TERDQTdNQjFPZUIvUDhxN3NQU2xpSzZoVFYyZWJpc1JTd1dHbFhyTzBWdWJIaEtPRU5leVc4TFcxdUpaRWhqY0FNcUZzZ2UzQTZlNHJleDVlY01TS2JCSEhCRWtVVzRJZ3dNa1pQdlVweG52OEFwWDZ6bE9EZUJ3c2FVdDkzNnMvbG5pZk5ZNXhtVThSVCtGV1M5Ri9udUNrakJValByL2swN3IvRWZ5Lyt2U29BRGsvbGluY0QrRnYwcjFUNWRYSURuSXdlY1pwcGJxQzNQdlVyUnFPUWYxcUtSaGprVmFabTFZYndlaHgrTlJUTUNyQS9QbGNISHBVMjFlQ1JrZldzenhMcWcwYlFyKy9BM2ZaNFdrQXoxSUhBL09ocFBRcW1wY3k1ZCtoNVhkQnRPMW02c25mWklHS3Ezc2VRZnlOV1p2RFYyc05wZFRYWTFHTGd0RktTb1RIUENnWUkrdGVXK0IvRXQ3NHUwR0xXN2xtbXVaWkpYZm5uL1dOai93QWR3UHdyMkR3dnJFRi9aeEJteW8rVmthdngzSDA0MDZzM1MxU2JQN0p5K2RXcGhxWHQvaXNyK3R0VDB2dzdvOFZ4cHNCVnJCTnE0akcwQXA2NCtYZ24vUFd1UDE3d2pjWDJzQ0swdXJhemhpKzlMQ25IWG9BTUErbWY1MTMrZ2VHdENsc1kyWlk0MjY0WmlNbkZaZmlXQzAwWU1rSkNqbmdlbGNFcFhpckk2L3RhSEVPa21uaG81cmdTL01TRG50WFcrSFlURHBpdGpEVERlZTNIYjlPZnhyelRWOVRGeGN5dkRneHFEdVk5QldyOENmRjgvaS93ZkpMY3VUUERmWFVLaHV2bHJNMndmZ3VCK0ZmVjhPNGVQMWlVNWJwSDUxeDdYclJ5eU1LZnd5a2svVC9oejAxRmJjT01IMXA0SEF5ZWUxUktPbVRVcURCQkRjL1d2MFkvbkI2ajBRQWMvblV3Z3lCd0tha2Z6WjNEUHBtbitXZjhtczI5VFdLMEtSa0lHT2VPT2Foa2xWRUxzMjFSeVNUZ1Z5bXUvRVN6dGxlS3dIMnlZSEc1ZjlXdjFQZjhLNUdPYlUvRU4xTTExZVNlU3BCRWZSVCtINFYxUnB0cTcwTzZqZ0t0ZlY2STdYVi9IbGhwOFQrVHV1NUY2Q1BvZngvd3JGazFDNThZNmJkVzkzR3NOcmNJd2pSTWx0dUJ5VDljL3BXRHF0Z0xMVEppeU1HSlZBNTVISkFycjRvNGJDUzFXRGEwYU50RzA5QUR3TWcxYlVZclRjOXpENEduUmFsdTBlQmZBdlJwdEpzN3ZRYmovajUwNjZtdEh5T0daWEkvSWpCSHNSWGI2cDRmdnRGMUZwckxkRnVPV1E1Mm44SzJ2Rm5oaytIL0FCeEhyOXVxZll0VjJ3WEcxdjhBbDVSVGdrZjdVWUEvN1luUEo1N05wSU5Wc0l4SU54QUcxc1pJOXZldnhQTTR5d21NcVI2UFg1TS9wakthOGNYZ2FVMXZhejlVY25aYTFydDNBcWlLSkRFUmsrYVJuOEtpMXFiWHRRYU0zVEpEQzdiZGtlU1dIMTdWMmphUmF5SnZXNFFNT3BZYy9qVU1jY1VsMEpiaHpjckdQbHdNTG4xcnpvVlk3MlBRbkI3STVMVUxiN0JvY3lNaXh4S2hhUnoweGpxVFdiOEZOUGwwTDRaK0g1eVNKcnJ6Yi9KeU9KWkdrQXgvdXVLdmZFMjdiVU5FdWRPZ0lXZlVTTE9HTlIza08wNEE5alhlWGVqVzlpMXBwOXRnUVFBeFJCZW14UmhjZmdCWDJuRE41MXAxSHRheDhCeGcxOVdwMHU3YkxtbitJWVo5eVhPTGQwSUJKenRPUmtjL2pXeEh0azI0YkpQVEhTdUVudUlZSjNpa0dOeUJ0cS9VakkvS3EybjYvYzZaY1JDT1hmRXpBR001SUdUK2hyOUY1THJRL0NxK1dKdHVrL2tlbkxIdE8wbmoxem1uK1VuditkWmVuYXJGZVlBYlpMM1FubjhQV3RZUzRBNC9RMXpTVFQxUEdkTjAzeXlWbWVGNlhad1FQR0pFRWp5WkFMTDh2VG9NaXR1MDA4V1NaUnYzZjkxanlQWVZVdUFuMmFDNlMzRGRDV1hyL0xtdE9NbVh5aUJoU005UlhvTnRuM3lJOWJqVzR0ckMyMjRNbHhFR09lUHZEcld2ZVdodDJVa2dBRWtzTVlQT2VSNi8vV3JtWDFQN2RyVWFLaE1VTGI4S01rYmVjL25pclYzcjhjY3BpZVF0a2ZNZ0FMSDIycno3WlA2VkxpOURPMTdzOUdzckd5OFEyYytqMzViN0hxY0JRUEVmbmpsWDVrWUU4QmxJTEEvM2dLNURRdkRtcWFmYzN0aGZxSnJpMmNvWGlHQklCMFlEM0JCeDcxNXI0dytJZmpmKzFMS0h3NWIyV2oyTnE2U2VaZXhpU2VZcWNnQk9pS2VPbnpjZmVyNkgwanhacGZpelRiZlY3ZWEydDdnb1BNZ2VaRmFJOTBiT0R4emdudHozcjR2UGNwbmlvS3BCZTh2eFB2OEFoN05ZNEZ1blZsN3N2d2ZjNU5yTnBUdGFGdU8rMDArYlE1WHRnSTQyRHZ5Q1JnQWVwclI4VGZGZncxNFI4cE5XdllMQXpLVEcwaWtod0RnbFNBUTJENkh1UFd1Y3NQakRvUHhIdjA4UCtGbHU5WXUzVStmZHcyN0piV2lmM3BIYkhYb0FvSkovRWo4MWhsMWVWVDJmSzduNmhQSDRlTk5UNTFiMUxYZ2Z3R3Q3cnNtdVg4aTNFR21ndmJ4cVBrODBjZysrT3YxeDZWbzNjRFJYQ0ZTQzBPTURHYyt0Yy84QUY3NHBSZkJUdzFwMW5EcEZ4cWs5N2NCUmJXNUNtSzNUNzB6SGFmbVo4WVU5ZWVSZzFTMDN4elplSndEYlRza3hYTFFPTmtpOStWNS9NRWozcjlYeWZBUEIwT1hyMVB4L1BjZThmWDlwOWxhSTJkUjAvd0MwYXRDNnJHQXlPdnlnNEhJSTUvRnE1YTloZXcxbE55ZkoxT0Z6NmY4QTE2M0xqVW10b1EzbWxtUmczUGNjZzQvQTFtYTVOdGt0TG5PVldRQWtlaDQvclgwMExyUm55VFZuY3R0UHZhTnRoeVFOcktLbS90cTlYZ1hrbUJ4MHB0dUFFWmljQURwaXMzenBQUUgvQUlEVDBGS25DZXNsY2wwcFEybHBEZ05oY1o2MFd4TVFhQ1hnRE9QY1U3Um13dTBIcm1yamhkaExLR0lQV2h2VTJXeG1KREhEZW9JNDFUakJJNHpUcExDSzNjdmJ4ckc0NzRHRyt0U2hUOXNHN3VLdk5IbklQT2ZmclZOa0pYdVo5eGN3U29HdVlNcW5Vc0FkaDlmL0FLOVdyVzBzcnFXRGZEREtoWUVaVlNNLy9xcVNTSkR0M1lKeGptcUxCdEtkdHVUWnNNaGw1TVRmNGZ5cVdycXlOTnRUdFAybHZCdWwrTlBDY2ZoK1YwZ2Y3VkZjUnlRUko1c2UwL01xazlOeUZsempqUElQU3ZPZkMvaEpQQ01jVnBvOHI2WnAwS0VlVmJTRldrT2Z2T3c1WWoxT1Q3MTJtdTYybXVhdTk1SElwUjFFaWNqb1IxL1dzenpOMzNjRWs5YTRzUFFqVGpkcjN1ck91dGlLazF5WDkweWJyVElyKzdTYTRMWEVpbk8rVTdqbjhhUzc4TjZaZTVNbG5FV0JCeXFBSFAxclVLalBQRlNLZ1plVjU1NlYyM3N0RGh2ZGxXM3QwdGJMN05GSklJUW0zYTdGc2owNUpxcnF0cXFhQzhTbmRzR1FUMnh5SzBwSXdWd1AwcW5JNFpKNG0vdUhpa21FdHRTQzN2ekxabzI3Q2xRVFRmdGpkaU1mVVZXdGNwcHFxQ1dPZHFuMUhiOUtRV3N4R1FEZzlPZi9BSzlhTkloTzZObUNBUlhDT0UybmR6Vmw4ZmFHNHdEVnA5TnZJbFBtUVBHbU1aZFNLaWRkaERNeXBqcUdiRmMvUEY5VGZrbEhvVkl4L3BRYkJJcTF5U3h3Y2V4cGxuSkcyNlR6WXdwNDRiSS9uUUdGME5xa1NLT0N3YmdmaldseWRSaHpuSXkzWGowcUc0amxlMW1ETVkxMk55dlhwMnJUaGlDeGdLUS9QUFBOVmJ0NUF3VWpidVlKNjlTQi9XaStwYVRzU2FmYXZiV0VWdkpGSCs2R0VrVE9TTURnL1RwOUFLUUxqT0t1bTNtSUJadW5wVlR5WFk0MjR4M3FFMXFhVHU3WEltUW5HZUtVNUhxS2xXQnhKOHdPYWQ1UmM0R2MrbE82TUxNaHhuazlPMkt6THBXaXY0Yy84dEFSalB0VzE5bGxBemtZR2VLeDcwTTk5RXFqSlREZlNtbWhTV2huMk1lTFpVSXdVZGxOYkF0NHNET00xVjhnMitvU0s2a1J6c0hRak9BdzRJclM4eFY0STZjZmQvOEFyVTI3aENKLy85az1kZAInDxYEHgdkaXNwbGF5BQRub25lHwFoFgJmD2QWBmYPZBYCAgEPDxYCHwFoZGQCAQ9kFgICAQ8PFgIfAWhkZAICD2QWAgIBDw8WAh8BaGRkAikPZBYuAgEPDxYCHwFnZGQCAw8PFgIfAWdkFgYCAQ8PFgIfAWdkZAIHDw8WAh8BZ2RkAgkPBTJmcHNwcmVhZHN0YXRlOjJhMTRlZDNkLWIyOWYtNDQ2ZC1hOWJmLWQyNWU1YzQ5OWQzY2QCBQ8PFgIfAWdkZAIHDw8WAh8BZ2QWCgIBDw8WAh8BZ2RkAgMPDxYCHwFnZGQCBQ8PFgIfAWdkZAIHDw8WAh8BZ2RkAgkPBTJmcHNwcmVhZHN0YXRlOjliNDgxYzAyLTE3Y2UtNDRmOS04OTVjLTg2YjNiZmExYmM0OGQCCw8PFgIfAWdkZAINDw8WAh8BZ2QWKAIBDw8WAh8BZ2RkAgUPDxYCHwFnZGQCCw8PFgIfAWdkZAINDw8WAh8BZ2RkAg8PDxYCHwFnZGQCEw9kFgQCAw9kFgJmD2QWAgIDD2QWAgIDDxBkZBYAZAIFDxBkEBUDA0FsbANDQU0KVW5pdmVyc2l0eRUDA0FsbANDQU0KVW5pdmVyc2l0eRQrAwNnZ2cWAWZkAhUPZBYCAgEPBTJmcHNwcmVhZHN0YXRlOmJkODc1OGI2LTljNjctNDQ0Ny1hOTQxLWM1ZjMzMDU0YjgzN2QCFw8PFgIfAWhkZAIZDw8WAh8BaGRkAh0PDxYCHwFoZGQCIw9kFgICAQ9kFgJmD2QWAgIBD2QWGAIFD2QWAgIDDzwrAAkBAA8WAh4NTmV2ZXJFeHBhbmRlZGcWAh4Hb25jbGljawUdT25DaGVja0JveENoZWNrQ2hhbmdlZChldmVudClkAgcPZBYCAgMPEGRkFgBkAgkPEGRkFgBkAgsPEGRkFgBkAhsPEGRkFgFmZAIdDwUyZnBzcHJlYWRzdGF0ZTplNTM1M2I2MC00NzUyLTQ0MGYtYmI1Ny02NDBmYmRjMDY4YmFkAiMPEGRkFgFmZAInDxBkZBYBZmQCKw8QZGQWAWZkAjEPEGRkFgFmZAI1DxBkZBYBZmQCOw8QZGQWAWZkAiUPDxYCHwFoZGQCKQ8PFgIfAWhkZAIrDw8WAh8BaGRkAi0PZBYCZg9kFgQCAQ8PFgIfAWhkZAIDDw8WAh8BaGQWAgIDDxBkZBYAZAIvDw8WAh8BaGRkAjEPEA8WAh8BaGRkFgBkAjMPBTJmcHNwcmVhZHN0YXRlOmQ3NmIxZjY1LWQ2NGEtNDBkYi1iODNiLTM3ZTIwOTNhYjhmZWQCNQ8FMmZwc3ByZWFkc3RhdGU6NzdjMGNjNjAtMGY2Mi00YTQxLWE4NDgtZjM5YzZlYTMxMTFiZAI3DzwrAAkBAA8WAh8EZ2RkAhEPDxYCHwFnZGQCEw8PFgIfAWdkFggCDw8PFgIfAWdkZAIRDw8WAh8BZ2RkAhMPDxYCHwFnZGQCFQ8FMmZwc3ByZWFkc3RhdGU6NDgzOTEzYjktMDA3NC00ZmQ5LWE4YTYtZGRhYmI3ZjQ0Njc3ZAIXDw8WAh8BZ2RkAhkPDxYCHwFnZBYUAgEPDxYCHwFnZGQCAw8PFgIfAWdkZAIFDw8WAh8BZ2RkAgcPDxYCHwFnZGQCCQ8PFgIfAWdkZAILDw8WAh8BZ2RkAg0PDxYCHwFnZGQCDw9kFgQCAw9kFgJmD2QWAgIBDxBkZBYAZAIHDzwrABECARAWABYAFgAMFCsAAGQCEQ8FMmZwc3ByZWFkc3RhdGU6MjRlNjY4NzMtZGNiZS00ODhkLTlmMTQtODcyMjBmMmVhNTAwZAITDwUyZnBzcHJlYWRzdGF0ZToyNDkzMjE3OC0xNWVjLTQ5MmYtOTRiMC1kMDc1NmRhNmMwMjJkAh0PDxYCHwFnZGQCHw8PFgIfAWdkFhICAQ8PFgIfAWdkZAIDDw8WAh8BZ2RkAgUPDxYCHwFnZGQCBw8PFgIfAWdkZAIJDw8WAh8BZ2RkAgsPDxYCHwFnZGQCEQ8FMmZwc3ByZWFkc3RhdGU6OWE4OGNhN2EtNjFkZC00ZWYwLTk0ZmEtMzA2ZmEyNDM0ZWE3ZAITD2QWAmYPZBYEAgEPZBYCAgEPEA8WBh4NRGF0YVRleHRGaWVsZAUIbGliX25hbWUeDkRhdGFWYWx1ZUZpZWxkBQhsaWJfY29kZR4LXyFEYXRhQm91bmRnZBAVASVMaWJyYXJ5IEFuZCBLbm93bGVkZ2UgUmVzb3VyY2UgQ2VudHJlFQEBMRQrAwFnFgFmZAIDD2QWAgIBDw8WAh8ABQoyOC8wMy8yMDIzZGQCFQ9kFgJmD2QWBmYPZBYCAgMPEA8WBh8GBQhsaWJfbmFtZR8HBQhsaWJfY29kZR8IZ2QQFQElTGlicmFyeSBBbmQgS25vd2xlZGdlIFJlc291cmNlIENlbnRyZRUBATEUKwMBZxYBZmQCAg9kFgICAw8QDxYGHwYFCmRlcGFydG1lbnQfBwUKZGVwYXJ0bWVudB8IZ2QQFTQAAS0YQUVST05BVVRJQ0FMIEVOR0lORUVSSU5HCWFlcm9zcGFjZRVBRVJPU1BBQ0UgRU5HSU5FRVJJTkcFQUkmRFMXQXV0byBNb2JpbGUgRW5naW5lZXJpbmcKQXV0b21vYmlsZRZBVVRPTU9CSUxFIEVOR0lORUVSSU5HCUNIRU1JU1RSWRFDSVZJTCBFTkdJTkVFUklORxBDb21wdXRlciBzY2llbmNlIENPTVBVVEVSIFNDSUVOQ0UgQU5EIEVOR0lORUVSSU5HHENPTVBVVEVSIFNDSUVOQ0UgRU5HSU5FRVJJTkcgQ29tcHV0ZXIgU2ljZW5jZSBhbmQgRW5naW5lZXJpbmcBZQlFQ09OT01JQ1MmRUxFQ1RSSUNBTCBBTkQgRUxFQ1RST05JQ1MgRU5HSU5FRVJJTkcWRUxFQ1RSSUNBTCBFTkdJTkVFUklORylFTEVDVFJPTklDUyBBTkQgQ09NTVVOSUNBVElPTiBFTkdJTkVFUklORytFTEVDVFJPTklDUyBBTkQgSU5TVFJVTUVOVEFUSU9OIEVOR0lORUVSSU5HKUVMRUNUUk9OSUNTIENPTU1VTklDQVRJT04gQU5EIEVOR0lORUVSSU5HJUVsZWN0cm9uaWNzIENvbW11bmljYXRpb24gRW5naW5lZXJpbmcnRWxlY3Ryb25pY3MgSW5zdHJ1bWVudGF0aW9uIEVuZ2luZWVyaW5nB0VOR0xJU0gSRkFTSElPTiBURUNITk9MT0dZB0dFTkVSQUwTR0VORVJBTCBFTkdJTkVFUklORwNIR0kWSU5GT1JNQVRJT04gVEVDSE5PTE9HWSNMSUJSQVJZICYgS05PV0xFREdFIFJFU09VUkNFIENFTlRSRSBNLkUgUE9XRVIgRUxFQ1RST05JQ1MgQU5EIERSSVZFUxlNLkUuIENPTU1VTklDQVRJT04gU1lTVEVNEE0uRS4gVkxTSSBERVNJR04gTS5FLkNPTVBVVEVSIFNDSUVOQ0UgRU5HSU5FRVJJTkcWTS5FLkVOR0lORUVSSU5HIERFU0lHTh1NLkUuTUFOVUZBQ1RVUklORyBFTkdJTkVFUklORyFNLkUuUE9XRVIgIEVMRUNUUk9OSUNTIEFORCBEUklWRVMZTUFOVUZBQ1RVUklORyBFTkdJTkVFUklORx1NQVNURVIgT0YgQlVTSU5FU1MgTUFOQUdFTUVOVB9NQVNURVIgT0YgQ09NUFVURVIgIEFQUExJQ0FUSU9OC01BVEhFTUFUSUNTBU1hdGhzFk1FQ0hBTklDQUwgRU5HSU5FRVJJTkcMbWVjaGF0cm9uaWNzGE1FQ0hBVFJPTklDUyBFTkdJTkVFUklORwNOSUwSUEhZU0lDQUwgRURVQ0FUSU9OB1BIWVNJQ1McUG93ZXIgRWxlY3Ryb25pYyBhbmQgIERyaXZlcxRTQ0lFTkNFICYgSFVNQU5JVElFUxZzY2llbmNlIGFuZCBodW1hbml0aWVzFTQAAS0YQUVST05BVVRJQ0FMIEVOR0lORUVSSU5HCWFlcm9zcGFjZRVBRVJPU1BBQ0UgRU5HSU5FRVJJTkcFQUkmRFMXQXV0byBNb2JpbGUgRW5naW5lZXJpbmcKQXV0b21vYmlsZRZBVVRPTU9CSUxFIEVOR0lORUVSSU5HCUNIRU1JU1RSWRFDSVZJTCBFTkdJTkVFUklORxBDb21wdXRlciBzY2llbmNlIENPTVBVVEVSIFNDSUVOQ0UgQU5EIEVOR0lORUVSSU5HHENPTVBVVEVSIFNDSUVOQ0UgRU5HSU5FRVJJTkcgQ29tcHV0ZXIgU2ljZW5jZSBhbmQgRW5naW5lZXJpbmcBZQlFQ09OT01JQ1MmRUxFQ1RSSUNBTCBBTkQgRUxFQ1RST05JQ1MgRU5HSU5FRVJJTkcWRUxFQ1RSSUNBTCBFTkdJTkVFUklORylFTEVDVFJPTklDUyBBTkQgQ09NTVVOSUNBVElPTiBFTkdJTkVFUklORytFTEVDVFJPTklDUyBBTkQgSU5TVFJVTUVOVEFUSU9OIEVOR0lORUVSSU5HKUVMRUNUUk9OSUNTIENPTU1VTklDQVRJT04gQU5EIEVOR0lORUVSSU5HJUVsZWN0cm9uaWNzIENvbW11bmljYXRpb24gRW5naW5lZXJpbmcnRWxlY3Ryb25pY3MgSW5zdHJ1bWVudGF0aW9uIEVuZ2luZWVyaW5nB0VOR0xJU0gSRkFTSElPTiBURUNITk9MT0dZB0dFTkVSQUwTR0VORVJBTCBFTkdJTkVFUklORwNIR0kWSU5GT1JNQVRJT04gVEVDSE5PTE9HWSNMSUJSQVJZICYgS05PV0xFREdFIFJFU09VUkNFIENFTlRSRSBNLkUgUE9XRVIgRUxFQ1RST05JQ1MgQU5EIERSSVZFUxlNLkUuIENPTU1VTklDQVRJT04gU1lTVEVNEE0uRS4gVkxTSSBERVNJR04gTS5FLkNPTVBVVEVSIFNDSUVOQ0UgRU5HSU5FRVJJTkcWTS5FLkVOR0lORUVSSU5HIERFU0lHTh1NLkUuTUFOVUZBQ1RVUklORyBFTkdJTkVFUklORyFNLkUuUE9XRVIgIEVMRUNUUk9OSUNTIEFORCBEUklWRVMZTUFOVUZBQ1RVUklORyBFTkdJTkVFUklORx1NQVNURVIgT0YgQlVTSU5FU1MgTUFOQUdFTUVOVB9NQVNURVIgT0YgQ09NUFVURVIgIEFQUExJQ0FUSU9OC01BVEhFTUFUSUNTBU1hdGhzFk1FQ0hBTklDQUwgRU5HSU5FRVJJTkcMbWVjaGF0cm9uaWNzGE1FQ0hBVFJPTklDUyBFTkdJTkVFUklORwNOSUwSUEhZU0lDQUwgRURVQ0FUSU9OB1BIWVNJQ1McUG93ZXIgRWxlY3Ryb25pYyBhbmQgIERyaXZlcxRTQ0lFTkNFICYgSFVNQU5JVElFUxZzY2llbmNlIGFuZCBodW1hbml0aWVzFCsDNGdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2cWAWZkAgMPZBYCAgMPDxYCHwAFCjI4LzAzLzIwMjNkZAIjDw8WAh8BZ2RkAiUPDxYCHwFnZBYgAgEPDxYCHwFnZGQCAw8PFgIfAWdkZAIFDw8WAh8BZ2RkAgcPDxYCHwFnZGQCCw8PFgIfAWdkZAIPDw8WAh8BZ2RkAhEPDxYCHgdFbmFibGVkaGRkAhUPZBYCAgEPZBYCZg9kFggCCw8FMmZwc3ByZWFkc3RhdGU6MmY4ZGQ2ZjctOTBiYS00MWRlLWE2NWUtYTc5MjAxOWVjMzNjZAIPDwUyZnBzcHJlYWRzdGF0ZTo0MTAxM2FjNi1kNjQwLTQ1OWEtOGNhYy1hZTgwYTQ0MGExZmVkAhEPZBYCAgMPPCsAEQIBEBYAFgAWAAwUKwAAZAIVD2QWAgIND2QWAgIBD2QWAmYPZBYCAgEPZBYYAgUPZBYCAgMPPCsACQEADxYCHwRnFgIfBQUdT25DaGVja0JveENoZWNrQ2hhbmdlZChldmVudClkAgcPZBYCAgMPEGRkFgBkAgkPEGRkFgBkAgsPEGRkFgBkAhsPEGRkFgFmZAIdDwUyZnBzcHJlYWRzdGF0ZTplOTYxM2RiYi01ODY5LTQ0MjgtODQzNi02MDYxZjU2NDk5MWNkAiMPEGRkFgFmZAInDxBkZBYBZmQCKw8QZGQWAWZkAjEPEGRkFgFmZAI1DxBkZBYBZmQCOw8QZGQWAWZkAhsPZBYCZg9kFgQCAQ9kFgICAQ8QZGQWAGQCAw9kFgICAQ8QZGQWAGQCHQ9kFgICAg9kFgICAw9kFgICAQ8QZGQWAGQCJQ88KwARAgEQFgAWABYADBQrAABkAicPDxYCHwFoZGQCKQ8FMmZwc3ByZWFkc3RhdGU6OWQzYzMzNGUtYTgxZC00YWFiLWJmNDMtYzNlYzc4Y2Y5YWExZAItDwUyZnBzcHJlYWRzdGF0ZToyYjk5ZmNhYi0yNDFhLTRkYTAtOTQwYy1mMTI4ZjNmMjVhOThkAi8PBTJmcHNwcmVhZHN0YXRlOmQyMzhlMmMwLTRkYzQtNGUwZi05M2FjLTQzMDBlNjAwNjFlYmQCNQ9kFgYCAw8PFgIfAAUKMjgvMDMvMjAyM2RkAhEPDxYCHwAFCjI4LzAzLzIwMjNkZAIfD2QWAgIBDzwrABECARAWABYAFgAMFCsAAGQCKw9kFgQCAw9kFgICBw9kFgJmD2QWAgIBD2QWAgIBDxBkZBYBZmQCBw9kFgJmD2QWAgIBD2QWBAIBD2QWAmYPZBYCAgEPBTJmcHNwcmVhZHN0YXRlOmM3YjI0MWY1LWZhOTAtNDMzMC1iZmVmLTM5MmZhNmRmN2I5YmQCBQ8WAh8BaBYCAg0PBTJmcHNwcmVhZHN0YXRlOjk0ZTY0ODg2LWRhMWYtNDAxNC1hYjY5LWRhYjllN2MzNzYxZWQCMQ9kFgICAQ8FMmZwc3ByZWFkc3RhdGU6MTQ2MWE5NTUtMDIzNy00YmFlLWEyOGQtNjk3ZDRkOTg4YmNiZAI3D2QWCgIHDxAPFgYfBgUHc3VibmFtZR8HBQpzdWJqZWN0X25vHwhnZBAVCgZTZWxlY3QaUFJPRkVTU0lPTkFMIENPTU1VTklDQVRJT04USU5URVJORVQgUFJPR1JBTU1JTkcXQVJUSUZJQ0lBTCBJTlRFTExJR0VOQ0UMTUlOSSBQUk9KRUNUH0lOVEVSTkVUIFBST0dSQU1NSU5HIExBQk9SQVRPUlkpTU9CSUxFIEFQUExJQ0FUSU9OIERFVkVMT1BNRU5UIExBQk9SQVRPUlkSTU9CSUxFIENPTVBVVElORyAgD0NPTVBJTEVSIERFU0lHThNESVNUUklCVVRFRCBTWVNURU1TFQoGU2VsZWN0BDk3MzcEOTg2MwQ5ODY3BDk4NzAEOTg3MQUxMDAzMQUyMDgzMQUyMDgzMgUyMDgzMxQrAwpnZ2dnZ2dnZ2dnFgFmZAIJD2QWAgIBDzwrAAkBAA8WAh8EZ2RkAgsPBTJmcHNwcmVhZHN0YXRlOmY0NzYwZmZkLTdjYzctNDk2YS1hY2JmLTcyN2E1ODlhOGQ4OGQCDw8QZGQWAGQCEQ8FMmZwc3ByZWFkc3RhdGU6NWZkNWVlZDQtYTEwZi00MjA5LWIxNTMtYTk3Mzk5NTY3OTk5ZAI7DxYCHwFoZAI9Dw8WAh8BZ2RkAj8PDxYCHwFnZBYIAgEPZBYGAgEPDxYCHwFnZGQCAw8PFgIfAWdkZAIFDw8WAh8BZ2RkAgUPZBYCAgEPZBYCZg9kFhACBQ8QZGQWAGQCDw8QZGQWAGQCEQ8QZGQWAGQCEw8QZGQWAWZkAhsPEGRkFgBkAh0PEGRkFgBkAh8PEGRkFgFmZAIhDxBkDxYBZhYBEAUEU2VsZgUBMWcWAWZkAgcPZBYCAgEPPCsAEQIBEBYAFgAWAAwUKwAAZAIJD2QWBAIND2QWAgIHDxBkZBYEZgIBAgICA2QCEw8FMmZwc3ByZWFkc3RhdGU6Y2IwYjc0N2EtZDRiZS00NWYzLTg2ZGYtMmQ3NWY0NmNmMzEyZAJFD2QWAgIBD2QWAgIBDzwrABEDAA8WAh8BaGQBEBYAFgAWAAwUKwAAZAJLD2QWAgIDDzwrABECARAWABYAFgAMFCsAAGQCUQ9kFgICCQ8FMmZwc3ByZWFkc3RhdGU6MzkxZTZkMDctMTMyNi00MTI0LTlhOWEtMWEyMWQzMmMxNGI0ZAItD2QWCAIHD2QWAmYPZBYCAgEPEGRkFgBkAg0PZBYCZg9kFgICAQ8PFgIfAAUDMTAwZGQCEw9kFgJmD2QWAgIBDxBkEBUBABUBABQrAwFnFgFmZAIZD2QWAmYPZBYCAgEPBTJmcHNwcmVhZHN0YXRlOmFiNzk2YWM0LTgwOWQtNDljYi04NDE1LTU1YjJmZmQ4NTY3MmQCMw9kFgICAQ9kFgQCAw8QZGQWAWZkAgkPZBYCAgEPBTJmcHNwcmVhZHN0YXRlOjY3ODdlZTAzLThlYTMtNDE5Mi1hZDY4LWQxMGI5MDk5MDEzM2QCNQ9kFgICAQ9kFgICAQ8FMmZwc3ByZWFkc3RhdGU6MTcxMWE4NjAtN2RjZS00YTgyLTk2NGItY2VhNGE0MTZlNThlZBgIBQ1ndmlld2hvbWV3b3JrD2dkBRVHcmlkVmlld19Ib3N0ZWxWYWNhdGUPZ2QFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYfBQtGcHNwZXJzb25hbAUMRnBzdGltZXRhYmxlBQhGcHNtYXJrcwUVUHJpbnRjb250cm9sJEZwRm9vdGVyBQtGcFF1ZXN0aW9ucwUORnBxdWVzdGlvbmJhbmsFCUZwc2xlc3NvbgUNRnBzYXR0ZW5kZW5jZQUJRnBzZW1hdGVuBQpGcHNsaWJyYXJ5BQlGcFNwcmVhZDQFCUZwU3ByZWFkMgUWUHJpbnRjb250cm9sMSRGcEZvb3RlcgUKRnBzZ2VuZXJhbAULRnBzcHJlYWRmZWUFCUZwc3ByZWFkNQUGZnB0ZXN0BQlGcFNwcmVhZDEFEkZwX3N0dWRlbnRfY29uZHVjdAUJRnBTcHJlYWQzBQ9zcHJlYWRfcXVlc3Rpb24FCUZwc3ByZWFkNgUFRnBDRU8FCnNwcmVhZERldDMFDUZwU3ByZWFkU3RhZmYFDEZwU3ByZWFkQm9vawUPaW1nbm90aWZpY2F0aW9uBQhsYmxvZ291dAUMSW1hZ2VCdXR0b240BQxpbWFnZWJ1dHRvbjUFDGltYWdlYnV0dG9uNgUJR3JpZFZpZXc1D2dkBQ5ncmRjb3Vuc2VsbGluZw9nZAUHZ3Jkc2hvdw9nZAUIU2hvd2dyaWQPZ2QFDmd2aWV3cGxhY2VtZW50D2dknC51+VrP2+qVH1SDcR4/auz13LvSh42Wj65Un/rb2R0=" />
+
+
+<script src="/ScriptResource.axd?d=OLknbZ3QJvuJ9beTgyc2xq8RWy3xO1WfbviKXUHEHe3iP4FpCQYkgAAJYpV60gUPROg-eqPNIiKj-Nwjq8SsE4nxDgxiG3BI4Y52iQnoGxHXg_goNKxOhWCJumq7B2guHIKkeCha2F60RjJBoWgssA2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=ySlsquZJMv6RbSYbHCwK9sGaM_UXxE1SpiDDr-0IbvA1eNvlBK2V8NOSVL132nLceoQ4UlGFQRokpquBGxRdpR943yqgBe7PyqnIax3fMLHu7YJcsATZoIadpeSum37M9tAhG1Z2ahh_1MZ4bkfrgA2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=unEUlkHH5kiYSPvvgM6qpH4SagLtM6Pwvhyanrl4irnvNi-PP6ea8bZQf9kfsOldvQu89J7gmpMgBwi27W27I-RcXx40z0Cni07cOmH4pvvFUWiqVn8HoG5q9bxrIxU_oYDaOPY7q1k-po2bsxzCJQ2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=T5dJPwyDGJNotL1t9mgKdCtQEukjwuT5ovVk3toEfgbilJbN4qJlSMBP5cBsVPVVC2mBurZfk4Ff3udQND52lMf-_CImIMD7Ioie3riJuJ6I2dL5VMIztjq0wbpvOL5rVz0bZZYeiPOJ5n7hyq2DXw2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=35-QrWPXSVHl96qQH0PhM_9E85h-Kv1I8E5ejXSZs1HERXIlOzoWTZr7aIA_BJyzlr2297_XkdAqIeIHZvZppmKbCC4Ff_dYMlUUn20iCrDe-DWbxuELdcUAm7tE0ANzZPQXTX0x0QKTRm3hkzTwhw2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=sK0Xk4qMmwx9Oe7ZL1bOBl8YiXrqYG2pj68k5YIl8aeBcsdnv-ZF1jGyvg3RdXk-tO3wWK1nink9OeI-39Ru8qKPNkgu1LLaBqMMssGX_3toCRJNyD5O6V6Vswk8amechQ-g7mAE-7g-BDo6myMxMboZBksznO5eREJJfPJTbP41&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Y0i9mp2j2jyL-sPo8ubLV30me7Hn6nxxwGqtoPTGQhKACm6QIgWpMwcPRK1KnznN28S9PRiryIKA5RnWlgq2ALEmz9nmlrsKCVpCcF6VW27VnG-h4hkfAWrVyybJJ5r_NYZZ0pEBH3_I58MG9zv92pAOUbobKoaMBbCXp7mzHMQ1&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=I1DIw7i4YrQMHe8wS9PkSAhNJuK-C412RGNfB_5dpBoyCMzl82KrtK2XQWn_bh-0izDkO9Fx0rmqWUBfACHNj6k6peFWXMusYOCoCBvO329AT7EApD7n-O1gIxoi__P8fD4sLXLOAqpQfvGVYNyJPOkUzEGB6JScSh55y_FWhD81&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=DwLgfV2xbg11r5RUZ6mtdl_19cGEmcQkGXUN4akHtX4mi_LgZLZ7gCajfREYQuKUv_K9SBtn-HQFJqPpvoojQwKDIbApjgq7V_sWvr5M6-2WXW3rKuZzxQKoH9lpb4RxoUFkDB5AOR3S2zFni4zzlZmwkUO4XyH9SCrJpVPYJPQ1&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=FZjmAbKlbwSBZQAqoL2YSaaLGVZU5fK4zL_uhiluAr0JhmCJKD8OT5UAffeftaclQN-8FHGVVlm9jVPhhQPDnswUY42e27O3nvfHVSXXRKunIhUKj3t6ikuU5SRU9PLUk2dUGJ15lqRE2hu3aEvqHne9zw3IPw3zTowVlmhEyZk1&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=pwrDXbZGArMiCCezZaNObdimDlZe1SIbP9yv11q34Dhj-kktZ0hzdq0KHRTinbvFFzu3bKxs8zLVm_6T4xufCWmkWqfxYefcde6unld94X2p9UjY8g-ddqpbWInpy_oyf6fJgzNqQBkwYtC576L3nGb_KYkn1HRHM4Dd5xAjCkY1&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=1Xieht38_EJXV9tPgSPjlWCkTZr7ehdevc_MpsAnfAFsoo_Eu94J0g8l7JqLz5uoZ7UaSFZ27QIo1F7NpfeNmn4ip4cEI3D8s-O_E21nuh0Ow2ohmXGC133I-CXGPMgr8rvSiNE0RcT5c-Vj7YgYwg2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=MhjBAwI444rMJGUiq1oxE6KDGxxkOchVxhbM8r_iPxmyiNajl3mBd8qB_CWyYXNjT5WEOZymzuyIEDzzbTFflfl6Odq0KVaW18r1q45qYx5X4X7C8926S1mP3kmpeTRTnR1Pi6KKxzCmcivl7tgRKg2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=tPJ9sZPL7bSpU5wXS1Ivi_56KsvSkFeQjtsESLluQbu-2AIaEvzGhaZzZHOCijA69dhcpIEqrie0CL2enrXZbTkj-uk-cTxk-i2Sx-q6kJq4VJJJE7YG9FgHWjchOCy1cOaGb4GVT-9r-hvqxTHV6Q2&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=s1LjjXxvqc4RaXaEFZ-1yHYeEQUjCnKQ66Ot6W0K9rEeacykxxUB1HqMcDRTsLHDHbay5Q4wjArhiv9SsVglAIOMr4TBajoqPqEN_04MH9ZDt7jWt9IpIZbPZkqgvaWh1iCubuEKMOf4MsZKnCVni3rYkZenZHESPTkrJ1YgkTU1&amp;t=ffffffffe4ec58b9" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A56AD786" />
+    <div>
+        
+    </div>
+    <center>
+        <div id="header_background" style="width: 935px; padding: 10px 20px 20px 20px;">
+            <table>
+                <tr id="header_details">
+                    <td>
+                        <center>
+                            <span id="lblcol" style="display:inline-block;"><b><font face="Book Antiqua" color="White" size="7">KCG College of Technology</font></b></span>
+                        </center>
+                    </td>
+                    <td>
+                        <div style="height: 22px; width: 180px;">
+                            
+                            
+                            
+                            &nbsp;
+                            
+                            <input type="image" name="imgnotification" id="imgnotification" src="image/Student/Notification.png" style="height: 35px;" />
+                            <input type="image" name="lblogout" id="lblogout" src="image/Student/logout.png" />
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 250px;">
+                    <td>
+                        <center>
+                            <table width="700px" style="height: 200px;">
+                                <tr>
+                                    <td>
+                                        <span id="Label3" style="text-align: left;"><b><font face="Book Antiqua">Student Name</font></b></span>
+                                    </td>
+                                    <td style="font-weight: bold; width: 2px;">
+                                        :
+                                    </td>
+                                    <td>
+                                        <span id="lblsname"><b><font face="Book Antiqua">ASHIF A  </font></b></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                    </td>
+                                    
+                                    <td>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span id="Label14" style="text-align: left;"><b><font face="Book Antiqua">Reg No</font></b></span>
+                                    </td>
+                                    <td style="font-weight: bold; width: 2px;">
+                                        :
+                                    </td>
+                                    <td>
+                                        <span id="Label15"><b><font face="Book Antiqua">311020104013</font></b></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span id="Label4" style="vertical-align: middle;"><b><font face="Book Antiqua">Branch Name</font></b></span>
+                                    </td>
+                                    <td style="font-weight: bold">
+                                        :
+                                    </td>
+                                    <td>
+                                        <span id="lbldegree" style="vertical-align: middle;"><b><font face="Book Antiqua">BE-Computer Science and Engineering</font></b></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span id="Label5"><b><font face="Book Antiqua">Semester</font></b></span>
+                                    </td>
+                                    <td style="font-weight: bold">
+                                        :
+                                    </td>
+                                    <td>
+                                        <span id="lblsem"><b><font face="Book Antiqua">6</font></b></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span id="Label6" style="vertical-align: middle;"><b><font face="Book Antiqua">Batch Year</font></b></span>
+                                    </td>
+                                    <td style="font-weight: bold">
+                                        :
+                                    </td>
+                                    <td>
+                                        <span id="lblyear"><b><font face="Book Antiqua">2020</font></b></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                    <td rowspan="2" style="width: 100px">
+                        
+                        <br />
+                        <img id="Imagestudent" src="data:image/jpg;base64,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" height="200" width="150" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    
+    <center>
+        <div id="MainDiv" style="top: 20px; width: 976px; position: relative">
+            
+            <div>
+                <div id="pHeaderpersonal" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        Personal Details</span>
+                
+</div>
+            </div>
+            <div>
+                <div id="pBodypersonal" class="cpBody">
+	
+                    
+                    <input type="submit" name="ImageButtonbio" value="Bio Data" id="ImageButtonbio" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonbioDATA" value="BioData Print" id="ImageButtonbioDATA" class="myButton" />
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtoncertificate" value="Certificate Details" id="ImageButtoncertificate" class="myButton" />
+                    <br />
+                    <br />
+                    <center>
+                        
+                    </center>
+                    <br />
+                    <input type="hidden" name="cpePersonal_ClientState" id="cpePersonal_ClientState" />
+                
+</div>
+            </div>
+            
+            <div>
+                <div id="pHeadertimetable" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        Time Table</span>
+                
+</div>
+            </div>
+            <div>
+                <div id="pBodytimetable" class="cpBody">
+	
+                    <input type="submit" name="ImageButtontodaytt" value="Today" id="ImageButtontodaytt" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonsemtt" value="Semester" id="ImageButtonsemtt" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtoncamtt" value="CAM" id="ImageButtoncamtt" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonextt" value="External" id="ImageButtonextt" class="myButton" />
+                    <br />
+                    <br />
+                    <center>
+                        
+                    </center>
+                    <br />
+                
+</div>
+                <input type="hidden" name="cpetimetable_ClientState" id="cpetimetable_ClientState" />
+            </div>
+            
+            <div>
+                <div id="pHeadermarks" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        Marks Details</span>
+                
+</div>
+            </div>
+            <div>
+                <div id="pBodymarks" class="cpBody">
+	
+                    <input type="submit" name="ImageButtonsubject" value="Subject" id="ImageButtonsubject" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButton1" value="Marks" id="ImageButton1" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonArrear" value="Arrear Papers" id="ImageButtonArrear" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonCamv" value="CAM" id="ImageButtonCamv" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="btnsubjectchooser" value="CAM" id="btnsubjectchooser" class="myButton" />
+                    <br />
+                    <br />
+                    
+                    <div id="divMarks">
+                        <table>
+                            <tr>
+                                <td>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                    &nbsp; &nbsp;
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <center>
+                    <div id="dispnl">
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                                
+                        
+                        <br />
+                        
+                    </center>
+                    <br />
+                    
+                    <br />
+                    
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <div id="UpdatePanel1">
+		
+                                        
+                                        
+                                        
+                                    
+	</div>
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <br />
+                    
+                    <br />
+                    
+                    <br />
+                    
+                
+</div>
+                
+                <input type="hidden" name="cpemarks_ClientState" id="cpemarks_ClientState" />
+            </div>
+            
+            <div>
+                <div id="pHeaderlessonstatus" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        Lesson Status Details</span>
+                
+</div>
+            </div>
+            <div>
+                <div id="pBodylessonstatus" class="cpBody">
+	
+                    <table>
+                        <tr>
+                            <td>
+                                <span id="Label1"><b><font face="Book Antiqua" size="4">From</font></b></span>
+                                &nbsp; &nbsp;
+                                
+                            </td>
+                            <td>
+                                <input name="tbfrom" type="text" value="28-03-2023" id="tbfrom" />
+                            </td>
+                            <td>
+                                
+                                &nbsp;&nbsp; &nbsp;
+                                <span id="Label2"><b><font face="Book Antiqua" size="4">To</font></b></span>
+                                
+                            </td>
+                            <td>
+                                &nbsp;
+                                <input name="tbto" type="text" value="28-03-2023" id="tbto" />
+                                
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table>
+                        <tr>
+                            
+                        </tr>
+                    </table>
+                    <br />
+                    <input type="submit" name="ImageButtonconduct" value="Conducted" id="ImageButtonconduct" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonmis" value="Missed" id="ImageButtonmis" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonyet" value="Yet" id="ImageButtonyet" class="myButton" />
+                    <br />
+                    <center>
+                        
+                    </center>
+                    <br />
+                
+</div>
+                <input type="hidden" name="CollapsiblePanelExtender2_ClientState" id="CollapsiblePanelExtender2_ClientState" />
+            </div>
+            
+            <div>
+                <div id="pHeaderAttendence" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        Attendance Details</span>
+                
+</div>
+            </div>
+            <div>
+                <div id="pBodyAttendence" class="cpBody">
+	
+                    <input type="submit" name="ImageButtontodaya" value="Today" id="ImageButtontodaya" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonweeka" value="Weekly" id="ImageButtonweeka" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonsema" value="Semester" id="ImageButtonsema" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonsemdate" value="Semester Date" id="ImageButtonsemdate" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonevents" value="Events" id="ImageButtonevents" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonexamseat" value="Exam Date" id="ImageButtonexamseat" class="myButton" />
+                    <input type="submit" name="btnSubjetwise" value="SubjectWise" id="btnSubjetwise" class="myButton" />
+                    <br />
+                    <br />
+                    <br />
+                    
+                    
+                    
+                    
+                    <br />
+                    <br />
+                    
+                
+</div>
+                <input type="hidden" name="cpeAttendence_ClientState" id="cpeAttendence_ClientState" />
+            </div>
+            
+            <div>
+                <div id="pHeaderLibrary" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        Library Details</span>
+                
+</div>
+            </div>
+            <div>
+                <div id="pBodyLibrary" class="cpBody">
+	
+                    <input type="submit" name="ImageButtonopac" value="OPAC" id="ImageButtonopac" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonlibcards" value="Library Cards" id="ImageButtonlibcards" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonbukt" value="Books Taken" id="ImageButtonbukt" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonremind" value="Reminder" id="ImageButtonremind" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonbukr" value="Books Return" id="ImageButtonbukr" class="myButton" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ImageButtonfine" value="Fine" id="ImageButtonfine" class="myButton" />
+                    <input type="submit" name="ImageButtonBKReserve" value="Book Reservation" id="ImageButtonBKReserve" class="myButton" style="margin-left: 13px;" />
+                    <input type="submit" name="ImageButtonBKRequest" value="Book Request" id="ImageButtonBKRequest" class="myButton" style="margin-left: 13px;
+                        margin-top: 20px;" />
+                    <br />
+                    <br />
+                    <br />
+                    <center>
+                        
+                        
+                        
+                    </center>
+                    <br />
+                
+</div>
+                <input type="hidden" name="cpeLibrary_ClientState" id="cpeLibrary_ClientState" />
+            </div>
+            
+            <div>
+                <div id="pHeaderGeneral" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        General Details</span>
+                
+</div>
+            </div>
+            <div id="pBodyGeneral" class="cpBody">
+	
+                <input type="submit" name="ImageButtonfees" value="Fees" id="ImageButtonfees" class="myButton" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="ImageButtontransport" value="Transport" id="ImageButtontransport" class="myButton" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="ImageButtonfeedback" value="Feedback" id="ImageButtonfeedback" class="myButton" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="ImageButton3" value="Notification" id="ImageButton3" class="myButton" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="Button3" value="Receipt Print" id="Button3" class="myButton" />
+                <input type="submit" name="btnMessreg" value="Mess Registration" id="btnMessreg" class="myButton" />
+                
+                <input type="submit" name="btnPlacement" value="Placement" id="btnPlacement" class="myButton" />
+                
+                <input type="submit" name="btn_reqvatsave" value="Request" id="btn_reqvatsave" disabled="disabled" class="aspNetDisabled myButton" />
+                <br />
+                <br />
+                <center>
+                    
+                    
+                    
+                    <br />
+                    
+                    <br />
+                    
+                    
+                    <br />
+                    <br />
+                    <br />
+                    <center>
+                        
+                    </center>
+                    <center>
+                        
+                        
+                    </center>
+                    <center>
+                        
+                    </center>
+                    <center>
+                        
+                    </center>
+                    <center>
+                        <div>
+                            <div>
+
+	</div>
+                        </div>
+                    </center>
+                    
+                    
+                    <span id="lblfeeerr" style="color: Red;"><b><font size="4"></font></b></span>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <span id="lblfeestatus"><b><font color="#3333FF" size="6"></font></b></span>
+                    <br />
+                    
+                    <center>
+                        
+                    </center>
+                </center>
+                <br />
+            
+</div>
+            <input type="hidden" name="cpeGeneral_ClientState" id="cpeGeneral_ClientState" />
+            
+            <div>
+                <div id="updatepanel8">
+	
+                        
+                    
+</div>
+            </div>
+            <div>
+                
+            </div>
+            <input type="hidden" name="CollapsiblePanelExtender1_ClientState" id="CollapsiblePanelExtender1_ClientState" />
+            
+            
+            
+            <input type="hidden" name="CollapsiblePanelExtender3_ClientState" id="CollapsiblePanelExtender3_ClientState" />
+            
+            
+            
+            <div>
+                
+                
+                <input type="hidden" name="CollapsiblePanelExtender4_ClientState" id="CollapsiblePanelExtender4_ClientState" />
+                
+            </div>
+            
+            
+            
+            
+            
+            <div>
+                
+                <div id="Panel9" class="cpHeader" style="width: 910px;">
+	
+                    <span style="font-size: medium; font-weight: bold; font-family: Book Antiqua; float: left;">
+                        Request</span>
+                
+</div>
+                <div id="Panel10">
+	
+                    <div id="Panel11" class="cpBody">
+		
+                        
+                        <input type="image" name="ImageButton4" id="ImageButton4" class="myButton" alt="Request" src="" />
+                        <input type="image" name="imagebutton5" id="imagebutton5" class="myButton" alt="Request Details" src="" />
+                        <input type="image" name="imagebutton6" id="imagebutton6" class="myButton" alt="Hostel Request" src="" />
+                    
+	</div>
+                    
+                    <br />
+                    <center>
+                        
+                        
+                        
+                        
+                        
+                        <br />
+                    </center>
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="Panel12">
+		
+                                
+	</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="Accordion1" class="accordion" style="border-color: #FFFFFF; height: auto; margin-left: 1px; margin-right: 50px;
+                                    margin-top: -5px; overflow: auto; width: 985px;">
+		<input type="hidden" name="Accordion1_AccordionExtender_ClientState" id="Accordion1_AccordionExtender_ClientState" value="0" />
+	</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                
+</div>
+            </div>
+            <input type="hidden" name="CollapsiblePanelExtender6_ClientState" id="CollapsiblePanelExtender6_ClientState" />
+            
+            <div>
+                
+            </div>
+            <div>
+                
+                <input type="hidden" name="CollapsiblePanelExtender7_ClientState" id="CollapsiblePanelExtender7_ClientState" />
+            </div>
+            <div>
+                
+            </div>
+            <div>
+                
+            </div>
+            <input type="hidden" name="CollapsiblePanelExtender8_ClientState" id="CollapsiblePanelExtender8_ClientState" />
+            
+            <div>
+                
+            </div>
+            <div>
+                <div id="PBodyCeo" class="cpBody">
+	
+                    
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <br />
+                    <br />
+                    <center>
+                    
+                    <br />
+                     
+                        <br />
+                        
+                    </center>
+                    <input type="hidden" name="CollapsiblePanelExtender9_ClientState" id="CollapsiblePanelExtender9_ClientState" />
+                
+</div>
+            </div>
+        </div>
+    </center>
+    <br />
+    
+    <center>
+        
+    </center>
+    <center>
+        
+        <div style="height: 1px; width: 1px; overflow: auto;">
+            
+        </div>
+    </center>
+    <center>
+        
+    </center>
+    <center>
+        
+    </center>
+    <center>
+        
+    </center>
+    <center>
+        
+    </center>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"cpePersonal_ClientState","CollapseControlID":"pHeaderpersonal","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"pHeaderpersonal","ExpandedImage":"down.jpeg","ImageControlID":"Imagepersonal","TextLabelID":"Labelpersonal","id":"cpePersonal"}, null, null, $get("pBodypersonal"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"cpetimetable_ClientState","CollapseControlID":"pHeadertimetable","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"pHeadertimetable","ExpandedImage":"down.jpeg","ImageControlID":"Imagetimetable","TextLabelID":"Labeltimetable","id":"cpetimetable"}, null, null, $get("pBodytimetable"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"cpemarks_ClientState","CollapseControlID":"pHeadermarks","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"pHeadermarks","ExpandedImage":"down.jpeg","ImageControlID":"Imagemarks","TextLabelID":"Labelmarks","id":"cpemarks"}, null, null, $get("pBodymarks"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CalendarBehavior, {"format":"d-MM-yyyy","id":"CalendarExtender3"}, null, null, $get("tbfrom"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CalendarBehavior, {"format":"d-MM-yyyy","id":"CalendarExtender5"}, null, null, $get("tbto"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"CollapsiblePanelExtender2_ClientState","CollapseControlID":"pHeaderlessonstatus","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"pHeaderlessonstatus","ExpandedImage":"down.jpeg","ImageControlID":"Imagelessonstatus","TextLabelID":"Labellessonstatus","id":"CollapsiblePanelExtender2"}, null, null, $get("pBodylessonstatus"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"cpeAttendence_ClientState","CollapseControlID":"pHeaderAttendence","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"pHeaderAttendence","ExpandedImage":"down.jpeg","ImageControlID":"ImageAttendence","TextLabelID":"LabelAttendence","id":"cpeAttendence"}, null, null, $get("pBodyAttendence"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"cpeLibrary_ClientState","CollapseControlID":"pHeaderLibrary","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"pHeaderLibrary","ExpandedImage":"down.jpeg","ImageControlID":"ImageLibrary","TextLabelID":"LabelLibrary","id":"cpeLibrary"}, null, null, $get("pBodyLibrary"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"cpeGeneral_ClientState","CollapseControlID":"pHeaderGeneral","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"pHeaderGeneral","ExpandedImage":"down.jpeg","ImageControlID":"ImageGeneral","TextLabelID":"LabelGeneral","id":"cpeGeneral"}, null, null, $get("pBodyGeneral"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.AccordionBehavior, {"ClientStateFieldID":"Accordion1_AccordionExtender_ClientState","FadeTransitions":true,"FramesPerSecond":40,"HeaderCssClass":"accordionHeader","HeaderSelectedCssClass":"accordionHeaderSelected","id":"Accordion1_AccordionExtender","requireOpenedPane":false,"suppressHeaderPostbacks":true}, null, null, $get("Accordion1"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"CollapsiblePanelExtender6_ClientState","CollapseControlID":"Panel9","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"Panel9","ExpandedImage":"down.jpeg","ImageControlID":"ImageGeneral","TextLabelID":"LabelGeneral","id":"CollapsiblePanelExtender6"}, null, null, $get("Panel10"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.CollapsiblePanelBehavior, {"ClientStateFieldID":"CollapsiblePanelExtender9_ClientState","CollapseControlID":"PHeaderCeo","Collapsed":true,"CollapsedImage":"right.jpeg","CollapsedSize":0,"ExpandControlID":"PHeaderCeo","ExpandedImage":"down.jpeg","ImageControlID":"Imagepersonal","TextLabelID":"Labelpersonal","id":"CollapsiblePanelExtender9"}, null, null, $get("PBodyCeo"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>
