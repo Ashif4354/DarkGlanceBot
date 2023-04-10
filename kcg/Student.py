@@ -1,5 +1,5 @@
 import requests
-from os import getcwd
+from os import getcwd, remove
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -7,6 +7,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import base64
 import json
+import imgkit
 
 from sys import path
 path.append(getcwd().rstrip('kcg'))
@@ -34,20 +35,30 @@ departments = {
             'me' : ('me', 'mech', 'mechanical')
             }
 
+options = {
+    'format': 'png',
+    'crop-w': '915'
+}
+
 fees_url = 'http://studentonlinepayment.kcgcollege.ac.in/'
 fees_login_payload = {}
 
 student_login_url = 'http://studentlogin.kcgcollege.ac.in/'
 student_login_payload = {}
 
+marks_payload = {}
+
 def get_payload():
-    global fees_login_payload, student_login_payload
+    global fees_login_payload, student_login_payload, marks_payload
 
     with open('fees_login_payload.json', 'r') as f:
-            fees_login_payload = json.load(f)
+        fees_login_payload = json.load(f)
     
     with open('student_login_payload.json', 'r') as f:
-            student_login_payload = json.load(f)
+        student_login_payload = json.load(f)
+
+    with open('marks_payload.json', 'r') as f:
+        marks_payload = json.load(f)
 
 get_payload()
 
@@ -182,7 +193,54 @@ class student:
                 raise server_down
 
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
-    def get_marks(uid = user_id_):
+    def get_marks(uid, dob):
+        with requests.Session() as session:
+
+
+            student_login_payload['txtuname'] = uid
+            student_login_payload['txtpassword'] = dob
+            student_login_payload['rblOnlineAppLoginMode'] = 1 if uid[:4] == '3110' else 0
+            
+            #print(student_login_payload)
+            try:
+                home = session.post(student_login_url, data = student_login_payload, timeout = 10)
+                #print(home.status_code, home.url, home.text)
+                marks_page = session.post(home.url, data = marks_payload, timeout = 10)
+                #print()
+                #print()
+                #print()
+                #print(marks_page.status_code, marks_page.url, marks_page.text)
+
+                str__ = marks_page.text
+                str__ = str__.replace('&nbsp;', '') 
+
+                soup = BeautifulSoup(str__, 'html.parser')
+                texts = soup.find('div', {'id': 'dispnl'})
+
+                str_texts = str(texts)
+                #print(str_texts)
+
+                html_path = r"{}\temp_pics\{}_html.html".format(getcwd().rstrip('kcg'), uid)
+                with open(html_path, 'w') as file:
+                    file.write(str_texts)
+
+
+                img_path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('kcg'), uid)
+                with open(html_path, 'r') as f:
+                    try:
+                        imgkit.from_file(f, img_path, options=options)
+                    except:
+                        pass
+                remove(html_path)
+            except Exception as text:
+                logger.exception_logs('dgb/kcg/Student/student/get_marks ', text, getcwd().rstrip('kcg') + 'logger')
+                raise Exception
+            finally:
+                
+                session.close()
+
+
+        '''
         marks_detail_button = browser.find_element(By.XPATH, '//*[@id="pHeadermarks"]')
         marks_detail_button.click()
 
@@ -196,7 +254,7 @@ class student:
         path = r"{}\temp_pics\{}_marks.png".format(getcwd().rstrip('kcg'), uid)
         marks_table = browser.find_element(By.XPATH, '//*[@id="Fpsmarks_viewport"]/table')
         marks_table.screenshot(path)
-        browser.quit()
+        browser.quit()'''
     
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def get_details(uid = user_id_):

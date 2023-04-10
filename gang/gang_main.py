@@ -120,10 +120,10 @@ async def gangmarks(ctx):
                 self.dob = dob
         
         class gang_(Thread):
-            def __init__(self, gangster_object, ssesion_object):
+            def __init__(self, gangster_object, session_object):
                 super().__init__()
                 self.gangster_object = gangster_object
-                self.session = ssesion_object
+                self.session = session_object
 
             def run(self):
                 global success
@@ -131,7 +131,6 @@ async def gangmarks(ctx):
                 student_login_payload_local = student_login_payload.copy()
 
                 roll_no, dob = self.gangster_object.roll_no, self.gangster_object.dob
-                session = self
 
                 student_login_payload_local['txtuname'] = roll_no
                 student_login_payload_local['txtpassword'] = dob
@@ -140,9 +139,9 @@ async def gangmarks(ctx):
 
                 try:
                     home = self.session.post(student_login_url, data = student_login_payload_local, timeout = 10)
-                    next_page = self.session.post(home.url, data = marks_payload, timeout = 10)
+                    marks_page = self.session.post(home.url, data = marks_payload, timeout = 10)
 
-                    str__ = next_page.text
+                    str__ = marks_page.text
                     str__ = str__.replace('&nbsp;', '') 
                     soup = BeautifulSoup(str__, 'html.parser')
                     texts = soup.find('div', {'id': 'dispnl'})
@@ -163,6 +162,8 @@ async def gangmarks(ctx):
                 except Exception as text:
                     success = False
                     logger.exception_logs('dgb/gang/gang_main/gangmarks ', text, getcwd().rstrip('gang') + 'logger')
+                finally:
+                    self.session.close()
 
                     
         thread = gang_(gangster(gang_member[0], gang_member[2]), Session())

@@ -63,6 +63,7 @@ def get_payload():
         data['txtuname'] = '20cs008'
         data['txtpassword'] = '25112002'
         data['rblOnlineAppLoginMode'] = 0
+        #print(data)
 
         response = session.post('http://studentlogin.kcgcollege.ac.in/', data = data)
         page = response.text
@@ -78,6 +79,8 @@ def get_payload():
 
         with open(f'{gang_path}\\marks_payload.json', 'w') as json_file:
             json.dump(data2, json_file)
+
+        #print(data2)
 
 
 

@@ -52,9 +52,10 @@ async def checkkcgserver(ctx):
     
     await ctx.send(embed = check_server()[0])
        
-@client.command(aliases = ['kcg', 'student'])   
+@client.command(aliases = ['kcg', 'student', 'lll'])   
 async def kcgstudent(ctx):    
-    logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')     
+    logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')  
+
     '''
     if str(ctx.message.author) != 'DarkGlance#6849':
         sorry_embed = discord.Embed(title = 'Sorry for Inconvenience', description = 'KCG tasks are currently under maintenance', color = 0xffffff)
@@ -63,6 +64,7 @@ async def kcgstudent(ctx):
     else:
         pass
     '''
+    
     functions = ('photo', 'dob', 'name', 'marks', 'details', 'all',
                  'registernumber', 'reg', 'rollnumber', 'roll',
                  'namephoto', 'np')
@@ -194,21 +196,20 @@ async def kcgstudent(ctx):
                 await ctx.send('DOB has been Found successfully')
 
                 await ctx.send('Please wait while we try to fetch the marks')
-                student.student_login(user_id, d_o_b)
-                await ctx.send('Login successful')
+                #student.student_login(user_id, d_o_b)
+                #await ctx.send('Login successful')
 
             except Exception as text:
                 logger.exception_logs('dgb/kcg/kcg_main/kcgstudent (marks2)', text, getcwd().rstrip('kcg') + 'logger')
 
-                embed = discord.Embed(description = 'Login failed.. Please try again', color = 0xffffff)
-                await ctx.send(embed = embed)           
+                #embed = discord.Embed(description = 'Login failed.. Please try again', color = 0xffffff)
+                #await ctx.send(embed = embed)           
                 return
                 
             try:
-                student.get_marks(user_id)
-            except Exception as text:
+                student.get_marks(user_id, d_o_b)
+            except Exception as text:                            
                 logger.exception_logs('dgb/kcg/kcg_main/kcgstudent (marks3)', text, getcwd().rstrip('kcg') + 'logger')
-
                 embed = discord.Embed(description = 'failed to get marks.. Please try again', color = 0xffffff)
                 await ctx.send(embed = embed)  
                 return
