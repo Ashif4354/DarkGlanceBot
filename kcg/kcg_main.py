@@ -52,7 +52,7 @@ async def checkkcgserver(ctx):
     
     await ctx.send(embed = check_server()[0])
        
-@client.command(aliases = ['kcg', 'student', 'lll'])   
+@client.command(aliases = ['kcg', 'student', 'll'])   
 async def kcgstudent(ctx):    
     logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')  
 
@@ -388,9 +388,8 @@ async def kcgstudent(ctx):
                 student.student_login(user_id, d_o_b)
                 student.get_details(user_id)
                 await ctx.send('Details fetched')
-
-                student.student_login(user_id, d_o_b)
-                student.get_marks(user_id)
+                
+                student.get_marks(user_id, d_o_b)
                 await ctx.send('Marks fetched')
 
             except Exception as text:
