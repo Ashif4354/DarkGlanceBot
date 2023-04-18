@@ -82,3 +82,855 @@
 10/04/2023 19:03:54  INPUT   DarkGlance#6849  .ll all 19cs100
 10/04/2023 19:04:16  OUTPUT  19cs100_photo.png | 19cs100_details.png | 19cs100_marks.png
 
+
+11/04/2023 09:33:18  INPUT   DarkGlance#6849  .kcg marks 20cs008
+11/04/2023 09:33:26  OUTPUT  20cs008_marks.png
+
+
+11/04/2023 09:34:31  INPUT   DarkGlance#6849  .kcg marks 20cs093
+11/04/2023 09:34:40  OUTPUT  20cs093_marks.png
+
+
+11/04/2023 11:15:28  INPUT   Alfred#6542  .kcg marks 20cs003
+11/04/2023 11:15:37  OUTPUT  20cs003_marks.png
+
+
+11/04/2023 11:45:22  INPUT   Rosario#4012  .kcg marks 20cs093
+11/04/2023 11:45:31  OUTPUT  20cs093_marks.png
+
+
+11/04/2023 13:07:37  INPUT   amankumar#2517  .kcgstudent all 20cs111
+
+11/04/2023 13:10:00  INPUT   amankumar#2517  .kcgstudent all 20cs111
+
+11/04/2023 15:09:10  INPUT   DarkGlance#6849  .kcgstudent all 20cs111
+11/04/2023 15:09:39  OUTPUT  20cs111_photo.png | 20cs111_details.png | 20cs111_marks.png
+
+
+12/04/2023 12:22:19  INPUT   DarkGlance#6849  .kcg details 20cs039
+
+12/04/2023 12:24:02  INPUT   DarkGlance#6849  .kcg details 20cs039
+12/04/2023 12:25:41  OUTPUT  20cs039_details.png
+
+
+12/04/2023 19:00:39  INPUT   DarkGlance#6849  .kcg marks 20cs008
+
+12/04/2023 21:48:56  INPUT   amankumar#2517  .kcgsearch 2021 devadharshini cse
+12/04/2023 21:52:19  OUTPUT  Search results was fetched
+
+
+12/04/2023 21:52:49  INPUT   amankumar#2517  .kcgstudent all 21cs023
+12/04/2023 21:53:29  OUTPUT  21cs023_photo.png | 21cs023_details.png | 21cs023_marks.png
+
+
+13/04/2023 04:21:17  INPUT   DarkGlance#6849  .kcg photo 21cs023
+13/04/2023 04:21:20  OUTPUT  21cs023_photo.png
+
+
+13/04/2023 07:15:06  INPUT   DarkGlance#6849  .kcgs jennifer 2022 *
+
+13/04/2023 07:15:31  INPUT   DarkGlance#6849  .kcgs 2022 jennifer *
+13/04/2023 07:24:21  OUTPUT  Search results was fetched
+
+
+13/04/2023 07:57:24  INPUT   DarkGlance#6849  .kcg all 22it17
+
+13/04/2023 07:58:32  INPUT   DarkGlance#6849  .kcg all 20cs008
+13/04/2023 07:58:58  OUTPUT  20cs008_photo.png | 20cs008_details.png | 20cs008_marks.png
+
+
+13/04/2023 08:02:08  INPUT   amankumar#2517  .kcgstudent all 21cs001
+13/04/2023 08:02:39  OUTPUT  21cs001_photo.png | 21cs001_details.png | 21cs001_marks.png
+
+
+13/04/2023 08:03:00  INPUT   amankumar#2517  .kcgstudent photo 21cs002
+13/04/2023 08:03:02  OUTPUT  21cs002_photo.png
+
+
+13/04/2023 08:03:17  INPUT   amankumar#2517  .kcgstudent all 21cs003
+13/04/2023 08:03:49  OUTPUT  21cs003_photo.png | 21cs003_details.png | 21cs003_marks.png
+
+
+13/04/2023 08:04:03  INPUT   amankumar#2517  .kcgstudent photo 21cs004
+13/04/2023 08:04:06  OUTPUT  21cs004_photo.png
+
+
+13/04/2023 08:04:15  INPUT   amankumar#2517  .kcgstudent photo 21cs005
+13/04/2023 08:04:17  OUTPUT  21cs005_photo.png
+
+
+13/04/2023 08:04:26  INPUT   amankumar#2517  .kcgstudent photo 21cs006
+13/04/2023 08:04:28  OUTPUT  21cs006_photo.png
+
+
+13/04/2023 08:04:33  INPUT   amankumar#2517  .kcgstudent photo 21cs007
+13/04/2023 08:04:35  OUTPUT  21cs007_photo.png
+
+
+13/04/2023 08:04:40  INPUT   amankumar#2517  .kcgstudent photo 21cs009
+13/04/2023 08:04:42  OUTPUT  21cs009_photo.png
+
+
+13/04/2023 08:04:47  INPUT   amankumar#2517  .kcgstudent photo 21cs010
+13/04/2023 08:04:50  OUTPUT  21cs010_photo.png
+
+
+13/04/2023 08:05:03  INPUT   amankumar#2517  .kcgstudent photo 21cs011
+13/04/2023 08:05:06  OUTPUT  21cs011_photo.png
+
+
+13/04/2023 08:05:11  INPUT   amankumar#2517  .kcgstudent photo 21cs012
+13/04/2023 08:05:14  OUTPUT  21cs012_photo.png
+
+
+13/04/2023 08:05:19  INPUT   amankumar#2517  .kcgstudent photo 21cs013
+13/04/2023 08:05:21  OUTPUT  21cs013_photo.png
+
+
+13/04/2023 08:05:25  INPUT   amankumar#2517  .kcgstudent photo 21cs014
+13/04/2023 08:05:28  OUTPUT  21cs014_photo.png
+
+
+13/04/2023 08:05:32  INPUT   amankumar#2517  .kcgstudent photo 21cs015
+13/04/2023 08:05:35  OUTPUT  21cs015_photo.png
+
+
+13/04/2023 08:05:40  INPUT   amankumar#2517  .kcgstudent photo 21cs016
+
+13/04/2023 08:05:42  INPUT   DarkGlance#6849  .kcg photo 20cs008
+13/04/2023 08:05:44  OUTPUT  21cs016_photo.png
+
+13/04/2023 08:05:44  OUTPUT  20cs008_photo.png
+
+
+13/04/2023 08:05:48  INPUT   amankumar#2517  .kcgstudent photo 21cs017
+13/04/2023 08:05:50  OUTPUT  21cs017_photo.png
+
+
+13/04/2023 08:05:55  INPUT   amankumar#2517  .kcgstudent photo 21cs018
+13/04/2023 08:05:57  OUTPUT  21cs018_photo.png
+
+
+13/04/2023 08:06:01  INPUT   amankumar#2517  .kcgstudent photo 21cs019
+13/04/2023 08:06:03  OUTPUT  21cs019_photo.png
+
+
+13/04/2023 08:06:13  INPUT   amankumar#2517  .kcgstudent photo 21cs020
+13/04/2023 08:06:15  OUTPUT  21cs020_photo.png
+
+
+13/04/2023 08:06:20  INPUT   amankumar#2517  .kcgstudent photo 21cs021
+13/04/2023 08:06:22  OUTPUT  21cs021_photo.png
+
+
+13/04/2023 08:06:27  INPUT   amankumar#2517  .kcgstudent photo 21cs022
+13/04/2023 08:06:29  OUTPUT  21cs022_photo.png
+
+
+13/04/2023 08:06:34  INPUT   amankumar#2517  .kcgstudent photo 21cs022
+13/04/2023 08:06:37  OUTPUT  21cs022_photo.png
+
+
+13/04/2023 08:06:44  INPUT   amankumar#2517  .kcgstudent photo 21cs023
+13/04/2023 08:06:47  OUTPUT  21cs023_photo.png
+
+
+13/04/2023 08:06:54  INPUT   amankumar#2517  .kcgstudent photo 21cs024
+13/04/2023 08:06:56  OUTPUT  21cs024_photo.png
+
+
+13/04/2023 08:07:03  INPUT   amankumar#2517  .kcgstudent photo 21cs025
+13/04/2023 08:07:05  OUTPUT  21cs025_photo.png
+
+
+13/04/2023 08:07:10  INPUT   amankumar#2517  .kcgstudent photo 21cs026
+13/04/2023 08:07:12  OUTPUT  21cs026_photo.png
+
+
+13/04/2023 08:07:17  INPUT   amankumar#2517  .kcgstudent photo 21cs027
+13/04/2023 08:07:20  OUTPUT  21cs027_photo.png
+
+
+13/04/2023 08:07:24  INPUT   amankumar#2517  .kcgstudent photo 21cs028
+13/04/2023 08:07:27  OUTPUT  21cs028_photo.png
+
+
+13/04/2023 08:07:31  INPUT   amankumar#2517  .kcgstudent photo 21cs029
+13/04/2023 08:07:33  OUTPUT  21cs029_photo.png
+
+
+13/04/2023 08:07:38  INPUT   amankumar#2517  .kcgstudent photo 21cs030
+13/04/2023 08:07:41  OUTPUT  21cs030_photo.png
+
+
+13/04/2023 08:07:50  INPUT   amankumar#2517  .kcgstudent photo 21cs031
+13/04/2023 08:07:52  OUTPUT  21cs031_photo.png
+
+
+13/04/2023 08:07:56  INPUT   amankumar#2517  .kcgstudent photo 21cs032
+13/04/2023 08:07:58  OUTPUT  21cs032_photo.png
+
+
+13/04/2023 08:08:03  INPUT   amankumar#2517  .kcgstudent photo 21cs032
+13/04/2023 08:08:06  OUTPUT  21cs032_photo.png
+
+
+13/04/2023 08:08:11  INPUT   amankumar#2517  .kcgstudent photo 21cs033
+13/04/2023 08:08:14  OUTPUT  21cs033_photo.png
+
+
+13/04/2023 08:08:19  INPUT   amankumar#2517  .kcgstudent photo 21cs034
+13/04/2023 08:08:21  OUTPUT  21cs034_photo.png
+
+
+13/04/2023 08:08:26  INPUT   amankumar#2517  .kcgstudent photo 21cs035
+13/04/2023 08:08:28  OUTPUT  21cs035_photo.png
+
+
+13/04/2023 08:08:33  INPUT   amankumar#2517  .kcgstudent photo 21cs036
+13/04/2023 08:08:35  OUTPUT  21cs036_photo.png
+
+
+13/04/2023 08:08:44  INPUT   amankumar#2517  .kcgstudent photo 21cs037
+13/04/2023 08:08:47  OUTPUT  21cs037_photo.png
+
+
+13/04/2023 08:08:53  INPUT   amankumar#2517  .kcgstudent photo 21cs038
+13/04/2023 08:08:55  OUTPUT  21cs038_photo.png
+
+
+13/04/2023 08:09:00  INPUT   amankumar#2517  .kcgstudent photo 21cs039
+13/04/2023 08:09:02  OUTPUT  21cs039_photo.png
+
+
+13/04/2023 08:09:11  INPUT   amankumar#2517  .kcgstudent photo 21cs040
+13/04/2023 08:09:14  OUTPUT  21cs040_photo.png
+
+
+13/04/2023 08:09:21  INPUT   amankumar#2517  .kcgstudent photo 21cs041
+13/04/2023 08:09:24  OUTPUT  21cs041_photo.png
+
+
+13/04/2023 08:09:29  INPUT   amankumar#2517  .kcgstudent photo 21cs041
+13/04/2023 08:09:31  OUTPUT  21cs041_photo.png
+
+
+13/04/2023 08:09:37  INPUT   amankumar#2517  .kcgstudent photo 21cs042
+13/04/2023 08:09:39  OUTPUT  21cs042_photo.png
+
+
+13/04/2023 08:09:44  INPUT   amankumar#2517  .kcgstudent photo 21cs043
+13/04/2023 08:09:47  OUTPUT  21cs043_photo.png
+
+
+13/04/2023 08:09:56  INPUT   amankumar#2517  .kcgstudent photo 21cs044
+13/04/2023 08:09:59  OUTPUT  21cs044_photo.png
+
+
+13/04/2023 08:10:05  INPUT   amankumar#2517  .kcgstudent photo 21cs045
+13/04/2023 08:10:07  OUTPUT  21cs045_photo.png
+
+
+13/04/2023 08:10:14  INPUT   amankumar#2517  .kcgstudent photo 21cs046
+13/04/2023 08:10:16  OUTPUT  21cs046_photo.png
+
+
+13/04/2023 08:10:21  INPUT   amankumar#2517  .kcgstudent photo 21cs047
+13/04/2023 08:10:23  OUTPUT  21cs047_photo.png
+
+
+13/04/2023 08:10:32  INPUT   amankumar#2517  .kcgstudent photo 21cs048
+13/04/2023 08:10:34  OUTPUT  21cs048_photo.png
+
+
+13/04/2023 08:10:39  INPUT   amankumar#2517  .kcgstudent photo 21cs049
+13/04/2023 08:10:41  OUTPUT  21cs049_photo.png
+
+
+13/04/2023 08:10:46  INPUT   amankumar#2517  .kcgstudent photo 21cs050
+13/04/2023 08:10:52  OUTPUT  21cs050_photo.png
+
+
+13/04/2023 11:52:01  INPUT   DarkGlance#6849  .kcg details 20it17
+13/04/2023 11:52:23  OUTPUT  20it17_details.png
+
+
+13/04/2023 11:52:41  INPUT   DarkGlance#6849  .kcg details 22it17
+13/04/2023 11:52:59  OUTPUT  22it17_details.png
+
+
+13/04/2023 12:24:52  INPUT   DarkGlance#6849  .gangmarks
+
+13/04/2023 14:14:57  INPUT   DarkGlance#6849  .kcg details 20cs031
+
+13/04/2023 14:15:32  INPUT   DarkGlance#6849  .adddob 20cs031 05082002
+
+13/04/2023 14:15:41  INPUT   DarkGlance#6849  .kcg details 20cs031
+13/04/2023 14:16:22  OUTPUT  20cs031_details.png
+
+
+13/04/2023 14:17:53  INPUT   DarkGlance#6849  .kcg marks 20cs008
+13/04/2023 14:18:01  OUTPUT  20cs008_marks.png
+
+
+13/04/2023 16:18:10  INPUT   Dexter2002#7630  .kcgstudent all 19cs100
+13/04/2023 16:18:37  OUTPUT  19cs100_photo.png | 19cs100_details.png | 19cs100_marks.png
+
+
+13/04/2023 17:05:03  INPUT   Dexter2002#7630  .kcgstudent all 19cs052
+13/04/2023 17:05:30  OUTPUT  19cs052_photo.png | 19cs052_details.png | 19cs052_marks.png
+
+
+17/04/2023 09:05:03  INPUT   amankumar#2517  .kcgsearch 2020 Neha ec
+17/04/2023 09:06:06  OUTPUT  Search results was fetched
+
+
+17/04/2023 09:06:33  INPUT   amankumar#2517  .kcgstudent all 20ec026
+17/04/2023 09:07:02  OUTPUT  20ec026_photo.png | 20ec026_details.png | 20ec026_marks.png
+
+
+17/04/2023 09:07:54  INPUT   amankumar#2517  .kcgstudent all 21cs001
+17/04/2023 09:08:21  OUTPUT  21cs001_photo.png | 21cs001_details.png | 21cs001_marks.png
+
+
+17/04/2023 09:08:58  INPUT   amankumar#2517  .kcgstudent photo 21cs002
+17/04/2023 09:09:01  OUTPUT  21cs002_photo.png
+
+
+17/04/2023 09:09:14  INPUT   amankumar#2517  .kcgstudent photo 21cs002
+17/04/2023 09:09:17  OUTPUT  21cs002_photo.png
+
+
+17/04/2023 09:09:26  INPUT   amankumar#2517  .kcgstudent photo 21cs003
+17/04/2023 09:09:29  OUTPUT  21cs003_photo.png
+
+
+17/04/2023 09:09:38  INPUT   amankumar#2517  .kcgstudent photo 21cs004
+17/04/2023 09:09:41  OUTPUT  21cs004_photo.png
+
+
+17/04/2023 09:09:47  INPUT   amankumar#2517  .kcgstudent photo 21cs005
+17/04/2023 09:09:50  OUTPUT  21cs005_photo.png
+
+
+17/04/2023 09:09:59  INPUT   amankumar#2517  .kcgstudent photo 21cs006
+17/04/2023 09:10:02  OUTPUT  21cs006_photo.png
+
+
+17/04/2023 09:10:09  INPUT   amankumar#2517  .kcgstudent photo 21cs007
+17/04/2023 09:10:12  OUTPUT  21cs007_photo.png
+
+
+17/04/2023 09:10:18  INPUT   amankumar#2517  .kcgstudent photo 21cs007
+17/04/2023 09:10:21  OUTPUT  21cs007_photo.png
+
+
+17/04/2023 09:10:28  INPUT   amankumar#2517  .kcgstudent photo 21cs0028
+
+17/04/2023 09:10:39  INPUT   amankumar#2517  .kcgstudent photo 21cs008
+17/04/2023 09:10:42  OUTPUT  21cs008_photo.png
+
+
+17/04/2023 09:10:50  INPUT   amankumar#2517  .kcgstudent photo 21cs009
+17/04/2023 09:10:52  OUTPUT  21cs009_photo.png
+
+
+17/04/2023 09:11:01  INPUT   amankumar#2517  .kcgstudent photo 21cs010
+17/04/2023 09:11:03  OUTPUT  21cs010_photo.png
+
+
+17/04/2023 09:11:17  INPUT   amankumar#2517  .kcgstudent photo 21cs011
+17/04/2023 09:11:20  OUTPUT  21cs011_photo.png
+
+
+17/04/2023 09:11:28  INPUT   amankumar#2517  .kcgstudent photo 21cs012
+17/04/2023 09:11:31  OUTPUT  21cs012_photo.png
+
+
+17/04/2023 09:11:41  INPUT   amankumar#2517  .kcgstudent photo 21cs013
+17/04/2023 09:11:44  OUTPUT  21cs013_photo.png
+
+
+17/04/2023 09:11:51  INPUT   amankumar#2517  .kcgstudent photo 21cs014
+17/04/2023 09:11:53  OUTPUT  21cs014_photo.png
+
+
+17/04/2023 09:11:59  INPUT   amankumar#2517  .kcgstudent photo 21cs015
+17/04/2023 09:12:02  OUTPUT  21cs015_photo.png
+
+
+17/04/2023 09:12:07  INPUT   amankumar#2517  .kcgstudent photo 21cs016
+17/04/2023 09:12:11  OUTPUT  21cs016_photo.png
+
+
+17/04/2023 09:12:16  INPUT   amankumar#2517  .kcgstudent photo 21cs017
+17/04/2023 09:12:19  OUTPUT  21cs017_photo.png
+
+
+17/04/2023 09:12:27  INPUT   amankumar#2517  .kcgstudent photo 21cs018
+17/04/2023 09:12:30  OUTPUT  21cs018_photo.png
+
+
+17/04/2023 09:12:37  INPUT   amankumar#2517  .kcgstudent photo 21cs019
+17/04/2023 09:12:40  OUTPUT  21cs019_photo.png
+
+
+17/04/2023 09:12:54  INPUT   amankumar#2517  .kcgstudent photo 21cs020
+17/04/2023 09:12:57  OUTPUT  21cs020_photo.png
+
+
+17/04/2023 09:13:06  INPUT   amankumar#2517  .kcgstudent photo 21cs021
+17/04/2023 09:13:09  OUTPUT  21cs021_photo.png
+
+
+17/04/2023 09:13:15  INPUT   amankumar#2517  .kcgstudent photo 21cs022
+17/04/2023 09:13:17  OUTPUT  21cs022_photo.png
+
+
+17/04/2023 09:13:22  INPUT   amankumar#2517  .kcgstudent photo 21cs023
+17/04/2023 09:13:26  OUTPUT  21cs023_photo.png
+
+
+17/04/2023 09:13:39  INPUT   amankumar#2517  .kcgstudent photo 21cs024
+17/04/2023 09:13:41  OUTPUT  21cs024_photo.png
+
+
+17/04/2023 09:15:03  INPUT   amankumar#2517  .kcgstudent photo 21cs050
+17/04/2023 09:15:06  OUTPUT  21cs050_photo.png
+
+
+17/04/2023 09:15:14  INPUT   amankumar#2517  .kcgstudent photo 21cs051
+17/04/2023 09:15:16  OUTPUT  21cs051_photo.png
+
+
+17/04/2023 09:15:32  INPUT   amankumar#2517  .kcgstudent photo 21cs052
+17/04/2023 09:15:35  OUTPUT  21cs052_photo.png
+
+
+17/04/2023 09:15:44  INPUT   amankumar#2517  .kcgstudent photo 21cs053
+17/04/2023 09:15:47  OUTPUT  21cs053_photo.png
+
+
+17/04/2023 09:15:57  INPUT   amankumar#2517  .kcgstudent photo 21cs054
+17/04/2023 09:16:00  OUTPUT  21cs054_photo.png
+
+
+17/04/2023 09:16:12  INPUT   amankumar#2517  .kcgstudent photo 21cs056
+17/04/2023 09:16:14  OUTPUT  21cs056_photo.png
+
+
+17/04/2023 09:16:21  INPUT   amankumar#2517  .kcgstudent photo 21cs055
+17/04/2023 09:16:23  OUTPUT  21cs055_photo.png
+
+
+17/04/2023 09:16:36  INPUT   amankumar#2517  .kcgstudent photo 21cs057
+17/04/2023 09:16:39  OUTPUT  21cs057_photo.png
+
+
+17/04/2023 09:16:50  INPUT   amankumar#2517  .kcgstudent photo 21cs057
+17/04/2023 09:16:52  OUTPUT  21cs057_photo.png
+
+
+17/04/2023 09:16:58  INPUT   amankumar#2517  .kcgstudent photo 21cs058
+17/04/2023 09:17:01  OUTPUT  21cs058_photo.png
+
+
+17/04/2023 09:17:07  INPUT   amankumar#2517  .kcgstudent photo 21cs059
+17/04/2023 09:17:09  OUTPUT  21cs059_photo.png
+
+
+17/04/2023 09:17:17  INPUT   amankumar#2517  .kcgstudent photo 21cs060
+17/04/2023 09:17:19  OUTPUT  21cs060_photo.png
+
+
+17/04/2023 09:18:06  INPUT   amankumar#2517  .kcgstudent photo 21cs061
+17/04/2023 09:18:09  OUTPUT  21cs061_photo.png
+
+
+17/04/2023 09:18:14  INPUT   amankumar#2517  .kcgstudent photo 21cs062
+17/04/2023 09:18:17  OUTPUT  21cs062_photo.png
+
+
+17/04/2023 09:18:50  INPUT   amankumar#2517  .kcgstudent photo 21cs063
+17/04/2023 09:18:52  OUTPUT  21cs063_photo.png
+
+
+17/04/2023 09:18:58  INPUT   amankumar#2517  .kcgstudent photo 21cs064
+17/04/2023 09:19:01  OUTPUT  21cs064_photo.png
+
+
+17/04/2023 09:19:05  INPUT   amankumar#2517  .kcgstudent photo 21cs065
+17/04/2023 09:19:07  OUTPUT  21cs065_photo.png
+
+
+17/04/2023 09:19:10  INPUT   amankumar#2517  .kcgstudent photo 21cs066
+17/04/2023 09:19:12  OUTPUT  21cs066_photo.png
+
+
+17/04/2023 09:19:22  INPUT   amankumar#2517  .kcgstudent photo 21cs067
+17/04/2023 09:19:24  OUTPUT  21cs067_photo.png
+
+
+17/04/2023 09:19:32  INPUT   amankumar#2517  .kcgstudent photo 21cs068
+17/04/2023 09:19:34  OUTPUT  21cs068_photo.png
+
+
+17/04/2023 09:19:43  INPUT   amankumar#2517  .kcgstudent photo 21cs069
+17/04/2023 09:19:45  OUTPUT  21cs069_photo.png
+
+
+17/04/2023 09:19:53  INPUT   amankumar#2517  .kcgstudent photo 21cs070
+17/04/2023 09:19:56  OUTPUT  21cs070_photo.png
+
+
+17/04/2023 09:20:10  INPUT   amankumar#2517  .kcgstudent photo 21cs071
+17/04/2023 09:20:13  OUTPUT  21cs071_photo.png
+
+
+17/04/2023 09:20:20  INPUT   amankumar#2517  .kcgstudent photo 21cs072
+17/04/2023 09:20:24  OUTPUT  21cs072_photo.png
+
+
+17/04/2023 09:20:32  INPUT   amankumar#2517  .kcgstudent photo 21cs073
+17/04/2023 09:20:35  OUTPUT  21cs073_photo.png
+
+
+17/04/2023 09:20:46  INPUT   amankumar#2517  .kcgstudent photo 21cs072
+17/04/2023 09:20:48  OUTPUT  21cs072_photo.png
+
+
+17/04/2023 09:20:56  INPUT   amankumar#2517  .kcgstudent photo 21cs074
+17/04/2023 09:20:58  OUTPUT  21cs074_photo.png
+
+
+17/04/2023 09:21:06  INPUT   amankumar#2517  .kcgstudent photo 21cs075
+17/04/2023 09:21:09  OUTPUT  21cs075_photo.png
+
+
+17/04/2023 09:21:17  INPUT   amankumar#2517  .kcgstudent photo 21cs076
+17/04/2023 09:21:20  OUTPUT  21cs076_photo.png
+
+
+17/04/2023 09:21:29  INPUT   amankumar#2517  .kcgstudent photo 21cs077
+17/04/2023 09:21:31  OUTPUT  21cs077_photo.png
+
+
+17/04/2023 09:21:46  INPUT   amankumar#2517  .kcgstudent photo 21cs078
+17/04/2023 09:21:49  OUTPUT  21cs078_photo.png
+
+
+17/04/2023 09:21:52  INPUT   amankumar#2517  .kcgstudent photo 21cs079
+17/04/2023 09:21:54  OUTPUT  21cs079_photo.png
+
+
+17/04/2023 09:22:02  INPUT   amankumar#2517  .kcgstudent photo 21cs080
+17/04/2023 09:22:04  OUTPUT  21cs080_photo.png
+
+
+17/04/2023 09:22:11  INPUT   amankumar#2517  .kcgstudent photo 21cs081
+17/04/2023 09:22:13  OUTPUT  21cs081_photo.png
+
+
+17/04/2023 09:22:19  INPUT   amankumar#2517  .kcgstudent photo 21cs082
+17/04/2023 09:22:21  OUTPUT  21cs082_photo.png
+
+
+17/04/2023 09:22:27  INPUT   amankumar#2517  .kcgstudent photo 21cs083
+17/04/2023 09:22:29  OUTPUT  21cs083_photo.png
+
+
+17/04/2023 09:22:34  INPUT   amankumar#2517  .kcgstudent photo 21cs084
+17/04/2023 09:22:37  OUTPUT  21cs084_photo.png
+
+
+17/04/2023 09:22:42  INPUT   amankumar#2517  .kcgstudent photo 21cs085
+17/04/2023 09:22:44  OUTPUT  21cs085_photo.png
+
+
+17/04/2023 09:22:50  INPUT   amankumar#2517  .kcgstudent photo 21cs087
+17/04/2023 09:22:52  OUTPUT  21cs087_photo.png
+
+
+17/04/2023 09:23:01  INPUT   amankumar#2517  .kcgstudent photo 21cs086
+17/04/2023 09:23:03  OUTPUT  21cs086_photo.png
+
+
+17/04/2023 09:23:10  INPUT   amankumar#2517  .kcgstudent photo 21cs088
+17/04/2023 09:23:12  OUTPUT  21cs088_photo.png
+
+
+17/04/2023 09:23:20  INPUT   amankumar#2517  .kcgstudent photo 21cs089
+17/04/2023 09:23:23  OUTPUT  21cs089_photo.png
+
+
+17/04/2023 09:23:31  INPUT   amankumar#2517  .kcgstudent photo 21cs090
+17/04/2023 09:23:34  OUTPUT  21cs090_photo.png
+
+
+17/04/2023 09:23:37  INPUT   amankumar#2517  .kcgstudent photo 21cs091
+17/04/2023 09:23:40  OUTPUT  21cs091_photo.png
+
+
+17/04/2023 09:23:44  INPUT   amankumar#2517  .kcgstudent photo 21cs092
+17/04/2023 09:23:47  OUTPUT  21cs092_photo.png
+
+
+17/04/2023 09:23:48  INPUT   amankumar#2517  .kcgstudent photo 21cs093
+17/04/2023 09:23:51  OUTPUT  21cs093_photo.png
+
+
+17/04/2023 09:23:53  INPUT   amankumar#2517  .kcgstudent photo 21cs094
+17/04/2023 09:23:56  OUTPUT  21cs094_photo.png
+
+
+17/04/2023 09:24:01  INPUT   amankumar#2517  .kcgstudent photo 21cs095
+17/04/2023 09:24:04  OUTPUT  21cs095_photo.png
+
+
+17/04/2023 09:24:09  INPUT   amankumar#2517  .kcgstudent photo 21cs096
+17/04/2023 09:24:12  OUTPUT  21cs096_photo.png
+
+
+17/04/2023 09:24:17  INPUT   amankumar#2517  .kcgstudent photo 21cs097
+17/04/2023 09:24:20  OUTPUT  21cs097_photo.png
+
+
+17/04/2023 09:24:30  INPUT   amankumar#2517  .kcgstudent photo 21cs098
+17/04/2023 09:24:33  OUTPUT  21cs098_photo.png
+
+
+17/04/2023 09:24:35  INPUT   amankumar#2517  .kcgstudent photo 21cs099
+17/04/2023 09:24:38  OUTPUT  21cs099_photo.png
+
+
+17/04/2023 09:24:54  INPUT   amankumar#2517  .kcgstudent photo 21cs100
+17/04/2023 09:24:56  OUTPUT  21cs100_photo.png
+
+
+17/04/2023 09:25:01  INPUT   amankumar#2517  .kcgstudent photo 21cs101
+17/04/2023 09:25:04  OUTPUT  21cs101_photo.png
+
+
+17/04/2023 09:25:08  INPUT   amankumar#2517  .kcgstudent photo 21cs102
+17/04/2023 09:25:10  OUTPUT  21cs102_photo.png
+
+
+17/04/2023 09:25:16  INPUT   amankumar#2517  .kcgstudent photo 21cs103
+17/04/2023 09:25:19  OUTPUT  21cs103_photo.png
+
+
+17/04/2023 09:25:24  INPUT   amankumar#2517  .kcgstudent photo 21cs104
+17/04/2023 09:25:27  OUTPUT  21cs104_photo.png
+
+
+17/04/2023 09:25:32  INPUT   amankumar#2517  .kcgstudent photo 21cs105
+17/04/2023 09:25:34  OUTPUT  21cs105_photo.png
+
+
+17/04/2023 09:25:40  INPUT   amankumar#2517  .kcgstudent photo 21cs106
+17/04/2023 09:25:43  OUTPUT  21cs106_photo.png
+
+
+17/04/2023 09:25:50  INPUT   amankumar#2517  .kcgstudent photo 21cs107
+17/04/2023 09:25:52  OUTPUT  21cs107_photo.png
+
+
+17/04/2023 09:25:57  INPUT   amankumar#2517  .kcgstudent photo 21cs108
+17/04/2023 09:26:00  OUTPUT  21cs108_photo.png
+
+
+17/04/2023 09:26:05  INPUT   amankumar#2517  .kcgstudent photo 21cs109
+17/04/2023 09:26:08  OUTPUT  21cs109_photo.png
+
+
+17/04/2023 09:26:19  INPUT   amankumar#2517  .kcgstudent photo 21cs110
+17/04/2023 09:26:23  OUTPUT  21cs110_photo.png
+
+
+17/04/2023 09:26:28  INPUT   amankumar#2517  .kcgstudent photo 21cs111
+17/04/2023 09:26:30  OUTPUT  21cs111_photo.png
+
+
+17/04/2023 09:26:36  INPUT   amankumar#2517  .kcgstudent photo 21cs112
+17/04/2023 09:26:39  OUTPUT  21cs112_photo.png
+
+
+17/04/2023 09:26:45  INPUT   amankumar#2517  .kcgstudent photo 21cs113
+17/04/2023 09:26:48  OUTPUT  21cs113_photo.png
+
+
+17/04/2023 09:26:55  INPUT   amankumar#2517  .kcgstudent photo 21cs114
+17/04/2023 09:26:57  OUTPUT  21cs114_photo.png
+
+
+17/04/2023 09:27:03  INPUT   amankumar#2517  .kcgstudent photo 21cs115
+17/04/2023 09:27:06  OUTPUT  21cs115_photo.png
+
+
+17/04/2023 09:27:12  INPUT   amankumar#2517  .kcgstudent photo 21cs116
+17/04/2023 09:27:15  OUTPUT  21cs116_photo.png
+
+
+17/04/2023 09:27:22  INPUT   amankumar#2517  .kcgstudent photo 21cs117
+17/04/2023 09:27:24  OUTPUT  21cs117_photo.png
+
+
+17/04/2023 09:27:30  INPUT   amankumar#2517  .kcgstudent photo 21cs118
+17/04/2023 09:27:32  OUTPUT  21cs118_photo.png
+
+
+17/04/2023 09:27:38  INPUT   amankumar#2517  .kcgstudent photo 21cs119
+17/04/2023 09:27:40  OUTPUT  21cs119_photo.png
+
+
+17/04/2023 09:27:48  INPUT   amankumar#2517  .kcgstudent photo 21cs120
+17/04/2023 09:27:50  OUTPUT  21cs120_photo.png
+
+
+17/04/2023 09:28:05  INPUT   amankumar#2517  .kcgstudent photo 21cs121
+17/04/2023 09:28:07  OUTPUT  21cs121_photo.png
+
+
+17/04/2023 09:28:17  INPUT   amankumar#2517  .kcgstudent photo 21cs122
+17/04/2023 09:28:19  OUTPUT  21cs122_photo.png
+
+
+17/04/2023 09:28:26  INPUT   amankumar#2517  .kcgstudent photo 21cs123
+17/04/2023 09:28:29  OUTPUT  21cs123_photo.png
+
+
+17/04/2023 09:28:34  INPUT   amankumar#2517  .kcgstudent photo 21cs124
+17/04/2023 09:28:36  OUTPUT  21cs124_photo.png
+
+
+17/04/2023 09:28:43  INPUT   amankumar#2517  .kcgstudent photo 21cs125
+17/04/2023 09:28:46  OUTPUT  21cs125_photo.png
+
+
+17/04/2023 09:28:53  INPUT   amankumar#2517  .kcgstudent photo 21cs125
+17/04/2023 09:28:55  OUTPUT  21cs125_photo.png
+
+
+17/04/2023 09:29:10  INPUT   amankumar#2517  .kcgstudent photo 21cs126
+17/04/2023 09:29:13  OUTPUT  21cs126_photo.png
+
+
+17/04/2023 09:29:15  INPUT   amankumar#2517  .kcgstudent photo 21cs127
+17/04/2023 09:29:18  OUTPUT  Photo not found
+
+
+17/04/2023 09:29:45  INPUT   amankumar#2517  .kcgstudent all 21cs002
+17/04/2023 09:30:13  OUTPUT  21cs002_photo.png | 21cs002_details.png | 21cs002_marks.png
+
+
+17/04/2023 09:33:31  INPUT   amankumar#2517  .kcgstudent all 20cs60
+
+17/04/2023 09:33:49  INPUT   amankumar#2517  .kcgstudent all 21cs060
+17/04/2023 09:34:19  OUTPUT  21cs060_photo.png | 21cs060_details.png | 21cs060_marks.png
+
+
+17/04/2023 11:00:18  INPUT   amankumar#2517  .kcgsearch 2021 sushmitha ft
+17/04/2023 11:00:56  OUTPUT  Search results was fetched
+
+
+17/04/2023 11:01:30  INPUT   amankumar#2517  .kcgstudent photo 21ft23
+17/04/2023 11:01:34  OUTPUT  Photo not found
+
+
+17/04/2023 11:01:45  INPUT   amankumar#2517  .kcgstudent photo 21ft28
+17/04/2023 11:01:48  OUTPUT  Photo not found
+
+
+17/04/2023 11:02:01  INPUT   amankumar#2517  .kcgstudent all 21ft23
+
+17/04/2023 11:02:27  INPUT   amankumar#2517  .kcgstudent photo 21ft28
+17/04/2023 11:02:30  OUTPUT  Photo not found
+
+
+17/04/2023 11:02:55  INPUT   amankumar#2517  .kcgstudent all 21ft28
+
+17/04/2023 11:23:02  INPUT   amankumar#2517  .kcgstudent all 21ft23
+
+17/04/2023 11:23:15  INPUT   amankumar#2517  .kcgstudent photo 21ft28
+17/04/2023 11:23:17  OUTPUT  Photo not found
+
+
+17/04/2023 11:23:34  INPUT   amankumar#2517  .kcgstudent all 21ft28
+
+17/04/2023 11:58:45  INPUT   DarkGlance#6849  .kcg photo 21ft23
+17/04/2023 11:58:48  OUTPUT  Photo not found
+
+
+17/04/2023 11:58:59  INPUT   DarkGlance#6849  .kcg marks 21ft23
+
+17/04/2023 12:13:57  INPUT   TRIDENT TD#6625  .kcgsearch 20cs007 marks
+
+17/04/2023 12:15:17  INPUT   TRIDENT TD#6625  .kcgsearch marks 20cs007
+
+17/04/2023 12:15:22  INPUT   DarkGlance#6849  .kcg marks 20cs007
+17/04/2023 12:15:35  OUTPUT  20cs007_marks.png
+
+
+17/04/2023 12:16:57  INPUT   TRIDENT TD#6625  .kcg 20cs044 marks
+
+17/04/2023 12:17:42  INPUT   hydraman#3337  .kcg marks 20cs044
+17/04/2023 12:17:54  OUTPUT  20cs044_marks.png
+
+
+17/04/2023 12:18:46  INPUT   DarkGlance#6849  .kcg dob 21ft23
+
+17/04/2023 12:18:58  INPUT   DarkGlance#6849  .kcg dob 21ft23
+
+17/04/2023 12:19:02  INPUT   hydraman#3337  .kcg marks 20cs008
+17/04/2023 12:19:11  OUTPUT  20cs008_marks.png
+
+
+17/04/2023 12:19:13  INPUT   DarkGlance#6849  .kcg dob 21ft23 2001
+
+17/04/2023 12:20:14  INPUT   DarkGlance#6849  .kcg dob 21ft28
+17/04/2023 12:20:16  OUTPUT  30/08/2004
+
+
+17/04/2023 12:26:56  INPUT   TRIDENT TD#6625  .kcg marks 20cs044
+17/04/2023 12:27:05  OUTPUT  20cs044_marks.png
+
+
+17/04/2023 16:42:22  INPUT   DarkGlance#6849  .kcg details 20cs109
+17/04/2023 16:42:36  OUTPUT  20cs109_details.png
+
+
+18/04/2023 06:47:47  INPUT   DarkGlance#6849  .kcg dob 20ft23
+
+18/04/2023 06:47:55  INPUT   DarkGlance#6849  .kcg dob 21ft23
+
+18/04/2023 06:48:12  INPUT   DarkGlance#6849  .kcg dob 21ft23 2004
+
+18/04/2023 06:48:35  INPUT   DarkGlance#6849  .kcg dob 21ft23 2001
+
+18/04/2023 06:50:17  INPUT   DarkGlance#6849  .kcg dob 22ae01
+18/04/2023 06:50:21  OUTPUT  13/01/2004
+
+
+18/04/2023 06:51:13  INPUT   DarkGlance#6849  .kcg dob 21ft23 2002
+
+18/04/2023 06:51:18  INPUT   DarkGlance#6849  .kcg dob 21ft23 2003
+
+18/04/2023 06:51:22  INPUT   DarkGlance#6849  .kcg dob 21ft23 2004
+
+18/04/2023 06:51:56  INPUT   DarkGlance#6849  .kcg dob 21ft23 2005
+
+18/04/2023 06:52:24  INPUT   DarkGlance#6849  .kcg dob 20cs005
+
+18/04/2023 09:56:58  INPUT   amankumar#2517  .kcgstudent all 21ft28
+
+18/04/2023 09:59:36  INPUT   DarkGlance#6849  .kcg all 21ft28
+
+18/04/2023 10:00:54  INPUT   DarkGlance#6849  .kcg all 21ft23
+
+18/04/2023 10:06:22  INPUT   DarkGlance#6849  .kcg all 21ft23
+18/04/2023 10:06:44  OUTPUT  <no photo> | 21ft23_details.png | 21ft23_marks.png
+
+
+18/04/2023 10:07:19  INPUT   DarkGlance#6849  .kcg all 21ft28
+18/04/2023 10:07:40  OUTPUT  <no photo> | 21ft28_details.png | 21ft28_marks.png
+

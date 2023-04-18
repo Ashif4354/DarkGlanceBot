@@ -182,7 +182,7 @@ class student:
                 with open(path, 'wb') as file:
                     file.write(base64.decodebytes(img))
             except NoPhoto:
-                pass
+                raise NoPhoto
             
             except Exception as text:
                 logger.exception_logs('dgb/kcg/Student/student (get_photo)', text, getcwd().rstrip('kcg') + 'logger')

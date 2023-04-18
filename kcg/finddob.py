@@ -54,7 +54,7 @@ async def check_date(session, The_day_):
     #print(page.url)
     if temp_url != student_login_url: 
         #print('dob found 1')        
-        #print(The_day_)  
+        print(The_day_)  
         #print('dob found 2')             
         return The_day_
     
@@ -135,10 +135,11 @@ async def find_student_dob(user_id, year_of_birth = None):
 
 '''
 async def s():
-    print(await find_student_dob('20cs055'))
+    print(await find_student_dob('21ft23', '2000'))
 
 asyncio.run(s())
 '''
+
 #find_student_dob('311020104023', '2003')                        
             
 
