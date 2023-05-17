@@ -104,6 +104,7 @@ async def kcgstudent(ctx):
 
     except Exception as text:
         logger.exception_logs('dgb/kcg/kcg_main/kcgstudent ', text, getcwd().rstrip('kcg') + 'logger')
+        return
 
     try:
         year = command[3]
@@ -487,6 +488,84 @@ async def adddob(ctx):
         
         embed = discord.Embed(title = 'ERROR', description = text, color = 0xffffff)
         await ctx.send(embed = embed)    
+
+
+@client.command()
+async def feedback(ctx):
+    logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')
+
+    try:#.feedback 20cs008 5
+        command = ctx.message.content.split()
+
+        try:
+            user_id = command[1]
+        except IndexError:
+            embed = discord.Embed(description = 'No ID was given', color = 0xffffff)
+            await ctx.send(embed = embed)
+            return  
+
+        try:
+            if check_student_registerno(user_id):
+                pass
+            else:
+                if not check_server()[1]:
+                    raise server_down
+                    
+                embed = discord.Embed(description = 'Invalid Register number (Only register number allowed)', color = 0xffffff)
+                await ctx.send(embed = embed)
+                return
+
+        except server_down:
+            await ctx.send(embed = server_error_embed)
+            return 
+
+        except Exception as text:
+            logger.exception_logs('dgb/kcg/kcg_main/kcgstudent ', text, getcwd().rstrip('kcg') + 'logger')
+            return
+        
+        try:
+            stars = command[2]
+            stars = int(stars)
+            if stars not in range(1, 5):
+                embed = discord.Embed(description = 'Star rating should be from 1 - 4', color = 0xffffff)
+                await ctx.send(embed = embed)
+                return
+                
+        except IndexError:
+            embed = discord.Embed(description = 'Common star rating for all staff is not mentioned', color = 0xffffff)
+            await ctx.send(embed = embed)
+            return
+        except ValueError:
+            embed = discord.Embed(description = 'Invalid star rating', color = 0xffffff)
+            await ctx.send(embed = embed)
+            return
+
+        try:
+            d_o_b = await find_student_dob(user_id)   
+        except DobNotFound:
+            embed = discord.Embed(description = 'Unable to find DOB.. Please try again\nTry specifying year of birth', color = 0xffffff)
+            await ctx.send(embed = embed)
+            return
+        except Exception as text:
+            logger.exception_logs('dgb/kcg/kcg_main/kcgstudent (all1)', text, getcwd().rstrip('kcg') + 'logger')
+            return
+
+        try:
+            #student.submit_feedback(user_id, d_o_b, stars)
+            logger.output_kcg(getcwd().rstrip('kcg') + '\logger', f'feedback submittedfor {user_id}')
+        except:
+            print('error')
+            return
+    except Exception as text:
+        logger.exception_logs('dgb/kcg/kcg_main/feedback', text, getcwd().rstrip('kcg') + 'logger')
+            
+
+        
+
+
+
+    
+
 
 @client.command()
 async def stopbot(ctx):
