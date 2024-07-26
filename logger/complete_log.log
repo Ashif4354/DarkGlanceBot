@@ -934,3 +934,95 @@
 18/04/2023 10:07:19  INPUT   DarkGlance#6849  .kcg all 21ft28
 18/04/2023 10:07:40  OUTPUT  <no photo> | 21ft28_details.png | 21ft28_marks.png
 
+
+17/05/2023 19:22:05  INPUT   DarkGlance#6849  .kcg marks 20cs008
+17/05/2023 19:22:15  OUTPUT  20cs008_marks.png
+
+
+20/05/2023 13:03:06  INPUT   DarkGlance#6849  .kcg marks 20cs008
+
+20/05/2023 16:34:51  INPUT   DarkGlance#6849  .kcg marks 20cs008
+20/05/2023 16:35:01  OUTPUT  20cs008_marks.png
+
+
+29/05/2023 11:01:34  INPUT   DarkGlance#6849  .kcg details 20cs003
+29/05/2023 11:02:08  OUTPUT  20cs003_details.png
+
+
+16/06/2023 20:06:27  INPUT   darkglance#0  .hi
+
+16/06/2023 20:06:39  INPUT   darkglance#0  .hi
+
+16/06/2023 20:06:53  INPUT   darkglance#0  .hi
+
+16/06/2023 20:07:14  INPUT   darkglance#0  .authorize ashif admin
+
+16/06/2023 20:07:33  INPUT   darkglance#0  .hi
+
+20/06/2023 18:15:14  INPUT   darkglance#0  .kcgs 2022 aish *
+
+20/06/2023 18:28:31  INPUT   darkglance#0  .kcgs 2022 aish *
+
+20/06/2023 18:29:13  INPUT   darkglance#0  .kcgs 2022 aish *
+
+20/06/2023 18:33:35  INPUT   darkglance#0  .kcgs 2022 aish *
+20/06/2023 18:45:00  OUTPUT  Search results was fetched
+
+
+16/11/2023 06:19:33  INPUT   darkglance#0  .fetchstudents 2022 aids
+
+16/11/2023 06:20:31  INPUT   darkglance#0  .fetchstudents 2022 aids
+
+16/11/2023 06:20:57  INPUT   darkglance#0  .fetchstudents 2022 aero
+
+16/11/2023 06:21:06  INPUT   darkglance#0  .fetchstudents 2022 ase
+
+16/11/2023 06:21:15  INPUT   darkglance#0  .fetchstudents 2022 auto
+
+16/11/2023 06:21:22  INPUT   darkglance#0  .fetchstudents 2022 civil
+
+16/11/2023 06:21:53  INPUT   darkglance#0  .fetchstudents 2022 cse
+16/11/2023 06:23:41  OUTPUT  Fetch successful
+
+16/11/2023 06:23:41  OUTPUT  Fetch successful
+
+16/11/2023 06:25:48  OUTPUT  Fetch successful
+
+16/11/2023 06:25:48  OUTPUT  Fetch successful
+
+16/11/2023 06:26:12  OUTPUT  Fetch successful
+
+16/11/2023 06:29:25  OUTPUT  Fetch successful
+
+
+16/11/2023 20:48:29  INPUT   darkglance#0  .fetchstudents 2022 ece
+
+16/11/2023 20:48:34  INPUT   darkglance#0  .fetchstudents 2022 eee
+
+16/11/2023 20:48:40  INPUT   darkglance#0  .fetchstudents 2022 eie
+
+16/11/2023 20:48:50  INPUT   darkglance#0  .fetchstudents 2022 ft
+16/11/2023 20:48:51  OUTPUT  Fetch successful
+
+
+16/11/2023 20:48:52  INPUT   darkglance#0  .fetchstudents 2022 it
+
+16/11/2023 20:49:00  INPUT   darkglance#0  .fetchstudents 2022 mc
+
+16/11/2023 20:49:01  INPUT   darkglance#0  .fetchstudents 2022 me
+16/11/2023 20:50:47  OUTPUT  Fetch successful
+
+16/11/2023 20:51:56  OUTPUT  Fetch successful
+
+16/11/2023 20:52:06  OUTPUT  Fetch successful
+
+16/11/2023 20:52:29  OUTPUT  Fetch successful
+
+16/11/2023 20:54:15  OUTPUT  Fetch successful
+
+16/11/2023 20:54:59  OUTPUT  Fetch successful
+
+
+16/11/2023 21:07:54  INPUT   darkglance#0  .fetchstudents 2016 cse
+16/11/2023 21:11:05  OUTPUT  Fetch successful
+

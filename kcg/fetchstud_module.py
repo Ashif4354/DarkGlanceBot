@@ -50,8 +50,8 @@ async def on_ready():
 async def fetchstudents(ctx): #.fetchstudents 2020 cse
     logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger') 
 
-    if not await check_auth(ctx, ('owner','admin')):
-        return
+    # if not await check_auth(ctx, ('owner','admin')):
+    #     return
     
     if not check_server()[1]:
         await ctx.send(embed = server_error_embed)
@@ -137,15 +137,15 @@ async def fetchstudents(ctx): #.fetchstudents 2020 cse
         student_count = 0          
 
         file.write(f'\n\nSearching in dept {dept}\n')
-        if check_student_rollno(batch + dept + '1'):
+        if check_student_rollno(batch + dept + '2'):
             length = 1
             file.write(f"roll number format found out to be  :  {batch + dept + '1'}")
             
-        elif check_student_rollno(batch + dept + '01'):
+        elif check_student_rollno(batch + dept + '02'):
             length = 2
             file.write(f"roll number format found out to be  :  {batch + dept + '01'}")
             
-        elif check_student_rollno(batch + dept + '001'):
+        elif check_student_rollno(batch + dept + '002'):
             length = 3
             file.write(f"roll number format found out to be  :  {batch + dept + '001'}")    
 

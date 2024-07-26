@@ -4,6 +4,8 @@ import asyncio
 from os import getcwd
 from sys import path
 path.append(getcwd().rstrip('kcg'))
+from logger.logger import logger    
+
 from darkglance import DobNotFound
 from requests import Session
 from bs4 import BeautifulSoup

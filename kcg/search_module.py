@@ -20,8 +20,8 @@ async def on_ready():
 async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
     logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')     
 
-    if not await check_auth(ctx, ('owner', 'admin')):
-        return
+    #if not await check_auth(ctx, ('owner', 'admin')):
+        #return
         
     command = ctx.message.content.split()
     #print(command)
@@ -48,8 +48,8 @@ async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
     try:
         if depts[0].lower() in ('all', '*'): 
             depts = ['all']
-            if not await check_auth(ctx, ('owner',), 'You are not authorized to search all departments'):
-                return
+            #if not await check_auth(ctx, ('owner',), 'You are not authorized to search all departments'):
+                #return
     except IndexError:
         pass
     
