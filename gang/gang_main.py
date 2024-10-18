@@ -63,7 +63,7 @@ async def on_ready():
     print("Gang Active")
 
 @client.command()
-async def addgangmember(ctx): #.addgangmember 20cs008 Ashif 25112002
+async def addgangmember(ctx): #.addgangmember <roll> <name> <ddmmyyyy>
     logger.input_kcg(ctx, getcwd().rstrip('gang') + '\logger')
 
     if not await check_auth(ctx, ('owner',)):
@@ -106,8 +106,6 @@ async def gangmarks(ctx):
     mysql_cursor.execute('select * from gang_members')
     gang_members = mysql_cursor.fetchall()
 
-    #print(gang_members)    
-    #gang_members = [('20cs007','arunvel', '22112002')]
 
     threads = []
     

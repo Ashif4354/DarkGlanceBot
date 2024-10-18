@@ -1,6 +1,6 @@
 import requests
 import discord
-from os import getcwd
+from os import getcwd, environ
 from bs4 import BeautifulSoup
 import json
 
@@ -82,11 +82,11 @@ def check_server():
     server_status_embed = discord.Embed(title = 'KCG Server status', color = 0xffffff)    
 
     fees_login_payload['rblOnlineAppLoginMode'] = '0'
-    fees_login_payload['txtuname'] = '20cs008'
+    fees_login_payload['txtuname'] = environ['ROLL_NO']
 
     student_login_payload['rblOnlineAppLoginMode'] = '0'
-    student_login_payload['txtuname'] = '20cs008'
-    student_login_payload['txtpassword'] = '25112002'
+    student_login_payload['txtuname'] = environ['ROLL_NO']
+    student_login_payload['txtpassword'] = environ['DOB']
 
     with requests.Session() as s:
         try:
@@ -129,7 +129,3 @@ def check_server():
             server_status_embed.add_field(name = 'Student Login', value = 'Negative', inline = False)
         
     return (server_status_embed, status) 
-
-
-#print(check_student_id('20cs008'))
-#print(check_server())

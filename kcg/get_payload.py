@@ -1,7 +1,7 @@
 from requests import get, Session
 from bs4 import BeautifulSoup
 import json
-from os import getcwd
+from os import getcwd, environ
 
 def get_payload():
     gang_path = getcwd().rstrip('kcg\\') + '\gang'
@@ -60,8 +60,8 @@ def get_payload():
         with open('marks_payload.json', 'r') as f:
             data2 = json.load(f)
         
-        data['txtuname'] = '20cs008'
-        data['txtpassword'] = '25112002'
+        data['txtuname'] = environ['ROLL_NO']
+        data['txtpassword'] = environ['DOB']
         data['rblOnlineAppLoginMode'] = 0
         #print(data)
 

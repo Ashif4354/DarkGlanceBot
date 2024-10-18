@@ -1,5 +1,6 @@
 # DarkGlanceBot
 
+This Project has been deprecated and is no longer maintained.
 
 # System requirements
     # python 3.7.9 (may / may not support later versions of python)

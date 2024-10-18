@@ -466,21 +466,3 @@ class student:
 
 #_________________________________________________________________________________________________________________________________________________________
             
-
-
-        
-
-        
-
-            
-
-#student.student_login('311020104013', '25112002')
-#student.fees_login('20cs008')
-#student.get_photo(uid = user_id_)
-#print(student.get_name('20cs008'))
-#student.get_marks(uid = user_id_)
-#student.search('20', 'ashif', ['cs'])
-#print(student.get_name('20cs008'))
-#student.search('20', 'ashif', ('cs',))
-
-

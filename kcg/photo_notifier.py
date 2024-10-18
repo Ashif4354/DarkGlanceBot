@@ -41,11 +41,11 @@ def photo_got(s, rollno):
     except Exception as text:
         print(dt.now().strftime("%d-%m-%Y %H;%M;%S"), ' ', 'in photo got ', text)
 
-webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1062409359105208473/vR2kBGWZb2zyODbp1tJ6ll8x3gQ_xDZiqWo2w5oNy8Mg4LaqOvUbVkU1u1Y5EAjNGNdC')
+webhook = DiscordWebhook(url = '')
 embed = DiscordEmbed(title = 'PHOTOs Available now', description = 'PHOTOs now Availabe', color = 0xffffff)
 webhook.add_embed(embed)
 
-webhook2 = DiscordWebhook(url = 'https://discord.com/api/webhooks/1062409359105208473/vR2kBGWZb2zyODbp1tJ6ll8x3gQ_xDZiqWo2w5oNy8Mg4LaqOvUbVkU1u1Y5EAjNGNdC')
+webhook2 = DiscordWebhook(url = '')
 embed2 = DiscordEmbed(title = 'Program Check', description = 'Program still running', color = 0xffffff)
 webhook2.add_embed(embed2)
 

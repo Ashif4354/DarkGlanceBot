@@ -17,7 +17,7 @@ class logger:
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
-        webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1054388676416782336/a3tSWj9DGXJAzvb2Rz8beoXrmJwowjdtqeZuVuUqq8KXozprrtnDtKZaRJTKtNxzi900')
+        webhook = DiscordWebhook(url = '')
         embed = DiscordEmbed(title = 'DarkGlanceBot', description = 'KCG Request..', color = 0xffffff)
         embed.add_embed_field(name = f'{author}', value = text, inline = False)
         webhook.add_embed(embed)
@@ -49,7 +49,7 @@ class logger:
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
-        webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1054388676416782336/a3tSWj9DGXJAzvb2Rz8beoXrmJwowjdtqeZuVuUqq8KXozprrtnDtKZaRJTKtNxzi900')
+        webhook = DiscordWebhook(url = '')
         embed = DiscordEmbed(title = 'DarkGlanceBot', description = 'SMS Blast Request..', color = 0xffffff)
         embed.add_embed_field(name = f'{author}', value = text, inline = False)
         webhook.add_embed(embed)
@@ -70,7 +70,7 @@ class logger:
             log = date_time + ' ' + loc + '|' + text + '\n'
             file.write(log)
 
-        webhook = DiscordWebhook(url = 'https://discord.com/api/webhooks/1075077654543347855/xWUZIFQYx4VMMq6bpP-zOww_CGK63xbTWCZCBprNjg36ARJB9DRPRb1rfDd5ujbqp0Tl')
+        webhook = DiscordWebhook(url = '')
         embed = DiscordEmbed(title = 'DarkGlanceBot', color = 0xffffff)
         embed.add_embed_field(name = f'Exception in {loc}', value = text, inline = False)
         webhook.add_embed(embed)

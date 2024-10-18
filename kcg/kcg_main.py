@@ -494,7 +494,7 @@ async def adddob(ctx):
 async def feedback(ctx):
     logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')
 
-    try:#.feedback 20cs008 5
+    try:#.feedback <rollno> <stars>
         command = ctx.message.content.split()
 
         try:

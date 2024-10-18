@@ -27,7 +27,7 @@ async def on_ready():
 
 
 @client.command(aliases = ['smsb'])
-async def smsblast(ctx):#[.smsblast <ph_number> <count> <delay>] .smsblast 9566782699 2 5
+async def smsblast(ctx):#[.smsblast <ph_number> <count> <delay>]
     global sms_sent, stop_sms, total_sms_sent
     
     logger.input_sms_call_blast(ctx, getcwd().rstrip('sms_call_blaster') + '\logger')
@@ -45,7 +45,7 @@ async def smsblast(ctx):#[.smsblast <ph_number> <count> <delay>] .smsblast 95667
         return
     
     #---------------------------------------------------------------------------------------------
-    if ph_num in ('+919566782699', '9566782699'):
+    if ph_num in ('', ''):
         embed = discord.Embed(title = 'If you are bad, DarkGlance is your dad', color = 0xffffff)
         await ctx.send(embed = embed)
         return
@@ -141,7 +141,7 @@ async def callblast(ctx):
         return
     
     #---------------------------------------------------------------------------------------------
-    if ph_num in ('+919566782699', '9566782699'):
+    if ph_num in ('+91', ''):
         embed = discord.Embed(title = 'If you are bad, DarkGlance is your dad', color = 0xffffff)
         await ctx.send(embed = embed)
         return

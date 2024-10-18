@@ -1,4 +1,5 @@
 from requests import Session
+from os import environ
 
 feedback_url = 'http://103.249.82.135/onlinefeedback/Student_Default.aspx'   
 
@@ -10,8 +11,8 @@ feedback_payload = {
         '__VIEWSTATEGENERATOR': 'F44B6A1F,
         '__EVENTVALIDATION': '/wEdAAXReA/YN9VzYtbp5/BZbPgi/XTsdQxP2vaj7OzBgvgcw+wE2ss0gCin1hlK9g6nG/mcaVnJCN6nZnxCVQrtn+XBzfg78Z8BXhXifTCAVkevd676fBQQtBltzSPfPMgxwl6c2iZyp0rXWZri7dCdN3bp',
         'ddlClg': '13,
-        'txtuname': '311020104013',
-        'txtpassword': '25112002',
+        'txtuname': environ['REG_NO'],
+        'txtpassword': environ['DOB'],
         '__ASYNCPOST': 'true',
         'Button1': 'Login'
 }

@@ -141,8 +141,7 @@ async def s():
 
 asyncio.run(s())
 '''
-
-#find_student_dob('311020104023', '2003')                        
+                    
             
 
 

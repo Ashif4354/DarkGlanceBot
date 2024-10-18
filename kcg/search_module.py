@@ -17,7 +17,7 @@ async def on_ready():
     print("DarkGlanceBot is ready to Search")
 
 @client.command(aliases = ['kcgs', 'search'])
-async def kcgsearch(ctx): # .kcgs 2020 ashif cs it
+async def kcgsearch(ctx): # .kcgs <year yyyy> <name> <dep 'cs'> <dep 'it'>
     logger.input_kcg(ctx, getcwd().rstrip('kcg') + '\logger')     
 
     #if not await check_auth(ctx, ('owner', 'admin')):

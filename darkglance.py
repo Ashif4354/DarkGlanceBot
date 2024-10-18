@@ -109,7 +109,7 @@ server_status_embed = discord.Embed(title = 'KCG Server status', color = 0xfffff
 #############################################################################################################################################################
 
 class discord_:
-    token = 'MTA0MzM4MDA3NTc5MTM4NDU4Ng.G1a8ns.7UbXHuZjH4Ou2T5t8vjUpZIlgCec9qp255fR18'
+    token = ''
     
     roles = ('owner', 'admin')
     
