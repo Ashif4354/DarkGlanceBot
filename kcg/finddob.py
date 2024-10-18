@@ -135,14 +135,6 @@ async def find_student_dob(user_id, year_of_birth = None):
         
     raise DobNotFound   
 
-'''
-async def s():
-    print(await find_student_dob('21ft23', '2000'))
-
-asyncio.run(s())
-'''
-                    
-            
 
 
 
