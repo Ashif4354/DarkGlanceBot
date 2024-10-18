@@ -2,7 +2,7 @@
 *.pyc
 *.log
 
-textfiles
+testfiles
 tempCodeRunnerFile.py
 .vscode
 .env
